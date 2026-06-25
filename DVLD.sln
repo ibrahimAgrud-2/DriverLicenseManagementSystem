@@ -1,13 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36908.2 d17.14
+VisualStudioVersion = 17.14.36908.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD", "DVLD\DVLD.csproj", "{68D3F295-C31C-4FE1-A314-46AC571AD4D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_BusinessLayer", "DVLD_BusinessLayer\DVLD_BusinessLayer.csproj", "{D892ACE3-C84C-4879-8568-EF7A453C1FB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_DataAccessLayer", "DVLD_DataAccessLayer\DVLD_DataAccessLayer.csproj", "{8A977797-43EA-424F-9597-9D82753DC65A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{6A5FCC43-E9EF-468D-B22D-2AE3CDFA7F19}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Images\account_settings 64.png = Resources\Images\account_settings 64.png
+		Resources\Images\Applications.png = Resources\Images\Applications.png
+		Resources\Images\Applications1.png = Resources\Images\Applications1.png
+		Resources\Images\ApplicationType.png = Resources\Images\ApplicationType.png
+		Resources\Images\Bir başlık ekleyin.png = Resources\Images\Bir başlık ekleyin.png
+		Resources\Images\Drivers 64.png = Resources\Images\Drivers 64.png
+		Resources\Images\Manage Applications 32.png = Resources\Images\Manage Applications 32.png
+		Resources\Images\Manage Applications 64.png = Resources\Images\Manage Applications 64.png
+		Resources\Images\Manage Applications 641.png = Resources\Images\Manage Applications 641.png
+		Resources\Images\Manage People.png = Resources\Images\Manage People.png
+		Resources\Images\New Application 64.png = Resources\Images\New Application 64.png
+		Resources\Images\People 400.png = Resources\Images\People 400.png
+		Resources\Images\People 64.png = Resources\Images\People 64.png
+		Resources\Images\Users 2 64.png = Resources\Images\Users 2 64.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +50,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6A5FCC43-E9EF-468D-B22D-2AE3CDFA7F19} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D494DF3-3BCB-444A-A5D0-82397E2E11D0}

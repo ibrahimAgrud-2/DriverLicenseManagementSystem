@@ -20,7 +20,7 @@ namespace DVLD
 
         private void tsmDrivers_Click(object sender, EventArgs e)
         {
-            People p1 = new People();
+           
         }
     }
 }

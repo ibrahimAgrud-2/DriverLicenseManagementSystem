@@ -41,6 +41,7 @@
             // 
             this.tsmApplications.AutoSize = false;
             this.tsmApplications.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+           // this.tsmApplications.Image = global::DVLD.Properties.Resources.Manage_Applications_641;
             this.tsmApplications.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmApplications.Name = "tsmApplications";
             this.tsmApplications.Size = new System.Drawing.Size(200, 150);
@@ -96,7 +97,7 @@
             this.tsmAccountSettings});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1005, 154);
+            this.menuStrip1.Size = new System.Drawing.Size(1148, 154);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(1005, 729);
+            this.ClientSize = new System.Drawing.Size(1148, 729);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
