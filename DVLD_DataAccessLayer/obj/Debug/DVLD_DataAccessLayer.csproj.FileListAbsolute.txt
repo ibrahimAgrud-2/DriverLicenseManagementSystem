@@ -4,3 +4,9 @@ C:\Users\ibrah\source\repos\DVLDConsoleAPP\DVLD_DataAccessLayer\obj\Debug\DVLD_D
 C:\Users\ibrah\source\repos\DVLDConsoleAPP\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\ibrah\source\repos\DVLDConsoleAPP\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.dll
 C:\Users\ibrah\source\repos\DVLDConsoleAPP\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.pdb
+C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_DataAccessLayer\bin\Debug\DVLD_DataAccessLayer.dll
+C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_DataAccessLayer\bin\Debug\DVLD_DataAccessLayer.pdb
+C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.dll
+C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.pdb
