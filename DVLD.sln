@@ -17,7 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{6A5FCC
 		Resources\Images\Applications.png = Resources\Images\Applications.png
 		Resources\Images\Applications1.png = Resources\Images\Applications1.png
 		Resources\Images\ApplicationType.png = Resources\Images\ApplicationType.png
-		Resources\Images\Bir başlık ekleyin.png = Resources\Images\Bir başlık ekleyin.png
 		Resources\Images\Drivers 64.png = Resources\Images\Drivers 64.png
 		Resources\Images\Manage Applications 32.png = Resources\Images\Manage Applications 32.png
 		Resources\Images\Manage Applications 64.png = Resources\Images\Manage Applications 64.png
@@ -27,6 +26,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{6A5FCC
 		Resources\Images\People 400.png = Resources\Images\People 400.png
 		Resources\Images\People 64.png = Resources\Images\People 64.png
 		Resources\Images\Users 2 64.png = Resources\Images\Users 2 64.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A94A3F81-B51A-462C-B07A-DC9308B01186}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Images\Applications1.png = Resources\Images\Applications1.png
 	EndProjectSection
 EndProject
 Global
@@ -53,6 +57,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6A5FCC43-E9EF-468D-B22D-2AE3CDFA7F19} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A94A3F81-B51A-462C-B07A-DC9308B01186} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D494DF3-3BCB-444A-A5D0-82397E2E11D0}
