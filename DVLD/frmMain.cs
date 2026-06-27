@@ -20,7 +20,32 @@ namespace DVLD
 
         private void tsmDrivers_Click(object sender, EventArgs e)
         {
-           
+            MessageBox.Show("This feature is not implemented");
+
+        }
+
+        private void tsmApplications_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented");
+
+        }
+
+        private void tsmPeople_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented");
+
+        }
+
+        private void tsmManageUsers_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented");
+
+        }
+
+        private void tsmAccountSettings_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented");
+
         }
     }
 }

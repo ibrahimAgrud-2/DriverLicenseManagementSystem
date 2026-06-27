@@ -46,6 +46,7 @@
             this.tsmApplications.Name = "tsmApplications";
             this.tsmApplications.Size = new System.Drawing.Size(200, 150);
             this.tsmApplications.Text = "Applications";
+            this.tsmApplications.Click += new System.EventHandler(this.tsmApplications_Click);
             // 
             // tsmDrivers
             // 
@@ -67,6 +68,7 @@
             this.tsmPeople.Name = "tsmPeople";
             this.tsmPeople.Size = new System.Drawing.Size(151, 150);
             this.tsmPeople.Text = "People";
+            this.tsmPeople.Click += new System.EventHandler(this.tsmPeople_Click);
             // 
             // tsmManageUsers
             // 
@@ -76,6 +78,7 @@
             this.tsmManageUsers.Name = "tsmManageUsers";
             this.tsmManageUsers.Size = new System.Drawing.Size(200, 150);
             this.tsmManageUsers.Text = "Manage Users";
+            this.tsmManageUsers.Click += new System.EventHandler(this.tsmManageUsers_Click);
             // 
             // tsmAccountSettings
             // 
@@ -84,6 +87,7 @@
             this.tsmAccountSettings.Name = "tsmAccountSettings";
             this.tsmAccountSettings.Size = new System.Drawing.Size(160, 150);
             this.tsmAccountSettings.Text = "Account Settings";
+            this.tsmAccountSettings.Click += new System.EventHandler(this.tsmAccountSettings_Click);
             // 
             // menuStrip1
             // 
