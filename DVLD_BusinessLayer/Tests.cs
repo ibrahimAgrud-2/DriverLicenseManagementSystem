@@ -12,6 +12,8 @@ namespace DVLD_BusinessLayer
         public string notes { get; set; }
         public int createdByUserID { get; private set; }
 
+        enum enMode {enAddNew=1,enUpdate=2 };
+        enMode mode = enMode.enAddNew;
         public Tests()
         {
             this.testID = -1;
@@ -19,6 +21,7 @@ namespace DVLD_BusinessLayer
             this.testResult = 0;
             this.notes = null;
             this.createdByUserID = -1;
+            this.mode = enMode.enAddNew;
         }
 
         private Tests(int testID, int testAppointmentID, int testResult, string notes, int createdByUserID)
@@ -28,6 +31,7 @@ namespace DVLD_BusinessLayer
             this.testResult = testResult;
             this.notes = notes;
             this.createdByUserID = createdByUserID;
+            this.mode = enMode.enUpdate;
         }
 
         public static DataTable getTestRecords()
@@ -58,17 +62,26 @@ namespace DVLD_BusinessLayer
 
         public bool save()
         {
-            if (this.testID == -1)
+            switch (this.mode)
             {
-                return addNewTest();
-            }
-            else
-            {
-                return updateTest();
+                case enMode.enAddNew:
+                    if (_addNewTest())
+                    {
+                        this.mode = enMode.enAddNew;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case enMode.enUpdate:
+                    return _updateTest();
+                default:
+                    return false;
             }
         }
 
-        private bool addNewTest()
+        private bool _addNewTest()
         {
             this.createdByUserID = 1;
 
@@ -82,7 +95,7 @@ namespace DVLD_BusinessLayer
             return (this.testID != -1);
         }
 
-        private bool updateTest()
+        private bool _updateTest()
         {
             return clsTestDataAccess.updateTest(
                 this.testID,
