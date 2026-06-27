@@ -24,7 +24,9 @@ namespace DVLD_BusinessLayer
         public string imagePath { set; get; }
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
-        public enMode mode;
+        //Her object 2 farklı modu olur. Ya yeni üretilmiştir modu add ya da sitemde zaten vardır
+        //ki bunuda find ile bulmuşuzdur modu update. Bunuda diğer propertylerden farkı yoktur.
+        public enMode mode=enMode.enAddNew;
 
 
         //static olmalı çünkü obje oluşturulmadan erişebilmeliyiz.
@@ -33,8 +35,16 @@ namespace DVLD_BusinessLayer
             return PeopleDataAccess.getPeople();
         }
 
-        //1.Yöntem const'u public yaparız ve ID paramtersi eklemeyiz. Bu saydede kullanıcı dışardan obje oluşturacağı zaman illa uygun verileri girmek zorunda kalır. mode add olur çünkü dışardan oluşturulan o obje DB'de yok ilk defa oluşturuluyor, zaten ID auto number.
-        //2.Bir yöntem bunu private yaparız ve ID parametresi de ekleriz. Bu sayede DB'den aldığımız satırları program içinde direk bu const ile temsil etmiş oluruz. 2.Yöntem'den gidelim.
+
+
+
+        //[TR]
+        //Bu const'ı private yaptık ki dışardan erişilmesin. Çünkü bu constractır bir objenin ID dahil
+        //tüm bilgilerini ister, dolaysıyla dışardan hiç bir şekilde ID'e direk erişim olmadığı için
+        //bu const ile dışarda obje oluşturamayız. * Bu const ile sadece DB'de var olan contact'ı/objeyi sistemde
+        //kullanmak istediğimiz zaman bu const ile oluştururuz.
+        //Mesela bunu find fonksiyonunda kullandık. Çünkü bir contact DB de bulunursa sistemde
+        //kullanılabilmesi için bu const gerekir.
         private People(int personID,string nationalNo, string firstName, string secondName,
            string thirdName, string lastName, DateTime dateOfBirth,
            int gender, string address, string email, string phone,
@@ -54,6 +64,9 @@ namespace DVLD_BusinessLayer
             this.phone = phone;
             this.countryID = countryID;
             this.imagePath = imagePath;
+            //[TR]
+            //Bu cost DB'de var olan bir objeyi sistemde oluşturmak için kullanıldığı için
+            //modu add olamaz. update olmalı; çünkü zaten sistemde var.
             this.mode = enMode.enUpdate;
         }
 
@@ -61,6 +74,13 @@ namespace DVLD_BusinessLayer
 
         private bool _addNewRecord()
         {
+
+            //[TR]
+            //ID otomatik olarak verildiği için database ID veremeyiz;çünkü ID identicle yani DB tradında ototmatik veriliyor.
+            // executeScaler'de kullanrak eklenen satırın ID'sini alıyoruz ve bunu ID'siz olan objecte ekliyoruz.
+            //burada göderdiğimiz objeler ekleme yapılmadan önce ID'si olmuyor biz kullanıcıdan ID istemiyoruz ID database atıyor. 
+            //burda eğer this.ID= demeseydik ilgili objenin ID'sı DB'de olursa ama burada henüz gelmemiş olurdu bizde eğer direk o objeyi sistemde kullanmaya kalkarsak ID'den hata alırız.
+
             this.personID = PeopleDataAccess.addPerson(this.nationalNo, this.firstName, this.secondName, this.thirdName, this.lastName, this.dateOfBirth, this.gender, this.address, this.email, this.phone, this.countryID, this.imagePath);
 
             return (this.personID != -1);
@@ -70,7 +90,8 @@ namespace DVLD_BusinessLayer
 
 
         
-        //Mode add çünkü sıfırdan obje bu const ile oluşturuluyor.
+        //[TR] Sadece parametresiz const public. Ayrıca parametresiniz const ile oluşturacağımız objenin mode add;
+        //çünkü sistemde henüz yok, eğer olmayan obje için save fonksiyonu çağırılırsa add yapılsın yani sisteme eklensin diye.
         public  People()
         {
 
@@ -142,9 +163,10 @@ namespace DVLD_BusinessLayer
         {
             return PeopleDataAccess.isPersonExistByNationalNo(NationalNo);
         }
-        //bir objeyi silmek için onu ayrıyeten DB'den programam yüklemem gerek yok bu yüzden static yapıp sadece ID alarak silmek istedim. static olmayadabilirdi. Bu durumda fonk public olur ve obje.delete diyeceğimiz için ID'İ parametre olarak bu fonksyion'a vermemiz gerekmezdi, this kullanarak ID alırdık (çünkü program o anki obje üzerin olurdu)
 
-        //Buraya şöyle bir durum eklenmeli eğer bu kişi sistemde bir işleme başvuru yapmışsa bu kişiyi direk silemezsin. İlk önce o başvuruyu silmelisin sonra kişiyi silebilirsin. Çünkü başvurular tablosun'dan bu tabloya FK var sonuç olarak eğer kişiyi silersen bu sefer başvuru bilgisi eksik olur yani başvuruyu kimin yaptıığ bilinmez.
+
+
+        //bir objeyi silmek için onu ayrıyeten DB'den programam yüklemem gerek yok bu yüzden static yapıp sadece ID alarak silmek istedim. static olmayadabilirdi. Bu durumda fonk public olur ve obje.delete diyeceğimiz için ID'İ parametre olarak bu fonksyion'a vermemiz gerekmezdi, this kullanarak ID alırdık (çünkü program o anki obje üzerin olurdu)
         public static bool delete(int personID)
         {
             if (isPersonExistByID(personID))
@@ -160,13 +182,24 @@ namespace DVLD_BusinessLayer
             switch (this.mode)
             {
                 case enMode.enAddNew:
-                    return _addNewRecord();
-                   
+                    if(_addNewRecord())
+                    {
+                        //[TR]
+                        //ekleme tamamlandığı için ve dolaysıyla bu contact sistemde olduğu için artık
+                        //modu add yerine update yaparız. Save update için de kullanıldığı için
+                        //eğer o anki objeyi update yapmak istediğindinde sisteme tekrar kayıt eder.
+                        this.mode = enMode.enAddNew;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 case enMode.enUpdate:
-                    return _updateInfo();
-                default:
-                    return false;
-            }
+                            return _updateInfo();
+                        default:
+                            return false;
+                        }
         }
 
 
@@ -174,9 +207,9 @@ namespace DVLD_BusinessLayer
         {
             return false;
         }
-        public void call(string phoneNumber)
+        public bool call(string phoneNumber)
         {
-            return;
+            return false;
         }
 
     }
