@@ -16,3 +16,14 @@ C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessL
 C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_Bus.693E2707.Up2Date
 C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.dll
 C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.pdb
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\bin\Debug\DVLD_BusinessLayer.dll
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\bin\Debug\DVLD_BusinessLayer.pdb
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\bin\Debug\DVLD_DataAccessLayer.dll
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\bin\Debug\DVLD_DataAccessLayer.pdb
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.Properties.Resources.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.csproj.GenerateResource.cache
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_Bus.693E2707.Up2Date
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.dll
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.pdb

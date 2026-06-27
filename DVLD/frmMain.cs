@@ -32,8 +32,8 @@ namespace DVLD
 
         private void tsmPeople_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented");
-
+            frmManagePeople frm = new frmManagePeople();
+            frm.ShowDialog();
         }
 
         private void tsmManageUsers_Click(object sender, EventArgs e)
