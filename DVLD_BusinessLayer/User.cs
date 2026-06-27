@@ -96,7 +96,15 @@ namespace DVLD_BusinessLayer
             switch (this.mode)
             {
                 case enMode.enAddNew:
-                    return _addNewUser();
+                    if (_addNewUser())
+                    {
+                        this.mode = enMode.enUpdate;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
                 case enMode.enUpdate:
                     return _updateUserInfo();
