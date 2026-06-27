@@ -18,11 +18,11 @@ namespace DVLD_BusinessLayer
         public string notes { set; get; }
 
         
-        private double paidFees { set; get; }
+        public double paidFees { set; get; }
 
         public bool isActive { set; get; }
 
-        private int createdByUserID { set; get; }
+        public int createdByUserID { set; get; }
 
         public double PaidFees { set; get; }
 
@@ -143,8 +143,15 @@ namespace DVLD_BusinessLayer
             switch (this.mode)
             {
                 case enMode.enAddNew:
-                    return _addNewLicense();
-
+                    if (_addNewLicense())
+                    {
+                        this.mode = enMode.enUpdate;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 case enMode.enUpdate:
                     return _updateLicense();
                 default:
