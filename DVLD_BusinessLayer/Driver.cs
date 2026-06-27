@@ -9,8 +9,8 @@ namespace DVLD_BusinessLayer
     {
         public int driverID { set; get; }
         public int personID { set; get; }
-        private int createdByUserID { set; get; }
-        private DateTime createdDate { set; get; }
+        public int createdByUserID { set; get; }
+        public DateTime createdDate { set; get; }
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode mode;
@@ -99,7 +99,15 @@ namespace DVLD_BusinessLayer
             switch (this.mode)
             {
                 case enMode.enAddNew:
-                    return _addNewDriver();
+                    if (_addNewDriver())
+                    {
+                        this.mode = enMode.enUpdate;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
                 case enMode.enUpdate:
                     return _updateDriverInfo();
