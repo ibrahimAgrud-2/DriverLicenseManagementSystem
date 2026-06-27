@@ -88,7 +88,15 @@ namespace DVLD_BusinessLayer
             switch (this.mode)
             {
                 case enMode.enAddNew:
-                    return _addNewLocalDriverLicenseApp();
+                    if (_addNewLocalDriverLicenseApp())
+                    {
+                        this.mode = enMode.enUpdate;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
                 case enMode.enUpdate:
                     return _updateDLocalDriverLicenseAppInfo();
