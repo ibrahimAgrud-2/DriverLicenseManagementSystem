@@ -22,9 +22,12 @@ namespace DVLD
         private void _RefreshPeopleList()
         {
             dgvPeopleList.DataSource = People.getAllPersonRecords();
+
         }
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dVLDDataSet.People' table. You can move, or remove it, as needed.
+            this.peopleTableAdapter.Fill(this.dVLDDataSet.People);
             _RefreshPeopleList();
         }
 
