@@ -15,6 +15,9 @@ namespace DVLD_BusinessLayer
         public bool isLocked { get; set; }
         public int retakeTestApplicationID { get; set; }
 
+        enum enMode {enAddNew=1,enUpdate=2 }
+        enMode mode = enMode.enAddNew;
+
         public TestAppointments()
         {
             this.testAppointmentID = -1;
@@ -76,15 +79,23 @@ namespace DVLD_BusinessLayer
         {
             if (this.testAppointmentID == -1)
             {
-                return addNewTestAppointment();
+                if (_addNewTestAppointment())
+                {
+                    this.mode = enMode.enUpdate;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return updateTestAppointment();
+                return _updateTestAppointment();
             }
         }
 
-        private bool addNewTestAppointment()
+        private bool _addNewTestAppointment()
         {
             this.testAppointmentID = TestAppointmentsDataAccess.addTestAppointment(
                 this.testTypeID,
@@ -99,7 +110,7 @@ namespace DVLD_BusinessLayer
             return (this.testAppointmentID != -1);
         }
 
-        private bool updateTestAppointment()
+        private bool _updateTestAppointment()
         {
             return TestAppointmentsDataAccess.updateTestAppointment(
                 this.testAppointmentID,
