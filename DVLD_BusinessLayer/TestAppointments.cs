@@ -77,21 +77,22 @@ namespace DVLD_BusinessLayer
 
         public bool save()
         {
-            if (this.testAppointmentID == -1)
+            switch (this.mode)
             {
-                if (_addNewTestAppointment())
-                {
-                    this.mode = enMode.enUpdate;
-                    return true;
-                }
-                else
-                {
+                case enMode.enAddNew:
+                    if (_addNewTestAppointment())
+                    {
+                        this.mode = enMode.enAddNew;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case enMode.enUpdate:
+                    return _updateTestAppointment();
+                default:
                     return false;
-                }
-            }
-            else
-            {
-                return _updateTestAppointment();
             }
         }
 
