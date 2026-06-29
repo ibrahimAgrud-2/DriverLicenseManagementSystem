@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,26 @@ namespace DVLD
         public ctrlAddPerson()
         {
             InitializeComponent();
+        }
+
+        private void _FillCountriesToComboBox()
+        {
+            DataTable dt = Country.getCountryRecord();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                cbCountries.Items.Add(dr["CountryName"]);
+            }
+        }
+
+        private void _Load()
+        {
+            _FillCountriesToComboBox();
+            cbCountries.SelectedIndex = 8;
+        }
+        private void ctrlAddPerson_Load(object sender, EventArgs e)
+        {
+            _Load();
         }
     }
 }

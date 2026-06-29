@@ -18,7 +18,6 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD.exe.config
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD.exe
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD.pdb
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_BusinessLayer.dll
-C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\Guna.UI2.dll
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_DataAccessLayer.dll
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_BusinessLayer.pdb
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_DataAccessLayer.pdb
@@ -32,3 +31,5 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.exe
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.pdb
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmManagePeople.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.ctrlAddPerson.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmAddUpdatePeople.resources

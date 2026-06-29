@@ -28,7 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ctrlAddPerson1 = new DVLD.ctrlAddPerson();
             this.SuspendLayout();
+            // 
+            // ctrlAddPerson1
+            // 
+            this.ctrlAddPerson1.BackColor = System.Drawing.SystemColors.Control;
+            this.ctrlAddPerson1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlAddPerson1.Location = new System.Drawing.Point(26, 29);
+            this.ctrlAddPerson1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlAddPerson1.Name = "ctrlAddPerson1";
+            this.ctrlAddPerson1.Size = new System.Drawing.Size(976, 529);
+            this.ctrlAddPerson1.TabIndex = 0;
+            this.ctrlAddPerson1.Load += new System.EventHandler(this.ctrlAddPerson1_Load);
             // 
             // frmAddUpdatePeople
             // 
@@ -36,6 +48,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1245, 658);
+            this.Controls.Add(this.ctrlAddPerson1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAddUpdatePeople";
@@ -45,5 +58,7 @@
         }
 
         #endregion
+
+        private ctrlAddPerson ctrlAddPerson1;
     }
 }

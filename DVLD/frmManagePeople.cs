@@ -49,6 +49,12 @@ namespace DVLD
         {
             this.Close();
         }
- 
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePeople frm = new frmAddUpdatePeople();
+            frm.ShowDialog();
+            _RefreshPeopleList();
+        }
     }
 }
