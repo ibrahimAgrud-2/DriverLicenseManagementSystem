@@ -14,7 +14,8 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = "select * from people";
+            string sqlQuery = "select *,gender1= case People.Gender when 0 then 'male'  when 1 then 'female' else 'unknown' end from People inner join Countries on Countries.CountryID=People.NationalityCountryID";
+
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 

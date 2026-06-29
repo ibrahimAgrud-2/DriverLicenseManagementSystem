@@ -1,0 +1,3 @@
+﻿* Filter sadece data grid view üzeridne yapılıyor olabilir
+*Her formda süreki anı ayarlamaları yapmak yerine bunu main screen gibi ana bir 
+formda tutabilir miyiz

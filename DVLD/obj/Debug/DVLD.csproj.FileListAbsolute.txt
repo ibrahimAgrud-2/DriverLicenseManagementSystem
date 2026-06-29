@@ -31,5 +31,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.CoreCompileInputs.ca
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.exe
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.pdb
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmNotes.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmManagePeople.resources

@@ -1,12 +1,6 @@
 ﻿using DVLD_BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DVLD
@@ -21,13 +15,33 @@ namespace DVLD
 
         private void _RefreshPeopleList()
         {
-            dgvPeopleList.DataSource = People.getAllPersonRecords();
 
+
+
+            DataTable table = People.getAllPersonRecords();
+
+
+            table.Columns.Remove("Gender");
+            table.Columns.Remove("NationalityCountryID");
+            table.Columns.Remove("CountryID");
+
+            table.Columns["gender1"].SetOrdinal(6);
+            table.Columns["gender1"].ColumnName = "Gender";
+
+            table.Columns["CountryName"].SetOrdinal(8);
+
+
+
+            dgvPeopleList.DataSource = table;
+
+          
+
+            //Bu burada olmamaması gerekebilir
+            lblRecords.Text = dgvPeopleList.RowCount.ToString();
         }
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dVLDDataSet.People' table. You can move, or remove it, as needed.
-            this.peopleTableAdapter.Fill(this.dVLDDataSet.People);
+
             _RefreshPeopleList();
         }
 
@@ -35,5 +49,6 @@ namespace DVLD
         {
             this.Close();
         }
+ 
     }
 }
