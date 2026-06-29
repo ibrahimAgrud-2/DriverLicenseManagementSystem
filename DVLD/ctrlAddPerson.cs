@@ -37,5 +37,14 @@ namespace DVLD
         {
             _Load();
         }
-    }
+
+        private void mskFirstName_Leave(object sender, EventArgs e)
+        {
+            MaskedTextBox msTxt = (MaskedTextBox)sender;
+
+            if (!msTxt.MaskCompleted)
+            {
+                errorProvider1.SetError(msTxt,"Input is not valid");
+            }
+    }   }
 }
