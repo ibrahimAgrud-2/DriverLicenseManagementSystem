@@ -75,7 +75,7 @@
             this.ctrlAddPerson1.Location = new System.Drawing.Point(47, 119);
             this.ctrlAddPerson1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlAddPerson1.Name = "ctrlAddPerson1";
-            this.ctrlAddPerson1.Size = new System.Drawing.Size(1158, 479);
+            this.ctrlAddPerson1.Size = new System.Drawing.Size(1158, 552);
             this.ctrlAddPerson1.TabIndex = 21;
             // 
             // frmAddUpdatePeople
