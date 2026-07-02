@@ -275,7 +275,7 @@
             // 
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpBirthDate.Location = new System.Drawing.Point(619, 152);
-            this.dtpBirthDate.MinDate = new System.DateTime(2026, 6, 29, 0, 0, 0, 0);
+            this.dtpBirthDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.Size = new System.Drawing.Size(236, 32);
             this.dtpBirthDate.TabIndex = 20;
@@ -320,7 +320,6 @@
             this.mskLastName.PromptChar = ' ';
             this.mskLastName.Size = new System.Drawing.Size(164, 32);
             this.mskLastName.TabIndex = 24;
-            this.mskLastName.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskLastName_MaskInputRejected);
             this.mskLastName.Leave += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // lnkLblRemove
@@ -386,7 +385,7 @@
             this.mskNationalNo.PromptChar = ' ';
             this.mskNationalNo.Size = new System.Drawing.Size(164, 32);
             this.mskNationalNo.TabIndex = 29;
-            this.mskNationalNo.Leave += new System.EventHandler(this.mtbNationalNo_Leave);
+            this.mskNationalNo.Leave += new System.EventHandler(this.mskNationalNo_Leave);
             // 
             // openFileDialog1
             // 
