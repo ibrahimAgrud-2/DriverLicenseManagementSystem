@@ -69,7 +69,7 @@ namespace DVLD
                 People p1 = new People();
 
                 p1.nationalNo = mskNationalNo.Text;
-                p1.countryID = Country.findCountry(cbCountries.FindString(cbCountries.Text)).countryID;
+                p1.countryID = Country.findCountry(cbCountries.FindString(cbCountries.Text)+1).countryID;
                 p1.firstName = mskFirstName.Text;
                 p1.secondName = mskSecondName.Text;
                 p1.thirdName = mskThirdName.Text;
