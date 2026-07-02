@@ -43,10 +43,22 @@ namespace DVLD
             dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
 
         }
+
+        private void _TemLoad()
+        {
+            mskFirstName.Text = "ibrahim";
+            mskSecondName.Text = "mustafa";
+            mskThirdName.Text = "muhammed";
+            mskLastName.Text = "orut";
+            mskNationalNo.Text = "N";
+            mskPhoneNumber.Text = "12345678919";
+            txtAddress.Text = "Syria";
+
+        }
         private void ctrlAddPerson_Load(object sender, EventArgs e)
         {
             _Load();
-
+            _TemLoad();
         }
 
         private void mskFirstName_Leave(object sender, EventArgs e)
@@ -190,6 +202,7 @@ namespace DVLD
             {
                 pbPersonImage.Image = Image.FromFile(openFileDialog1.FileName);
                 lnkLblRemove.Visible = true;
+                File.Copy(openFileDialog1.FileName, "aa");
             }
            
         }
