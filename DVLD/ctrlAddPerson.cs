@@ -77,9 +77,7 @@ namespace DVLD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DateTime tm = new DateTime();
-
-            MessageBox.Show(tm.ToString());
+            
             if (_IsAllInputsValid())
             {
                 People p1 = new People();
@@ -102,11 +100,16 @@ namespace DVLD
                 p1.phone = mskPhoneNumber.Text;
                 p1.email = txtEmail.Text;
                 p1.address = txtAddress.Text;
-                p1.imagePath = pbPersonImage.ImageLocation;
+              
+                string NewFilePath = @"C:\Images\" + Guid.NewGuid() + ".jpg";
+                File.Copy(openFileDialog1.FileName, NewFilePath, true);
+                p1.imagePath = NewFilePath;
+
 
                 if (p1.save())
                 {
                     MessageBox.Show("Saved Successfully");
+                   
                 }
                 else
                 {
@@ -200,9 +203,11 @@ namespace DVLD
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pbPersonImage.Image = Image.FromFile(openFileDialog1.FileName);
+              
                 lnkLblRemove.Visible = true;
-                File.Copy(openFileDialog1.FileName, "aa");
+
+
+                pbPersonImage.Load(openFileDialog1.FileName);
             }
            
         }
