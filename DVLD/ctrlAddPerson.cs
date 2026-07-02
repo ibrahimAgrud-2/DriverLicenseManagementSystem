@@ -67,46 +67,46 @@ namespace DVLD
             DateTime tm = new DateTime();
 
             MessageBox.Show(tm.ToString());
-        //    if (_IsAllInputsValid())
-        //    {
-        //        People p1 = new People();
+            if (_IsAllInputsValid())
+            {
+                People p1 = new People();
 
-        //        p1.nationalNo = mskNationalNo.Text;
-        //        p1.countryID = Country.findCountry(cbCountries.FindString(cbCountries.Text)+1).countryID;
-        //        p1.firstName = mskFirstName.Text;
-        //        p1.secondName = mskSecondName.Text;
-        //        p1.thirdName = mskThirdName.Text;
-        //        p1.lastName = mskLastName.Text;
-        //        p1.dateOfBirth = dtpBirthDate.Value;
-        //        if (rbFemale.Checked)
-        //        {
-        //            p1.gender = 1;
-        //        }
-        //        else
-        //        {
-        //            p1.gender = 0;
-        //        }
-        //        p1.phone = mskPhoneNumber.Text;
-        //        p1.email = txtEmail.Text;
-        //        p1.address = txtAddress.Text;
-        //        p1.imagePath = pbPersonImage.ImageLocation;
+                p1.nationalNo = mskNationalNo.Text;
+                p1.countryID = Country.findCountry(cbCountries.FindString(cbCountries.Text) + 1).countryID;
+                p1.firstName = mskFirstName.Text;
+                p1.secondName = mskSecondName.Text;
+                p1.thirdName = mskThirdName.Text;
+                p1.lastName = mskLastName.Text;
+                p1.dateOfBirth = dtpBirthDate.Value;
+                if (rbFemale.Checked)
+                {
+                    p1.gender = 1;
+                }
+                else
+                {
+                    p1.gender = 0;
+                }
+                p1.phone = mskPhoneNumber.Text;
+                p1.email = txtEmail.Text;
+                p1.address = txtAddress.Text;
+                p1.imagePath = pbPersonImage.ImageLocation;
 
-        //        if(p1.save())
-        //        {
-        //            MessageBox.Show("Saved Successfully");
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Something went wrong");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Fill the required area");
-        //    }
+                if (p1.save())
+                {
+                    MessageBox.Show("Saved Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fill the required area");
+            }
         }
 
-        private bool _IsEmailExist(string email)
+        private bool _IsEmailValid(string email)
         {
             var regex = new Regex(@"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$");
             return regex.IsMatch(email);
@@ -117,13 +117,16 @@ namespace DVLD
         {
             TextBox txt =  (TextBox)sender;
             
-            if(!_IsEmailExist(txt.Text))
+           
+
+            if(_IsEmailValid(txt.Text)|| txt.Text == string.Empty)
             {
-                errorProvider1.SetError(txt, "Email is not valid. Example@gmail.com");
+                errorProvider1.SetError(txt, "");
+             
             }
             else
             {
-                errorProvider1.SetError(txt, "");
+                errorProvider1.SetError(txt, "Email is not valid. Example@gmail.com");
             }
         }
 
@@ -153,7 +156,7 @@ namespace DVLD
         }
         private bool _IsAllInputsValid()
         {
-            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskNationalNo.MaskCompleted && mskPhoneNumber.MaskCompleted&&_IsEmailExist(txtEmail.Text)&&(txtAddress.Text!=string.Empty));
+            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskNationalNo.MaskCompleted && mskPhoneNumber.MaskCompleted&&_IsEmailValid(txtEmail.Text)&&(txtAddress.Text!=string.Empty));
         }
         private void mskNationalNo_Leave(object sender, EventArgs e)
         {
