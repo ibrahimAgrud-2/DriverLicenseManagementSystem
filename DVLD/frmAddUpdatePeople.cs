@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,22 @@ namespace DVLD
 {
     public partial class frmAddUpdatePeople : Form
     {
-        public frmAddUpdatePeople()
+
+        public frmAddUpdatePeople(int PersonID)
         {
-            InitializeComponent();
+            InitializeComponent(PersonID);
         }
 
-        private void ctrlAddPerson1_Load(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmAddUpdatePeople_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

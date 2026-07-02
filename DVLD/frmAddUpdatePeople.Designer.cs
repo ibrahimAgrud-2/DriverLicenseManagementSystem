@@ -26,14 +26,14 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(int ID)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUpdatePeople));
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlAddPerson1 = new DVLD.ctrlAddPerson();
+            this.ctrlAddPerson1 = new DVLD.ctrlAddPerson(ID);
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +74,7 @@
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(539, 602);
+            this.btnClose.Location = new System.Drawing.Point(613, 606);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(147, 49);
             this.btnClose.TabIndex = 22;
@@ -108,6 +108,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAddUpdatePeople";
             this.Text = "frmAddUpdatePeople";
+            this.Load += new System.EventHandler(this.frmAddUpdatePeople_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -35,3 +35,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.ctrlAddPerson.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmAddUpdatePeople.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.ctrlPersonInformation.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmLogin.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.ctrlPersonInfo.resources

@@ -12,9 +12,25 @@ namespace DVLD
 {
     public partial class ctrlAddPerson : UserControl
     {
-        public ctrlAddPerson()
+        private int _PersonID;
+        private People _People1;
+
+        enum enMode { enAddNew = 1, enUpdate = 2 };
+        private enMode _Mode;
+
+        public ctrlAddPerson(int personID)
         {
             InitializeComponent();
+
+            if (personID == -1)
+            {
+                _Mode = enMode.enAddNew;
+            }
+            else
+            {
+                _Mode = enMode.enUpdate;
+                _PersonID = personID;
+            }
         }
 
         private void _FillCountriesToComboBox()
