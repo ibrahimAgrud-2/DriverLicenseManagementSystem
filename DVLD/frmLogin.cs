@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class frmAddUpdatePeople : Form
+    public partial class frmLogin : Form
     {
-        public frmAddUpdatePeople()
+        public frmLogin()
         {
             InitializeComponent();
-        }
-
-        private void ctrlAddPerson1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

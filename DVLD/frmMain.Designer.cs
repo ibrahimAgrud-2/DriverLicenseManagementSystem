@@ -28,29 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tsmApplications = new System.Windows.Forms.ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tsmDrivers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmManageUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAccountSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tsmApplications
-            // 
-            this.tsmApplications.AutoSize = false;
-            this.tsmApplications.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.tsmApplications.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmApplications.Name = "tsmApplications";
-            this.tsmApplications.Size = new System.Drawing.Size(200, 150);
-            this.tsmApplications.Text = "Applications";
-            this.tsmApplications.Click += new System.EventHandler(this.tsmApplications_Click);
             // 
             // tsmDrivers
             // 
             this.tsmDrivers.AutoSize = false;
             this.tsmDrivers.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsmDrivers.Image = ((System.Drawing.Image)(resources.GetObject("tsmDrivers.Image")));
             this.tsmDrivers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsmDrivers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmDrivers.Name = "tsmDrivers";
@@ -62,6 +54,7 @@
             // 
             this.tsmPeople.AutoSize = false;
             this.tsmPeople.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsmPeople.Image = ((System.Drawing.Image)(resources.GetObject("tsmPeople.Image")));
             this.tsmPeople.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsmPeople.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmPeople.Name = "tsmPeople";
@@ -72,7 +65,9 @@
             // tsmManageUsers
             // 
             this.tsmManageUsers.AutoSize = false;
+            this.tsmManageUsers.BackColor = System.Drawing.Color.Tan;
             this.tsmManageUsers.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsmManageUsers.Image = ((System.Drawing.Image)(resources.GetObject("tsmManageUsers.Image")));
             this.tsmManageUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmManageUsers.Name = "tsmManageUsers";
             this.tsmManageUsers.Size = new System.Drawing.Size(200, 150);
@@ -81,10 +76,12 @@
             // 
             // tsmAccountSettings
             // 
+            this.tsmAccountSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tsmAccountSettings.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsmAccountSettings.Image = ((System.Drawing.Image)(resources.GetObject("tsmAccountSettings.Image")));
             this.tsmAccountSettings.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmAccountSettings.Name = "tsmAccountSettings";
-            this.tsmAccountSettings.Size = new System.Drawing.Size(160, 150);
+            this.tsmAccountSettings.Size = new System.Drawing.Size(224, 150);
             this.tsmAccountSettings.Text = "Account Settings";
             this.tsmAccountSettings.Click += new System.EventHandler(this.tsmAccountSettings_Click);
             // 
@@ -93,7 +90,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Tan;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmApplications,
+            this.toolStripMenuItem1,
             this.tsmPeople,
             this.tsmDrivers,
             this.tsmManageUsers,
@@ -104,11 +101,23 @@
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 150);
+            this.toolStripMenuItem1.Text = "Applicaiton";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.tsmApplicaitons_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1148, 729);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmMain";
@@ -123,13 +132,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStripMenuItem tsmApplications;
         private System.Windows.Forms.ToolStripMenuItem tsmDrivers;
         private System.Windows.Forms.ToolStripMenuItem tsmPeople;
         private System.Windows.Forms.ToolStripMenuItem tsmManageUsers;
         private System.Windows.Forms.ToolStripMenuItem tsmAccountSettings;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

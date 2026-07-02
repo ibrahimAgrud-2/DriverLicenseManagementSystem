@@ -55,6 +55,12 @@
     <Compile Include="ctrlAddPerson.Designer.cs">
       <DependentUpon>ctrlAddPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctrlPersonInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlPersonInformation.Designer.cs">
+      <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -65,6 +71,12 @@
     </Compile>
     <Compile Include="frmAddUpdatePeople.Designer.cs">
       <DependentUpon>frmAddUpdatePeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -83,8 +95,14 @@
     <EmbeddedResource Include="ctrlAddPerson.resx">
       <DependentUpon>ctrlAddPerson.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ctrlPersonInformation.resx">
+      <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdatePeople.resx">
       <DependentUpon>frmAddUpdatePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -131,6 +149,12 @@
       <Project>{d892ace3-c84c-4879-8568-ef7a453c1fb0}</Project>
       <Name>DVLD_BusinessLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users 2 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Release Detained License 64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

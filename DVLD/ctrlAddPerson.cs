@@ -1,13 +1,11 @@
-﻿using DVLD_BusinessLayer;
+﻿
+using DVLD_BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+
 
 namespace DVLD
 {
@@ -32,10 +30,22 @@ namespace DVLD
         {
             _FillCountriesToComboBox();
             cbCountries.SelectedIndex = 8;
+            if (rbFemale.Checked)
+            {
+                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png");
+            }
+            else if (rbMale.Checked)
+            {
+                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
+
+            }
+
+
         }
         private void ctrlAddPerson_Load(object sender, EventArgs e)
         {
             _Load();
+
         }
 
         private void mskFirstName_Leave(object sender, EventArgs e)
@@ -46,5 +56,152 @@ namespace DVLD
             {
                 errorProvider1.SetError(msTxt,"Input is not valid");
             }
-    }   }
+            else
+            {
+                errorProvider1.SetError(msTxt, "");
+            }
+    }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (_IsAllInputsValid())
+            {
+                People p1 = new People();
+
+                p1.nationalNo = mskNationalNo.Text;
+                p1.countryID = Country.findCountry(cbCountries.FindString(cbCountries.Text)).countryID;
+                p1.firstName = mskFirstName.Text;
+                p1.secondName = mskSecondName.Text;
+                p1.thirdName = mskThirdName.Text;
+                p1.lastName = mskLastName.Text;
+                p1.dateOfBirth = dtpBirthDate.Value;
+                if (rbFemale.Checked)
+                {
+                    p1.gender = 1;
+                }
+                else
+                {
+                    p1.gender = 0;
+                }
+                p1.phone = mskPhoneNumber.Text;
+                p1.email = txtEmail.Text;
+                p1.address = txtAddress.Text;
+                p1.imagePath = pbPersonImage.ImageLocation;
+
+                if(p1.save())
+                {
+                    MessageBox.Show("Saved Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fill the required area");
+            }
+        }
+
+        private bool _IsEmailExist(string email)
+        {
+            var regex = new Regex(@"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$");
+            return regex.IsMatch(email);
+        }
+
+        private void mskLastName_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            TextBox txt =  (TextBox)sender;
+            
+            if(!_IsEmailExist(txt.Text))
+            {
+                errorProvider1.SetError(txt, "Email is not valid. Example@gmail.com");
+            }
+            else
+            {
+                errorProvider1.SetError(txt, "");
+            }
+        }
+
+        private void txtAddress_Leave(object sender, EventArgs e)
+        {
+            if(txtAddress.Text==string.Empty)
+            {
+                errorProvider1.SetError(txtAddress, "Enter Address");
+            }
+            else
+            {
+                errorProvider1.SetError(txtAddress, "");
+
+            }
+        }
+
+        private void rbFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbFemale.Checked)
+            {
+                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png");
+            }
+            else if(rbMale.Checked)
+            {
+                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
+            }
+        }
+        private bool _IsAllInputsValid()
+        {
+            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskNationalNo.MaskCompleted && mskPhoneNumber.MaskCompleted&&_IsEmailExist(txtEmail.Text)&&(txtAddress.Text!=string.Empty));
+        }
+        private void mtbNationalNo_Leave(object sender, EventArgs e)
+        {
+            if(!mskNationalNo.MaskCompleted)
+            {
+                errorProvider1.SetError(mskNationalNo, "Enter a valid national no starts with a letter. Example: N10");
+                return;
+            }
+            if(People.isPersonExistByNationalNo(mskNationalNo.Text))
+            {
+                errorProvider1.SetError(mskNationalNo, "National No is already exist");
+            }
+            else
+            {
+                errorProvider1.SetError(mskNationalNo, "");
+            }
+        }
+
+        private void lnklblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
+
+            openFileDialog1.Title = "This is a title";
+
+            openFileDialog1.DefaultExt = "txt";
+            openFileDialog1.Filter = "All Images|*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.tiff;*.webp| JPEG Files (*.jpg;*.jpeg)|  PNG Files (*.png)|*.png|";
+            openFileDialog1.FilterIndex = 1;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pbPersonImage.Image = Image.FromFile(openFileDialog1.FileName);
+                lnkLblRemove.Visible = true;
+            }
+           
+        }
+
+        private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (rbFemale.Checked)
+            {
+                pbPersonImage.Image = Image.FromFile(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png");
+            }
+            else if (rbMale.Checked)
+            {
+                pbPersonImage.Image = Image.FromFile(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
+
+            }
+        }
+    }
 }

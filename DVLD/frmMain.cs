@@ -24,11 +24,7 @@ namespace DVLD
 
         }
 
-        private void tsmApplications_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This feature is not implemented");
 
-        }
 
         private void tsmPeople_Click(object sender, EventArgs e)
         {
@@ -46,6 +42,11 @@ namespace DVLD
         {
             MessageBox.Show("This feature is not implemented");
 
+        }
+
+        private void tsmApplicaitons_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented");
         }
     }
 }

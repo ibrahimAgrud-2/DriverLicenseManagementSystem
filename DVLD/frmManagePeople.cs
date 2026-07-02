@@ -24,6 +24,7 @@ namespace DVLD
             table.Columns.Remove("Gender");
             table.Columns.Remove("NationalityCountryID");
             table.Columns.Remove("CountryID");
+           table.Columns.Remove("ImagePath");
 
             table.Columns["gender1"].SetOrdinal(6);
             table.Columns["gender1"].ColumnName = "Gender";
@@ -55,6 +56,11 @@ namespace DVLD
             frmAddUpdatePeople frm = new frmAddUpdatePeople();
             frm.ShowDialog();
             _RefreshPeopleList();
+        }
+
+        private void callToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

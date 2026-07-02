@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.ctrlAddPerson1 = new DVLD.ctrlAddPerson();
             this.SuspendLayout();
             // 
@@ -68,11 +69,25 @@
             this.label5.Text = "N/A";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(539, 602);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(147, 49);
+            this.btnClose.TabIndex = 22;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // ctrlAddPerson1
             // 
             this.ctrlAddPerson1.BackColor = System.Drawing.SystemColors.Control;
             this.ctrlAddPerson1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlAddPerson1.Location = new System.Drawing.Point(47, 119);
+            this.ctrlAddPerson1.Location = new System.Drawing.Point(62, 99);
             this.ctrlAddPerson1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlAddPerson1.Name = "ctrlAddPerson1";
             this.ctrlAddPerson1.Size = new System.Drawing.Size(1158, 552);
@@ -84,6 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1255, 685);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlAddPerson1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label8);
@@ -102,5 +118,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private ctrlAddPerson ctrlAddPerson1;
+        private System.Windows.Forms.Button btnClose;
     }
 }
