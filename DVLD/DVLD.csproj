@@ -72,12 +72,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DVLDDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmAddUpdatePeople.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAddUpdatePeople.Designer.cs">
-      <DependentUpon>frmAddUpdatePeople.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,9 +100,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlPersonInformation.resx">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAddUpdatePeople.resx">
-      <DependentUpon>frmAddUpdatePeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
