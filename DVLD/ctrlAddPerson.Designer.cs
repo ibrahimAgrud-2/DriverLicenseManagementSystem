@@ -144,7 +144,7 @@
             this.lnklblSetImage.TabIndex = 6;
             this.lnklblSetImage.TabStop = true;
             this.lnklblSetImage.Text = "Set Image";
-            this.lnklblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblSetImage_LinkClicked);
+            this.lnklblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblSetImage_LinkClicked);
             // 
             // txtEmail
             // 

@@ -15,9 +15,6 @@ namespace DVLD
 
         private void _RefreshPeopleList()
         {
-
-
-
             DataTable table = People.getAllPersonRecords();
 
 

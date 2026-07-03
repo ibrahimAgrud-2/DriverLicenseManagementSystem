@@ -13,7 +13,7 @@ namespace DVLD
     public partial class ctrlAddPerson : UserControl
     {
         private int _PersonID;
-        private People _People1;
+        private People _People;
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode;
@@ -58,6 +58,15 @@ namespace DVLD
             }
             dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
 
+            if(_Mode==enMode.enAddNew)
+            {
+                _People = new People();
+            }
+            else 
+            {
+                _People = People.findPersonByID(_PersonID);
+            }
+
         }
 
         private void _TemLoad()
@@ -96,33 +105,40 @@ namespace DVLD
             
             if (_IsAllInputsValid())
             {
-                People p1 = new People();
+               
 
-                p1.nationalNo = mskNationalNo.Text;
-                p1.countryID = Country.findCountry(cbCountries.FindString(cbCountries.Text) + 1).countryID;
-                p1.firstName = mskFirstName.Text;
-                p1.secondName = mskSecondName.Text;
-                p1.thirdName = mskThirdName.Text;
-                p1.lastName = mskLastName.Text;
-                p1.dateOfBirth = dtpBirthDate.Value;
+                _People.nationalNo = mskNationalNo.Text;
+                _People.countryID = Country.findCountry(cbCountries.FindString(cbCountries.Text) + 1).countryID;
+                _People.firstName = mskFirstName.Text;
+                _People.secondName = mskSecondName.Text;
+                _People.thirdName = mskThirdName.Text;
+                _People.lastName = mskLastName.Text;
+                _People.dateOfBirth = dtpBirthDate.Value;
                 if (rbFemale.Checked)
                 {
-                    p1.gender = 1;
+                    _People.gender = 1;
                 }
                 else
                 {
-                    p1.gender = 0;
+                    _People.gender = 0;
                 }
-                p1.phone = mskPhoneNumber.Text;
-                p1.email = txtEmail.Text;
-                p1.address = txtAddress.Text;
-              
+                _People.phone = mskPhoneNumber.Text;
+                _People.email = txtEmail.Text;
+                _People.address = txtAddress.Text;
+
+                //======
+                if (File.Exists(_People.imagePath))
+                {
+                    File.Delete(_People.imagePath);
+                }
+
                 string NewFilePath = @"C:\Images\" + Guid.NewGuid() + ".jpg";
                 File.Copy(openFileDialog1.FileName, NewFilePath, true);
-                p1.imagePath = NewFilePath;
 
+                _People.imagePath = NewFilePath;
+                //======
 
-                if (p1.save())
+                if (_People.save())
                 {
                     MessageBox.Show("Saved Successfully");
                    
@@ -207,7 +223,7 @@ namespace DVLD
             }
         }
 
-        private void lnklblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
 
