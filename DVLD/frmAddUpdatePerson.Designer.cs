@@ -43,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Chartreuse;
-            this.label1.Location = new System.Drawing.Point(542, 20);
+            this.label1.Location = new System.Drawing.Point(522, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(208, 29);
             this.label1.TabIndex = 2;
@@ -95,6 +95,7 @@
             this.ctrlAddUpdatePerson1.Name = "ctrlAddUpdatePerson1";
             this.ctrlAddUpdatePerson1.Size = new System.Drawing.Size(1174, 565);
             this.ctrlAddUpdatePerson1.TabIndex = 3;
+            this.ctrlAddUpdatePerson1.Load += new System.EventHandler(this.ctrlAddUpdatePerson1_Load);
             // 
             // frmAddUpdatePerson
             // 

@@ -52,6 +52,7 @@ namespace DVLD.Controls.ctrlPeople
                 _Person = People.findPersonByID(_PersonID);
             }
             _Load();
+
         }
         private void _Load()
         {
@@ -71,37 +72,30 @@ namespace DVLD.Controls.ctrlPeople
             if (_Mode == enMode.enAddNew)
             {
                 _Person = new People();
+                return;
+            }
+            mskFirstName.Text = _Person.firstName;
+            mskSecondName.Text = _Person.secondName;
+            mskThirdName.Text = _Person.thirdName;
+            mskLastName.Text = _Person.lastName;
+            mskNationalNo.Text = _Person.nationalNo;
+            mskPhoneNumber.Text = _Person.phone;
+            txtAddress.Text = _Person.address;
+            txtEmail.Text = _Person.email;
+            
+
+            if (_Person.gender == 0)
+            {
+                rbMale.Checked = true;
             }
             else
             {
+                rbFemale.Checked = true;
+            }
 
-                mskFirstName.Text = _Person.firstName;
-                mskSecondName.Text = _Person.secondName;
-                mskThirdName.Text = _Person.thirdName;
-                mskLastName.Text = _Person.lastName;
-                mskNationalNo.Text = _Person.nationalNo;
-                mskPhoneNumber.Text = _Person.phone;
-                txtAddress.Text = _Person.address;
-                txtEmail.Text = _Person.email;
-
-                if (_Person.gender == 0)
-                {
-                    rbMale.Checked = true;
-                }
-                else
-                {
-                    rbFemale.Checked = true;
-                }
-
-                if (_Person.imagePath != string.Empty)
-                {
-                    pbPersonImage.Load(_Person.imagePath);
-                }
-
-
-            
-
-                      
+            if (_Person.imagePath != string.Empty && File.Exists(_Person.imagePath))
+            {
+                pbPersonImage.Load(_Person.imagePath);
             }
 
         }
@@ -161,15 +155,31 @@ namespace DVLD.Controls.ctrlPeople
                 _Person.address = txtAddress.Text;
 
                 //======
-                if (File.Exists(_Person.imagePath))
+                if (this._Mode == enMode.enAddNew)
                 {
-                    File.Delete(_Person.imagePath);
+
+               
+                    string NewFilePath = @"C:\Images\" + Guid.NewGuid() + ".jpg";
+                    MessageBox.Show(pbPersonImage.ImageLocation);
+                    File.Copy(pbPersonImage.ImageLocation, NewFilePath, true);
+                    _Person.imagePath = NewFilePath;
+                }
+                else if(this._Mode==enMode.enUpdate)
+                {
+                    if(File.Exists(_Person.imagePath))
+                    {
+                        if(_Person.imagePath != pbPersonImage.ImageLocation)
+                        {
+                            File.Delete(_Person.imagePath);
+                            string NewFilePath = @"C:\Images\" + Guid.NewGuid() + ".jpg";
+                            File.Copy(pbPersonImage.ImageLocation, NewFilePath, true);
+                            _Person.imagePath = NewFilePath;
+                        }
+                    }
+
                 }
 
-                string NewFilePath = @"C:\Images\" + Guid.NewGuid() + ".jpg";
-                File.Copy(openFileDialog1.FileName, NewFilePath, true);
 
-                _Person.imagePath = NewFilePath;
                 //======
 
                 if (_Person.save())
@@ -221,7 +231,6 @@ namespace DVLD.Controls.ctrlPeople
             else
             {
                 errorProvider1.SetError(txtAddress, "");
-
             }
         }
 
@@ -276,20 +285,20 @@ namespace DVLD.Controls.ctrlPeople
 
                 pbPersonImage.Load(openFileDialog1.FileName);
             }
+
         }
 
         private void lnkLblRemove_Click(object sender, EventArgs e)
         {
             if (rbFemale.Checked)
             {
-                pbPersonImage.Image = Image.FromFile(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png");
+                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png");
             }
             else if (rbMale.Checked)
             {
-                pbPersonImage.Image = Image.FromFile(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
+                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
 
             }
         }
-
     }
 }
