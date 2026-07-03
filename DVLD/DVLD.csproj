@@ -49,18 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ctrlAddPerson.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctrlAddPerson.Designer.cs">
-      <DependentUpon>ctrlAddPerson.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ctrlPersonInfo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctrlPersonInfo.Designer.cs">
-      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="ctrlPersonInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,12 +86,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctrlAddPerson.resx">
-      <DependentUpon>ctrlAddPerson.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ctrlPersonInfo.resx">
-      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ctrlPersonInformation.resx">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
