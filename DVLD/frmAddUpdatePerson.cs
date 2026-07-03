@@ -16,6 +16,7 @@ namespace DVLD
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode;
+
         public frmAddUpdatePerson(int personID)
         {
             InitializeComponent();
@@ -224,7 +225,8 @@ namespace DVLD
             }
         }
 
-        private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void lnkLblSetImage_LinkClicked(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
 
@@ -242,10 +244,9 @@ namespace DVLD
 
                 pbPersonImage.Load(openFileDialog1.FileName);
             }
-
         }
 
-        private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkLblRemove_Click(object sender, EventArgs e)
         {
             if (rbFemale.Checked)
             {
@@ -257,8 +258,5 @@ namespace DVLD
 
             }
         }
-    
-
-
-}
+    }
 }

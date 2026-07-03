@@ -120,6 +120,7 @@
             this.mskSecondName.PromptChar = ' ';
             this.mskSecondName.Size = new System.Drawing.Size(164, 34);
             this.mskSecondName.TabIndex = 58;
+            this.mskSecondName.Leave += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // txtAddress
             // 
@@ -128,6 +129,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(626, 95);
             this.txtAddress.TabIndex = 57;
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // mskPhoneNumber
             // 
@@ -138,6 +140,7 @@
             this.mskPhoneNumber.PromptChar = ' ';
             this.mskPhoneNumber.Size = new System.Drawing.Size(236, 34);
             this.mskPhoneNumber.TabIndex = 56;
+            this.mskPhoneNumber.Leave += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // lnkLblRemove
             // 
@@ -149,6 +152,7 @@
             this.lnkLblRemove.TabStop = true;
             this.lnkLblRemove.Text = "Remove";
             this.lnkLblRemove.Visible = false;
+            this.lnkLblRemove.Click += new System.EventHandler(this.lnkLblRemove_Click);
             // 
             // mskLastName
             // 
@@ -159,6 +163,7 @@
             this.mskLastName.PromptChar = ' ';
             this.mskLastName.Size = new System.Drawing.Size(164, 34);
             this.mskLastName.TabIndex = 54;
+            this.mskLastName.Leave += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // mskThirdName
             // 
@@ -173,12 +178,13 @@
             // mskFirstName
             // 
             this.mskFirstName.HidePromptOnLeave = true;
-            this.mskFirstName.Location = new System.Drawing.Point(263, 159);
+            this.mskFirstName.Location = new System.Drawing.Point(262, 159);
             this.mskFirstName.Mask = "LL???????????????????????????????????????????";
             this.mskFirstName.Name = "mskFirstName";
             this.mskFirstName.PromptChar = ' ';
             this.mskFirstName.Size = new System.Drawing.Size(164, 34);
             this.mskFirstName.TabIndex = 52;
+            this.mskFirstName.Leave += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // label14
             // 
@@ -223,6 +229,7 @@
             this.mskNationalNo.PromptChar = ' ';
             this.mskNationalNo.Size = new System.Drawing.Size(164, 34);
             this.mskNationalNo.TabIndex = 59;
+            this.mskNationalNo.Leave += new System.EventHandler(this.mskNationalNo_Leave);
             // 
             // label5
             // 
@@ -299,6 +306,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // rbMale
             // 
@@ -311,6 +319,7 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbFemale
             // 
@@ -321,6 +330,7 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // txtEmail
             // 
@@ -329,6 +339,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(174, 34);
             this.txtEmail.TabIndex = 39;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lnklblSetImage
             // 
@@ -339,6 +350,7 @@
             this.lnklblSetImage.TabIndex = 38;
             this.lnklblSetImage.TabStop = true;
             this.lnklblSetImage.Text = "Set Image";
+            this.lnklblSetImage.Click += new System.EventHandler(this.lnkLblSetImage_LinkClicked);
             // 
             // pbPersonImage
             // 
