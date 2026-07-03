@@ -51,8 +51,8 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -278,6 +278,16 @@
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(210, 46);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(82, 26);
+            this.lblName.TabIndex = 61;
+            this.lblName.Text = "label14";
             // 
             // label6
             // 
@@ -288,15 +298,6 @@
             this.label6.Size = new System.Drawing.Size(151, 32);
             this.label6.TabIndex = 60;
             this.label6.Text = "Name: ";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(210, 46);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(82, 26);
-            this.lblName.TabIndex = 61;
-            this.lblName.Text = "label14";
             // 
             // ctrlPersonInformation
             // 

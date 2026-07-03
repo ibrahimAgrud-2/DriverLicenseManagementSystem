@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ctrlPeople\ctrlAddUpdatePerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrlPeople\ctrlAddUpdatePerson.Designer.cs">
+      <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrlPersonInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,14 +96,11 @@
     <Compile Include="frmPersonDetail.Designer.cs">
       <DependentUpon>frmPersonDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTest.Designer.cs">
-      <DependentUpon>frmTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\ctrlPeople\ctrlAddUpdatePerson.resx">
+      <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrlPersonInformation.resx">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonDetail.resx">
       <DependentUpon>frmPersonDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTest.resx">
-      <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,5 +165,6 @@
   <ItemGroup>
     <None Include="Resources\Release Detained License 64.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

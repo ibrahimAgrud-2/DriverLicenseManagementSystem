@@ -27,6 +27,18 @@ namespace DVLD
                 return;
             }
         }
+        public void FillPersonInfoIsExists(string nationalNo)
+        {
+            if (People.isPersonExistByNationalNo(nationalNo))
+            {
+                _Person = People.findPersonByNationalNo(nationalNo);
+                _Load();
+            }
+            else
+            {
+                return;
+            }
+        }
         private void _Load()
         {
 
@@ -47,6 +59,11 @@ namespace DVLD
         }
 
         private void ctrlPersonInformation_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

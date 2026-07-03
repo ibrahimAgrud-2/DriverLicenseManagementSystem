@@ -59,7 +59,7 @@
             this.tsmPeople.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmPeople.Name = "tsmPeople";
             this.tsmPeople.Size = new System.Drawing.Size(151, 150);
-            this.tsmPeople.Text = "People";
+            this.tsmPeople.Text = "ctrlPeople";
             this.tsmPeople.Click += new System.EventHandler(this.tsmPeople_Click);
             // 
             // tsmManageUsers

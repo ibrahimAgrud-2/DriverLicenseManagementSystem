@@ -167,7 +167,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 26);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Manage People";
+            this.label1.Text = "Manage ctrlPeople";
             // 
             // label5
             // 
