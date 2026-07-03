@@ -31,8 +31,7 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.exe
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.pdb
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmManagePeople.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.ctrlAddPerson.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmAddUpdatePeople.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.ctrlPersonInformation.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmLogin.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.ctrlPersonInfo.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmAddUpdatePerson.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmPersonDetail.resources

@@ -10,19 +10,16 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class frmPersonDetail : Form
+    public partial class frmTest : Form
     {
-        private int _PersonID;
-        public frmPersonDetail(int personID)
+        public frmTest()
         {
             InitializeComponent();
-            _PersonID = personID;
         }
 
-        private void frmPersonDetail_Load(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            this.ctrlPersonInformation1.FillPersonInfoIsExists(_PersonID);
-
+            MessageBox.Show();
         }
     }
 }

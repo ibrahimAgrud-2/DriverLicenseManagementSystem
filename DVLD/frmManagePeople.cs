@@ -50,7 +50,7 @@ namespace DVLD
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            frmAddUpdatePeople frm = new frmAddUpdatePeople(-1);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson(-1);
             frm.ShowDialog();
             _RefreshPeopleList();
         }
