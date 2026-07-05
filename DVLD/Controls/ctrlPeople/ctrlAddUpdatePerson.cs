@@ -2,9 +2,9 @@
 using System;
 using System.Data;
 using System.IO;
-using System.Text.RegularExpressions;
+
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace DVLD.Controls.ctrlPeople
 {
@@ -68,6 +68,16 @@ namespace DVLD.Controls.ctrlPeople
             }
         }
 
+        private bool _isEmailInputValid()
+        {
+            if(txtEmail.Text==string.Empty||Utility.IsEmailValid(txtEmail.Text))
+            {
+                return true;
+            }
+            return false;
+           
+        }
+       
         private void txtEmail_Leave(object sender, EventArgs e)
         {
             if(txtEmail.Text==string.Empty)
