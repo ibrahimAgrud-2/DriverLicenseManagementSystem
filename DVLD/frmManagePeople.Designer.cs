@@ -195,6 +195,7 @@
             this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
             this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.sendMailToolStripMenuItem.Text = "Send Mail";
+            this.sendMailToolStripMenuItem.Click += new System.EventHandler(this.sendMailToolStripMenuItem_Click);
             // 
             // callToolStripMenuItem
             // 

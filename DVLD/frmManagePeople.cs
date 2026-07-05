@@ -56,10 +56,7 @@ namespace DVLD
             _RefreshPeopleList();
         }
 
-        private void callToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void tsmEdit_Click(object sender, EventArgs e)
         {
@@ -84,7 +81,6 @@ namespace DVLD
                {
                     People.delete(selectedPersonID);
                     _RefreshPeopleList();
-
                 }
                 else
                 {
@@ -94,6 +90,16 @@ namespace DVLD
             }
 
 
+
+        }
+
+        private void sendMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented yet");
+        }
+        private void callToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented yet");
 
         }
     }
