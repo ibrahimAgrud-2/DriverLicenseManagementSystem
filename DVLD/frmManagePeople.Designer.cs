@@ -167,6 +167,7 @@
             this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
             this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.showDetialToolStripMenuItem.Text = "Show Details";
+            this.showDetialToolStripMenuItem.Click += new System.EventHandler(this.showDetialToolStripMenuItem_Click);
             // 
             // tsmEdit
             // 

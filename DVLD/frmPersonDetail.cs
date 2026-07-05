@@ -22,7 +22,6 @@ namespace DVLD
         private void frmPersonDetail_Load(object sender, EventArgs e)
         {
             this.ctrlPersonInformation1.FillPersonInfoIsExists(_PersonID);
-
         }
     }
 }

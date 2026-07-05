@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.SuspendLayout();
-            // 
-            // ctrlPersonInformation1
-            // 
-            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(66, 118);
-            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(993, 436);
-            this.ctrlPersonInformation1.TabIndex = 0;
             // 
             // label1
             // 
@@ -50,15 +41,24 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Person Details";
             // 
+            // ctrlPersonInformation1
+            // 
+            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonInformation1.Location = new System.Drawing.Point(130, 111);
+            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
+            this.ctrlPersonInformation1.Size = new System.Drawing.Size(964, 485);
+            this.ctrlPersonInformation1.TabIndex = 2;
+            // 
             // frmPersonDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 640);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.ctrlPersonInformation1);
+            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPersonDetail";
             this.Text = "frmPersonDetail";
             this.Load += new System.EventHandler(this.frmPersonDetail_Load);
@@ -68,8 +68,7 @@
         }
 
         #endregion
-
-        private ctrlPersonInformation ctrlPersonInformation1;
         private System.Windows.Forms.Label label1;
+        private ctrlPersonInformation ctrlPersonInformation1;
     }
 }

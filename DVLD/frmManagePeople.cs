@@ -102,5 +102,16 @@ namespace DVLD
             MessageBox.Show("This feature is not implemented yet");
 
         }
+
+        private void showDetialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
+            {
+                frmPersonDetail frm = new frmPersonDetail(selectedPersonID);
+                frm.ShowDialog();
+            }
+          
+        }
     }
 }

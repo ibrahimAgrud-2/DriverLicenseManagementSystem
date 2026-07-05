@@ -55,10 +55,10 @@
     <Compile Include="Controls\ctrlPeople\ctrlAddUpdatePerson.Designer.cs">
       <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrlPersonInformation.cs">
+    <Compile Include="Controls\ctrlPeople\ctrlPersonInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlPersonInformation.Designer.cs">
+    <Compile Include="Controls\ctrlPeople\ctrlPersonInformation.Designer.cs">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLDDataSet.Designer.cs">
@@ -101,7 +101,7 @@
     <EmbeddedResource Include="Controls\ctrlPeople\ctrlAddUpdatePerson.resx">
       <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrlPersonInformation.resx">
+    <EmbeddedResource Include="Controls\ctrlPeople\ctrlPersonInformation.resx">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdatePerson.resx">
