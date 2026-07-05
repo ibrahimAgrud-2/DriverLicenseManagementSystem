@@ -58,6 +58,45 @@ namespace DVLD
         //====================^^^^List People^^^^==============================
 
 
+        //==================== VV Delete, call, Email ==============================
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
+            {
+                if(People.isPersonExistByID(selectedPersonID))
+                {
+                    if(People.delete(selectedPersonID))
+                    {
+                        MessageBox.Show("Person Deleted");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Person has data link to it");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Person Not Found");
+                }
+
+            }
+
+
+
+        }
+
+        private void sendMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented yet");
+        }
+        private void callToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented yet");
+
+        }
+        //====================================================================
+
 
 
 
@@ -84,36 +123,6 @@ namespace DVLD
 
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
-            {
-
-                if(People.isPersonExistByID(selectedPersonID))
-               {
-                    People.delete(selectedPersonID);
-                    _RefreshPeopleList();
-                }
-                else
-                {
-                    MessageBox.Show("Person Not Found");
-                }
-               
-            }
-
-
-
-        }
-
-        private void sendMailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This feature is not implemented yet");
-        }
-        private void callToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This feature is not implemented yet");
-
-        }
 
         private void showDetialToolStripMenuItem_Click(object sender, EventArgs e)
         {
