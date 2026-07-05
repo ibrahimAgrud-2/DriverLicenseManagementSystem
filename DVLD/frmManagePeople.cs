@@ -1,6 +1,8 @@
 ﻿using DVLD_BusinessLayer;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace DVLD
@@ -12,30 +14,46 @@ namespace DVLD
             InitializeComponent();
         }
 
+        private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
+            {
+              { "PersonID", "Person ID" },
+              { "FirstName", "First Name" },
+              { "LastName", "Last Name" },
+              { "SecondName", "Second Name" },
+              { "NationalNo", "National No" },
+              { "ThirdName", "Third Name" },
+              { "DateOfBirth", "Birth Date" },
+              { "CountryName", "Country Name" },
+              { "gender1", "Gender" }
+            };
+        private void _SetColumnNames()
+        {
+  
+
+            foreach(KeyValuePair<string,string> dict in _ColumnNames) 
+            {
+                dgvPeopleList.Columns[dict.Key].HeaderText = dict.Value;
+            }
+            dgvPeopleList.Columns["imagePath"].Visible = false;
+            dgvPeopleList.Columns["NationalityCountryID"].Visible = false;
+            dgvPeopleList.Columns["CountryID"].Visible = false;
+           dgvPeopleList.Columns["Gender"].Visible = false;
+
+            dgvPeopleList.Columns["gender1"].DisplayIndex = 6;
+            dgvPeopleList.Columns["CountryName"].DisplayIndex = 9;
+
+        }
 
         private void _RefreshPeopleList()
         {
             DataTable table = People.getAllPersonRecords();
 
-
-            table.Columns.Remove("Gender");
-            table.Columns.Remove("NationalityCountryID");
-            table.Columns.Remove("CountryID");
-           table.Columns.Remove("ImagePath");
-
-            table.Columns["gender1"].SetOrdinal(6);
-            table.Columns["gender1"].ColumnName = "Gender";
-
-            table.Columns["CountryName"].SetOrdinal(8);
-
-
-
+        
             dgvPeopleList.DataSource = table;
 
-          
+            _SetColumnNames();
 
-            //Bu burada olmamaması gerekebilir
-            lblRecords.Text = dgvPeopleList.RowCount.ToString();
+             lblRecords.Text = dgvPeopleList.RowCount.ToString();
         }
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
@@ -48,6 +66,8 @@ namespace DVLD
             this.Close();
         }
 
+
+
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson(-1);
@@ -55,8 +75,6 @@ namespace DVLD
             frm.ShowDialog();
             _RefreshPeopleList();
         }
-
-
 
         private void tsmEdit_Click(object sender, EventArgs e)
         {

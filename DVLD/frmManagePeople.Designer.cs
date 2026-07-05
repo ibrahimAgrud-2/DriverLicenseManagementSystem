@@ -50,9 +50,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.dVLDDataSet = new DVLD.DVLDDataSet();
+            this.dVLDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -117,7 +121,6 @@
             this.dgvPeopleList.AllowUserToAddRows = false;
             this.dgvPeopleList.AllowUserToDeleteRows = false;
             this.dgvPeopleList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPeopleList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvPeopleList.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -138,7 +141,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPeopleList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPeopleList.Location = new System.Drawing.Point(1, 401);
+            this.dgvPeopleList.Location = new System.Drawing.Point(9, 401);
+            this.dgvPeopleList.MultiSelect = false;
             this.dgvPeopleList.Name = "dgvPeopleList";
             this.dgvPeopleList.ReadOnly = true;
             this.dgvPeopleList.RowHeadersVisible = false;
@@ -159,13 +163,13 @@
             this.sendMailToolStripMenuItem,
             this.callToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 167);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 140);
             // 
             // showDetialToolStripMenuItem
             // 
             this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
             this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
-            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.showDetialToolStripMenuItem.Text = "Show Details";
             this.showDetialToolStripMenuItem.Click += new System.EventHandler(this.showDetialToolStripMenuItem_Click);
             // 
@@ -173,7 +177,7 @@
             // 
             this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(213, 26);
+            this.tsmEdit.Size = new System.Drawing.Size(168, 26);
             this.tsmEdit.Text = "Edit";
             this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
@@ -181,20 +185,20 @@
             // 
             this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
             // 
             // sendMailToolStripMenuItem
             // 
             this.sendMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendMailToolStripMenuItem.Image")));
             this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
-            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.sendMailToolStripMenuItem.Text = "Send Mail";
             this.sendMailToolStripMenuItem.Click += new System.EventHandler(this.sendMailToolStripMenuItem_Click);
             // 
@@ -202,7 +206,7 @@
             // 
             this.callToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("callToolStripMenuItem.Image")));
             this.callToolStripMenuItem.Name = "callToolStripMenuItem";
-            this.callToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.callToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.callToolStripMenuItem.Text = "Phone Call";
             this.callToolStripMenuItem.Click += new System.EventHandler(this.callToolStripMenuItem_Click);
             // 
@@ -247,6 +251,16 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "Filter By: ";
             // 
+            // dVLDDataSet
+            // 
+            this.dVLDDataSet.DataSetName = "DVLDDataSet";
+            this.dVLDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dVLDDataSetBindingSource
+            // 
+            this.dVLDDataSetBindingSource.DataSource = this.dVLDDataSet;
+            this.dVLDDataSetBindingSource.Position = 0;
+            // 
             // frmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,11 +279,14 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "frmManagePeople";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManagePeople";
             this.Load += new System.EventHandler(this.frmManagePeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +312,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem sendMailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem callToolStripMenuItem;
+        private DVLDDataSet dVLDDataSet;
+        private System.Windows.Forms.BindingSource dVLDDataSetBindingSource;
     }
 }

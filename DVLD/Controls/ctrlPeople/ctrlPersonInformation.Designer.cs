@@ -38,7 +38,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lnklblSetImage = new System.Windows.Forms.LinkLabel();
+            this.lnklblEditPersonInfo = new System.Windows.Forms.LinkLabel();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -137,15 +137,16 @@
             this.label11.TabIndex = 43;
             this.label11.Text = "Phone: ";
             // 
-            // lnklblSetImage
+            // lnklblEditPersonInfo
             // 
-            this.lnklblSetImage.AutoSize = true;
-            this.lnklblSetImage.Location = new System.Drawing.Point(738, 125);
-            this.lnklblSetImage.Name = "lnklblSetImage";
-            this.lnklblSetImage.Size = new System.Drawing.Size(167, 26);
-            this.lnklblSetImage.TabIndex = 36;
-            this.lnklblSetImage.TabStop = true;
-            this.lnklblSetImage.Text = "Edit Person Info";
+            this.lnklblEditPersonInfo.AutoSize = true;
+            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(738, 125);
+            this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
+            this.lnklblEditPersonInfo.Size = new System.Drawing.Size(167, 26);
+            this.lnklblEditPersonInfo.TabIndex = 36;
+            this.lnklblEditPersonInfo.TabStop = true;
+            this.lnklblEditPersonInfo.Text = "Edit Person Info";
+            this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // pbPersonImage
             // 
@@ -254,7 +255,7 @@
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.lblNationalNo);
-            this.groupBox1.Controls.Add(this.lnklblSetImage);
+            this.groupBox1.Controls.Add(this.lnklblEditPersonInfo);
             this.groupBox1.Controls.Add(this.lblCountry);
             this.groupBox1.Controls.Add(this.pbPersonImage);
             this.groupBox1.Controls.Add(this.label2);
@@ -327,7 +328,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.LinkLabel lnklblSetImage;
+        private System.Windows.Forms.LinkLabel lnklblEditPersonInfo;
         private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label2;

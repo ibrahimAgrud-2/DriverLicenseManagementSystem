@@ -67,5 +67,23 @@ namespace DVLD
         {
 
         }
+
+        private void test(object sender,int personID)
+        {
+            FillPersonInfoIsExists(personID);
+        }
+        private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (int.TryParse(lblPersonID.Text, out int personID))
+            {
+                frmAddUpdatePerson frm = new frmAddUpdatePerson(personID);
+                frm.sendIDBack += test;
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ID is not valid");
+            }
+        }
     }
 }

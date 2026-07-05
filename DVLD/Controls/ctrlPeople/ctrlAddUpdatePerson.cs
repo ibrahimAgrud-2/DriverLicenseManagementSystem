@@ -183,11 +183,15 @@ namespace DVLD.Controls.ctrlPeople
                     {
                         if(_Person.imagePath != pbPersonImage.ImageLocation)
                         {
-                            File.Delete(_Person.imagePath);
+                            
                             string NewFilePath = @"C:\Images\" + Guid.NewGuid() + ".jpg";
                             File.Copy(pbPersonImage.ImageLocation, NewFilePath, true);
-                            _Person.imagePath = NewFilePath;
+                            _Person.imagePath = NewFilePath;  
                         }
+                    }
+                    else
+                    {
+                        _Person.imagePath = pbPersonImage.ImageLocation;
                     }
 
                 }
