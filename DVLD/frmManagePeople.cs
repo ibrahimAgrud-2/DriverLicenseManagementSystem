@@ -24,7 +24,6 @@ namespace DVLD
               { "ThirdName", "Third Name" },
               { "DateOfBirth", "Birth Date" },
               { "CountryName", "Country Name" },
-              { "gender1", "Gender" }
             };
         private void _SetColumnNames()
         {
@@ -34,13 +33,11 @@ namespace DVLD
             {
                 dgvPeopleList.Columns[dict.Key].HeaderText = dict.Value;
             }
-            dgvPeopleList.Columns["imagePath"].Visible = false;
-            dgvPeopleList.Columns["NationalityCountryID"].Visible = false;
+            dgvPeopleList.Columns["Address"].Visible = false;
             dgvPeopleList.Columns["CountryID"].Visible = false;
-           dgvPeopleList.Columns["Gender"].Visible = false;
+            dgvPeopleList.Columns["ImagePath"].Visible = false;
 
-            dgvPeopleList.Columns["gender1"].DisplayIndex = 6;
-            dgvPeopleList.Columns["CountryName"].DisplayIndex = 9;
+
 
         }
 
