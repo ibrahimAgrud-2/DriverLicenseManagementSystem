@@ -94,6 +94,7 @@
             this.mskPhoneNumber.PromptChar = ' ';
             this.mskPhoneNumber.Size = new System.Drawing.Size(236, 32);
             this.mskPhoneNumber.TabIndex = 90;
+            this.mskPhoneNumber.Leave += new System.EventHandler(this.mskName_FocusLeave);
             // 
             // lnkLblRemove
             // 

@@ -26,6 +26,7 @@ namespace DVLD.Controls.ctrlPeople
         {
             dtpBirthDate.Value = DateTime.Now.AddYears(-18);
             _FillCountriesToComboBox();
+            cbCountries.SelectedIndex = 10;
         }
 
 
@@ -38,6 +39,7 @@ namespace DVLD.Controls.ctrlPeople
             {
                 cbCountries.Items.Add(data["CountryName"]);
             }
+         
         }
 
         private void mskName_FocusLeave(object sender, EventArgs e)
