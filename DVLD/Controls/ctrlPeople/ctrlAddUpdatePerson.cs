@@ -93,9 +93,9 @@ namespace DVLD.Controls.ctrlPeople
             mskThirdName.Text = _Person.thirdName;
             mskLastName.Text = _Person.lastName;
             mskNationalNo.Text = _Person.nationalNo;
-            mskPhoneNumber.Text = _Person.phone;
-            txtAddress.Text = _Person.address;
             txtEmail.Text = _Person.email;
+            txtAddress.Text = _Person.address;
+            mskPhoneNumber.Text = _Person.phone;
 
 
             if (_Person.gender == 0)

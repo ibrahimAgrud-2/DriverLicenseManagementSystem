@@ -26,8 +26,11 @@ namespace DVLD
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
-
-            this.ctrlAddUpdatePerson1.start(-1);
+            if(_PersonID!=-1)
+            {
+                label3.Text = _PersonID.ToString();
+            }
+            this.ctrlAddUpdatePerson1.start(_PersonID);
         }
 
         private void ctrlAddUpdatePerson1_Load(object sender, EventArgs e)
