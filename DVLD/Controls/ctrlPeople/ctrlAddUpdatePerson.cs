@@ -67,7 +67,6 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(txtAddress, "");
             }
         }
-
         private bool _isEmailInputValid()
         {
             if(txtEmail.Text==string.Empty||Utility.IsEmailValid(txtEmail.Text))
@@ -89,5 +88,17 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(txtEmail, "");
             }
         }
+
+        private void mskNationalNo_Leave(object sender, EventArgs e)
+        {
+            if (People.isPersonExistByNationalNo(mskNationalNo.Text))
+            {
+                errorProvider1.SetError(mskNationalNo, "National No is already exist");
+
+            }
+            else
+            {
+                errorProvider1.SetError(mskNationalNo, "");
+        }   }
     }
 }
