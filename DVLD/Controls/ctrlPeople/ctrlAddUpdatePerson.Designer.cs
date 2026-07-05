@@ -75,6 +75,7 @@
             this.mskSecondName.PromptChar = ' ';
             this.mskSecondName.Size = new System.Drawing.Size(164, 32);
             this.mskSecondName.TabIndex = 92;
+            this.mskSecondName.Leave += new System.EventHandler(this.mskName_FocusLeave);
             // 
             // txtAddress
             // 
@@ -114,6 +115,7 @@
             this.mskLastName.PromptChar = ' ';
             this.mskLastName.Size = new System.Drawing.Size(164, 32);
             this.mskLastName.TabIndex = 88;
+            this.mskLastName.Leave += new System.EventHandler(this.mskName_FocusLeave);
             // 
             // mskThirdName
             // 
@@ -134,6 +136,7 @@
             this.mskFirstName.PromptChar = ' ';
             this.mskFirstName.Size = new System.Drawing.Size(164, 32);
             this.mskFirstName.TabIndex = 86;
+            this.mskFirstName.Leave += new System.EventHandler(this.mskName_FocusLeave);
             // 
             // label14
             // 

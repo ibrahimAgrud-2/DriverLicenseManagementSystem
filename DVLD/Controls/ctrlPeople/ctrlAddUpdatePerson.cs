@@ -18,25 +18,40 @@ namespace DVLD.Controls.ctrlPeople
 
         private void ctrlAddUpdatePerson_Load(object sender, EventArgs e)
         {
-
+            _Load();
         }
 
-        private void _FillCountriesToComboBox()
-        {
-            DataTable dt= Country.getCountryRecord();
-
-            foreach(DataRow data in dt.Rows)
-            {
-                cbCountries.Items.Add(data["CountryName"]);
-            }
-        }
 
         private void _Load()
         {
             dtpBirthDate.Value = DateTime.Now.AddYears(-18);
             _FillCountriesToComboBox();
+        }
 
 
+        //________________Validation Fields___________________________________
+        private void _FillCountriesToComboBox()
+        {
+            DataTable dt = Country.getCountryRecord();
+
+            foreach (DataRow data in dt.Rows)
+            {
+                cbCountries.Items.Add(data["CountryName"]);
+            }
+        }
+
+        private void mskName_FocusLeave(object sender, EventArgs e)
+        {
+            MaskedTextBox msk = (MaskedTextBox)sender;
+
+            if(!msk.MaskCompleted)
+            {
+                errorProvider1.SetError(msk, "Is not valid.");
+            }
+            else
+            {
+                errorProvider1.SetError(msk, "");
+            }
         }
     }
 }

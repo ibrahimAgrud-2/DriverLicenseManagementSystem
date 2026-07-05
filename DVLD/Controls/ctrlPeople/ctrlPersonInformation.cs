@@ -76,9 +76,9 @@ namespace DVLD
         {
             if (int.TryParse(lblPersonID.Text, out int personID))
             {
-                frmAddUpdatePerson frm = new frmAddUpdatePerson(personID);
-                frm.sendIDBack += test;
-                frm.ShowDialog();
+               // frmAddUpdatePerson frm = new frmAddUpdatePerson(personID);
+                //frm.sendIDBack += test;
+                //frm.ShowDialog();
             }
             else
             {
