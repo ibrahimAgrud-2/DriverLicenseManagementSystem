@@ -55,5 +55,17 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(msk, "");
             }
         }
+
+        private void txtAddress_Leave(object sender, EventArgs e)
+        {
+            if(txtAddress.Text==string.Empty)
+            {
+                errorProvider1.SetError(txtAddress, "Enter a valid Address");
+            }
+            else
+            {
+                errorProvider1.SetError(txtAddress, "");
+            }
+        }
     }
 }

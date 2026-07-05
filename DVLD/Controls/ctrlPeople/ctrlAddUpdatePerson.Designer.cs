@@ -80,10 +80,12 @@
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(197, 369);
+            this.txtAddress.MaxLength = 2000;
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(626, 95);
             this.txtAddress.TabIndex = 91;
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // mskPhoneNumber
             // 
