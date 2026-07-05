@@ -1,8 +1,6 @@
 ﻿using DVLD_BusinessLayer;
 using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -11,19 +9,46 @@ namespace DVLD.Controls.ctrlPeople
 {
     public partial class ctrlAddUpdatePerson : UserControl
     {
+
+
+        public event Action<int> SaveCompleted;
+        protected virtual void SaveComplete(int result)
+        {
+            Action<int> test = SaveCompleted;
+            if (test != null)
+            {
+                //diğer taraftaki fonksyionları çağıran satır.
+                test(result);
+            }
+
+        }
+
+
         public ctrlAddUpdatePerson()
         {
             InitializeComponent();
         }
 
+
+     public int PersonID;
+        private People _Person;
+
         private void ctrlAddUpdatePerson_Load(object sender, EventArgs e)
         {
-
+            if (this.PersonID == -1)
+            {
+                _Mode = enMode.enAddNew;
+                _TemLoad();
+            }
+            else
+            {
+                _Mode = enMode.enUpdate;
+                _Person = People.findPersonByID(PersonID);
+            }
+            _Load();
         }
 
-        private int _PersonID;
-        public People _Person;
-
+   
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode;
 
@@ -48,8 +73,8 @@ namespace DVLD.Controls.ctrlPeople
             else
             {
                 _Mode = enMode.enUpdate;
-                _PersonID = personID;
-                _Person = People.findPersonByID(_PersonID);
+                PersonID = personID;
+                _Person = People.findPersonByID(PersonID);
             }
             _Load();
 
@@ -65,7 +90,6 @@ namespace DVLD.Controls.ctrlPeople
             else if (rbMale.Checked)
             {
                 pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
-
             }
             dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
 
@@ -82,7 +106,7 @@ namespace DVLD.Controls.ctrlPeople
             mskPhoneNumber.Text = _Person.phone;
             txtAddress.Text = _Person.address;
             txtEmail.Text = _Person.email;
-            
+
 
             if (_Person.gender == 0)
             {
@@ -109,7 +133,6 @@ namespace DVLD.Controls.ctrlPeople
             mskNationalNo.Text = "N";
             mskPhoneNumber.Text = "12345678919";
             txtAddress.Text = "Syria";
-
         }
 
 
@@ -178,10 +201,7 @@ namespace DVLD.Controls.ctrlPeople
                     }
 
                 }
-
-
                 //======
-
                 if (_Person.save())
                 {
                     MessageBox.Show("Saved Successfully");
@@ -196,6 +216,10 @@ namespace DVLD.Controls.ctrlPeople
             {
                 MessageBox.Show("Fill the required area");
             }
+
+            SaveComplete(_Person.personID);
+
+
         }
 
         private bool _IsEmailValid(string email)
@@ -258,7 +282,11 @@ namespace DVLD.Controls.ctrlPeople
             }
             if (People.isPersonExistByNationalNo(mskNationalNo.Text))
             {
-                errorProvider1.SetError(mskNationalNo, "National No is already exist");
+                if(this._Mode==enMode.enAddNew)
+                {
+                    errorProvider1.SetError(mskNationalNo, "National No is already exist");
+                }
+               
             }
             else
             {

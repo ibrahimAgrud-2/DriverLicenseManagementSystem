@@ -11,12 +11,12 @@ namespace DVLD
     public partial class frmAddUpdatePerson : Form
     {
 
-
-        public frmAddUpdatePerson()
+        private int _PersonID;
+        public frmAddUpdatePerson(int personID)
         {
             InitializeComponent();
 
-
+            _PersonID = personID;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -26,12 +26,18 @@ namespace DVLD
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
-            this.ctrlAddUpdatePerson1.start(-1);
+           
+            this.ctrlAddUpdatePerson1.PersonID = _PersonID;
         }
 
         private void ctrlAddUpdatePerson1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ctrlAddUpdatePerson1_SaveCompleted(int obj)
+        {
+            label3.Text = obj.ToString();
         }
     }
 }
