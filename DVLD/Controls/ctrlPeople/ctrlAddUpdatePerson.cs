@@ -67,5 +67,13 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(txtAddress, "");
             }
         }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if(txtEmail.Text==string.Empty)
+            {
+
+            }
+        }
     }
 }
