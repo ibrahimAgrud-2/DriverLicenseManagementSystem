@@ -35,17 +35,7 @@ namespace DVLD.Controls.ctrlPeople
 
         private void ctrlAddUpdatePerson_Load(object sender, EventArgs e)
         {
-            if (this.PersonID == -1)
-            {
-                _Mode = enMode.enAddNew;
-                _TemLoad();
-            }
-            else
-            {
-                _Mode = enMode.enUpdate;
-                _Person = People.findPersonByID(PersonID);
-            }
-            _Load();
+           
         }
 
    
@@ -183,7 +173,6 @@ namespace DVLD.Controls.ctrlPeople
 
                
                     string NewFilePath = @"C:\Images\" + Guid.NewGuid() + ".jpg";
-                    MessageBox.Show(pbPersonImage.ImageLocation);
                     File.Copy(pbPersonImage.ImageLocation, NewFilePath, true);
                     _Person.imagePath = NewFilePath;
                 }
@@ -205,6 +194,7 @@ namespace DVLD.Controls.ctrlPeople
                 if (_Person.save())
                 {
                     MessageBox.Show("Saved Successfully");
+                    SaveComplete(_Person.personID);
 
                 }
                 else
@@ -217,7 +207,6 @@ namespace DVLD.Controls.ctrlPeople
                 MessageBox.Show("Fill the required area");
             }
 
-            SaveComplete(_Person.personID);
 
 
         }
