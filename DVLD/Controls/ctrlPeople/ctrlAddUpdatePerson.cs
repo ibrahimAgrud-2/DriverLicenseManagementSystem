@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD.Controls.ctrlPeople
 {
@@ -217,6 +218,14 @@ namespace DVLD.Controls.ctrlPeople
             return regex.IsMatch(email);
         }
 
+        private bool _ValidateEmail(string email)
+        {
+            if(email==string.Empty||_IsEmailValid(email))
+            {
+                return true;
+            }
+            return false;
+        }
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
@@ -224,7 +233,7 @@ namespace DVLD.Controls.ctrlPeople
 
 
 
-            if (_IsEmailValid(txt.Text) || txt.Text == string.Empty)
+            if (_ValidateEmail(txt.Text))
             {
                 errorProvider1.SetError(txt, "");
 
@@ -260,7 +269,7 @@ namespace DVLD.Controls.ctrlPeople
         }
         private bool _IsAllInputsValid()
         {
-            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskNationalNo.MaskCompleted && mskPhoneNumber.MaskCompleted && _IsEmailValid(txtEmail.Text) && (txtAddress.Text != string.Empty));
+            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskNationalNo.MaskCompleted && mskPhoneNumber.MaskCompleted && _ValidateEmail(txtEmail.Text) && (txtAddress.Text != string.Empty));
         }
         private void mskNationalNo_Leave(object sender, EventArgs e)
         {

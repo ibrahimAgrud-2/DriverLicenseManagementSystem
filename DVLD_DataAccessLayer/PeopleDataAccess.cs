@@ -245,7 +245,7 @@ namespace DVLD_DataAccessLayer
           
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
-            string query = "IF not exists (select personID from people where NationalNo=@nationalNo) begin insert into people values (@nationalNo,@firstName,@secondName,@thirdName,@lastName,@dateOfBirth,@gender,@address,@email,@phone,@nationalityCountryID,@imagePath) Select Scope_Identity() end;";
+            string query = "IF not exists (select personID from people where NationalNo=@nationalNo) begin insert into people values (@nationalNo,@firstName,@secondName,@thirdName,@lastName,@dateOfBirth,@gender,@address,@phone,@email,@nationalityCountryID,@imagePath) Select Scope_Identity() end;";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
