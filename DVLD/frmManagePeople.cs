@@ -9,6 +9,8 @@ namespace DVLD
 {
     public partial class frmManagePeople : Form
     {
+
+        //======================= V List People =============================
         public frmManagePeople()
         {
             InitializeComponent();
@@ -27,8 +29,6 @@ namespace DVLD
             };
         private void _SetColumnNames()
         {
-  
-
             foreach(KeyValuePair<string,string> dict in _ColumnNames) 
             {
                 dgvPeopleList.Columns[dict.Key].HeaderText = dict.Value;
@@ -36,25 +36,18 @@ namespace DVLD
             dgvPeopleList.Columns["Address"].Visible = false;
             dgvPeopleList.Columns["CountryID"].Visible = false;
             dgvPeopleList.Columns["ImagePath"].Visible = false;
-
-
-
         }
 
         private void _RefreshPeopleList()
         {
             DataTable table = People.getAllPersonRecords();
 
-        
             dgvPeopleList.DataSource = table;
-
             _SetColumnNames();
-
              lblRecords.Text = dgvPeopleList.RowCount.ToString();
         }
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
-
             _RefreshPeopleList();
         }
 
@@ -62,6 +55,10 @@ namespace DVLD
         {
             this.Close();
         }
+        //====================^^^^List People^^^^==============================
+
+
+
 
 
 
