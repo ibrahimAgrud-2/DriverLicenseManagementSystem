@@ -75,7 +75,6 @@
             this.mskSecondName.PromptChar = ' ';
             this.mskSecondName.Size = new System.Drawing.Size(164, 32);
             this.mskSecondName.TabIndex = 92;
-            this.mskSecondName.Enter += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // txtAddress
             // 
@@ -84,7 +83,6 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(626, 95);
             this.txtAddress.TabIndex = 91;
-            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // mskPhoneNumber
             // 
@@ -95,7 +93,6 @@
             this.mskPhoneNumber.PromptChar = ' ';
             this.mskPhoneNumber.Size = new System.Drawing.Size(236, 32);
             this.mskPhoneNumber.TabIndex = 90;
-            this.mskPhoneNumber.Enter += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // lnkLblRemove
             // 
@@ -107,7 +104,6 @@
             this.lnkLblRemove.TabStop = true;
             this.lnkLblRemove.Text = "Remove";
             this.lnkLblRemove.Visible = false;
-            this.lnkLblRemove.Click += new System.EventHandler(this.lnkLblRemove_Click);
             // 
             // mskLastName
             // 
@@ -118,7 +114,6 @@
             this.mskLastName.PromptChar = ' ';
             this.mskLastName.Size = new System.Drawing.Size(164, 32);
             this.mskLastName.TabIndex = 88;
-            this.mskLastName.Enter += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // mskThirdName
             // 
@@ -139,7 +134,6 @@
             this.mskFirstName.PromptChar = ' ';
             this.mskFirstName.Size = new System.Drawing.Size(164, 32);
             this.mskFirstName.TabIndex = 86;
-            this.mskFirstName.Enter += new System.EventHandler(this.mskFirstName_Leave);
             // 
             // label14
             // 
@@ -179,7 +173,6 @@
             this.mskNationalNo.PromptChar = ' ';
             this.mskNationalNo.Size = new System.Drawing.Size(164, 32);
             this.mskNationalNo.TabIndex = 93;
-            this.mskNationalNo.Leave += new System.EventHandler(this.mskNationalNo_Leave);
             // 
             // label5
             // 
@@ -256,7 +249,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // rbMale
             // 
@@ -269,7 +261,6 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
-            this.rbMale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbFemale
             // 
@@ -280,7 +271,6 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbFemale.UseVisualStyleBackColor = true;
-            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // txtEmail
             // 
@@ -289,7 +279,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(174, 32);
             this.txtEmail.TabIndex = 73;
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lnklblSetImage
             // 
@@ -300,7 +289,6 @@
             this.lnklblSetImage.TabIndex = 72;
             this.lnklblSetImage.TabStop = true;
             this.lnklblSetImage.Text = "Set Image";
-            this.lnklblSetImage.Click += new System.EventHandler(this.lnkLblSetImage_LinkClicked);
             // 
             // pbPersonImage
             // 

@@ -95,7 +95,6 @@
             this.ctrlAddUpdatePerson1.Name = "ctrlAddUpdatePerson1";
             this.ctrlAddUpdatePerson1.Size = new System.Drawing.Size(1174, 565);
             this.ctrlAddUpdatePerson1.TabIndex = 3;
-            this.ctrlAddUpdatePerson1.SaveCompleted += new System.Action<int>(this.ctrlAddUpdatePerson1_SaveCompleted);
             this.ctrlAddUpdatePerson1.Load += new System.EventHandler(this.ctrlAddUpdatePerson1_Load);
             // 
             // frmAddUpdatePerson
