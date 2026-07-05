@@ -74,5 +74,27 @@ namespace DVLD
             }
 
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
+            {
+
+                if(People.isPersonExistByID(selectedPersonID))
+               {
+                    People.delete(selectedPersonID);
+                    _RefreshPeopleList();
+
+                }
+                else
+                {
+                    MessageBox.Show("Person Not Found");
+                }
+               
+            }
+
+
+
+        }
     }
 }
