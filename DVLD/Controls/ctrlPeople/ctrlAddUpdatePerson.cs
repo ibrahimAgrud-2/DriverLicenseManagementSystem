@@ -80,9 +80,13 @@ namespace DVLD.Controls.ctrlPeople
        
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            if(txtEmail.Text==string.Empty)
+            if(!_isEmailInputValid())
             {
-
+                errorProvider1.SetError(txtEmail, "Enter a valid Email");
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, "");
             }
         }
     }
