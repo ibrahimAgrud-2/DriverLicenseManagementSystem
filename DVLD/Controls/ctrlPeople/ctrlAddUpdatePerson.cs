@@ -25,16 +25,18 @@ namespace DVLD.Controls.ctrlPeople
         {
             DataTable dt= Country.getCountryRecord();
 
-                foreach(DataRow data in dt.Rows)
+            foreach(DataRow data in dt.Rows)
             {
-
+                cbCountries.Items.Add(data["CountryName"]);
             }
         }
 
         private void _Load()
         {
             dtpBirthDate.Value = DateTime.Now.AddYears(-18);
-            
+            _FillCountriesToComboBox();
+
+
         }
     }
 }
