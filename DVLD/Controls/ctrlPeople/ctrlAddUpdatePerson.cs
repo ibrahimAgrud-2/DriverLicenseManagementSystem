@@ -62,14 +62,15 @@ namespace DVLD.Controls.ctrlPeople
             _FillCountriesToComboBox();
             //nedense load yaparken pb'de image olmasına rağmen imageLocaiton boş oluyor.
             //Bu yüzden load sırasında iamge'i yüklemek lazım.
-            setDefaultImage();
+
 
 
             if (this._Mode==enMode.enAddNew)
             {
-                dtpBirthDate.Value = DateTime.Now.AddYears(-18);
+                dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
                 cbCountries.SelectedIndex = 10;
                 _Person = new People();
+                setDefaultImage();
                 _TemLoad();
                 return;
             }
@@ -256,10 +257,27 @@ namespace DVLD.Controls.ctrlPeople
             txtAddress.Text = person.address;
             mskPhoneNumber.Text = person.phone;
             cbCountries.SelectedIndex = person.countryID;
+             //Mode update olduğunda sistem DB'den yüklenirken gender butonu male/femal durumuna göre işaretlenmeli.
+             //İşaretleme sonucu da fotoğraf değişeceği için person'un fotoğrafını değiştirmiş oluruz. Bu yüzden ilk update yaparken radio buttonlar işaretlenmeli ama o kişini fotoğrafı DB'de ne yüklü ise o olmalı. radio buton değiştiği için fotoğraf değişmemeli.
+             //Ve bu işlem sadece ilk yükleme sırasında yapılmalı. Sonradan kullanıcı istediğini seçebilir.
 
-            
-
-            //rbFemal male değişmeli.
+            //Bunu için ilk önce gender'ı alıp, sonra fotoğraf yüklenebilir.
+            if(person.gender==0)
+            {
+                rbMale.Checked = true;
+            }
+            else
+            {
+                rbMale.Checked = false;
+            }
+            //gender'ı aldıktan sonra; Eğer DB'de fotoYolu boş deilse ilgili fotoyu gösterir. Yok eğer fotoYolu boşsa, 
+            //Default foto zaten bir önceki adımda picturebox'a eklenmil olur
+            if(person.imagePath!=string.Empty)
+            {
+                pbPersonImage.Load(person.imagePath);
+            }
+     
+           
 
         }
 
