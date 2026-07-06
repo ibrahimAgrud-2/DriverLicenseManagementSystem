@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 
 namespace DVLD
@@ -20,7 +22,19 @@ namespace DVLD
                 return false;
 
             File.Copy(imagePath, newImagePath, true);
+            imagePath = newImagePath;
             return true;
         }
+
+        public static void notifyUser(NotifyIcon nf,string messageToUser, ToolTipIcon icon)
+        {
+            nf.Icon = SystemIcons.Application;
+            nf.Text = messageToUser;
+            nf.BalloonTipIcon = icon;
+            nf.Visible = true;
+            nf.BalloonTipText = messageToUser;
+            nf.ShowBalloonTip(3000);
+        }
+
     }
 }

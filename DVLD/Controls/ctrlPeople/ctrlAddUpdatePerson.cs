@@ -60,9 +60,12 @@ namespace DVLD.Controls.ctrlPeople
         private void _Load()
         {
             _FillCountriesToComboBox();
-        
+            //nedense load yaparken pb'de image olmasına rağmen imageLocaiton boş oluyor.
+            //Bu yüzden load sırasında iamge'i yüklemek lazım.
+            setDefaultImage();
 
-            if(this._Mode==enMode.enAddNew)
+
+            if (this._Mode==enMode.enAddNew)
             {
                 dtpBirthDate.Value = DateTime.Now.AddYears(-18);
                 cbCountries.SelectedIndex = 10;
@@ -181,22 +184,38 @@ namespace DVLD.Controls.ctrlPeople
             return imagePath;
 
         }
+        private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
 
+            openFileDialog1.Title = "This is a title";
 
+            openFileDialog1.DefaultExt = "txt";
+            openFileDialog1.Filter = "All Images|*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.tiff;*.webp| JPEG Files (*.jpg;*.jpeg)|  PNG Files (*.png)|*.png|";
+            openFileDialog1.FilterIndex = 1;
 
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pbPersonImage.Load(openFileDialog1.FileName);
+            }
+        }
         private string _SetPersonImage()
         {
             string imagePath = pbPersonImage.ImageLocation;
-            if(File.Exists(imagePath))
-            {
-                copyImageToNewFolder(ref imagePath);
-            }
-            else
-            {
-              
-            }
 
-            return imagePath;
+
+
+            //Eğer oldu da imagepath boş geldi. Haliyle kopyalama gerçekleşmez. Bu durmda DB'ye boş gitmemesi için default fotoğraf atıyoruz.
+            if (!Utility.copyImageToNewFolder(ref imagePath))
+            {
+
+                Utility.notifyUser(notifyIcon1, "Having problem with copy image. Saving with Default image", ToolTipIcon.Warning);
+                imagePath = setDefaultImage();
+                Utility.copyImageToNewFolder(ref imagePath);
+               
+                 
+            }
+                return imagePath;
         }
         //__________________________________________
         
@@ -214,12 +233,12 @@ namespace DVLD.Controls.ctrlPeople
                 _Person.address = txtAddress.Text;
                 _Person.phone = mskPhoneNumber.Text;
                 _Person.countryID = Country.findCountry(cbCountries.SelectedIndex + 1).countryID;
-                _Person.imagePath = "";
+                _Person.imagePath = _SetPersonImage();
                 return true;
             }
             else
             {
-                         return false;
+                return false;
             }
 
         }
@@ -257,9 +276,13 @@ namespace DVLD.Controls.ctrlPeople
                 MessageBox.Show("Something went wrong");
             }
         }
+
         //======================= ^^^ SAVE ^^^ ========================================
 
-
+        private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            setDefaultImage();
+        }
 
     }
 }

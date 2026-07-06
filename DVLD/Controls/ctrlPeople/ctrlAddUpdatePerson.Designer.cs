@@ -62,6 +62,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -108,6 +109,7 @@
             this.lnkLblRemove.TabStop = true;
             this.lnkLblRemove.Text = "Remove";
             this.lnkLblRemove.Visible = false;
+            this.lnkLblRemove.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblRemove_LinkClicked);
             // 
             // mskLastName
             // 
@@ -300,6 +302,7 @@
             this.lnklblSetImage.TabIndex = 72;
             this.lnklblSetImage.TabStop = true;
             this.lnklblSetImage.Text = "Set Image";
+            this.lnklblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblSetImage_LinkClicked);
             // 
             // pbPersonImage
             // 
@@ -390,6 +393,11 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // ctrlAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -470,5 +478,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
