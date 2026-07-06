@@ -182,15 +182,7 @@ namespace DVLD.Controls.ctrlPeople
 
         }
 
-        public static bool copyImageToNewFolder(ref string imagePath, string destination = @"C:\Images\")
-        {
-            string newImagePath = destination + Guid.NewGuid() + ".jpg";
-            if (!File.Exists(imagePath))
-                return false;
 
-            File.Copy(imagePath, newImagePath, true);
-            return true;
-        }
 
         private string _SetPersonImage()
         {
