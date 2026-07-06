@@ -157,7 +157,7 @@ namespace DVLD.Controls.ctrlPeople
         //=======================SAVE========================================
 
         //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
-        private string handleImage()
+        private string setIamge()
         {
             if(File.Exists(pbPersonImage.ImageLocation))
             {
@@ -179,7 +179,7 @@ namespace DVLD.Controls.ctrlPeople
             _Person.address = txtAddress.Text;
             _Person.phone = mskPhoneNumber.Text;
             _Person.countryID = Country.findCountry(cbCountries.SelectedIndex+1).countryID;
-
+            _Person.imagePath = setIamge();
         }
         private void fillObjectDataToField()
         {
