@@ -12,12 +12,12 @@ namespace DVLD
         public event sendColorBack sendIDBack;
 
         private int _PersonID;
-        public frmAddUpdatePerson()
+        public frmAddUpdatePerson(int personID)
         {
-            _PersonID = 12;
+           
             InitializeComponent();
 
-           
+            _PersonID = personID;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace DVLD
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
 
-            this.ctrlAddUpdatePerson1.personID = -1;
+            this.ctrlAddUpdatePerson1.personID = _PersonID;
 
 
         }

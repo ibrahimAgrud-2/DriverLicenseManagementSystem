@@ -71,7 +71,12 @@ namespace DVLD.Controls.ctrlPeople
                 cbCountries.SelectedIndex = 10;
                 _Person = new People();
                 _TemLoad();
+                return;
             }
+
+            _Person = People.findPersonByID(_personID);
+            fillObjectDataToField(_Person);
+
         }
 
 
@@ -202,8 +207,6 @@ namespace DVLD.Controls.ctrlPeople
         {
             string imagePath = pbPersonImage.ImageLocation;
 
-
-
             //Eğer oldu da imagepath boş geldi. Haliyle kopyalama gerçekleşmez. Bu durmda DB'ye boş gitmemesi için default fotoğraf atıyoruz.
             if (!Utility.copyImageToNewFolder(ref imagePath))
             {
@@ -231,6 +234,9 @@ namespace DVLD.Controls.ctrlPeople
                 _Person.phone = mskPhoneNumber.Text;
                 _Person.countryID = Country.findCountry(cbCountries.SelectedIndex + 1).countryID;
                 _Person.imagePath = _SetPersonImage();
+                _Person.gender = (rbFemale.Checked? 1:0);
+                
+                
                 return true;
             }
             else
@@ -239,18 +245,19 @@ namespace DVLD.Controls.ctrlPeople
             }
 
         }
-        private void fillObjectDataToField()
+        private void fillObjectDataToField(People person)
         {
-            mskFirstName.Text = _Person.firstName;
-            mskSecondName.Text = _Person.secondName;
-            mskThirdName.Text = _Person.thirdName;
-            mskLastName.Text = _Person.lastName;
-            mskNationalNo.Text = _Person.nationalNo;
-            txtEmail.Text = _Person.email;
-            txtAddress.Text = _Person.address;
-            mskPhoneNumber.Text = _Person.phone;
-            cbCountries.SelectedIndex = _Person.countryID;
+            mskFirstName.Text = person.firstName;
+            mskSecondName.Text = person.secondName;
+            mskThirdName.Text = person.thirdName;
+            mskLastName.Text = person.lastName;
+            mskNationalNo.Text = person.nationalNo;
+            txtEmail.Text = person.email;
+            txtAddress.Text = person.address;
+            mskPhoneNumber.Text = person.phone;
+            cbCountries.SelectedIndex = person.countryID;
 
+            
 
             //rbFemal male değişmeli.
 

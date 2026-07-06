@@ -103,10 +103,10 @@ namespace DVLD
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            //frmAddUpdatePerson frm = new frmAddUpdatePerson(-1);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson(-1);
 
-            //frm.ShowDialog();
-            //_RefreshPeopleList();
+            frm.ShowDialog();
+            _RefreshPeopleList();
         }
 
         private void tsmEdit_Click(object sender, EventArgs e)
@@ -116,9 +116,9 @@ namespace DVLD
             if(int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(),out int selectedPersonID))
             {
 
-                //frmAddUpdatePerson frm = new frmAddUpdatePerson(selectedPersonID);
-                //frm.ShowDialog();
-                //_RefreshPeopleList();
+                frmAddUpdatePerson frm = new frmAddUpdatePerson(selectedPersonID);
+                frm.ShowDialog();
+                _RefreshPeopleList();
             }
 
         }
