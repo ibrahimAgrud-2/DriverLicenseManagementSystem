@@ -35,10 +35,13 @@ namespace DVLD
 
         private void ctrlAddUpdatePerson1_SaveCompleted(int obj)
         {
-            label3.Text = obj.ToString();
+            lblPersonId.Text = obj.ToString();
 
         }
 
-    
+        private void ctrlAddUpdatePerson1_OnSaveComplete(int obj)
+        {
+            lblPersonId.Text = obj.ToString();
+        }
     }
 }

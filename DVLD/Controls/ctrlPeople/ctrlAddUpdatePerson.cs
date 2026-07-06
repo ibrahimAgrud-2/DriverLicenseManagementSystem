@@ -23,6 +23,20 @@ namespace DVLD.Controls.ctrlPeople
         enum enMode { enAddNew=1,enUpdate=2};
        private enMode _Mode;
 
+
+        //________________ V Event V ________________________
+        public event Action<int> OnSaveComplete;
+        protected virtual void SaveComplete(int result)
+        {
+            Action<int> test = OnSaveComplete;
+            if (test != null)
+            {
+                test(result);
+            }
+
+        }
+        //______________ ^^^ Event ^^^ ______________________
+
         //Control için dışardan veriyi property ile verecem. property mantığı gereği ID verildiği anda 
         //set'e yazdığım fonksyionlar çalışacak.
         public int personID
@@ -218,6 +232,9 @@ namespace DVLD.Controls.ctrlPeople
             {
                 MessageBox.Show("Saved successfully");
 
+                //Event tetikleme
+                SaveComplete(_Person.personID);
+
             }
             else
             {
@@ -340,5 +357,6 @@ namespace DVLD.Controls.ctrlPeople
 
         //Update yaparken "fill required field diyor ama error provider set olmadığı için hanig alanlarda hata olduğu gözükmüyor.
         //Add sonrası form otomatik olarak update moduna geçmeli.
+        //save sonrari ID addFormunda olmalı.
     }
 }

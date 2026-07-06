@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPersonId = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
@@ -58,14 +58,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "PersonID";
             // 
-            // label3
+            // lblPersonId
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(220, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "N/A";
+            this.lblPersonId.AutoSize = true;
+            this.lblPersonId.Location = new System.Drawing.Point(220, 20);
+            this.lblPersonId.Name = "lblPersonId";
+            this.lblPersonId.Size = new System.Drawing.Size(53, 29);
+            this.lblPersonId.TabIndex = 2;
+            this.lblPersonId.Text = "N/A";
             // 
             // openFileDialog1
             // 
@@ -95,13 +95,14 @@
             this.ctrlAddUpdatePerson1.Name = "ctrlAddUpdatePerson1";
             this.ctrlAddUpdatePerson1.Size = new System.Drawing.Size(1174, 565);
             this.ctrlAddUpdatePerson1.TabIndex = 3;
+            this.ctrlAddUpdatePerson1.OnSaveComplete += new System.Action<int>(this.ctrlAddUpdatePerson1_OnSaveComplete);
             // 
             // frmAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1243, 680);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblPersonId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
@@ -120,7 +121,7 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPersonId;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnClose;
