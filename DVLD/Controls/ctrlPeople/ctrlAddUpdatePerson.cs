@@ -43,7 +43,20 @@ namespace DVLD.Controls.ctrlPeople
             }
         }
 
-   
+
+        //_________Temp_________
+        private void _TemLoad()
+        {
+            mskFirstName.Text = "ibrahim";
+            mskSecondName.Text = "mustafa";
+            mskThirdName.Text = "muhammed";
+            mskLastName.Text = "orut";
+            mskNationalNo.Text = "N";
+            mskPhoneNumber.Text = "12345678919";
+            txtAddress.Text = "Syria";
+        }
+        //_______________________________
+
         private void _Load()
         {
             _FillCountriesToComboBox();
@@ -54,6 +67,7 @@ namespace DVLD.Controls.ctrlPeople
                 dtpBirthDate.Value = DateTime.Now.AddYears(-18);
                 cbCountries.SelectedIndex = 10;
                 _Person = new People();
+                _TemLoad();
             }
         }
 
@@ -154,32 +168,67 @@ namespace DVLD.Controls.ctrlPeople
 
 
 
+
+
+
         //=======================SAVE========================================
 
-        //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
-        private string setIamge()
+       
+        private bool _IsAllInputsValid()
         {
-            if(File.Exists(pbPersonImage.ImageLocation))
+            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskNationalNo.MaskCompleted && mskPhoneNumber.MaskCompleted && (txtAddress.Text != string.Empty)&&_isEmailInputValid());
+        }
+
+        //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
+        //____________SAVE - Image__________________
+        private bool copyImageToNewFolder(ref string imagePath,string destination= @"C:\Images\")
+        {
+            string newImagePath = destination + Guid.NewGuid() + ".jpg"; 
+            File.Copy(imagePath, newImagePath, true);
+
+            if (File.Exists(newImagePath))
+                return true;
+            else
+                return false;
+        }
+        private string _SetPersonImage()
+        {
+            string imagePath = pbPersonImage.ImageLocation;
+            if(File.Exists(imagePath))
             {
-                return pbPersonImage.ImageLocation;
+                copyImageToNewFolder(ref imagePath);
             }
             else
             {
-               return setDefaultImage();
+              
             }
+
+            return imagePath;
         }
-        private void fillDataToObject()
+        //__________________________________________
+        
+        private bool _FillDataToObject()
         {
-            _Person.firstName = mskFirstName.Text;
-            _Person.secondName = mskSecondName.Text;
-            _Person.thirdName = mskThirdName.Text;
-            _Person.lastName = mskLastName.Text;
-            _Person.nationalNo = mskNationalNo.Text;
-            _Person.email = txtEmail.Text;
-            _Person.address = txtAddress.Text;
-            _Person.phone = mskPhoneNumber.Text;
-            _Person.countryID = Country.findCountry(cbCountries.SelectedIndex+1).countryID;
-            _Person.imagePath = setIamge();
+
+            if(_IsAllInputsValid())
+                    {
+                _Person.firstName = mskFirstName.Text;
+                _Person.secondName = mskSecondName.Text;
+                _Person.thirdName = mskThirdName.Text;
+                _Person.lastName = mskLastName.Text;
+                _Person.nationalNo = mskNationalNo.Text;
+                _Person.email = txtEmail.Text;
+                _Person.address = txtAddress.Text;
+                _Person.phone = mskPhoneNumber.Text;
+                _Person.countryID = Country.findCountry(cbCountries.SelectedIndex + 1).countryID;
+                _Person.imagePath = _SetPersonImage();
+                return true;
+            }
+            else
+            {
+                         return false;
+            }
+
         }
         private void fillObjectDataToField()
         {
@@ -193,25 +242,29 @@ namespace DVLD.Controls.ctrlPeople
             mskPhoneNumber.Text = _Person.phone;
             cbCountries.SelectedIndex = _Person.countryID;
 
+
+            //rbFemal male değişmeli.
+
         }
 
-        /*
-         * 
-        private void _TemLoad()
-        {
-            mskFirstName.Text = "ibrahim";
-            mskSecondName.Text = "mustafa";
-            mskThirdName.Text = "muhammed";
-            mskLastName.Text = "orut";
-            mskNationalNo.Text = "N";
-            mskPhoneNumber.Text = "12345678919";
-            txtAddress.Text = "Syria";
-        }
-         */
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if(!_FillDataToObject())
+            {
+                MessageBox.Show("Fill required fields ");
+                return;
+            }
+            
+            if(_Person.save())
+            {
+                MessageBox.Show("Saved successfully");
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
         }
+        //======================= ^^^ SAVE ^^^ ========================================
 
 
 

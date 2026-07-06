@@ -33,11 +33,6 @@ namespace DVLD
 
         }
 
-        private void ctrlAddUpdatePerson1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ctrlAddUpdatePerson1_SaveCompleted(int obj)
         {
             label3.Text = obj.ToString();
