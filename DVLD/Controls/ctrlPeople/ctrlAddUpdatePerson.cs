@@ -70,7 +70,7 @@ namespace DVLD.Controls.ctrlPeople
                 dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
                 cbCountries.SelectedIndex = 10;
                 _Person = new People();
-                setDefaultImage();
+                _SetDefaultImage();
                 _TemLoad();
                 return;
             }
@@ -90,22 +90,7 @@ namespace DVLD.Controls.ctrlPeople
 
         //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
         //____________SAVE - Image__________________
-        private string setDefaultImage()
-        {
-            string imagePath = "";
-            if (rbFemale.Checked)
-            {
-                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
-                pbPersonImage.Load(imagePath);
-            }
-            else if (rbMale.Checked)
-            {
-                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
-                pbPersonImage.Load(imagePath);
-            }
-            return imagePath;
 
-        }
         private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
@@ -121,6 +106,23 @@ namespace DVLD.Controls.ctrlPeople
                 pbPersonImage.Load(openFileDialog1.FileName);
             }
         }
+     
+        private string _SetDefaultImage()
+        {
+            string imagePath = "";
+            if (rbFemale.Checked)
+            {
+                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
+                pbPersonImage.Load(imagePath);
+            }
+            else if (rbMale.Checked)
+            {
+                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
+                pbPersonImage.Load(imagePath);
+            }
+            return imagePath;
+
+        }
         private string _SetPersonImage()
         {
             string imagePath = pbPersonImage.ImageLocation;
@@ -130,8 +132,12 @@ namespace DVLD.Controls.ctrlPeople
             {
 
                 Utility.notifyUser(notifyIcon1, "Having problem with copy image. Saving with Default image", ToolTipIcon.Warning);
-                imagePath = setDefaultImage();
+                imagePath = _SetDefaultImage();
                 Utility.copyImageToNewFolder(ref imagePath);   
+            }
+            if(this._Mode==enMode.enUpdate)
+            {
+                Utility.DeleteImageFromFolder(_Person.imagePath);
             }
                 return imagePath;
         }
@@ -211,6 +217,7 @@ namespace DVLD.Controls.ctrlPeople
             if(_Person.save())
             {
                 MessageBox.Show("Saved successfully");
+
             }
             else
             {
@@ -302,7 +309,7 @@ namespace DVLD.Controls.ctrlPeople
         }
         private void cbGender_check(object sender, EventArgs e)
         {
-            setDefaultImage();
+            _SetDefaultImage();
         }
         private void mskNationalNo_TextChanged(object sender, EventArgs e)
         {
@@ -326,9 +333,12 @@ namespace DVLD.Controls.ctrlPeople
         //________________________ V independent Field V ______________
         private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            setDefaultImage();
+            _SetDefaultImage();
         }
         //________________________ ^^  independent Field ^^  ______________
 
+
+        //Update yaparken "fill required field diyor ama error provider set olmadığı için hanig alanlarda hata olduğu gözükmüyor.
+        //Add sonrası form otomatik olarak update moduna geçmeli.
     }
 }
