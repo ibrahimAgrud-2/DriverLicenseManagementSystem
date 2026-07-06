@@ -26,6 +26,17 @@ namespace DVLD
             return true;
         }
 
+        public static bool DeleteImageFromFolder(string imagePath)
+        {
+            
+            if (!File.Exists(imagePath))
+                return false;
+
+            File.Delete(imagePath);
+            return true;
+        }
+
+
         public static void notifyUser(NotifyIcon nf,string messageToUser, ToolTipIcon icon)
         {
             nf.Icon = SystemIcons.Application;

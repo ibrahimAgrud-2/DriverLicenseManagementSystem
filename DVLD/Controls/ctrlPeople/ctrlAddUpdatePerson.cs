@@ -220,14 +220,30 @@ namespace DVLD.Controls.ctrlPeople
 
         //======================= ^^^ SAVE ^^^ ========================================
 
-        private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            setDefaultImage();
-        }
 
 
 
         //________________Validation Fields___________________________________
+        private bool _IsNationalNoInputValid()
+        {
+
+            if (People.isPersonExistByNationalNo(mskNationalNo.Text))
+            {
+                if (_Person.nationalNo == mskNationalNo.Text)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void _FillCountriesToComboBox()
         {
             DataTable dt = Country.getCountryRecord();
@@ -305,24 +321,14 @@ namespace DVLD.Controls.ctrlPeople
         //__________________^^^^Validation^^^^_________________________________________
 
 
-        private bool _IsNationalNoInputValid()
-        {
 
-            if(People.isPersonExistByNationalNo(mskNationalNo.Text))
-            {
-                if(_Person.nationalNo==mskNationalNo.Text)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
-            }
+
+        //________________________ V independent Field V ______________
+        private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            setDefaultImage();
         }
+        //________________________ ^^  independent Field ^^  ______________
+
     }
 }
