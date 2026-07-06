@@ -180,7 +180,6 @@
             this.mskNationalNo.PromptChar = ' ';
             this.mskNationalNo.Size = new System.Drawing.Size(164, 32);
             this.mskNationalNo.TabIndex = 93;
-            this.mskNationalNo.Click += new System.EventHandler(this.cbGender_check);
             this.mskNationalNo.Leave += new System.EventHandler(this.mskNationalNo_Leave);
             // 
             // label5

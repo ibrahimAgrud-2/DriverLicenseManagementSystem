@@ -139,7 +139,6 @@ namespace DVLD.Controls.ctrlPeople
             if (People.isPersonExistByNationalNo(mskNationalNo.Text))
             {
                 errorProvider1.SetError(mskNationalNo, "National No is already exist");
-
             }
             else
             {
@@ -163,7 +162,7 @@ namespace DVLD.Controls.ctrlPeople
        
         private bool _IsAllInputsValid()
         {
-            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskNationalNo.MaskCompleted && mskPhoneNumber.MaskCompleted && (txtAddress.Text != string.Empty)&&_isEmailInputValid());
+            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted &&!People.isPersonExistByNationalNo(mskNationalNo.Text) && mskPhoneNumber.MaskCompleted && (txtAddress.Text != string.Empty)&&_isEmailInputValid());
         }
 
         //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
@@ -211,9 +210,7 @@ namespace DVLD.Controls.ctrlPeople
 
                 Utility.notifyUser(notifyIcon1, "Having problem with copy image. Saving with Default image", ToolTipIcon.Warning);
                 imagePath = setDefaultImage();
-                Utility.copyImageToNewFolder(ref imagePath);
-               
-                 
+                Utility.copyImageToNewFolder(ref imagePath);   
             }
                 return imagePath;
         }
