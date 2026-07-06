@@ -176,11 +176,12 @@
             // 
             this.mskNationalNo.HidePromptOnLeave = true;
             this.mskNationalNo.Location = new System.Drawing.Point(197, 144);
+            this.mskNationalNo.Mask = "Aaaaaaaaaaaaaaaaaaaaaaaaaaa";
             this.mskNationalNo.Name = "mskNationalNo";
             this.mskNationalNo.PromptChar = ' ';
             this.mskNationalNo.Size = new System.Drawing.Size(164, 32);
             this.mskNationalNo.TabIndex = 93;
-            this.mskNationalNo.Leave += new System.EventHandler(this.mskNationalNo_Leave);
+            this.mskNationalNo.TextChanged += new System.EventHandler(this.mskNationalNo_TextChanged);
             // 
             // label5
             // 

@@ -80,10 +80,12 @@ namespace DVLD.Controls.ctrlPeople
 
         }
 
+
+
         //======================= V SAVE V ========================================
         private bool _IsAllInputsValid()
         {
-            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted &&!People.isPersonExistByNationalNo(mskNationalNo.Text) && mskPhoneNumber.MaskCompleted && (txtAddress.Text != string.Empty)&&_isEmailInputValid());
+            return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted && mskPhoneNumber.MaskCompleted && _IsNationalNoInputValid()&&(txtAddress.Text != string.Empty)&&_isEmailInputValid());
         }
 
         //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
@@ -197,6 +199,7 @@ namespace DVLD.Controls.ctrlPeople
 
         }
 
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if(!_FillDataToObject())
@@ -281,29 +284,45 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(txtEmail, "");
             }
         }
-
-        private void mskNationalNo_Leave(object sender, EventArgs e)
-        {
-            if (People.isPersonExistByNationalNo(mskNationalNo.Text))
-            {
-                errorProvider1.SetError(mskNationalNo, "National No is already exist");
-            }
-            else
-            {
-                errorProvider1.SetError(mskNationalNo, "");
-            }
-        }
-
         private void cbGender_check(object sender, EventArgs e)
         {
             setDefaultImage();
         }
-
+        private void mskNationalNo_TextChanged(object sender, EventArgs e)
+        {
+            if(!mskNationalNo.MaskCompleted)
+            {
+                errorProvider1.SetError(mskNationalNo, "Enter A Valid national No");
+                return;
+            }
+            if (!_IsNationalNoInputValid())
+            {
+                errorProvider1.SetError(mskNationalNo, "National no already exist");
+                return;
+            }
+            errorProvider1.SetError(mskNationalNo, "");
+        }
         //__________________^^^^Validation^^^^_________________________________________
 
 
+        private bool _IsNationalNoInputValid()
+        {
 
-
-
+            if(People.isPersonExistByNationalNo(mskNationalNo.Text))
+            {
+                if(_Person.nationalNo==mskNationalNo.Text)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
