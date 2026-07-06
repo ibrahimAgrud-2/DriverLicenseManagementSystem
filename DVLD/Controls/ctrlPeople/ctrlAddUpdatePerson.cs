@@ -80,92 +80,7 @@ namespace DVLD.Controls.ctrlPeople
 
         }
 
-
-        //________________Validation Fields___________________________________
-        private void _FillCountriesToComboBox()
-        {
-            DataTable dt = Country.getCountryRecord();
-
-            foreach (DataRow data in dt.Rows)
-            {
-                cbCountries.Items.Add(data["CountryName"]);
-            }
-         
-        }
-
-        private void mskName_FocusLeave(object sender, EventArgs e)
-        {
-            MaskedTextBox msk = (MaskedTextBox)sender;
-
-            if(!msk.MaskCompleted)
-            {
-                errorProvider1.SetError(msk, "Is not valid.");
-            }
-            else
-            {
-                errorProvider1.SetError(msk, "");
-            }
-        }
-
-        private void txtAddress_Leave(object sender, EventArgs e)
-        {
-            if(txtAddress.Text==string.Empty)
-            {
-                errorProvider1.SetError(txtAddress, "Enter a valid Address");
-            }
-            else
-            {
-                errorProvider1.SetError(txtAddress, "");
-            }
-        }
-        private bool _isEmailInputValid()
-        {
-            if(txtEmail.Text==string.Empty||Utility.IsEmailValid(txtEmail.Text))
-            {
-                return true;
-            }
-            return false;
-           
-        }
-       
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            if(!_isEmailInputValid())
-            {
-                errorProvider1.SetError(txtEmail, "Enter a valid Email");
-            }
-            else
-            {
-                errorProvider1.SetError(txtEmail, "");
-            }
-        }
-
-        private void mskNationalNo_Leave(object sender, EventArgs e)
-        {
-            if (People.isPersonExistByNationalNo(mskNationalNo.Text))
-            {
-                errorProvider1.SetError(mskNationalNo, "National No is already exist");
-            }
-            else
-            {
-                errorProvider1.SetError(mskNationalNo, "");
-        }   }
-      
-       private void cbGender_check(object sender, EventArgs e)
-        {
-            setDefaultImage();
-        }
-
-        //__________________^^^^Validation^^^^_________________________________________
-
-
-
-
-
-
-        //=======================SAVE========================================
-
-       
+        //======================= V SAVE V ========================================
         private bool _IsAllInputsValid()
         {
             return (mskFirstName.MaskCompleted && mskLastName.MaskCompleted && mskSecondName.MaskCompleted &&!People.isPersonExistByNationalNo(mskNationalNo.Text) && mskPhoneNumber.MaskCompleted && (txtAddress.Text != string.Empty)&&_isEmailInputValid());
@@ -256,7 +171,8 @@ namespace DVLD.Controls.ctrlPeople
             txtEmail.Text = person.email;
             txtAddress.Text = person.address;
             mskPhoneNumber.Text = person.phone;
-            cbCountries.SelectedIndex = person.countryID;
+            cbCountries.SelectedIndex = person.countryID-1;
+           
              //Mode update olduğunda sistem DB'den yüklenirken gender butonu male/femal durumuna göre işaretlenmeli.
              //İşaretleme sonucu da fotoğraf değişeceği için person'un fotoğrafını değiştirmiş oluruz. Bu yüzden ilk update yaparken radio buttonlar işaretlenmeli ama o kişini fotoğrafı DB'de ne yüklü ise o olmalı. radio buton değiştiği için fotoğraf değişmemeli.
              //Ve bu işlem sadece ilk yükleme sırasında yapılmalı. Sonradan kullanıcı istediğini seçebilir.
@@ -305,6 +221,89 @@ namespace DVLD.Controls.ctrlPeople
         {
             setDefaultImage();
         }
+
+
+
+        //________________Validation Fields___________________________________
+        private void _FillCountriesToComboBox()
+        {
+            DataTable dt = Country.getCountryRecord();
+            foreach (DataRow data in dt.Rows)
+            {
+                cbCountries.Items.Add(data["CountryName"]);
+            }
+
+        }
+
+        private void mskName_FocusLeave(object sender, EventArgs e)
+        {
+            MaskedTextBox msk = (MaskedTextBox)sender;
+
+            if (!msk.MaskCompleted)
+            {
+                errorProvider1.SetError(msk, "Is not valid.");
+            }
+            else
+            {
+                errorProvider1.SetError(msk, "");
+            }
+        }
+
+        private void txtAddress_Leave(object sender, EventArgs e)
+        {
+            if (txtAddress.Text == string.Empty)
+            {
+                errorProvider1.SetError(txtAddress, "Enter a valid Address");
+            }
+            else
+            {
+                errorProvider1.SetError(txtAddress, "");
+            }
+        }
+        private bool _isEmailInputValid()
+        {
+            if (txtEmail.Text == string.Empty || Utility.IsEmailValid(txtEmail.Text))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (!_isEmailInputValid())
+            {
+                errorProvider1.SetError(txtEmail, "Enter a valid Email");
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, "");
+            }
+        }
+
+        private void mskNationalNo_Leave(object sender, EventArgs e)
+        {
+            if (People.isPersonExistByNationalNo(mskNationalNo.Text))
+            {
+                errorProvider1.SetError(mskNationalNo, "National No is already exist");
+            }
+            else
+            {
+                errorProvider1.SetError(mskNationalNo, "");
+            }
+        }
+
+        private void cbGender_check(object sender, EventArgs e)
+        {
+            setDefaultImage();
+        }
+
+        //__________________^^^^Validation^^^^_________________________________________
+
+
+
+
 
     }
 }
