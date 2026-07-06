@@ -129,16 +129,21 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(mskNationalNo, "");
         }   }
       
-        private void setDefaultImage()
+        private string setDefaultImage()
         {
+            string imagePath = "";
             if (rbFemale.Checked)
             {
-                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png");
+                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
+                pbPersonImage.Load(imagePath);
             }
             else if (rbMale.Checked)
             {
-                pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
+                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
+                pbPersonImage.Load(imagePath);
             }
+            return imagePath;
+
         }
         private void cbGender_check(object sender, EventArgs e)
         {
@@ -160,8 +165,7 @@ namespace DVLD.Controls.ctrlPeople
             }
             else
             {
-               
-                return "";
+               return setDefaultImage();
             }
         }
         private void fillDataToObject()
