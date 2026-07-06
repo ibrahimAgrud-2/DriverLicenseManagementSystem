@@ -17,7 +17,11 @@ namespace DVLD.Controls.ctrlPeople
         }
 
 
-        int _personID;
+        private People _Person;
+        private int _personID;
+
+        enum enMode { enAddNew=1,enUpdate=2};
+       private enMode _Mode;
 
         //Control için dışardan veriyi property ile verecem. property mantığı gereği ID verildiği anda 
         //set'e yazdığım fonksyionlar çalışacak.
@@ -27,27 +31,30 @@ namespace DVLD.Controls.ctrlPeople
             set
             {
                 _personID = value;
+                if(value<=0)
+                {
+                    this._Mode = enMode.enAddNew;
+                }
+                else
+                {
+                    this._Mode = enMode.enUpdate;
+                }
                 _Load();
             }
-        }
-
-
-
-
-        //Bu control'ü bazı formlarda ilk yüklenirken değil de sonradan verilern bir ID üzeridne tetiklenebiliyor 
-        //olması lazım. Mesela, user form'a alt kısma bunuda ekledim. Form ilk yüklenirken değilde, belli bir butona
-        //basınca ID gitmesini ve conttrolün çalışmasını isticem. Bu gibi durumlarda const işe yaramaz.
-        private void ctrlAddUpdatePerson_Load(object sender, EventArgs e)
-        {
-
         }
 
    
         private void _Load()
         {
-            dtpBirthDate.Value = DateTime.Now.AddYears(-18);
             _FillCountriesToComboBox();
-            cbCountries.SelectedIndex = 10;
+        
+
+            if(this._Mode==enMode.enAddNew)
+            {
+                dtpBirthDate.Value = DateTime.Now.AddYears(-18);
+                cbCountries.SelectedIndex = 10;
+                _Person = new People();
+            }
         }
 
 
@@ -121,7 +128,8 @@ namespace DVLD.Controls.ctrlPeople
             {
                 errorProvider1.SetError(mskNationalNo, "");
         }   }
-        private void cbGender_check(object sender, EventArgs e)
+      
+        private void setDefaultImage()
         {
             if (rbFemale.Checked)
             {
@@ -132,10 +140,75 @@ namespace DVLD.Controls.ctrlPeople
                 pbPersonImage.Load(@"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png");
             }
         }
+        private void cbGender_check(object sender, EventArgs e)
+        {
+            setDefaultImage();
+        }
 
         //__________________^^^^Validation^^^^_________________________________________
 
-     
+
+
+        //=======================SAVE========================================
+
+        //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
+        private string handleImage()
+        {
+            if(File.Exists(pbPersonImage.ImageLocation))
+            {
+                return pbPersonImage.ImageLocation;
+            }
+            else
+            {
+               
+                return "";
+            }
+        }
+        private void fillDataToObject()
+        {
+            _Person.firstName = mskFirstName.Text;
+            _Person.secondName = mskSecondName.Text;
+            _Person.thirdName = mskThirdName.Text;
+            _Person.lastName = mskLastName.Text;
+            _Person.nationalNo = mskNationalNo.Text;
+            _Person.email = txtEmail.Text;
+            _Person.address = txtAddress.Text;
+            _Person.phone = mskPhoneNumber.Text;
+            _Person.countryID = Country.findCountry(cbCountries.SelectedIndex+1).countryID;
+
+        }
+        private void fillObjectDataToField()
+        {
+            mskFirstName.Text = _Person.firstName;
+            mskSecondName.Text = _Person.secondName;
+            mskThirdName.Text = _Person.thirdName;
+            mskLastName.Text = _Person.lastName;
+            mskNationalNo.Text = _Person.nationalNo;
+            txtEmail.Text = _Person.email;
+            txtAddress.Text = _Person.address;
+            mskPhoneNumber.Text = _Person.phone;
+            cbCountries.SelectedIndex = _Person.countryID;
+
+        }
+
+        /*
+         * 
+        private void _TemLoad()
+        {
+            mskFirstName.Text = "ibrahim";
+            mskSecondName.Text = "mustafa";
+            mskThirdName.Text = "muhammed";
+            mskLastName.Text = "orut";
+            mskNationalNo.Text = "N";
+            mskPhoneNumber.Text = "12345678919";
+            txtAddress.Text = "Syria";
+        }
+         */
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }
