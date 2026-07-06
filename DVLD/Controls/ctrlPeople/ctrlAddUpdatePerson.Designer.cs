@@ -178,6 +178,7 @@
             this.mskNationalNo.PromptChar = ' ';
             this.mskNationalNo.Size = new System.Drawing.Size(164, 32);
             this.mskNationalNo.TabIndex = 93;
+            this.mskNationalNo.Click += new System.EventHandler(this.cbGender_check);
             this.mskNationalNo.Leave += new System.EventHandler(this.mskNationalNo_Leave);
             // 
             // label5
@@ -267,6 +268,7 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.cbGender_check);
             // 
             // rbFemale
             // 
@@ -277,6 +279,7 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.cbGender_check);
             // 
             // txtEmail
             // 
