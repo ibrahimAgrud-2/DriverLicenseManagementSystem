@@ -143,23 +143,7 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(mskNationalNo, "");
         }   }
       
-        private string setDefaultImage()
-        {
-            string imagePath = "";
-            if (rbFemale.Checked)
-            {
-                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
-                pbPersonImage.Load(imagePath);
-            }
-            else if (rbMale.Checked)
-            {
-                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
-                pbPersonImage.Load(imagePath);
-            }
-            return imagePath;
-
-        }
-        private void cbGender_check(object sender, EventArgs e)
+       private void cbGender_check(object sender, EventArgs e)
         {
             setDefaultImage();
         }
@@ -181,16 +165,33 @@ namespace DVLD.Controls.ctrlPeople
 
         //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
         //____________SAVE - Image__________________
-        private bool copyImageToNewFolder(ref string imagePath,string destination= @"C:\Images\")
+        private string setDefaultImage()
         {
-            string newImagePath = destination + Guid.NewGuid() + ".jpg"; 
-            File.Copy(imagePath, newImagePath, true);
+            string imagePath = "";
+            if (rbFemale.Checked)
+            {
+                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
+                pbPersonImage.Load(imagePath);
+            }
+            else if (rbMale.Checked)
+            {
+                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
+                pbPersonImage.Load(imagePath);
+            }
+            return imagePath;
 
-            if (File.Exists(newImagePath))
-                return true;
-            else
-                return false;
         }
+
+        public static bool copyImageToNewFolder(ref string imagePath, string destination = @"C:\Images\")
+        {
+            string newImagePath = destination + Guid.NewGuid() + ".jpg";
+            if (!File.Exists(imagePath))
+                return false;
+
+            File.Copy(imagePath, newImagePath, true);
+            return true;
+        }
+
         private string _SetPersonImage()
         {
             string imagePath = pbPersonImage.ImageLocation;
@@ -221,7 +222,7 @@ namespace DVLD.Controls.ctrlPeople
                 _Person.address = txtAddress.Text;
                 _Person.phone = mskPhoneNumber.Text;
                 _Person.countryID = Country.findCountry(cbCountries.SelectedIndex + 1).countryID;
-                _Person.imagePath = _SetPersonImage();
+                _Person.imagePath = "";
                 return true;
             }
             else
