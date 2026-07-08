@@ -35,7 +35,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(476, 62);
+            this.label1.Location = new System.Drawing.Point(475, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 29);
             this.label1.TabIndex = 1;
@@ -44,7 +44,7 @@
             // ctrlPersonInformation1
             // 
             this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(194, 111);
+            this.ctrlPersonInformation1.Location = new System.Drawing.Point(107, 90);
             this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
             this.ctrlPersonInformation1.Size = new System.Drawing.Size(964, 485);

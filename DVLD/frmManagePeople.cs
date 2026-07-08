@@ -69,6 +69,7 @@ namespace DVLD
                     if(People.delete(selectedPersonID))
                     {
                         MessageBox.Show("Person Deleted");
+                        _RefreshPeopleList();
                     }
                     else
                     {

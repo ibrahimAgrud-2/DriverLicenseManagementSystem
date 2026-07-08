@@ -52,7 +52,6 @@
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lnklblSetImage = new System.Windows.Forms.LinkLabel();
-            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.cbCountries = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -304,16 +302,6 @@
             this.lnklblSetImage.Text = "Set Image";
             this.lnklblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblSetImage_LinkClicked);
             // 
-            // pbPersonImage
-            // 
-            this.pbPersonImage.Image = ((System.Drawing.Image)(resources.GetObject("pbPersonImage.Image")));
-            this.pbPersonImage.Location = new System.Drawing.Point(863, 123);
-            this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(189, 226);
-            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPersonImage.TabIndex = 71;
-            this.pbPersonImage.TabStop = false;
-            // 
             // cbCountries
             // 
             this.cbCountries.FormattingEnabled = true;
@@ -425,7 +413,6 @@
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lnklblSetImage);
-            this.Controls.Add(this.pbPersonImage);
             this.Controls.Add(this.cbCountries);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -437,7 +424,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlAddUpdatePerson";
             this.Size = new System.Drawing.Size(1104, 558);
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -468,7 +454,6 @@
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.LinkLabel lnklblSetImage;
-        private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.ComboBox cbCountries;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

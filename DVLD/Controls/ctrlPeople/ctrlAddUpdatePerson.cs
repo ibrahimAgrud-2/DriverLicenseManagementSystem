@@ -61,7 +61,7 @@ namespace DVLD.Controls.ctrlPeople
         //_________Temp_________
         private void _TemLoad()
         {
-            mskFirstName.Text = "ibrahim";
+            //mskFirstName.Text = "ibrahim";
             mskSecondName.Text = "mustafa";
             mskThirdName.Text = "muhammed";
             mskLastName.Text = "orut";
@@ -103,8 +103,8 @@ namespace DVLD.Controls.ctrlPeople
         }
 
         //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
-        //____________SAVE - Image__________________
-
+        //____________ ^ SAVE - Image ^ __________________
+        string imagePath;
         private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
@@ -116,8 +116,8 @@ namespace DVLD.Controls.ctrlPeople
             openFileDialog1.FilterIndex = 1;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                pbPersonImage.Load(openFileDialog1.FileName);
+            {//pbPersonImage.Load(openFileDialog1.FileName);
+                imagePath = openFileDialog1.FileName;
             }
         }
      
@@ -127,19 +127,19 @@ namespace DVLD.Controls.ctrlPeople
             if (rbFemale.Checked)
             {
                 imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
-                pbPersonImage.Load(imagePath);
+                //pbPersonImage.Load(imagePath);
             }
             else if (rbMale.Checked)
             {
                 imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
-                pbPersonImage.Load(imagePath);
+               // pbPersonImage.Load(imagePath);
             }
             return imagePath;
 
         }
         private string _SetPersonImage()
         {
-            string imagePath = pbPersonImage.ImageLocation;
+          
 
             //Eğer oldu da imagepath boş geldi. Haliyle kopyalama gerçekleşmez. Bu durmda DB'ye boş gitmemesi için default fotoğraf atıyoruz.
             if (!Utility.copyImageToNewFolder(ref imagePath))
@@ -156,7 +156,6 @@ namespace DVLD.Controls.ctrlPeople
                 return imagePath;
         }
         //__________________________________________
-        
         private bool _FillDataToObject()
         {
 
@@ -212,7 +211,7 @@ namespace DVLD.Controls.ctrlPeople
             //Default foto zaten bir önceki adımda picturebox'a eklenmil olur
             if(person.imagePath!=string.Empty)
             {
-                pbPersonImage.Load(person.imagePath);
+                //pbPersonImage.Load(person.imagePath);
             }
      
            
