@@ -27,21 +27,19 @@ namespace DVLD
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
-
+            if(_PersonID > 0)
+            {
+                lblPersonId.Text = _PersonID.ToString();
+            }
             this.ctrlAddUpdatePerson1.personID = _PersonID;
 
-
-        }
-
-        private void ctrlAddUpdatePerson1_SaveCompleted(int obj)
-        {
-            lblPersonId.Text = obj.ToString();
 
         }
 
         private void ctrlAddUpdatePerson1_OnSaveComplete(int obj)
         {
             lblPersonId.Text = obj.ToString();
+            lblMode.Text = "Update Person";
         }
     }
 }

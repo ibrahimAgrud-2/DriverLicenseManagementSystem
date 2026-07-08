@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMode = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblPersonId = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -39,15 +39,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblMode
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Chartreuse;
-            this.label1.Location = new System.Drawing.Point(522, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Add New Person1";
+            this.lblMode.AutoSize = true;
+            this.lblMode.BackColor = System.Drawing.Color.Chartreuse;
+            this.lblMode.Location = new System.Drawing.Point(522, 20);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(195, 29);
+            this.lblMode.TabIndex = 2;
+            this.lblMode.Text = "Add New Person";
             // 
             // label2
             // 
@@ -104,7 +104,7 @@
             this.ClientSize = new System.Drawing.Size(1243, 680);
             this.Controls.Add(this.lblPersonId);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMode);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlAddUpdatePerson1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,7 +119,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblPersonId;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

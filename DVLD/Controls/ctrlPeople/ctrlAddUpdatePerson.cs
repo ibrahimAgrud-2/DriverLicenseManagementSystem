@@ -1,7 +1,6 @@
 ﻿using DVLD_BusinessLayer;
 using System;
 using System.Data;
-using System.IO;
 
 using System.Windows.Forms;
 
@@ -355,7 +354,5 @@ namespace DVLD.Controls.ctrlPeople
 
 
         //Update yaparken "fill required field diyor ama error provider set olmadığı için hanig alanlarda hata olduğu gözükmüyor.
-        //Add sonrası form otomatik olarak update moduna geçmeli.
-        //save sonrari ID addFormunda olmalı.
     }
 }
