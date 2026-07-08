@@ -306,14 +306,7 @@ namespace DVLD.Controls.ctrlPeople
         }
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            if (!_isEmailInputValid())
-            {
-                errorProvider1.SetError(txtEmail, "Enter a valid Email");
-            }
-            else
-            {
-                errorProvider1.SetError(txtEmail, "");
-            }
+
         }
         private void cbGender_check(object sender, EventArgs e)
         {
@@ -364,6 +357,18 @@ namespace DVLD.Controls.ctrlPeople
             foreach (Control ctrl in _FormControls)
             {
                 errorProvider1.SetError(ctrl,"This field is required");
+            }
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (!_isEmailInputValid())
+            {
+                errorProvider1.SetError(txtEmail, "Enter a valid Email");
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, "");
             }
         }
 
