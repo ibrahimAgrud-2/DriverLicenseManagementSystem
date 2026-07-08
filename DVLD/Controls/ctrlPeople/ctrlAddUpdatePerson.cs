@@ -227,13 +227,10 @@ namespace DVLD.Controls.ctrlPeople
             if(_Person.save())
             {
                 MessageBox.Show("Saved successfully");
+                _Mode = enMode.enUpdate;
 
                 //Event tetikleme
                 SaveComplete(_Person.personID);
-                _Person.mode = People.enMode.enUpdate;
-                this._Mode = enMode.enUpdate;
-                
-
             }
             else
             {
