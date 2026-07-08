@@ -188,7 +188,7 @@ namespace DVLD_BusinessLayer
                         //ekleme tamamlandığı için ve dolaysıyla bu contact sistemde olduğu için artık
                         //modu add yerine update yaparız. Save update için de kullanıldığı için
                         //eğer o anki objeyi update yapmak istediğindinde sisteme tekrar kayıt eder.
-                        this.mode = enMode.enAddNew;
+                        this.mode = enMode.enUpdate;
                         return true;
                     }
                     else

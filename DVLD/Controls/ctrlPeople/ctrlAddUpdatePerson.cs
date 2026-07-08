@@ -61,7 +61,7 @@ namespace DVLD.Controls.ctrlPeople
         //_________Temp_________
         private void _TemLoad()
         {
-            //mskFirstName.Text = "ibrahim";
+            mskFirstName.Text = "ibrahim";
             mskSecondName.Text = "mustafa";
             mskThirdName.Text = "muhammed";
             mskLastName.Text = "orut";
@@ -74,10 +74,7 @@ namespace DVLD.Controls.ctrlPeople
         private void _Load()
         {
             _FillCountriesToComboBox();
-            //nedense load yaparken pb'de image olmasına rağmen imageLocaiton boş oluyor.
-            //Bu yüzden load sırasında iamge'i yüklemek lazım.
-
-
+ 
 
             if (this._Mode==enMode.enAddNew)
             {
@@ -233,6 +230,9 @@ namespace DVLD.Controls.ctrlPeople
 
                 //Event tetikleme
                 SaveComplete(_Person.personID);
+                _Person.mode = People.enMode.enUpdate;
+                this._Mode = enMode.enUpdate;
+                
 
             }
             else
