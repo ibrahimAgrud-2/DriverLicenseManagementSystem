@@ -243,6 +243,15 @@ namespace DVLD.Controls.ctrlPeople
 
 
         //________________Validation Fields___________________________________
+        private bool _isEmailInputValid()
+        {
+            if (txtEmail.Text == string.Empty || Utility.IsEmailValid(txtEmail.Text))
+            {
+                return true;
+            }
+            return false;
+
+        }
         private bool _IsNationalNoInputValid()
         {
 
@@ -262,18 +271,7 @@ namespace DVLD.Controls.ctrlPeople
                 return true;
             }
         }
-
-        private void _FillCountriesToComboBox()
-        {
-            DataTable dt = Country.getCountryRecord();
-            foreach (DataRow data in dt.Rows)
-            {
-                cbCountries.Items.Add(data["CountryName"]);
-            }
-
-        }
-
-        private void mskName_FocusLeave(object sender, EventArgs e)
+        private void msk_TextChanged(object sender, EventArgs e)
         {
             MaskedTextBox msk = (MaskedTextBox)sender;
 
@@ -286,8 +284,7 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(msk, "");
             }
         }
-
-        private void txtAddress_Leave(object sender, EventArgs e)
+        private void txtAddress_TextChanged(object sender, EventArgs e)
         {
             if (txtAddress.Text == string.Empty)
             {
@@ -298,16 +295,15 @@ namespace DVLD.Controls.ctrlPeople
                 errorProvider1.SetError(txtAddress, "");
             }
         }
-        private bool _isEmailInputValid()
+        private void _FillCountriesToComboBox()
         {
-            if (txtEmail.Text == string.Empty || Utility.IsEmailValid(txtEmail.Text))
+            DataTable dt = Country.getCountryRecord();
+            foreach (DataRow data in dt.Rows)
             {
-                return true;
+                cbCountries.Items.Add(data["CountryName"]);
             }
-            return false;
 
         }
-
         private void txtEmail_Leave(object sender, EventArgs e)
         {
             if (!_isEmailInputValid())
@@ -372,9 +368,8 @@ namespace DVLD.Controls.ctrlPeople
         }
 
 
+
         //________________________ ^^  independent Field ^^  ______________
 
-
-        //Update yaparken "fill required field diyor ama error provider set olmadığı için hanig alanlarda hata olduğu gözükmüyor.
     }
 }

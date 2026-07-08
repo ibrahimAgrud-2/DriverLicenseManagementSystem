@@ -74,7 +74,7 @@
             this.mskSecondName.PromptChar = ' ';
             this.mskSecondName.Size = new System.Drawing.Size(164, 32);
             this.mskSecondName.TabIndex = 92;
-            this.mskSecondName.Leave += new System.EventHandler(this.mskName_FocusLeave);
+            this.mskSecondName.TextChanged += new System.EventHandler(this.msk_TextChanged);
             // 
             // txtAddress
             // 
@@ -84,7 +84,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(626, 95);
             this.txtAddress.TabIndex = 91;
-            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // mskPhoneNumber
             // 
@@ -95,7 +95,7 @@
             this.mskPhoneNumber.PromptChar = ' ';
             this.mskPhoneNumber.Size = new System.Drawing.Size(236, 32);
             this.mskPhoneNumber.TabIndex = 90;
-            this.mskPhoneNumber.Leave += new System.EventHandler(this.mskName_FocusLeave);
+            this.mskPhoneNumber.TextChanged += new System.EventHandler(this.msk_TextChanged);
             // 
             // lnkLblRemove
             // 
@@ -118,7 +118,7 @@
             this.mskLastName.PromptChar = ' ';
             this.mskLastName.Size = new System.Drawing.Size(164, 32);
             this.mskLastName.TabIndex = 88;
-            this.mskLastName.Leave += new System.EventHandler(this.mskName_FocusLeave);
+            this.mskLastName.TextChanged += new System.EventHandler(this.msk_TextChanged);
             // 
             // mskThirdName
             // 
@@ -129,6 +129,7 @@
             this.mskThirdName.PromptChar = ' ';
             this.mskThirdName.Size = new System.Drawing.Size(164, 32);
             this.mskThirdName.TabIndex = 87;
+            this.mskThirdName.TextChanged += new System.EventHandler(this.msk_TextChanged);
             // 
             // mskFirstName
             // 
@@ -139,7 +140,7 @@
             this.mskFirstName.PromptChar = ' ';
             this.mskFirstName.Size = new System.Drawing.Size(164, 32);
             this.mskFirstName.TabIndex = 86;
-            this.mskFirstName.Leave += new System.EventHandler(this.mskName_FocusLeave);
+            this.mskFirstName.TextChanged += new System.EventHandler(this.msk_TextChanged);
             // 
             // label14
             // 
