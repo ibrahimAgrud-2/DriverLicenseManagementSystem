@@ -47,7 +47,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -62,6 +61,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -246,18 +246,6 @@
             this.label11.TabIndex = 77;
             this.label11.Text = "Phone: ";
             // 
-            // btnSave
-            // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(659, 501);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(141, 49);
-            this.btnSave.TabIndex = 76;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // rbMale
             // 
             this.rbMale.AutoSize = true;
@@ -386,6 +374,18 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(636, 492);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 49);
+            this.button1.TabIndex = 76;
+            this.button1.Text = "Save";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // ctrlAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -408,7 +408,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.txtEmail);
@@ -449,7 +449,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.TextBox txtEmail;
@@ -464,5 +463,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button button1;
     }
 }

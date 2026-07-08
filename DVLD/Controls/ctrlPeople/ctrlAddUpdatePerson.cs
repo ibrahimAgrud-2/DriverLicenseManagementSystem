@@ -1,5 +1,6 @@
 ﻿using DVLD_BusinessLayer;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 using System.Windows.Forms;
@@ -60,20 +61,15 @@ namespace DVLD.Controls.ctrlPeople
         //_________Temp_________
         private void _TemLoad()
         {
-            mskFirstName.Text = "ibrahim";
-            mskSecondName.Text = "mustafa";
-            mskThirdName.Text = "muhammed";
-            mskLastName.Text = "orut";
-            mskNationalNo.Text = "N";
-            mskPhoneNumber.Text = "12345678919";
-            txtAddress.Text = "Syria";
+
         }
         //_______________________________
 
         private void _Load()
         {
             _FillCountriesToComboBox();
- 
+
+            
 
             if (this._Mode==enMode.enAddNew)
             {
@@ -81,6 +77,7 @@ namespace DVLD.Controls.ctrlPeople
                 cbCountries.SelectedIndex = 10;
                 _Person = new People();
                 _SetDefaultImage();
+                setErrors();
                 _TemLoad();
                 return;
             }
@@ -350,6 +347,31 @@ namespace DVLD.Controls.ctrlPeople
         {
             _SetDefaultImage();
         }
+
+        private List<Control> _FormControls=new List<Control>();
+        private void _AddControlsToTheList()
+        {
+            _FormControls.Add(mskFirstName);
+            _FormControls.Add(mskSecondName);
+            _FormControls.Add(mskThirdName);
+            _FormControls.Add(mskLastName);
+            _FormControls.Add(mskNationalNo);
+            _FormControls.Add(mskPhoneNumber);
+            _FormControls.Add(txtAddress);
+        }
+
+        private void setErrors()
+        {
+            _AddControlsToTheList();
+
+
+            foreach (Control ctrl in _FormControls)
+            {
+                errorProvider1.SetError(ctrl,"This field is required");
+            }
+        }
+
+
         //________________________ ^^  independent Field ^^  ______________
 
 
