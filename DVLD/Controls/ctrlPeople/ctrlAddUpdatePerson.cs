@@ -136,9 +136,12 @@ namespace DVLD.Controls.ctrlPeople
         }
         private string _SetPersonImage()
         {
+            //EĞER foto değişmemişse veya direk aynısı seçilmeşise upadate'e gerek yok. Fotoğraflık bir durum yok.
+            if(_Mode==enMode.enUpdate&&_Person.imagePath==imagePath)
+            {
+                return imagePath;
+            }
           
-
-            //Eğer oldu da imagepath boş geldi. Haliyle kopyalama gerçekleşmez. Bu durmda DB'ye boş gitmemesi için default fotoğraf atıyoruz.
             if (!Utility.copyImageToNewFolder(ref imagePath))
             {
 
