@@ -30,6 +30,7 @@ namespace DVLD
             if(_PersonID > 0)
             {
                 lblPersonId.Text = _PersonID.ToString();
+                lblMode.Text = "Update Person";
             }
             this.ctrlAddUpdatePerson1.personID = _PersonID;
 
