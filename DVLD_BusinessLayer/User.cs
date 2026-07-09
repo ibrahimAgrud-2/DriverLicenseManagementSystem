@@ -9,10 +9,13 @@ namespace DVLD_BusinessLayer
     public class User
     {
         public int userID { set; get; }
-        public int personID { set; get; }
         public string userName { set; get; }
         public string password { set; get; }
         public bool isActive { set; get; }
+
+        public int personID { set; get; }
+
+        public People person { set; get; };
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode mode;
