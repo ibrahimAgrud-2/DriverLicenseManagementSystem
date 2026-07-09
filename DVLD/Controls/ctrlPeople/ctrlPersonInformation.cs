@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using DVLD_BusinessLayer;
 using System.Windows.Forms;
 
@@ -53,16 +53,21 @@ namespace DVLD
 
 
 
-            if (person.gender == 0)
+            lblGender.Text = person.gender == 0 ? "Male" : "Female";
+
+            if (File.Exists(_Person.imagePath))
             {
-                lblGender.Text = "Male";
+                pbPersonImage.ImageLocation = _Person.imagePath;
+            }
+            else if(_Person.gender==1)
+            {
+                pbPersonImage.ImageLocation = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
+
             }
             else
             {
-                lblGender.Text = "Female";
+                pbPersonImage.ImageLocation = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
             }
-            pbPersonImage.ImageLocation = person.imagePath;
-
         }
 
         private void _Load()
