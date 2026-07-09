@@ -93,6 +93,7 @@ namespace DVLD.Controls.ctrlPeople
 
             _Person = People.findPersonByID(_personID);
             fillObjectDataToField(_Person);
+          
 
         }
 
@@ -212,6 +213,7 @@ namespace DVLD.Controls.ctrlPeople
             if(File.Exists(person.imagePath))
             {
                 pbPersonImage.ImageLocation=person.imagePath;
+                lnkLblRemove.Visible = true;
             }
             else
             {
