@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD
 {
@@ -15,6 +17,9 @@ namespace DVLD
         {
             InitializeComponent();
         }
+
+        private DataTable _DtPeople;
+
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
@@ -40,15 +45,16 @@ namespace DVLD
 
         private void _RefreshPeopleList()
         {
-            DataTable table = People.getAllPersonRecords();
-
-            dgvPeopleList.DataSource = table;
+            _DtPeople = People.getAllPersonRecords();
+            dgvPeopleList.DataSource = _DtPeople;
             _SetColumnNames();
              lblRecords.Text = dgvPeopleList.RowCount.ToString();
         }
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
+            _DtPeople = People.getAllPersonRecords();
             _RefreshPeopleList();
+            cbFilterBy.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -136,10 +142,52 @@ namespace DVLD
           
         }
 
+
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilet.Visible = true;
-         
+
+            if(cbFilterBy.SelectedIndex==0)
+            {
+                txtFilet.Visible = false;
+                _DtPeople.DefaultView.RowFilter = null;
+            }
+            else
+            {
+                txtFilet.Visible = true;
+            }
+
+        }
+ 
+        
+        private void txtFilet_TextChanged(object sender, EventArgs e)
+        {
+ 
+    
+
+            if (txtFilet.Text == "")
+            {
+                _DtPeople.DefaultView.RowFilter = null;
+                dgvPeopleList.DataSource = _DtPeople;
+                return;
+            }
+
+
+            switch(cbFilterBy.Text)
+            {
+                case "Person ID":
+                    _DtPeople.DefaultView.RowFilter = string.Format("PersonID = '{0}'", txtFilet.Text);
+                    break;
+
+                case "First Name":
+                    _DtPeople.DefaultView.RowFilter = $"FirstName LIKE '%{txtFilet.Text}%'"; ;
+                    break;
+                case "National No":
+                    _DtPeople.DefaultView.RowFilter = string.Format("NationalNo = '{0}'", txtFilet.Text);
+                    break;
+
+
+            }
+            dgvPeopleList.DataSource = _DtPeople;
             
         }
     }

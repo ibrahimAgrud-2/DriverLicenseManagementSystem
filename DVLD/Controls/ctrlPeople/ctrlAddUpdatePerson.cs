@@ -18,7 +18,10 @@ namespace DVLD.Controls.ctrlPeople
             InitializeComponent();
         }
 
-        RegionInfo region = RegionInfo.CurrentRegion;
+        
+       private RegionInfo _Region = RegionInfo.CurrentRegion;
+
+
         private People _Person;
         private int _personID;
 
@@ -84,7 +87,7 @@ namespace DVLD.Controls.ctrlPeople
             {
                 dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
                 _Person = new People();
-                cbCountries.SelectedItem = region.EnglishName;
+                cbCountries.SelectedItem = _Region.EnglishName;
                 _SetDefaultImage();
                 setErrors();
                 _TemLoad();

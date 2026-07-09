@@ -65,9 +65,10 @@
             this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
-            "ID",
-            "NationalNo",
-            "Name"});
+            "None",
+            "Person ID",
+            "National No",
+            "First Name"});
             this.cbFilterBy.Location = new System.Drawing.Point(117, 350);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(193, 33);
@@ -275,7 +276,8 @@
             this.txtFilet.Name = "txtFilet";
             this.txtFilet.Size = new System.Drawing.Size(193, 33);
             this.txtFilet.TabIndex = 28;
-            this.txtFilet.Text = "user rowfiler";
+            this.txtFilet.Visible = false;
+            this.txtFilet.TextChanged += new System.EventHandler(this.txtFilet_TextChanged);
             // 
             // frmManagePeople
             // 
