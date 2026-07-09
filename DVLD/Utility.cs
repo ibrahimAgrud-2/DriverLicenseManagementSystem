@@ -28,24 +28,20 @@ namespace DVLD
 
         public static bool DeleteImageFromFolder(string imagePath)
         {
-            
-            if (!File.Exists(imagePath))
-                return false;
+            try
+            {
+                File.Delete(imagePath);
 
-            File.Delete(imagePath);
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Previous image could not deleted");
+                return false;
+            }
             return true;
         }
 
-
-        public static void notifyUser(NotifyIcon nf,string messageToUser, ToolTipIcon icon)
-        {
-            nf.Icon = SystemIcons.Application;
-            nf.Text = messageToUser;
-            nf.BalloonTipIcon = icon;
-            nf.Visible = true;
-            nf.BalloonTipText = messageToUser;
-            nf.ShowBalloonTip(3000);
-        }
+        
 
     }
 }

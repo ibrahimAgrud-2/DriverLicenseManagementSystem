@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using System.Globalization;
 
 
 namespace DVLD.Controls.ctrlPeople
@@ -16,7 +18,7 @@ namespace DVLD.Controls.ctrlPeople
             InitializeComponent();
         }
 
-
+        RegionInfo region = RegionInfo.CurrentRegion;
         private People _Person;
         private int _personID;
 
@@ -61,6 +63,14 @@ namespace DVLD.Controls.ctrlPeople
         //_________Temp_________
         private void _TemLoad()
         {
+            mskFirstName.Text = "ibrahim";
+            mskSecondName.Text = "mustafa";
+            mskThirdName.Text = "dad";
+            mskLastName.Text = "dad";
+            mskNationalNo.Text = "dad";
+            txtAddress.Text = "dad";
+            mskPhoneNumber.Text = "12312312311";
+            cbCountries.SelectedIndex = 4;
 
         }
         //_______________________________
@@ -69,7 +79,7 @@ namespace DVLD.Controls.ctrlPeople
         {
             _FillCountriesToComboBox();
 
-            
+            cbCountries.SelectedItem ="United States";
 
             if (this._Mode==enMode.enAddNew)
             {
@@ -97,7 +107,7 @@ namespace DVLD.Controls.ctrlPeople
 
         //Update'te yazdıktan sonra sadece image halleden kapsamla bir fonk yazalım.
         //____________ ^ SAVE - Image ^ __________________
-        string imagePath;
+       
         private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
@@ -109,9 +119,11 @@ namespace DVLD.Controls.ctrlPeople
             openFileDialog1.FilterIndex = 1;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {//pbPersonImage.Load(openFileDialog1.FileName);
-                imagePath = openFileDialog1.FileName;
+            {
+                pbPersonImage.ImageLocation = openFileDialog1.FileName;
+                lnkLblRemove.Visible = true;
             }
+       
         }
      
         private string _SetDefaultImage()
@@ -120,35 +132,33 @@ namespace DVLD.Controls.ctrlPeople
             if (rbFemale.Checked)
             {
                 imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
-                //pbPersonImage.Load(imagePath);
+                pbPersonImage.ImageLocation=imagePath;
             }
             else if (rbMale.Checked)
             {
                 imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
-               // pbPersonImage.Load(imagePath);
+                pbPersonImage.ImageLocation = imagePath;
             }
             return imagePath;
 
         }
-        private string _SetPersonImage()
+        private string _handleImage()
         {
+            string imagePath = pbPersonImage.ImageLocation;
             //EĞER foto değişmemişse veya direk aynısı seçilmeşise upadate'e gerek yok. Fotoğraflık bir durum yok.
-            if(_Mode==enMode.enUpdate&&_Person.imagePath==imagePath)
+            if (_Mode==enMode.enUpdate&&_Person.imagePath==pbPersonImage.ImageLocation)
             {
                 return imagePath;
             }
-          
-            if (!Utility.copyImageToNewFolder(ref imagePath))
-            {
 
-                Utility.notifyUser(notifyIcon1, "Having problem with copy image. Saving with Default image", ToolTipIcon.Warning);
-                imagePath = _SetDefaultImage();
-                Utility.copyImageToNewFolder(ref imagePath);   
-            }
-            if(this._Mode==enMode.enUpdate)
+
+            Utility.copyImageToNewFolder(ref imagePath);
+
+            if (this._Mode==enMode.enUpdate && _Person.imagePath != pbPersonImage.ImageLocation)
             {
                 Utility.DeleteImageFromFolder(_Person.imagePath);
             }
+          
                 return imagePath;
         }
         //__________________________________________
@@ -166,7 +176,7 @@ namespace DVLD.Controls.ctrlPeople
                 _Person.address = txtAddress.Text;
                 _Person.phone = mskPhoneNumber.Text;
                 _Person.countryID = Country.findCountry(cbCountries.SelectedIndex + 1).countryID;
-                _Person.imagePath = _SetPersonImage();
+                _Person.imagePath = _handleImage();
                 _Person.gender = (rbFemale.Checked? 1:0);
                 
                 
@@ -190,27 +200,27 @@ namespace DVLD.Controls.ctrlPeople
             mskPhoneNumber.Text = person.phone;
             cbCountries.SelectedIndex = person.countryID-1;
            
-             //Mode update olduğunda sistem DB'den yüklenirken gender butonu male/femal durumuna göre işaretlenmeli.
-             //İşaretleme sonucu da fotoğraf değişeceği için person'un fotoğrafını değiştirmiş oluruz. Bu yüzden ilk update yaparken radio buttonlar işaretlenmeli ama o kişini fotoğrafı DB'de ne yüklü ise o olmalı. radio buton değiştiği için fotoğraf değişmemeli.
-             //Ve bu işlem sadece ilk yükleme sırasında yapılmalı. Sonradan kullanıcı istediğini seçebilir.
 
-            //Bunu için ilk önce gender'ı alıp, sonra fotoğraf yüklenebilir.
             if(person.gender==0)
             {
                 rbMale.Checked = true;
             }
             else
             {
-                rbMale.Checked = false;
+                rbFemale.Checked = true;
             }
-            //gender'ı aldıktan sonra; Eğer DB'de fotoYolu boş deilse ilgili fotoyu gösterir. Yok eğer fotoYolu boşsa, 
-            //Default foto zaten bir önceki adımda picturebox'a eklenmil olur
-            if(person.imagePath!=string.Empty)
+
+            if(File.Exists(person.imagePath))
             {
-                //pbPersonImage.Load(person.imagePath);
+                pbPersonImage.ImageLocation=person.imagePath;
             }
-     
-           
+            else
+            {
+                //Fotoğraf eğer yoksa default eklesin. radio button bazı durumlarda olmuyor. Bu yüzden bunu burda halletmelisin.
+                _SetDefaultImage();
+            }
+
+
 
         }
 
@@ -304,13 +314,24 @@ namespace DVLD.Controls.ctrlPeople
             }
 
         }
-        private void txtEmail_Leave(object sender, EventArgs e)
+        private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-
+            if (!_isEmailInputValid())
+            {
+                errorProvider1.SetError(txtEmail, "Enter a valid Email");
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, "");
+            }
         }
+
+
         private void cbGender_check(object sender, EventArgs e)
         {
-            _SetDefaultImage();
+            RadioButton rb = (RadioButton)sender;
+            if (rb.Checked)
+                _SetDefaultImage();
         }
         private void mskNationalNo_TextChanged(object sender, EventArgs e)
         {
@@ -337,16 +358,17 @@ namespace DVLD.Controls.ctrlPeople
             _SetDefaultImage();
         }
 
-        private List<Control> _FormControls=new List<Control>();
+       
+        private List<Control> _FormInputFields=new List<Control>();
         private void _AddControlsToTheList()
         {
-            _FormControls.Add(mskFirstName);
-            _FormControls.Add(mskSecondName);
-            _FormControls.Add(mskThirdName);
-            _FormControls.Add(mskLastName);
-            _FormControls.Add(mskNationalNo);
-            _FormControls.Add(mskPhoneNumber);
-            _FormControls.Add(txtAddress);
+            _FormInputFields.Add(mskFirstName);
+            _FormInputFields.Add(mskSecondName);
+            _FormInputFields.Add(mskThirdName);
+            _FormInputFields.Add(mskLastName);
+            _FormInputFields.Add(mskNationalNo);
+            _FormInputFields.Add(mskPhoneNumber);
+            _FormInputFields.Add(txtAddress);
         }
 
         private void setErrors()
@@ -354,27 +376,16 @@ namespace DVLD.Controls.ctrlPeople
             _AddControlsToTheList();
 
 
-            foreach (Control ctrl in _FormControls)
+            foreach (Control ctrl in _FormInputFields)
             {
                 errorProvider1.SetError(ctrl,"This field is required");
-            }
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-            if (!_isEmailInputValid())
-            {
-                errorProvider1.SetError(txtEmail, "Enter a valid Email");
-            }
-            else
-            {
-                errorProvider1.SetError(txtEmail, "");
             }
         }
 
 
 
         //________________________ ^^  independent Field ^^  ______________
+
 
     }
 }

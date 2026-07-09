@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManagePeople));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dVLDDataSet = new DVLD.DVLDDataSet();
             this.dVLDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtFilet = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,14 +60,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbFilterBy
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(117, 350);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 33);
-            this.comboBox1.TabIndex = 26;
+            this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFilterBy.FormattingEnabled = true;
+            this.cbFilterBy.Items.AddRange(new object[] {
+            "ID",
+            "NationalNo",
+            "Name"});
+            this.cbFilterBy.Location = new System.Drawing.Point(117, 350);
+            this.cbFilterBy.Name = "cbFilterBy";
+            this.cbFilterBy.Size = new System.Drawing.Size(193, 33);
+            this.cbFilterBy.TabIndex = 26;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -220,6 +226,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // label1
             // 
@@ -261,13 +268,23 @@
             this.dVLDDataSetBindingSource.DataSource = this.dVLDDataSet;
             this.dVLDDataSetBindingSource.Position = 0;
             // 
+            // txtFilet
+            // 
+            this.txtFilet.Location = new System.Drawing.Point(328, 350);
+            this.txtFilet.Multiline = true;
+            this.txtFilet.Name = "txtFilet";
+            this.txtFilet.Size = new System.Drawing.Size(193, 33);
+            this.txtFilet.TabIndex = 28;
+            this.txtFilet.Text = "user rowfiler";
+            // 
             // frmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1501, 829);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtFilet);
+            this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddPerson);
@@ -294,7 +311,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAddPerson;
         private System.Windows.Forms.Button button1;
@@ -314,5 +331,6 @@
         private System.Windows.Forms.ToolStripMenuItem callToolStripMenuItem;
         private DVLDDataSet dVLDDataSet;
         private System.Windows.Forms.BindingSource dVLDDataSetBindingSource;
+        private System.Windows.Forms.TextBox txtFilet;
     }
 }

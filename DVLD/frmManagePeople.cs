@@ -135,5 +135,12 @@ namespace DVLD
             }
           
         }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilet.Visible = true;
+         
+            
+        }
     }
 }

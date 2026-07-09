@@ -62,7 +62,9 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
             // 
             // mskSecondName
@@ -174,7 +176,7 @@
             // mskNationalNo
             // 
             this.mskNationalNo.HidePromptOnLeave = true;
-            this.mskNationalNo.Location = new System.Drawing.Point(197, 144);
+            this.mskNationalNo.Location = new System.Drawing.Point(197, 138);
             this.mskNationalNo.Mask = "Aaaaaaaaaaaaaaaaaaaaaaaaaaa";
             this.mskNationalNo.Name = "mskNationalNo";
             this.mskNationalNo.PromptChar = ' ';
@@ -354,7 +356,7 @@
             // 
             this.label17.Image = ((System.Drawing.Image)(resources.GetObject("label17.Image")));
             this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label17.Location = new System.Drawing.Point(30, 141);
+            this.label17.Location = new System.Drawing.Point(30, 138);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(160, 32);
@@ -387,11 +389,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.Location = new System.Drawing.Point(864, 124);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(215, 248);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonImage.TabIndex = 94;
+            this.pbPersonImage.TabStop = false;
+            // 
             // ctrlAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.pbPersonImage);
             this.Controls.Add(this.mskSecondName);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.mskPhoneNumber);
@@ -426,6 +438,7 @@
             this.Name = "ctrlAddUpdatePerson";
             this.Size = new System.Drawing.Size(1104, 558);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,5 +478,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pbPersonImage;
     }
 }
