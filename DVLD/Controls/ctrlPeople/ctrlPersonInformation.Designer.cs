@@ -50,9 +50,9 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
@@ -176,72 +176,72 @@
             this.lblAddress.AutoSize = true;
             this.lblAddress.Location = new System.Drawing.Point(210, 405);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(70, 26);
+            this.lblAddress.Size = new System.Drawing.Size(72, 26);
             this.lblAddress.TabIndex = 52;
-            this.lblAddress.Text = "label6";
+            this.lblAddress.Text = "?????";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(210, 332);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(70, 26);
+            this.lblEmail.Size = new System.Drawing.Size(72, 26);
             this.lblEmail.TabIndex = 53;
-            this.lblEmail.Text = "label7";
+            this.lblEmail.Text = "?????";
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Location = new System.Drawing.Point(210, 253);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(70, 26);
+            this.lblGender.Size = new System.Drawing.Size(72, 26);
             this.lblGender.TabIndex = 54;
-            this.lblGender.Text = "label8";
+            this.lblGender.Text = "?????";
             // 
             // lblNationalNo
             // 
             this.lblNationalNo.AutoSize = true;
             this.lblNationalNo.Location = new System.Drawing.Point(210, 174);
             this.lblNationalNo.Name = "lblNationalNo";
-            this.lblNationalNo.Size = new System.Drawing.Size(70, 26);
+            this.lblNationalNo.Size = new System.Drawing.Size(72, 26);
             this.lblNationalNo.TabIndex = 55;
-            this.lblNationalNo.Text = "label9";
+            this.lblNationalNo.Text = "?????";
             // 
             // lblPersonID
             // 
             this.lblPersonID.AutoSize = true;
             this.lblPersonID.Location = new System.Drawing.Point(210, 104);
             this.lblPersonID.Name = "lblPersonID";
-            this.lblPersonID.Size = new System.Drawing.Size(82, 26);
+            this.lblPersonID.Size = new System.Drawing.Size(72, 26);
             this.lblPersonID.TabIndex = 56;
-            this.lblPersonID.Text = "label14";
+            this.lblPersonID.Text = "?????";
             // 
             // lblBirthDate
             // 
             this.lblBirthDate.AutoSize = true;
             this.lblBirthDate.Location = new System.Drawing.Point(599, 180);
             this.lblBirthDate.Name = "lblBirthDate";
-            this.lblBirthDate.Size = new System.Drawing.Size(82, 26);
+            this.lblBirthDate.Size = new System.Drawing.Size(72, 26);
             this.lblBirthDate.TabIndex = 57;
-            this.lblBirthDate.Text = "label15";
+            this.lblBirthDate.Text = "?????";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Location = new System.Drawing.Point(599, 237);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(82, 26);
+            this.lblPhone.Size = new System.Drawing.Size(72, 26);
             this.lblPhone.TabIndex = 58;
-            this.lblPhone.Text = "label16";
+            this.lblPhone.Text = "?????";
             // 
             // lblCountry
             // 
             this.lblCountry.AutoSize = true;
             this.lblCountry.Location = new System.Drawing.Point(599, 300);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(82, 26);
+            this.lblCountry.Size = new System.Drawing.Size(72, 26);
             this.lblCountry.TabIndex = 59;
-            this.lblCountry.Text = "label17";
+            this.lblCountry.Text = "?????";
             // 
             // groupBox1
             // 
@@ -272,16 +272,25 @@
             this.groupBox1.Size = new System.Drawing.Size(1087, 453);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Person Information";
+            this.groupBox1.Text = "?";
+            // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.Location = new System.Drawing.Point(866, 126);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(215, 248);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonImage.TabIndex = 95;
+            this.pbPersonImage.TabStop = false;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(210, 46);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(82, 26);
+            this.lblName.Size = new System.Drawing.Size(60, 26);
             this.lblName.TabIndex = 61;
-            this.lblName.Text = "label14";
+            this.lblName.Text = "????";
             // 
             // label6
             // 
@@ -292,15 +301,6 @@
             this.label6.Size = new System.Drawing.Size(151, 32);
             this.label6.TabIndex = 60;
             this.label6.Text = "Name: ";
-            // 
-            // pbPersonImage
-            // 
-            this.pbPersonImage.Location = new System.Drawing.Point(866, 126);
-            this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(215, 248);
-            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPersonImage.TabIndex = 95;
-            this.pbPersonImage.TabStop = false;
             // 
             // ctrlPersonInformation
             // 
