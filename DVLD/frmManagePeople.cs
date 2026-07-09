@@ -138,6 +138,7 @@ namespace DVLD
             {
                 frmPersonDetail frm = new frmPersonDetail(selectedPersonID);
                 frm.ShowDialog();
+                _RefreshPeopleList();
             }
           
         }

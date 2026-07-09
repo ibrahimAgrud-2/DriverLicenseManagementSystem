@@ -141,7 +141,7 @@
             // 
             this.lnklblEditPersonInfo.AutoSize = true;
             this.lnklblEditPersonInfo.Enabled = false;
-            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(739, 110);
+            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(895, 83);
             this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
             this.lnklblEditPersonInfo.Size = new System.Drawing.Size(167, 26);
             this.lnklblEditPersonInfo.TabIndex = 36;
@@ -269,7 +269,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(15, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(947, 453);
+            this.groupBox1.Size = new System.Drawing.Size(1087, 453);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
@@ -295,7 +295,7 @@
             // 
             // pbPersonImage
             // 
-            this.pbPersonImage.Location = new System.Drawing.Point(726, 154);
+            this.pbPersonImage.Location = new System.Drawing.Point(866, 126);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(215, 248);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -310,7 +310,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlPersonInformation";
-            this.Size = new System.Drawing.Size(976, 476);
+            this.Size = new System.Drawing.Size(1125, 476);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

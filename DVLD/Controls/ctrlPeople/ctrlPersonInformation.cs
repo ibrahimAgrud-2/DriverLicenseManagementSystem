@@ -33,7 +33,7 @@ namespace DVLD
             }
             else
             {
-                _Person = People.findPersonByID(_PersonID);
+               
                 _Load();
                 
             }
@@ -67,6 +67,8 @@ namespace DVLD
 
         private void _Load()
         {
+            _Person = People.findPersonByID(_PersonID);
+
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
 
@@ -76,6 +78,7 @@ namespace DVLD
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
             frm.ShowDialog();
+            _Load();
         }
     }
 }
