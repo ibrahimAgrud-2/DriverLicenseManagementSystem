@@ -140,12 +140,14 @@
             // lnklblEditPersonInfo
             // 
             this.lnklblEditPersonInfo.AutoSize = true;
-            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(738, 125);
+            this.lnklblEditPersonInfo.Enabled = false;
+            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(739, 110);
             this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
             this.lnklblEditPersonInfo.Size = new System.Drawing.Size(167, 26);
             this.lnklblEditPersonInfo.TabIndex = 36;
             this.lnklblEditPersonInfo.TabStop = true;
             this.lnklblEditPersonInfo.Text = "Edit Person Info";
+            this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // label12
             // 
