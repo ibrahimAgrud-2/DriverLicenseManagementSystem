@@ -37,19 +37,22 @@ namespace DVLD
                 _Load();
             }
         }
-        private void _Load()
+
+
+        private void fillObjectDataToField(People person)
         {
+            lblName.Text = person.firstName + " " + person.secondName + " " + person.thirdName + " " + person.lastName; ;
+            lblPersonID.Text = person.personID.ToString();
+            lblNationalNo.Text = person.nationalNo;
+            lblBirthDate.Text = person.dateOfBirth.ToString("yyyy/mm/dd");
+            lblEmail.Text = person.email;
+            lblPhone.Text = person.phone;
 
-            lblName.Text= _Person.firstName + " " + _Person.secondName + " " + _Person.thirdName + " " + _Person.lastName; ;
-            lblPersonID.Text = _Person.personID.ToString();
-            lblNationalNo.Text = _Person.nationalNo;
-            lblBirthDate.Text = _Person.dateOfBirth.ToString("yyyy/mm/dd");
-            lblEmail.Text = _Person.email;
-            lblPhone.Text = _Person.phone;
+            lblCountry.Text = Country.findCountryByID(person.countryID).countryName;
 
-            lblCountry.Text = Country.findCountryByID(_Person.countryID).countryName;
-            
-            if(_Person.gender==0)
+
+
+            if (person.gender == 0)
             {
                 lblGender.Text = "Male";
             }
@@ -57,8 +60,13 @@ namespace DVLD
             {
                 lblGender.Text = "Female";
             }
+            pbPersonImage.ImageLocation = person.imagePath;
 
-            pbPersonImage.ImageLocation = _Person.imagePath;
+        }
+
+        private void _Load()
+        {
+            fillObjectDataToField(_Person);
 
 
         }

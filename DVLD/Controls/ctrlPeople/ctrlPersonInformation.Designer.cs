@@ -39,7 +39,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lnklblEditPersonInfo = new System.Windows.Forms.LinkLabel();
-            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -53,9 +52,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -146,15 +146,6 @@
             this.lnklblEditPersonInfo.TabIndex = 36;
             this.lnklblEditPersonInfo.TabStop = true;
             this.lnklblEditPersonInfo.Text = "Edit Person Info";
-            // 
-            // pbPersonImage
-            // 
-            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbPersonImage.Location = new System.Drawing.Point(743, 163);
-            this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(182, 230);
-            this.pbPersonImage.TabIndex = 35;
-            this.pbPersonImage.TabStop = false;
             // 
             // label12
             // 
@@ -253,12 +244,12 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.pbPersonImage);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.lblNationalNo);
             this.groupBox1.Controls.Add(this.lnklblEditPersonInfo);
             this.groupBox1.Controls.Add(this.lblCountry);
-            this.groupBox1.Controls.Add(this.pbPersonImage);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblPhone);
             this.groupBox1.Controls.Add(this.label12);
@@ -300,6 +291,15 @@
             this.label6.TabIndex = 60;
             this.label6.Text = "Name: ";
             // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.Location = new System.Drawing.Point(726, 154);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(215, 248);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonImage.TabIndex = 95;
+            this.pbPersonImage.TabStop = false;
+            // 
             // ctrlPersonInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -310,9 +310,9 @@
             this.Name = "ctrlPersonInformation";
             this.Size = new System.Drawing.Size(976, 476);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,7 +328,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.LinkLabel lnklblEditPersonInfo;
-        private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCountry;
@@ -342,5 +341,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pbPersonImage;
     }
 }
