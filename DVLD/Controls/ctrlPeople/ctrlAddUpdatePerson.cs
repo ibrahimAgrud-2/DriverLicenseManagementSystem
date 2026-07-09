@@ -241,8 +241,7 @@ namespace DVLD.Controls.ctrlPeople
             {
                 MessageBox.Show("Saved successfully");
                 _Mode = enMode.enUpdate;
-              
-
+  
                 //Event tetikleme
                 SaveComplete(_Person.personID);
             }

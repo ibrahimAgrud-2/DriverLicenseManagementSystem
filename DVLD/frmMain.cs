@@ -38,15 +38,14 @@ namespace DVLD
 
         }
 
-        private void tsmAccountSettings_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This feature is not implemented");
-
-        }
-
         private void tsmApplicaitons_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This feature is not implemented");
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
