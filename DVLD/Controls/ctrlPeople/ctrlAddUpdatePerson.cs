@@ -175,7 +175,7 @@ namespace DVLD.Controls.ctrlPeople
                 _Person.email = txtEmail.Text;
                 _Person.address = txtAddress.Text;
                 _Person.phone = mskPhoneNumber.Text;
-                _Person.countryID = Country.findCountry(cbCountries.SelectedIndex + 1).countryID;
+                _Person.countryID = Country.findCountryByID(cbCountries.SelectedIndex + 1).countryID;
                 _Person.imagePath = _handleImage();
                 _Person.gender = (rbFemale.Checked? 1:0);
                 

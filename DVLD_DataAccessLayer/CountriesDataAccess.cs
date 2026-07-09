@@ -86,7 +86,7 @@ namespace DVLD_DataAccessLayer
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
-            cmd.Parameters.AddWithValue("@countryID", countryID);
+            cmd.Parameters.AddWithValue("@countryName", countryName);
 
             try
             {

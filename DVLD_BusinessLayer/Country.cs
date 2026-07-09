@@ -25,7 +25,7 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static Country findCountry(int countryID)
+        public static Country findCountryByID(int countryID)
         {
             string countryName = "";
 
@@ -39,7 +39,19 @@ namespace DVLD_BusinessLayer
             }
             return null;
         }
+        public static Country findCountryByName(string countryName)
+        {
+            int countryID = 0;
 
+
+
+            if (CountriesDataAccess.findCountryByName(ref countryID, countryName))
+            {
+                return new Country(countryID, countryName);
+
+            }
+            return null;
+        }
         public static bool isCountryExist(int countryID)
         {
             return CountriesDataAccess.isCountryExist(countryID);
