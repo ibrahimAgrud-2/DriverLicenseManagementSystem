@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using System.Windows.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD
@@ -131,7 +131,7 @@ namespace DVLD
         }
 
 
-        private void showDetialToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showDetaiToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             if (int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
@@ -171,7 +171,8 @@ namespace DVLD
                 return;
             }
 
-
+        
+                
             switch(cbFilterBy.Text)
             {
                 case "Person ID":
@@ -189,6 +190,20 @@ namespace DVLD
             }
             dgvPeopleList.DataSource = _DtPeople;
             
+        }
+
+
+        //========Bu ID için sadece  numara girilme sıkıntısı için test amaçla eklendi.
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!int.TryParse(e.KeyChar.ToString(), out int test))
+            {
+
+                MessageBox.Show("no");
+                e.Handled = true;
+
+            }
+
         }
     }
 }
