@@ -146,10 +146,10 @@
             this.lnklblEditPersonInfo.TabIndex = 36;
             this.lnklblEditPersonInfo.TabStop = true;
             this.lnklblEditPersonInfo.Text = "Edit Person Info";
-            this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // pbPersonImage
             // 
+            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbPersonImage.Location = new System.Drawing.Point(743, 163);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(182, 230);
@@ -252,6 +252,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.lblNationalNo);
@@ -279,7 +280,6 @@
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblName
             // 
@@ -309,7 +309,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlPersonInformation";
             this.Size = new System.Drawing.Size(976, 476);
-            this.Load += new System.EventHandler(this.ctrlPersonInformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.groupBox1.ResumeLayout(false);

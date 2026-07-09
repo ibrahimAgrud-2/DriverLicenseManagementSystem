@@ -11,32 +11,30 @@ namespace DVLD
             InitializeComponent();
         }
 
-
+        private int _PersonID;
         private People _Person;
 
 
-        public void FillPersonInfoIsExists(int personId)
+        public int PersonID
         {
-            if (People.isPersonExistByID(personId))
+            
+            set
             {
-                _Person = People.findPersonByID(personId);
-                _Load();
+                _PersonID = value;
+                _loadDataIfPersonExists();
             }
-            else
-            {
-                return;
-            }
+            get { return _PersonID;}
         }
-        public void FillPersonInfoIsExists(string nationalNo)
+        private void _loadDataIfPersonExists()
         {
-            if (People.isPersonExistByNationalNo(nationalNo))
+            if(!People.isPersonExistByID(_PersonID))
             {
-                _Person = People.findPersonByNationalNo(nationalNo);
-                _Load();
+                return;
             }
             else
             {
-                return;
+                _Person = People.findPersonByID(_PersonID);
+                _Load();
             }
         }
         private void _Load()
@@ -48,42 +46,21 @@ namespace DVLD
             lblBirthDate.Text = _Person.dateOfBirth.ToString("yyyy/mm/dd");
             lblEmail.Text = _Person.email;
             lblPhone.Text = _Person.phone;
-            if(_Person.imagePath!=string.Empty)
-            { pbPersonImage.Load(_Person.imagePath); }
 
-          
-
-            lblGender.Text = _Person.personID.ToString();
-            lblCountry.Text = _Person.countryID.ToString();
-
-        }
-
-        private void ctrlPersonInformation_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void test(object sender,int personID)
-        {
-            FillPersonInfoIsExists(personID);
-        }
-        private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (int.TryParse(lblPersonID.Text, out int personID))
+            lblCountry.Text = Country.findCountryByID(_Person.countryID).countryName;
+            
+            if(_Person.gender==0)
             {
-               // frmAddUpdatePerson frm = new frmAddUpdatePerson(personID);
-                //frm.sendIDBack += test;
-                //frm.ShowDialog();
+                lblGender.Text = "Male";
             }
             else
             {
-                MessageBox.Show("ID is not valid");
+                lblGender.Text = "Female";
             }
+
+            pbPersonImage.ImageLocation = _Person.imagePath;
+
+
         }
     }
 }
