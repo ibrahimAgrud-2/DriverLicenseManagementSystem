@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,11 +52,22 @@
             this.ctrlPersonInformation1.Size = new System.Drawing.Size(1130, 485);
             this.ctrlPersonInformation1.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1022, 487);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 55);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmPersonDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 640);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ctrlPersonInformation1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -71,5 +83,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private ctrlPersonInformation ctrlPersonInformation1;
+        private System.Windows.Forms.Button button1;
     }
 }

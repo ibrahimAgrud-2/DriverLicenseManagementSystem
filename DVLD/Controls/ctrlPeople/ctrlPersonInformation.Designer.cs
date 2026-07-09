@@ -141,7 +141,7 @@
             // 
             this.lnklblEditPersonInfo.AutoSize = true;
             this.lnklblEditPersonInfo.Enabled = false;
-            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(895, 83);
+            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(895, 21);
             this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
             this.lnklblEditPersonInfo.Size = new System.Drawing.Size(167, 26);
             this.lnklblEditPersonInfo.TabIndex = 36;
@@ -272,11 +272,11 @@
             this.groupBox1.Size = new System.Drawing.Size(1087, 453);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "?";
+            this.groupBox1.Text = "Person Information";
             // 
             // pbPersonImage
             // 
-            this.pbPersonImage.Location = new System.Drawing.Point(866, 126);
+            this.pbPersonImage.Location = new System.Drawing.Point(866, 64);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(215, 248);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

@@ -241,6 +241,7 @@ namespace DVLD.Controls.ctrlPeople
             {
                 MessageBox.Show("Saved successfully");
                 _Mode = enMode.enUpdate;
+              
 
                 //Event tetikleme
                 SaveComplete(_Person.personID);
@@ -384,11 +385,6 @@ namespace DVLD.Controls.ctrlPeople
             {
                 errorProvider1.SetError(ctrl,"This field is required");
             }
-        }
-
-        private void ctrlAddUpdatePerson_Load(object sender, EventArgs e)
-        {
-
         }
 
 

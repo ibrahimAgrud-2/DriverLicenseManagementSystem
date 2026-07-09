@@ -53,7 +53,7 @@ namespace DVLD
 
 
 
-            lblGender.Text = person.gender == 0 ? "Male" : "Female";
+            lblGender.Text = person.gender == 0 ? "Male" : "Female"; 
 
             if (File.Exists(_Person.imagePath))
             {

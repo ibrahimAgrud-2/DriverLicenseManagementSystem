@@ -23,5 +23,10 @@ namespace DVLD
         {
             this.ctrlPersonInformation1.PersonID = _PersonID;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
