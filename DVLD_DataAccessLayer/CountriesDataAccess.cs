@@ -42,7 +42,7 @@ namespace DVLD_DataAccessLayer
 
             return dt;
         }
-        public static bool findCountry(int countryID,ref string countryName)
+        public static bool findCountryByID(int countryID, ref string countryName)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
@@ -60,7 +60,43 @@ namespace DVLD_DataAccessLayer
                 if (read.Read())
                 {
                     countryID = Convert.ToInt32(read["countryID"]);
-                    countryName =read["countryName"].ToString();
+                    countryName = read["countryName"].ToString();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return false;
+        }
+        public static bool findCountryByName(ref int countryID,  string countryName)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = "select * from countries where countryName=@countryName";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@countryID", countryID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader read = cmd.ExecuteReader();
+
+                if (read.Read())
+                {
+                    countryID = Convert.ToInt32(read["countryID"]);
+                    countryName = read["countryName"].ToString();
                     return true;
                 }
 

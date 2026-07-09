@@ -32,7 +32,7 @@ namespace DVLD_BusinessLayer
       
 
 
-            if (CountriesDataAccess.findCountry(countryID, ref countryName))
+            if (CountriesDataAccess.findCountryByID(countryID, ref countryName))
             {
                 return new Country(countryID, countryName);
 
