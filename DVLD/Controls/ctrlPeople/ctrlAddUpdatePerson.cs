@@ -70,7 +70,7 @@ namespace DVLD.Controls.ctrlPeople
             mskNationalNo.Text = "dad";
             txtAddress.Text = "dad";
             mskPhoneNumber.Text = "12312312311";
-            cbCountries.SelectedIndex = 4;
+
 
         }
         //_______________________________
@@ -78,14 +78,13 @@ namespace DVLD.Controls.ctrlPeople
         private void _Load()
         {
             _FillCountriesToComboBox();
-
-            cbCountries.SelectedItem ="United States";
+  
 
             if (this._Mode==enMode.enAddNew)
             {
                 dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
-                cbCountries.SelectedIndex = 10;
                 _Person = new People();
+                cbCountries.SelectedItem = region.EnglishName;
                 _SetDefaultImage();
                 setErrors();
                 _TemLoad();
