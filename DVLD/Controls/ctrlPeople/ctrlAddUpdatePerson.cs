@@ -386,6 +386,11 @@ namespace DVLD.Controls.ctrlPeople
             }
         }
 
+        private void ctrlAddUpdatePerson_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
         //________________________ ^^  independent Field ^^  ______________
