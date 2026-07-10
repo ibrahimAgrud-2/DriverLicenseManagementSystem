@@ -54,8 +54,8 @@ namespace DVLD {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["ctrlPeople"] != null)) {
-                    base.Tables.Add(new PeopleDataTable(ds.Tables["ctrlPeople"]));
+                if ((ds.Tables["People"] != null)) {
+                    base.Tables.Add(new PeopleDataTable(ds.Tables["People"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -152,8 +152,8 @@ namespace DVLD {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["ctrlPeople"] != null)) {
-                    base.Tables.Add(new PeopleDataTable(ds.Tables["ctrlPeople"]));
+                if ((ds.Tables["People"] != null)) {
+                    base.Tables.Add(new PeopleDataTable(ds.Tables["People"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,7 +188,7 @@ namespace DVLD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePeople = ((PeopleDataTable)(base.Tables["ctrlPeople"]));
+            this.tablePeople = ((PeopleDataTable)(base.Tables["People"]));
             if ((initTable == true)) {
                 if ((this.tablePeople != null)) {
                     this.tablePeople.InitVars();
@@ -308,7 +308,7 @@ namespace DVLD {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PeopleDataTable() {
-                this.TableName = "ctrlPeople";
+                this.TableName = "People";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -786,7 +786,7 @@ namespace DVLD {
                         return ((string)(this[this.tablePeople.ThirdNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ThirdName\' in table \'ctrlPeople\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ThirdName\' in table \'People\' is DBNull.", e);
                     }
                 }
                 set {
@@ -857,7 +857,7 @@ namespace DVLD {
                         return ((string)(this[this.tablePeople.EmailColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'ctrlPeople\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'People\' is DBNull.", e);
                     }
                 }
                 set {
@@ -884,7 +884,7 @@ namespace DVLD {
                         return ((string)(this[this.tablePeople.ImagePathColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ImagePath\' in table \'ctrlPeople\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImagePath\' in table \'People\' is DBNull.", e);
                     }
                 }
                 set {
@@ -1087,7 +1087,7 @@ namespace DVLD.DVLDDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ctrlPeople";
+            tableMapping.DataSetTable = "People";
             tableMapping.ColumnMappings.Add("PersonID", "PersonID");
             tableMapping.ColumnMappings.Add("NationalNo", "NationalNo");
             tableMapping.ColumnMappings.Add("FirstName", "FirstName");
@@ -1104,7 +1104,7 @@ namespace DVLD.DVLDDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ctrlPeople] WHERE (([PersonID] = @Original_PersonID) AND ([NationalNo] = @Original_NationalNo) AND ([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_ThirdName = 1 AND [ThirdName] IS NULL) OR ([ThirdName] = @Original_ThirdName)) AND ([LastName] = @Original_LastName) AND ([DateOfBirth] = @Original_DateOfBirth) AND ([Gender] = @Original_Gender) AND ([Address] = @Original_Address) AND ([Phone] = @Original_Phone) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ([NationalityCountryID] = @Original_NationalityCountryID) AND ((@IsNull_ImagePath = 1 AND [ImagePath] IS NULL) OR ([ImagePath] = @Original_ImagePath)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[People] WHERE (([PersonID] = @Original_PersonID) AND ([NationalNo] = @Original_NationalNo) AND ([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_ThirdName = 1 AND [ThirdName] IS NULL) OR ([ThirdName] = @Original_ThirdName)) AND ([LastName] = @Original_LastName) AND ([DateOfBirth] = @Original_DateOfBirth) AND ([Gender] = @Original_Gender) AND ([Address] = @Original_Address) AND ([Phone] = @Original_Phone) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ([NationalityCountryID] = @Original_NationalityCountryID) AND ((@IsNull_ImagePath = 1 AND [ImagePath] IS NULL) OR ([ImagePath] = @Original_ImagePath)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NationalNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NationalNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1124,8 +1124,8 @@ namespace DVLD.DVLDDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ImagePath", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImagePath", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ctrlPeople] ([NationalNo], [FirstName], [SecondName], [ThirdName], [LastName], [DateOfBirth], [Gender], [Address], [Phone], [Email], [NationalityCountryID], [ImagePath]) VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, @Gender, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
-SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath FROM ctrlPeople WHERE (PersonID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[People] ([NationalNo], [FirstName], [SecondName], [ThirdName], [LastName], [DateOfBirth], [Gender], [Address], [Phone], [Email], [NationalityCountryID], [ImagePath]) VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, @Gender, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
+SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath FROM People WHERE (PersonID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NationalNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NationalNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1141,8 +1141,8 @@ SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfB
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImagePath", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImagePath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ctrlPeople] SET [NationalNo] = @NationalNo, [FirstName] = @FirstName, [SecondName] = @SecondName, [ThirdName] = @ThirdName, [LastName] = @LastName, [DateOfBirth] = @DateOfBirth, [Gender] = @Gender, [Address] = @Address, [Phone] = @Phone, [Email] = @Email, [NationalityCountryID] = @NationalityCountryID, [ImagePath] = @ImagePath WHERE (([PersonID] = @Original_PersonID) AND ([NationalNo] = @Original_NationalNo) AND ([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_ThirdName = 1 AND [ThirdName] IS NULL) OR ([ThirdName] = @Original_ThirdName)) AND ([LastName] = @Original_LastName) AND ([DateOfBirth] = @Original_DateOfBirth) AND ([Gender] = @Original_Gender) AND ([Address] = @Original_Address) AND ([Phone] = @Original_Phone) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ([NationalityCountryID] = @Original_NationalityCountryID) AND ((@IsNull_ImagePath = 1 AND [ImagePath] IS NULL) OR ([ImagePath] = @Original_ImagePath)));
-SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath FROM ctrlPeople WHERE (PersonID = @PersonID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[People] SET [NationalNo] = @NationalNo, [FirstName] = @FirstName, [SecondName] = @SecondName, [ThirdName] = @ThirdName, [LastName] = @LastName, [DateOfBirth] = @DateOfBirth, [Gender] = @Gender, [Address] = @Address, [Phone] = @Phone, [Email] = @Email, [NationalityCountryID] = @NationalityCountryID, [ImagePath] = @ImagePath WHERE (([PersonID] = @Original_PersonID) AND ([NationalNo] = @Original_NationalNo) AND ([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_ThirdName = 1 AND [ThirdName] IS NULL) OR ([ThirdName] = @Original_ThirdName)) AND ([LastName] = @Original_LastName) AND ([DateOfBirth] = @Original_DateOfBirth) AND ([Gender] = @Original_Gender) AND ([Address] = @Original_Address) AND ([Phone] = @Original_Phone) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ([NationalityCountryID] = @Original_NationalityCountryID) AND ((@IsNull_ImagePath = 1 AND [ImagePath] IS NULL) OR ([ImagePath] = @Original_ImagePath)));
+SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath FROM People WHERE (PersonID = @PersonID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NationalNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NationalNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1194,7 +1194,7 @@ SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfB
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT * FROM dbo.ctrlPeople";
+            this._commandCollection[1].CommandText = "SELECT * FROM dbo.People";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
@@ -1265,7 +1265,7 @@ SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfB
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(DVLDDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "ctrlPeople");
+            return this.Adapter.Update(dataSet, "People");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
