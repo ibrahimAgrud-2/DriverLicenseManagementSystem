@@ -13,9 +13,22 @@ namespace DVLD_BusinessLayer
         public string password { set; get; }
         public bool isActive { set; get; }
 
+
+
+        //PersonID person'a erişmemizi gerektirmeyen durumlarda gereksizi yere tüm objeyi yüklememek için var.
         public int personID { set; get; }
 
-        public People person { set; get; };
+        //Person composition
+        private People _Person;
+        public People Person
+        {
+            get
+            {
+                if (_Person == null)
+                    _Person = People.findPersonByID(personID);
+                return _Person;
+            }
+        }
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode mode;
