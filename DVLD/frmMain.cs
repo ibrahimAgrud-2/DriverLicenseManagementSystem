@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Users;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,7 +35,8 @@ namespace DVLD
 
         private void tsmManageUsers_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented");
+            frmManageUsers frm = new frmManageUsers();
+            frm.ShowDialog();
 
         }
 
