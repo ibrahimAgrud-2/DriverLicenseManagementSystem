@@ -18,58 +18,62 @@ namespace DVLD
         {
             InitializeComponent();
         }       
-        private void cbRemeberMe_CheckedChanged(object sender, EventArgs e)
+
+
+        private void _fillDataFromFileToField(string filePath,string dim="##")
         {
-          
+
+
+            string fileContent = File.ReadAllText(filePath);
+            if (fileContent == string.Empty)
+                return;
+
+            int index = fileContent.IndexOf(loginSettings.dim);
+
+            txtUserName.Text = fileContent.Substring(0, index);
+            maskedTextBox1.Text = fileContent.Remove(0, index+dim.Length);
         }
 
-        User u1=new User();
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
-            string fileContent = File.ReadAllText(@"C:\Users\ibrah\source\repos\DVLD\DVLD\UserRememberMeJustID.txt");
-
-            if (fileContent != string.Empty)
-            {
-               int userID= Convert.ToInt32(fileContent);
-                u1= User.findUserByUserID(userID);
-                txtUserName.Text = u1.userName;
-                maskedTextBox1.Text = u1.password;
-            }
-            
-                    
+            _fillDataFromFileToField(loginSettings.filePath, loginSettings.dim);
         }
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!User.isUserExistByUserName(txtUserName.Text))
-            {
-              
-                return;
-            }
-            u1 = User.findUserByUserByUserName(txtUserName.Text);
 
-            if (!User.isUserExistByUserName(txtUserName.Text)||u1.password!=maskedTextBox1.Text)
+            if(User.isUserExistByUserName(txtUserName.Text))
             {
-                MessageBox.Show("User name or  password wrong");
-                return;
-            }
-                     
-            if(!u1.isActive)
-            {
-                MessageBox.Show("User does not active. Contact to your admin");
-                return;
-            }
+                User u1 = User.findUserByUserByUserName(txtUserName.Text);
+                if(u1.password==maskedTextBox1.Text)
+                {
+                    
+                    loginSettings.currentUser = u1;
 
-            loginSettings.currentUser = u1;
+                    if (!u1.isActive)
+                    {
+                        MessageBox.Show("User is not active. Contact to you admin.");
+                        return;
+                    }
 
-            if (cbRemeberMe.Checked)
-            {
-                File.WriteAllText(@"C:\Users\ibrah\source\repos\DVLD\DVLD\UserRememberMeJustID.txt", loginSettings.currentUser.userID.ToString());
+                    if (cbRemeberMe.Checked)
+                    {
+                        File.WriteAllText(loginSettings.filePath, u1.userName+loginSettings.dim+u1.password);
+                    }
+                    else
+                    {
+                        File.WriteAllText(loginSettings.filePath, "");
+                    }
+
+                    frmMain frm = new frmMain();
+                    frm.ShowDialog();
+                    return;
+                }
             }
+            MessageBox.Show("Invalid User Name/password");
 
-            frmMain frm = new frmMain();
-            frm.ShowDialog();
         }
     }
 }

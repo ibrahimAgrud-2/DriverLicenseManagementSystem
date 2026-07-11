@@ -122,13 +122,14 @@
             // cbRemeberMe
             // 
             this.cbRemeberMe.AutoSize = true;
+            this.cbRemeberMe.Checked = true;
+            this.cbRemeberMe.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbRemeberMe.Location = new System.Drawing.Point(700, 238);
             this.cbRemeberMe.Name = "cbRemeberMe";
             this.cbRemeberMe.Size = new System.Drawing.Size(158, 29);
             this.cbRemeberMe.TabIndex = 8;
             this.cbRemeberMe.Text = "Remember me";
             this.cbRemeberMe.UseVisualStyleBackColor = true;
-            this.cbRemeberMe.CheckedChanged += new System.EventHandler(this.cbRemeberMe_CheckedChanged);
             // 
             // label5
             // 
