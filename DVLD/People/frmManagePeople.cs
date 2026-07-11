@@ -46,6 +46,9 @@ namespace DVLD
         private void _RefreshPeopleList()
         {
             _DtPeople = People.getAllPersonRecords();
+
+            
+
             dgvPeopleList.DataSource = _DtPeople;
             _SetColumnNames();
              lblRecords.Text = dgvPeopleList.RowCount.ToString();

@@ -39,7 +39,7 @@ namespace DVLD.Users
         {
             _DtUsers = User.getUserRecords();
             dgvUsersList.DataSource = _DtUsers;
-
+          
             _SetColumnNames();
 
             lblRecords.Text = dgvUsersList.RowCount.ToString();

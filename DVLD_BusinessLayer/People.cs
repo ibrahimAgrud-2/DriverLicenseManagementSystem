@@ -20,8 +20,20 @@ namespace DVLD_BusinessLayer
         public string address { set; get; }
         public string email { set; get; }
         public string phone { set; get; }
-        public int countryID { set; get; }
         public string imagePath { set; get; }
+
+
+        public int countryID { set; get; }
+        private Country _Country1;
+        public Country Country
+        {
+            get
+            {
+                if (_Country1 == null)
+                    _Country1 = Country.findCountryByID(countryID);
+                return _Country1;
+            }
+        }
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         //Her object 2 farklı modu olur. Ya yeni üretilmiştir modu add ya da sitemde zaten vardır
