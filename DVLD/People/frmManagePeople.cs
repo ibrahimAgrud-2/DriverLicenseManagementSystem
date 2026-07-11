@@ -41,6 +41,7 @@ namespace DVLD
             dgvPeopleList.Columns["Address"].Visible = false;
             dgvPeopleList.Columns["CountryID"].Visible = false;
             dgvPeopleList.Columns["ImagePath"].Visible = false;
+
         }
 
         private void _RefreshPeopleList()
