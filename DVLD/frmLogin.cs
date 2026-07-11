@@ -25,12 +25,23 @@ namespace DVLD
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-       
+
+            string fileContent = File.ReadAllText(@"C:\Users\ibrah\source\repos\DVLD\DVLD\UserRememberMeJustID.txt");
+
+            if (fileContent != string.Empty)
+            {
+               int userID= Convert.ToInt32(fileContent);
+                loginSettings.currentUser = User.findUser(userID);
+                txtUserName.Text = loginSettings.currentUser.userName;
+                maskedTextBox1.Text = loginSettings.currentUser.password;
+            }
+            
+                    
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //----
+            if(User.findUser)
 
             if(cbRemeberMe.Checked)
             {

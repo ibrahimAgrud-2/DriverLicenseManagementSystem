@@ -82,6 +82,46 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+        public static bool findUserByUserName(ref int userID, ref int personID, string userName, ref string password, ref
+     bool isActive)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = "select * from users where userName=@userName";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader read = cmd.ExecuteReader();
+
+                if (read.Read())
+                {
+                    personID = Convert.ToInt32(read["PersonID"]);
+                    userID = Convert.ToInt32(read["userID"]);
+                    userName = read["userName"].ToString();
+                    password = read["password"].ToString();
+                    isActive = Convert.ToBoolean(read["isActive"]);
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return false;
+        }
 
         public static bool isUserExist(int userID)
         {
