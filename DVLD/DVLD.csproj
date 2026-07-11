@@ -54,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DVLDDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="loginSettings.cs" />
     <Compile Include="People\Controls\ctrlAddUpdatePerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Users\Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserRememberMeJustID.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

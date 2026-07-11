@@ -96,6 +96,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label4
             // 
@@ -127,6 +128,7 @@
             this.cbRemeberMe.TabIndex = 8;
             this.cbRemeberMe.Text = "Remember me";
             this.cbRemeberMe.UseVisualStyleBackColor = true;
+            this.cbRemeberMe.CheckedChanged += new System.EventHandler(this.cbRemeberMe_CheckedChanged);
             // 
             // label5
             // 
@@ -158,6 +160,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
