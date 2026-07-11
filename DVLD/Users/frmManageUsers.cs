@@ -58,5 +58,11 @@ namespace DVLD.Users
         {
             _RefreshPeopleList();
         }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            frmAddNewUser frm = new frmAddNewUser();
+            frm.ShowDialog();
+        }
     }
 }
