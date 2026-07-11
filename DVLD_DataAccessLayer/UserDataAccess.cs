@@ -91,7 +91,7 @@ namespace DVLD_DataAccessLayer
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
-            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@userName", userName);
 
             try
             {

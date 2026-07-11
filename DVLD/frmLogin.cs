@@ -23,6 +23,7 @@ namespace DVLD
           
         }
 
+        User u1=new User();
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
@@ -31,9 +32,9 @@ namespace DVLD
             if (fileContent != string.Empty)
             {
                int userID= Convert.ToInt32(fileContent);
-                loginSettings.currentUser = User.findUserByUserID(userID);
-                txtUserName.Text = loginSettings.currentUser.userName;
-                maskedTextBox1.Text = loginSettings.currentUser.password;
+                u1= User.findUserByUserID(userID);
+                txtUserName.Text = u1.userName;
+                maskedTextBox1.Text = u1.password;
             }
             
                     
@@ -41,16 +42,34 @@ namespace DVLD
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(User.isUserExistByUserName(txtUserName.Text))
+            if (!User.isUserExistByUserName(txtUserName.Text))
+            {
+              
+                return;
+            }
+            u1 = User.findUserByUserByUserName(txtUserName.Text);
 
-            if(cbRemeberMe.Checked)
+            if (!User.isUserExistByUserName(txtUserName.Text)||u1.password!=maskedTextBox1.Text)
+            {
+                MessageBox.Show("User name or  password wrong");
+                return;
+            }
+                     
+            if(!u1.isActive)
+            {
+                MessageBox.Show("User does not active. Contact to your admin");
+                return;
+            }
+
+            loginSettings.currentUser = u1;
+
+            if (cbRemeberMe.Checked)
             {
                 File.WriteAllText(@"C:\Users\ibrah\source\repos\DVLD\DVLD\UserRememberMeJustID.txt", loginSettings.currentUser.userID.ToString());
             }
-            else
-            {
-                File.WriteAllText(@"C:\Users\ibrah\source\repos\DVLD\DVLD\UserRememberMeJustID.txt", "");
-            }
+
+            frmMain frm = new frmMain();
+            frm.ShowDialog();
         }
     }
 }
