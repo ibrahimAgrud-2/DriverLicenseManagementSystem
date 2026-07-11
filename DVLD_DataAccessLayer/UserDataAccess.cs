@@ -136,7 +136,39 @@ namespace DVLD_DataAccessLayer
             {
                 connection.Open();
 
-           
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int value))
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
+        public static bool isUserExistByUserName(int userID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = "select found =1 from users where userID=@userID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+
+            try
+            {
+                connection.Open();
+
+
                 object result = cmd.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out int value))
                 {
@@ -157,7 +189,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-     
+
         public static int addUser(int personID,  string userName,  string password, 
            bool isActive)
         {
