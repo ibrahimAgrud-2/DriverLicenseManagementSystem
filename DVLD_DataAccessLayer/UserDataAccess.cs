@@ -123,7 +123,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static bool isUserExist(int userID)
+        public static bool isUserExistByID(int userID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
