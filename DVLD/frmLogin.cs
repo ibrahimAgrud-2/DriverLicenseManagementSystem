@@ -41,7 +41,7 @@ namespace DVLD
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(User.findUserByUserByUserName(txtUserName.Text))
+            if(User.isUserExistByUserName(txtUserName.Text))
 
             if(cbRemeberMe.Checked)
             {

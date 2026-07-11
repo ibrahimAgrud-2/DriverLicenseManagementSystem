@@ -155,13 +155,13 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
-        public static bool isUserExistByUserName(int userID)
+        public static bool isUserExistByUserName(string userName)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
-            string query = "select found =1 from users where userID=@userID";
+            string query = "select found =1 from users where userName=@userName";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@userName", userName);
 
 
             try

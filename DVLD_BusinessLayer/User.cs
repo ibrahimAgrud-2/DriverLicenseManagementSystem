@@ -107,14 +107,19 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public static bool isUserExist(int userID)
+        public static bool isUserExistByID(int userID)
         {
             return UserDataAccess.isUserExistByID(userID);
         }
-       
+        public static bool isUserExistByUserName(string userName)
+        {
+            return UserDataAccess.isUserExistByUserName(userName);
+        }
+
+
         public static bool deleteUser(int userID)
         {
-            if (isUserExist(userID))
+            if (isUserExistByID(userID))
             {
                 return UserDataAccess.deleteUser(userID);
             }
