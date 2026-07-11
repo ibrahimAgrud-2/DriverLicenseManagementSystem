@@ -31,7 +31,7 @@ namespace DVLD
             if (fileContent != string.Empty)
             {
                int userID= Convert.ToInt32(fileContent);
-                loginSettings.currentUser = User.findUser(userID);
+                loginSettings.currentUser = User.findUserByUserID(userID);
                 txtUserName.Text = loginSettings.currentUser.userName;
                 maskedTextBox1.Text = loginSettings.currentUser.password;
             }

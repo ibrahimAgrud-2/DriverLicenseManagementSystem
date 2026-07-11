@@ -62,7 +62,7 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static User findUser(int userID)
+        public static User findUserByUserID(int userID)
         {
 
             string userName = "", password = "";
@@ -77,7 +77,22 @@ namespace DVLD_BusinessLayer
             }
             return null;
         }
+        public static User findUserByUserByUserName(string userName )
+        {
 
+            string password = "";
+
+            int personID = -1, userID=-1;
+            bool isActive = false;
+
+
+            if (UserDataAccess.findUserByUserName(ref userID, ref personID,  userName, ref password, ref isActive))
+            {
+                return new User(userID, personID, userName, password, isActive);
+
+            }
+            return null;
+        }
 
         private bool _addNewUser()
         {
