@@ -18,29 +18,51 @@ namespace DVLD.Users
             InitializeComponent();
         }
 
+        private DataTable _DtUsers;
+
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
               { "UserID", "User ID" },     
-            { "PersonID", "Person ID" },
+              { "PersonID", "Person ID" },
               { "UserName", "User Name" },
               { "IsActive", "Is Active" },
+              { "FullName", "Full Name" },
             };
 
-        private void _SetColumnNames()
+
+        private void _setDataResource()
         {
+            DataTable dt = User.getUserRecords();
+            dt.Columns.Add("FullName");
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr["FullName"] = $"{dr["firstName"]} {dr["secondName"]} {dr["thirdName"]} {dr["lastName"]}";
+            }
+            dt.Columns["FullName"].SetOrdinal(2);
+            _DtUsers = dt;
+         
+        }
+      
+
+    
+        private void _RefreshPeopleList()
+        {
+            
+         
+
+            _setDataResource();
+            dgvUsersList.DataSource = _DtUsers;
+            dgvUsersList.Columns["firstName"].Visible = false;
+            dgvUsersList.Columns["secondName"].Visible = false;
+            dgvUsersList.Columns["thirdName"].Visible = false;
+            dgvUsersList.Columns["lastName"].Visible = false;
+            dgvUsersList.Columns["password"].Visible = false;
+
             foreach (KeyValuePair<string, string> dict in _ColumnNames)
             {
                 dgvUsersList.Columns[dict.Key].HeaderText = dict.Value;
             }
-        }
 
-        private DataTable _DtUsers;
-        private void _RefreshPeopleList()
-        {
-            _DtUsers = User.getUserRecords();
-            dgvUsersList.DataSource = _DtUsers;
-          
-            _SetColumnNames();
 
             lblRecords.Text = dgvUsersList.RowCount.ToString();
         }
@@ -56,6 +78,7 @@ namespace DVLD.Users
 
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
+            
             _RefreshPeopleList();
         }
 
