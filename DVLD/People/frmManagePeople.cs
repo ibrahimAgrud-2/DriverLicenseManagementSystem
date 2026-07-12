@@ -52,7 +52,7 @@ namespace DVLD
             _DtPeople = People.getAllPersonRecords();
 
             
-
+            //toTable kullan visile yerinee
             dgvPeopleList.DataSource = _DtPeople;
             _SetColumnNames();
              lblRecords.Text = dgvPeopleList.RowCount.ToString();
