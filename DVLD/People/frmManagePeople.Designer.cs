@@ -53,7 +53,6 @@
             this.dVLDDataSet = new DVLD.DVLDDataSet();
             this.dVLDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtFilet = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,7 +68,14 @@
             "None",
             "Person ID",
             "National No",
-            "First Name"});
+            "First Name",
+            "Second Name",
+            "Third Name",
+            "Last Name",
+            "Nationality",
+            "Gender",
+            "Phone",
+            "Email"});
             this.cbFilterBy.Location = new System.Drawing.Point(117, 350);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(193, 33);
@@ -279,15 +285,7 @@
             this.txtFilet.TabIndex = 28;
             this.txtFilet.Visible = false;
             this.txtFilet.TextChanged += new System.EventHandler(this.txtFilet_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(68, 207);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 33);
-            this.textBox1.TabIndex = 28;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtFilet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilet_KeyPress);
             // 
             // frmManagePeople
             // 
@@ -295,7 +293,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1501, 829);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtFilet);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.label6);
@@ -345,6 +342,5 @@
         private DVLDDataSet dVLDDataSet;
         private System.Windows.Forms.BindingSource dVLDDataSetBindingSource;
         private System.Windows.Forms.TextBox txtFilet;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

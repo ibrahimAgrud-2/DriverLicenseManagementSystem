@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD
@@ -54,8 +57,11 @@ namespace DVLD
             _SetColumnNames();
              lblRecords.Text = dgvPeopleList.RowCount.ToString();
         }
+
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
+
+    
             _DtPeople = People.getAllPersonRecords();
             _RefreshPeopleList();
             cbFilterBy.SelectedIndex = 0;
@@ -150,6 +156,8 @@ namespace DVLD
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtFilet.Text = "";
+
 
             if(cbFilterBy.SelectedIndex==0)
             {
@@ -160,14 +168,13 @@ namespace DVLD
             {
                 txtFilet.Visible = true;
             }
-
-        }
- 
         
+        }
+
+
+        enum enFilters { none=0,ID=1,NationalNo=2,firstName=3,secondName=4,thirdName=5,lastName=6, Nationality = 7,Gender=8,phone=9,Email=10}
         private void txtFilet_TextChanged(object sender, EventArgs e)
         {
- 
-    
 
             if (txtFilet.Text == "")
             {
@@ -176,39 +183,63 @@ namespace DVLD
                 return;
             }
 
-        
-                
-            switch(cbFilterBy.Text)
+
+            switch ((enFilters)cbFilterBy.SelectedIndex)
             {
-                case "Person ID":
-                    _DtPeople.DefaultView.RowFilter = string.Format("PersonID = '{0}'", txtFilet.Text);
+                case enFilters.ID:
+                    _DtPeople.DefaultView.RowFilter = $"PersonID = '{txtFilet.Text}'";
                     break;
-
-                case "First Name":
-                    _DtPeople.DefaultView.RowFilter = $"FirstName LIKE '%{txtFilet.Text}%'"; ;
+                case enFilters.firstName:
+                    _DtPeople.DefaultView.RowFilter = $"FirstName LIKE '%{txtFilet.Text}%'";
                     break;
-                case "National No":
-                    _DtPeople.DefaultView.RowFilter = string.Format("NationalNo = '{0}'", txtFilet.Text);
+                case enFilters.NationalNo:
+                    _DtPeople.DefaultView.RowFilter = $"NationalNo LIKE '%{txtFilet.Text}%'";
                     break;
-
-
+                case enFilters.Nationality:
+                    _DtPeople.DefaultView.RowFilter = $"CountryName LIKE '%{txtFilet.Text}%'";
+                    break;
+                case enFilters.phone:
+                    _DtPeople.DefaultView.RowFilter = $"Phone LIKE '%{txtFilet.Text}%'";
+                    break;
+                case enFilters.Email:
+                    _DtPeople.DefaultView.RowFilter = $"Email LIKE '%{txtFilet.Text}%'";
+                    break;
+                case enFilters.Gender:
+                    _DtPeople.DefaultView.RowFilter = $"Gender = '{txtFilet.Text}'";
+                    break;
+                case enFilters.secondName:
+                    _DtPeople.DefaultView.RowFilter = $"SecondName LIKE '%{txtFilet.Text}%'";
+                    break;
+                case enFilters.thirdName:
+                    _DtPeople.DefaultView.RowFilter = $"thirdName LIKE '%{txtFilet.Text}%'";
+                    break;
+                case enFilters.lastName:
+                    _DtPeople.DefaultView.RowFilter = $"lastName LIKE '%{txtFilet.Text}%'";
+                    break;
+                default:
+                    MessageBox.Show("No Filter");
+                    break;
             }
             dgvPeopleList.DataSource = _DtPeople;
-            
+
+
+
         }
 
-
-        //========Bu ID için sadece  numara girilme sıkıntısı için test amaçla eklendi.
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        //ID'de sadece numara girilmesi lazım.
+        private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!int.TryParse(e.KeyChar.ToString(), out int test))
+            if (cbFilterBy.Text == "Person ID")
             {
+                if (!int.TryParse(e.KeyChar.ToString(), out int test))
+                {
 
-                MessageBox.Show("no");
-                e.Handled = true;
+                    if (e.KeyChar == '\b')
+                        return;
+                    e.Handled = true;
 
+                }
             }
-
         }
     }
 }
