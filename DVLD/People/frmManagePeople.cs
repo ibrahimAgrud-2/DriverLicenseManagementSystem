@@ -172,7 +172,7 @@ namespace DVLD
         }
 
 
-        enum enFilters { none=0,ID=1,NationalNo=2,firstName=3,secondName=4,thirdName=5,lastName=6, Nationality = 7,Gender=8,phone=9,Email=10}
+       private  enum _enFilters { none=0,ID=1,NationalNo=2,firstName=3,secondName=4,thirdName=5,lastName=6, Nationality = 7,Gender=8,phone=9,Email=10}
         private void txtFilet_TextChanged(object sender, EventArgs e)
         {
 
@@ -184,36 +184,36 @@ namespace DVLD
             }
 
 
-            switch ((enFilters)cbFilterBy.SelectedIndex)
+            switch ((_enFilters)cbFilterBy.SelectedIndex)
             {
-                case enFilters.ID:
+                case _enFilters.ID:
                     _DtPeople.DefaultView.RowFilter = $"PersonID = '{txtFilet.Text}'";
                     break;
-                case enFilters.firstName:
+                case _enFilters.firstName:
                     _DtPeople.DefaultView.RowFilter = $"FirstName LIKE '%{txtFilet.Text}%'";
                     break;
-                case enFilters.NationalNo:
+                case _enFilters.NationalNo:
                     _DtPeople.DefaultView.RowFilter = $"NationalNo = '{txtFilet.Text}'";
                     break;
-                case enFilters.Nationality:
+                case _enFilters.Nationality:
                     _DtPeople.DefaultView.RowFilter = $"CountryName LIKE '%{txtFilet.Text}%'";
                     break;
-                case enFilters.phone:
+                case _enFilters.phone:
                     _DtPeople.DefaultView.RowFilter = $"Phone LIKE '%{txtFilet.Text}%'";
                     break;
-                case enFilters.Email:
+                case _enFilters.Email:
                     _DtPeople.DefaultView.RowFilter = $"Email LIKE '%{txtFilet.Text}%'";
                     break;
-                case enFilters.Gender:
+                case _enFilters.Gender:
                     _DtPeople.DefaultView.RowFilter = $"Gender = '{txtFilet.Text}'";
                     break;
-                case enFilters.secondName:
+                case _enFilters.secondName:
                     _DtPeople.DefaultView.RowFilter = $"SecondName LIKE '%{txtFilet.Text}%'";
                     break;
-                case enFilters.thirdName:
+                case _enFilters.thirdName:
                     _DtPeople.DefaultView.RowFilter = $"thirdName LIKE '%{txtFilet.Text}%'";
                     break;
-                case enFilters.lastName:
+                case _enFilters.lastName:
                     _DtPeople.DefaultView.RowFilter = $"lastName LIKE '%{txtFilet.Text}%'";
                     break;
                 default:
