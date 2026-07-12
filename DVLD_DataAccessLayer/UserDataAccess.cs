@@ -12,7 +12,7 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = "select * from users";
+            string sqlQuery = "select * from users join people on user.PersonID=People.PersonID";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 
