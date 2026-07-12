@@ -193,7 +193,7 @@ namespace DVLD
                     _DtPeople.DefaultView.RowFilter = $"FirstName LIKE '%{txtFilet.Text}%'";
                     break;
                 case enFilters.NationalNo:
-                    _DtPeople.DefaultView.RowFilter = $"NationalNo LIKE '%{txtFilet.Text}%'";
+                    _DtPeople.DefaultView.RowFilter = $"NationalNo = '{txtFilet.Text}'";
                     break;
                 case enFilters.Nationality:
                     _DtPeople.DefaultView.RowFilter = $"CountryName LIKE '%{txtFilet.Text}%'";
