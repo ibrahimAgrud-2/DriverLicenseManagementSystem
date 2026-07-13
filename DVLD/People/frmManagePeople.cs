@@ -229,7 +229,7 @@ namespace DVLD
         //ID'de sadece numara girilmesi lazım.
         private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbFilterBy.Text == "PeopleBl ID")
+            if (cbFilterBy.SelectedIndex==1)
             {
                 if (!int.TryParse(e.KeyChar.ToString(), out int test))
                 {

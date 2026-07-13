@@ -21,5 +21,15 @@ namespace DVLD.Users
         {
 
         }
+
+        private void ctrlFindUser1_OnFilteringComplete(int obj)
+        {
+            MessageBox.Show(obj.ToString());
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

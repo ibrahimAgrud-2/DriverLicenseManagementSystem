@@ -42,17 +42,20 @@
 
         private int _findPerson()
         {
-            int personID = -1;
+      
+            PeopleBL person = new PeopleBL();
            switch(cbFilterBy.Text)
             {
                 case "National No":
-                    personID = PeopleBL.findPersonByNationalNo(txtFilter.Text).personID;
+                    person = PeopleBL.findPersonByNationalNo(txtFilter.Text);
                     break;
                 case "Person ID":
-                    personID = PeopleBL.findPersonByID(Convert.ToInt32(txtFilter.Text)).personID;
+                    person = PeopleBL.findPersonByID(Convert.ToInt32(txtFilter.Text));
                     break;
             }
-                    return personID;
+            if(person!=null)
+                  return person.personID;
+            return -1;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -67,7 +70,7 @@
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if (cbFilterBy.Text == "PeopleBl ID")
+            if (cbFilterBy.SelectedIndex==1)
             {
                 if (!int.TryParse(e.KeyChar.ToString(), out int test))
                 {
