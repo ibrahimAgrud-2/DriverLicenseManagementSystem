@@ -6,9 +6,9 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Net.NetworkInformation;
 
-
-
+using PeopleBL = DVLD_BusinessLayer.People;
 
 namespace DVLD.Controls.ctrlPeople
 {
@@ -24,7 +24,7 @@ namespace DVLD.Controls.ctrlPeople
        private RegionInfo _Region = RegionInfo.CurrentRegion;
 
 
-        private People _Person;
+        private PeopleBL _Person;
         private int _personID;
 
         enum enMode { enAddNew=1,enUpdate=2};
@@ -88,7 +88,7 @@ namespace DVLD.Controls.ctrlPeople
             if (this._Mode==enMode.enAddNew)
             {
                 dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
-                _Person = new People();
+                _Person = new PeopleBL();
                 cbCountries.SelectedItem = _Region.EnglishName;
                 _SetDefaultImage();
                 setErrors();
@@ -96,7 +96,7 @@ namespace DVLD.Controls.ctrlPeople
                 return;
             }
 
-            _Person = People.findPersonByID(_personID);
+            _Person = PeopleBL.findPersonByID(_personID);
             fillObjectDataToField(_Person);
           
 
@@ -193,7 +193,7 @@ namespace DVLD.Controls.ctrlPeople
             }
 
         }
-        private void fillObjectDataToField(People person)
+        private void fillObjectDataToField(PeopleBL person)
         {
             mskFirstName.Text = person.firstName;
             mskSecondName.Text = person.secondName;
@@ -271,7 +271,7 @@ namespace DVLD.Controls.ctrlPeople
         private bool _IsNationalNoInputValid()
         {
 
-            if (People.isPersonExistByNationalNo(mskNationalNo.Text))
+            if (PeopleBL.isPersonExistByNationalNo(mskNationalNo.Text))
             {
                 if (_Person.nationalNo == mskNationalNo.Text)
                 {

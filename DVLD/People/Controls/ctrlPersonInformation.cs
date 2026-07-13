@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using DVLD_BusinessLayer;
 using System.Windows.Forms;
-
+using peoplBl = DVLD_BusinessLayer.People;
 namespace DVLD
 {
     public partial class ctrlPersonInformation : UserControl
@@ -12,7 +12,7 @@ namespace DVLD
         }
 
         private int _PersonID;
-        private People _Person;
+        private peoplBl _Person;
 
 
         public int PersonID
@@ -27,7 +27,7 @@ namespace DVLD
         }
         private void _loadDataIfPersonExists()
         {
-            if(!People.isPersonExistByID(_PersonID))
+            if(!peoplBl.isPersonExistByID(_PersonID))
             {
                 return;
             }
@@ -40,7 +40,7 @@ namespace DVLD
         }
 
 
-        private void fillObjectDataToField(People person)
+        private void fillObjectDataToField(peoplBl person)
         {
             lblName.Text = person.firstName + " " + person.secondName + " " + person.thirdName + " " + person.lastName; ;
             lblPersonID.Text = person.personID.ToString();
@@ -72,7 +72,7 @@ namespace DVLD
 
         private void _Load()
         {
-            _Person = People.findPersonByID(_PersonID);
+            _Person = peoplBl.findPersonByID(_PersonID);
 
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
