@@ -19,7 +19,7 @@
 
             private void ctrlFindUser_Load(object sender, EventArgs e)
             {
-                
+            cbFilterBy.SelectedIndex = 0;
             }
         //______________ ^^^ Event ^^^ ______________________
         public event Action<int> OnFilteringComplete;

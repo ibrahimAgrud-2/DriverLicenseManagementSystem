@@ -125,17 +125,16 @@
             // ctrlPersonInformation1
             // 
             this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 194);
+            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 207);
             this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
             this.ctrlPersonInformation1.PersonID = 0;
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 318);
+            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 334);
             this.ctrlPersonInformation1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1007, 533);
+            this.button1.Location = new System.Drawing.Point(1007, 549);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 38);
