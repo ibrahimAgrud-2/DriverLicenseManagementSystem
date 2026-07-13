@@ -33,9 +33,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.tbMain = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,7 @@
             this.button1.Text = "Save";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnClose
             // 
@@ -84,27 +85,6 @@
             this.tbMain.Size = new System.Drawing.Size(1132, 631);
             this.tbMain.TabIndex = 80;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1124, 596);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Login Info";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // ctrlPersonInformation1
-            // 
-            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 126);
-            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.PersonID = 0;
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 474);
-            this.ctrlPersonInformation1.TabIndex = 0;
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.ctrlPersonInformation1);
@@ -117,6 +97,27 @@
             this.tabPage1.Text = "PeopleBl Info";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // ctrlPersonInformation1
+            // 
+            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 126);
+            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
+            this.ctrlPersonInformation1.PersonID = 0;
+            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 474);
+            this.ctrlPersonInformation1.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 31);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPage2.Size = new System.Drawing.Size(1124, 596);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Login Info";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // frmAddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -127,7 +128,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddNewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddNewUser";

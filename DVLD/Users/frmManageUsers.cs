@@ -86,6 +86,7 @@ namespace DVLD.Users
         {
             frmAddNewUser frm = new frmAddNewUser();
             frm.ShowDialog();
+            
         }
     }
 }
