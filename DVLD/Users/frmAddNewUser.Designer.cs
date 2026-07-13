@@ -28,28 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddNewUser));
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.tbMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.ctrlFindUser1 = new DVLD.People.Controls.ctrlFindUser();
             this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
-            this.cbIsActive = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbIsActive = new System.Windows.Forms.CheckBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tbMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +76,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -100,7 +103,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnNext);
             this.tabPage1.Controls.Add(this.ctrlFindUser1);
             this.tabPage1.Controls.Add(this.ctrlPersonInformation1);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
@@ -111,6 +114,37 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "PeopleBl Info";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(1007, 549);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(100, 38);
+            this.btnNext.TabIndex = 81;
+            this.btnNext.Text = "Next";
+            this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // ctrlFindUser1
+            // 
+            this.ctrlFindUser1.Location = new System.Drawing.Point(8, 16);
+            this.ctrlFindUser1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlFindUser1.Name = "ctrlFindUser1";
+            this.ctrlFindUser1.Size = new System.Drawing.Size(1099, 155);
+            this.ctrlFindUser1.TabIndex = 1;
+            this.ctrlFindUser1.OnFilteringComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
+            // 
+            // ctrlPersonInformation1
+            // 
+            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 207);
+            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
+            this.ctrlPersonInformation1.PersonID = 0;
+            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 334);
+            this.ctrlPersonInformation1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -132,59 +166,50 @@
             this.tabPage2.Text = "Login Info";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // label4
             // 
-            this.button1.Location = new System.Drawing.Point(1007, 549);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 38);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "Next";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(72, 244);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 24);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Confirm Password";
             // 
-            // ctrlFindUser1
+            // label3
             // 
-            this.ctrlFindUser1.Location = new System.Drawing.Point(8, 16);
-            this.ctrlFindUser1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlFindUser1.Name = "ctrlFindUser1";
-            this.ctrlFindUser1.Size = new System.Drawing.Size(1099, 155);
-            this.ctrlFindUser1.TabIndex = 1;
-            this.ctrlFindUser1.OnFilteringComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(129, 178);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Password";
             // 
-            // ctrlPersonInformation1
+            // label6
             // 
-            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 207);
-            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.PersonID = 0;
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 334);
-            this.ctrlPersonInformation1.TabIndex = 0;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(247, 71);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 24);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "N/A";
             // 
-            // txtUserName
+            // label5
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(240, 119);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(209, 34);
-            this.txtUserName.TabIndex = 0;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(153, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 24);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "User ID";
             // 
-            // txtPassword
+            // label2
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(240, 178);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(209, 34);
-            this.txtPassword.TabIndex = 0;
-            // 
-            // txtConfirmPassword
-            // 
-            this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmPassword.Location = new System.Drawing.Point(240, 234);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(209, 34);
-            this.txtConfirmPassword.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(129, 129);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 24);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "User Name";
             // 
             // cbIsActive
             // 
@@ -197,50 +222,33 @@
             this.cbIsActive.Text = "Is Active";
             this.cbIsActive.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // txtConfirmPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "User Name";
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Location = new System.Drawing.Point(240, 234);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(209, 34);
+            this.txtConfirmPassword.TabIndex = 0;
             // 
-            // label3
+            // txtPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(129, 178);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 24);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Password";
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(240, 178);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(209, 34);
+            this.txtPassword.TabIndex = 0;
             // 
-            // label4
+            // txtUserName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(72, 244);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 24);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Confirm Password";
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(240, 119);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(209, 34);
+            this.txtUserName.TabIndex = 0;
             // 
-            // label5
+            // errorProvider1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(153, 71);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 24);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "User ID";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(247, 71);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 24);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "N/A";
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmAddNewUser
             // 
@@ -260,6 +268,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +284,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private ctrlPersonInformation ctrlPersonInformation1;
         private People.Controls.ctrlFindUser ctrlFindUser1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbIsActive;
@@ -285,5 +294,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

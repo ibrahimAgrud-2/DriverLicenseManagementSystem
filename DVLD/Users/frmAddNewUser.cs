@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace DVLD.Users
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
 
         }
@@ -25,11 +26,25 @@ namespace DVLD.Users
         private void ctrlFindUser1_OnFilteringComplete(int obj)
         {
             this.ctrlPersonInformation1.PersonID = obj;
+            this.ctrlPersonInformation1.Tag = obj;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if(User.findUserByUserID(Convert.ToInt32(this.ctrlPersonInformation1.Tag))!=null)
+            {
+                MessageBox.Show("User Exist");
+                return;
+            }
+            else
+            {
+                tbMain.SelectedIndex = 1;
+            }
         }
     }
 }

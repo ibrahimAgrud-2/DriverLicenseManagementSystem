@@ -33,8 +33,8 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,18 +80,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Find By:";
             // 
-            // cbFilterBy
-            // 
-            this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFilterBy.FormattingEnabled = true;
-            this.cbFilterBy.Items.AddRange(new object[] {
-            "National No",
-            "Person ID"});
-            this.cbFilterBy.Location = new System.Drawing.Point(93, 50);
-            this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.Size = new System.Drawing.Size(203, 37);
-            this.cbFilterBy.TabIndex = 3;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtFilter);
@@ -107,6 +95,18 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
+            // 
+            // cbFilterBy
+            // 
+            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFilterBy.Items.AddRange(new object[] {
+            "National No",
+            "Person ID"});
+            this.cbFilterBy.Location = new System.Drawing.Point(93, 50);
+            this.cbFilterBy.Name = "cbFilterBy";
+            this.cbFilterBy.Size = new System.Drawing.Size(203, 37);
+            this.cbFilterBy.TabIndex = 3;
             // 
             // ctrlFindUser
             // 
@@ -128,7 +128,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbFilterBy;
     }
 }
