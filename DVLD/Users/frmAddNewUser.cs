@@ -24,7 +24,7 @@ namespace DVLD.Users
 
         private void ctrlFindUser1_OnFilteringComplete(int obj)
         {
-            MessageBox.Show(obj.ToString());
+            this.ctrlPersonInformation1.PersonID = obj;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
