@@ -6,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using PeopleBL = DVLD_BusinessLayer.People;
 using System.Windows.Forms;
 
 namespace DVLD.Users
@@ -23,10 +23,12 @@ namespace DVLD.Users
 
         }
 
+        //search işlemi bittikten sonra eğer person varsa ID'sini buraya koysun. Person'un olup olmadığını bunla anlicaz
+        private int _PeronID = -1;
         private void ctrlFindUser1_OnFilteringComplete(int obj)
         {
+            _PeronID = obj;
             this.ctrlPersonInformation1.PersonID = obj;
-            this.ctrlPersonInformation1.Tag = obj;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -36,15 +38,27 @@ namespace DVLD.Users
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if(User.findUserByUserID(Convert.ToInt32(this.ctrlPersonInformation1.Tag))!=null)
+   
+                tbMain.SelectedIndex = 1;
+            
+        }
+
+        private void tbMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (User.findUserByUserID(_PeronID) != null)
             {
                 MessageBox.Show("User Exist");
+                tbMain.SelectedIndex = 0;
                 return;
             }
-            else
+            if(_PeronID==-1)
             {
-                tbMain.SelectedIndex = 1;
+          
+                tbMain.SelectedIndex = 0;
+      
             }
+
+
         }
     }
 }
