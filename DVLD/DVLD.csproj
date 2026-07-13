@@ -61,6 +61,12 @@
     <Compile Include="People\Controls\ctrlAddUpdatePerson.Designer.cs">
       <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\Controls\ctrlFindUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrlFindUser.Designer.cs">
+      <DependentUpon>ctrlFindUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\Controls\ctrlPersonInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="People\Controls\ctrlAddUpdatePerson.resx">
       <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrlFindUser.resx">
+      <DependentUpon>ctrlFindUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrlPersonInformation.resx">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>

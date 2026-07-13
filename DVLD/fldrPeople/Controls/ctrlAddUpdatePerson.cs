@@ -8,8 +8,6 @@ using System.Windows.Forms;
 using System.Globalization;
 
 
-
-
 namespace DVLD.Controls.ctrlPeople
 {
     public partial class ctrlAddUpdatePerson : UserControl
