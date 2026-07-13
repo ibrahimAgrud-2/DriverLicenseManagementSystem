@@ -114,7 +114,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage1.Size = new System.Drawing.Size(1124, 596);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Person Info";
+            this.tabPage1.Text = "PeopleBl Info";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // frmAddNewUser

@@ -22,7 +22,6 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_DataAccessLayer.dll
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_BusinessLayer.pdb
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_DataAccessLayer.pdb
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.AssemblyReference.cache
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.exe.config
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmMain.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Properties.Resources.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.GenerateResource.cache
@@ -38,3 +37,5 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmPersonDetail.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Controls.ctrlPeople.ctrlAddUpdatePerson.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmManageUsers.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmAddNewUser.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.Controls.ctrlFindUser.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.exe.config

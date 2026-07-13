@@ -81,7 +81,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 32);
             this.label5.TabIndex = 48;
-            this.label5.Text = "Person ID: ";
+            this.label5.Text = "PeopleBl ID: ";
             // 
             // label4
             // 
@@ -146,7 +146,7 @@
             this.lnklblEditPersonInfo.Size = new System.Drawing.Size(167, 26);
             this.lnklblEditPersonInfo.TabIndex = 36;
             this.lnklblEditPersonInfo.TabStop = true;
-            this.lnklblEditPersonInfo.Text = "Edit Person Info";
+            this.lnklblEditPersonInfo.Text = "Edit PeopleBl Info";
             this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // label12
@@ -272,7 +272,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1087, 453);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Person Information";
+            this.groupBox1.Text = "PeopleBl Information";
             // 
             // pbPersonImage
             // 

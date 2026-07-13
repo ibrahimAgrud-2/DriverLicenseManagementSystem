@@ -47,7 +47,7 @@
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(195, 29);
             this.lblMode.TabIndex = 2;
-            this.lblMode.Text = "Add New Person";
+            this.lblMode.Text = "Add New PeopleBl";
             // 
             // label2
             // 

@@ -23,7 +23,7 @@ namespace DVLD.Users
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
               { "UserID", "User ID" },     
-              { "PersonID", "Person ID" },
+              { "PersonID", "PeopleBl ID" },
               { "UserName", "User Name" },
               { "IsActive", "Is Active" },
               { "FullName", "Full Name" },

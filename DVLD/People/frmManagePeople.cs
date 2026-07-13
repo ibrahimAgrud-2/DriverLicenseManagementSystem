@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Windows.Input;
+using Person = DVLD_BusinessLayer.People;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -26,7 +26,7 @@ namespace DVLD
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "PersonID", "Person ID" },
+              { "PersonID", "PeopleBl ID" },
               { "FirstName", "First Name" },
               { "LastName", "Last Name" },
               { "SecondName", "Second Name" },
@@ -49,7 +49,7 @@ namespace DVLD
 
         private void _RefreshPeopleList()
         {
-            _DtPeople = People.getAllPersonRecords();
+            _DtPeople = Person.getAllPersonRecords();
 
             
             //toTable kullan visile yerinee
@@ -62,7 +62,7 @@ namespace DVLD
         {
 
     
-            _DtPeople = People.getAllPersonRecords();
+            _DtPeople = Person.getAllPersonRecords();
             _RefreshPeopleList();
             cbFilterBy.SelectedIndex = 0;
         }
@@ -80,21 +80,21 @@ namespace DVLD
         {
             if (int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
             {
-                if(People.isPersonExistByID(selectedPersonID))
+                if(Person.isPersonExistByID(selectedPersonID))
                 {
-                    if(People.delete(selectedPersonID))
+                    if(Person.delete(selectedPersonID))
                     {
-                        MessageBox.Show("Person Deleted");
+                        MessageBox.Show("PeopleBl Deleted");
                         _RefreshPeopleList();
                     }
                     else
                     {
-                        MessageBox.Show("Person has data link to it");
+                        MessageBox.Show("PeopleBl has data link to it");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Person Not Found");
+                    MessageBox.Show("PeopleBl Not Found");
                 }
 
             }
@@ -229,7 +229,7 @@ namespace DVLD
         //ID'de sadece numara girilmesi lazım.
         private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbFilterBy.Text == "Person ID")
+            if (cbFilterBy.Text == "PeopleBl ID")
             {
                 if (!int.TryParse(e.KeyChar.ToString(), out int test))
                 {

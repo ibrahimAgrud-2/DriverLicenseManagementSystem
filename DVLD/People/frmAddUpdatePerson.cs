@@ -30,7 +30,7 @@ namespace DVLD
             if(_PersonID > 0)
             {
                 lblPersonId.Text = _PersonID.ToString();
-                lblMode.Text = "Update Person";
+                lblMode.Text = "Update PeopleBl";
             }
             this.ctrlAddUpdatePerson1.personID = _PersonID;
 
@@ -40,7 +40,7 @@ namespace DVLD
         private void ctrlAddUpdatePerson1_OnSaveComplete(int obj)
         {
             lblPersonId.Text = obj.ToString();
-            lblMode.Text = "Update Person";
+            lblMode.Text = "Update PeopleBl";
         }
     }
 }
