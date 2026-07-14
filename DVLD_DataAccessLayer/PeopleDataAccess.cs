@@ -309,21 +309,33 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
-            string query = "update people set nationalNo=@nationalNo,firstName=@firstName,secondName=@secondName,thirdName= @thirdName,lastName=@lastName,dateOfBirth=@dateOfBirth,gender=@gender,address=@address,email=@email,phone = @phone,nationalityCountryID=@nationalityCountryID,imagePath=@imagePath where personID =@personID";
+            string query = @"Update  People  
+                            set FirstName = @FirstName,
+                                SecondName = @SecondName,
+                                ThirdName = @ThirdName,
+                                LastName = @LastName, 
+                                NationalNo = @NationalNo,
+                                DateOfBirth = @DateOfBirth,
+                                Gender=@Gender
+                                Address = @Address,  
+                                Phone = @Phone,
+                                Email = @Email, 
+                                NationalityCountryID = @NationalityCountryID,
+                                ImagePath =@ImagePath
+                                where PersonID = @PersonID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@personID", personID);
             cmd.Parameters.AddWithValue("@firstName", firstName);
             cmd.Parameters.AddWithValue("@secondName", secondName);
-            cmd.Parameters.AddWithValue("@thirdName", thirdName);
             cmd.Parameters.AddWithValue("@lastName", lastName);
             cmd.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
             cmd.Parameters.AddWithValue("@gender", gender);
             cmd.Parameters.AddWithValue("@address", address);
-            cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@phone", phone);
             cmd.Parameters.AddWithValue("@nationalityCountryID", countryID);
             cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
+
             if (imagePath == string.Empty)
             {
                 cmd.Parameters.AddWithValue("@imagePath", System.DBNull.Value);
@@ -331,6 +343,25 @@ namespace DVLD_DataAccessLayer
             else
             {
                 cmd.Parameters.AddWithValue("@imagePath", imagePath);
+
+            }
+      
+            if (email == string.Empty)
+            {
+                cmd.Parameters.AddWithValue("@email", System.DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@email", email);
+
+            }
+            if (thirdName == string.Empty)
+            {
+                cmd.Parameters.AddWithValue("@thirdName", System.DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@thirdName", thirdName);
 
             }
 
