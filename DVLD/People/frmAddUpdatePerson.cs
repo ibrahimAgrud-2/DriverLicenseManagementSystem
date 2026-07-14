@@ -40,5 +40,10 @@ namespace DVLD
             lblPersonId.Text = obj.ToString();
             lblMode.Text = "Update PeopleBl";
         }
+
+        private void ctrlAddUpdatePerson1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

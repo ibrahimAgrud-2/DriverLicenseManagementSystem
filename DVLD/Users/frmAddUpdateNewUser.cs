@@ -10,10 +10,10 @@ namespace DVLD.Users
         public frmAddUpdateNewUser(int userID)
         {
             InitializeComponent();
-            _UserID = userID;
+            _User.userID = userID;
         }
-        private int _personID = -1;
-        private int _UserID=-1;
+
+       
         private User _User = new User();
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
@@ -32,27 +32,26 @@ namespace DVLD.Users
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
         {
-            if (_UserID > 0)
+
+            //when mode is update;
+            if ((_User.userID > 0)&&User.isUserExistByID(_User.userID))
             {
-                lblID.Text = _personID.ToString();
+                _User = User.findUserByUserID(_User.userID);
+                lblID.Text = _User.personID.ToString();
                 lblMode.Text = "Update User";
                 ctrlFindUser1.Enabled = false;
-                _User = User.findUserByUserID(_UserID);
-                _personID = _User.personID;
                 _Mode = enMode.enUpdate;
                 fillObjectDataToField(_User);
             }
         }
 
 
-        //search işlemi bittikten sonra eğer person varsa ID'sini buraya koysun. Person'un olup olmadığını bunla anlicaz
-
         private void ctrlFindUser1_OnFilteringComplete(int obj)
         {
 
             if (obj > 0)
             {
-                _personID = obj;
+                _User.personID = obj;
                 this.ctrlPersonInformation1.PersonID = obj;
             }
 
@@ -66,12 +65,12 @@ namespace DVLD.Users
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (_personID <= 0)
+            if (_User.personID <= 0)
             {
                 MessageBox.Show("Select a person first");
                 return;
             }
-            else if (User.isUserExistByPersonID(_personID)&&this._Mode==enMode.enAddNew)
+            else if (User.isUserExistByPersonID(_User.personID) &&this._Mode==enMode.enAddNew)
             {
                 MessageBox.Show("The person is already a user");
                 return;
@@ -99,19 +98,23 @@ namespace DVLD.Users
 
 
         //=========================== ^Next^=====================
-
+  
         private bool _IsUserNameInputValid()
         {
-            if(User.isUserExistByID(_UserID))
+                
+            
+            if(User.isUserExistByUserName(txtUserName.Text))
             {
-                if (this._Mode == enMode.enUpdate)
+                if (_User.userName==txtUserName.Text)
                 {
                     return true;
                 }
                 else
+                {
                     return false;
-            }
-            return true;
+                }
+            } 
+            return (txtUserName.Text!=string.Empty);
              
         }
         private bool _IsAllInputsValid()
@@ -126,7 +129,6 @@ namespace DVLD.Users
             {
                 _User.userName = txtUserName.Text;
                 _User.password = mskPassword.Text;
-                _User.personID = _personID;
                 _User.isActive = cbIsActive.Checked;
                 return true;
             }
@@ -159,7 +161,7 @@ namespace DVLD.Users
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
-            if (User.isUserExistByUserName(txtUserName.Text)&&this._Mode!=enMode.enUpdate)
+            if (!_IsUserNameInputValid())
             {
                 errorProvider1.SetError(txtUserName, "User name already taken");
             }

@@ -45,7 +45,7 @@
             this.lblMode.BackColor = System.Drawing.Color.Chartreuse;
             this.lblMode.Location = new System.Drawing.Point(522, 20);
             this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(195, 29);
+            this.lblMode.Size = new System.Drawing.Size(218, 29);
             this.lblMode.TabIndex = 2;
             this.lblMode.Text = "Add New PeopleBl";
             // 
@@ -96,6 +96,7 @@
             this.ctrlAddUpdatePerson1.Size = new System.Drawing.Size(1174, 565);
             this.ctrlAddUpdatePerson1.TabIndex = 3;
             this.ctrlAddUpdatePerson1.OnSaveComplete += new System.Action<int>(this.ctrlAddUpdatePerson1_OnSaveComplete);
+            this.ctrlAddUpdatePerson1.Load += new System.EventHandler(this.ctrlAddUpdatePerson1_Load);
             // 
             // frmAddUpdatePerson
             // 
