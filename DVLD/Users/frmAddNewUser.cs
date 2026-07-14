@@ -25,6 +25,7 @@ namespace DVLD.Users
             mskPassword.Text = user.password;
             mskConfirmPassword.Text = user.password;
             lblID.Text = user.userID.ToString();
+            cbIsActive.Checked = user.isActive;
             this.ctrlPersonInformation1.PersonID = user.personID;
 
         }
