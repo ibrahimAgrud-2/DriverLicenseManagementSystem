@@ -70,50 +70,64 @@ namespace DVLD_DataAccessLayer
 
                 if (read.Read())
                 {
-                     personID = Convert.ToInt32(read["PersonID"]);
-                     nationalNo = read["nationalNo"].ToString();
-                     firstName = read["firstName"].ToString();
-                     secondName = read["secondName"].ToString();
-                     thirdName = read["thirdName"].ToString();
-                     lastName = read["lastName"].ToString();
-                     dateOfBirth = Convert.ToDateTime(read["dateOfBirth"]);
-                     gender = Convert.ToInt32(read["gender"]);
-                     address = read["address"].ToString();
-                     email = read["email"].ToString();
-                     phone = read["phone"].ToString();
-                     countryID = Convert.ToInt32(read["nationalityCountryID"]);
-                     imagePath = read["imagePath"].ToString();
 
-                    if (read["ImagePath"] != DBNull.Value)
+                    personID = Convert.ToInt32(read["PersonID"]);
+                    nationalNo = read["nationalNo"].ToString();
+                    firstName = read["firstName"].ToString();
+                    secondName = read["secondName"].ToString();
+                    lastName = read["lastName"].ToString();
+                    dateOfBirth = Convert.ToDateTime(read["dateOfBirth"]);
+                    gender = Convert.ToInt32(read["gender"]);
+                    address = read["address"].ToString();
+                    phone = read["phone"].ToString();
+                    countryID = Convert.ToInt32(read["nationalityCountryID"]);
+
+
+                    if (read["thirdName"] != DBNull.Value)
                     {
-                        imagePath = (string)read["ImagePath"];
+                        thirdName = read["thirdName"].ToString();
+                    }
+                    else
+                    {
+                        thirdName = "";
+                    }
+                    if (read["email"] != DBNull.Value)
+                    {
+                        email = read["email"].ToString();
+                    }
+                    else
+                    {
+                        email = "";
+                    }
+                    if (read["imagePath"] != DBNull.Value)
+                    {
+                        imagePath = read["imagePath"].ToString();
                     }
                     else
                     {
                         imagePath = "";
                     }
 
+
+                    read.Close();
+
                     return true;
                 }
-                else
-                {
-                   
-                    return false;
-                }
-          
 
             }
             catch (Exception)
             {
-                
+
                 return false;
             }
             finally
             {
                 connection.Close();
+
             }
-            
-            
+
+            return false;
+
         }
 
         public static bool findPersonByNationalNo(ref int personID, string nationalNo, ref string firstName, ref string secondName, ref
