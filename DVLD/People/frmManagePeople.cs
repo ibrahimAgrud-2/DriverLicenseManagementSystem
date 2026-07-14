@@ -222,8 +222,6 @@ namespace DVLD
             }
             dgvPeopleList.DataSource = _DtPeople;
 
-
-
         }
 
         //ID'de sadece numara girilmesi lazım.
