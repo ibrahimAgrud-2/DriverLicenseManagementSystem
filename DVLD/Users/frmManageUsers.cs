@@ -101,5 +101,29 @@ namespace DVLD.Users
                 _RefreshUserList();
             }
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvUsersList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedUserID))
+            {
+                if (User.isUserExistByID(selectedUserID))
+                {
+                    if (User.deleteUser(selectedUserID))
+                    {
+                        MessageBox.Show("User Deleted");
+                        _RefreshUserList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User has data link to it");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User Not Found");
+                }
+
+            }
+        }
     }
 }
