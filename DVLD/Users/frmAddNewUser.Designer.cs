@@ -171,7 +171,6 @@
             this.mskConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskConfirmPassword.Location = new System.Drawing.Point(240, 234);
             this.mskConfirmPassword.Name = "mskConfirmPassword";
-            this.mskConfirmPassword.PasswordChar = '*';
             this.mskConfirmPassword.Size = new System.Drawing.Size(209, 34);
             this.mskConfirmPassword.TabIndex = 3;
             this.mskConfirmPassword.TextChanged += new System.EventHandler(this.mskConfirmPassword_TextChanged);
@@ -182,7 +181,6 @@
             this.mskPassword.HidePromptOnLeave = true;
             this.mskPassword.Location = new System.Drawing.Point(240, 180);
             this.mskPassword.Name = "mskPassword";
-            this.mskPassword.PasswordChar = '*';
             this.mskPassword.PromptChar = ' ';
             this.mskPassword.Size = new System.Drawing.Size(209, 34);
             this.mskPassword.TabIndex = 3;

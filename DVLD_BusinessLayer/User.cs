@@ -69,7 +69,6 @@ namespace DVLD_BusinessLayer
             int personID = -1;
             bool isActive=false;
 
-
             if (UserDataAccess.findUserByID(userID, ref personID, ref userName, ref password, ref isActive))
             {
                 return new User(userID,  personID,  userName,  password,  isActive);
