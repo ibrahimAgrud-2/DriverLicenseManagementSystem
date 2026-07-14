@@ -54,9 +54,10 @@ namespace DVLD.Users
                 MessageBox.Show("Person does not exist or deleted");
                 return;
             }
-            else if(1==1)
+            else if(User.isUserExistByPersonID(_PeronID))
             {
-
+                MessageBox.Show("The person is already a user");
+                return;
             }
             else
             {

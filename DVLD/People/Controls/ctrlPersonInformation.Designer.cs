@@ -81,7 +81,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 32);
             this.label5.TabIndex = 48;
-            this.label5.Text = "PeopleBl ID: ";
+            this.label5.Text = "People ID: ";
             // 
             // label4
             // 
@@ -143,10 +143,10 @@
             this.lnklblEditPersonInfo.Enabled = false;
             this.lnklblEditPersonInfo.Location = new System.Drawing.Point(748, 18);
             this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
-            this.lnklblEditPersonInfo.Size = new System.Drawing.Size(142, 20);
+            this.lnklblEditPersonInfo.Size = new System.Drawing.Size(126, 20);
             this.lnklblEditPersonInfo.TabIndex = 36;
             this.lnklblEditPersonInfo.TabStop = true;
-            this.lnklblEditPersonInfo.Text = "Edit PeopleBl Info";
+            this.lnklblEditPersonInfo.Text = "Edit People Info";
             this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // label12
@@ -274,7 +274,7 @@
             this.groupBox1.Size = new System.Drawing.Size(957, 343);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "PeopleBl Information";
+            this.groupBox1.Text = "People Information";
             // 
             // pbPersonImage
             // 

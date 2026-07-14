@@ -48,6 +48,7 @@ namespace DVLD
             lblBirthDate.Text = person.dateOfBirth.ToString("yyyy/mm/dd");
             lblEmail.Text = person.email;
             lblPhone.Text = person.phone;
+            lblAddress.Text = person.address;
 
             lblCountry.Text = Country.findCountryByID(person.countryID).countryName;
 
