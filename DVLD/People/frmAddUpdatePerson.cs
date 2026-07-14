@@ -8,8 +8,6 @@ namespace DVLD
     {
 
 
-        public delegate void sendColorBack(object sender,int personID);
-        public event sendColorBack sendIDBack;
 
         private int _PersonID;
         public frmAddUpdatePerson(int personID)

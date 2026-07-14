@@ -36,6 +36,7 @@ namespace DVLD.Users
             {
                 lblID.Text = _personID.ToString();
                 lblMode.Text = "Update User";
+                ctrlFindUser1.Enabled = false;
                 _User = User.findUserByUserID(_UserID);
                 _personID = _User.personID;
                 _Mode = enMode.enUpdate;
@@ -147,6 +148,7 @@ namespace DVLD.Users
             {
                 MessageBox.Show("Saved successfully");
                 lblID.Text = _User.userID.ToString();
+                this._Mode = enMode.enUpdate;
             }
             else
             {

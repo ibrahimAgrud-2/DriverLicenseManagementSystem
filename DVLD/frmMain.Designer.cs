@@ -32,12 +32,6 @@
             this.tsmDrivers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tsmManageUsers = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAccountSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oNewDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +54,12 @@
             this.releaseDetainedLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmManageUsers = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAccountSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,60 +102,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1148, 154);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // tsmManageUsers
-            // 
-            this.tsmManageUsers.AutoSize = false;
-            this.tsmManageUsers.BackColor = System.Drawing.Color.Tan;
-            this.tsmManageUsers.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.tsmManageUsers.Image = ((System.Drawing.Image)(resources.GetObject("tsmManageUsers.Image")));
-            this.tsmManageUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmManageUsers.Name = "tsmManageUsers";
-            this.tsmManageUsers.Size = new System.Drawing.Size(190, 150);
-            this.tsmManageUsers.Text = "Manage Users";
-            this.tsmManageUsers.Click += new System.EventHandler(this.tsmManageUsers_Click);
-            // 
-            // tsmAccountSettings
-            // 
-            this.tsmAccountSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tsmAccountSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.currentUserInfoToolStripMenuItem,
-            this.changePasswordToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.signOutToolStripMenuItem});
-            this.tsmAccountSettings.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.tsmAccountSettings.Image = ((System.Drawing.Image)(resources.GetObject("tsmAccountSettings.Image")));
-            this.tsmAccountSettings.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmAccountSettings.Name = "tsmAccountSettings";
-            this.tsmAccountSettings.Size = new System.Drawing.Size(224, 150);
-            this.tsmAccountSettings.Text = "Account Settings";
-            // 
-            // currentUserInfoToolStripMenuItem
-            // 
-            this.currentUserInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("currentUserInfoToolStripMenuItem.Image")));
-            this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
-            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(239, 28);
-            this.currentUserInfoToolStripMenuItem.Text = "Current Users Info";
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolStripMenuItem.Image")));
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(239, 28);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(236, 6);
-            // 
-            // signOutToolStripMenuItem
-            // 
-            this.signOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("signOutToolStripMenuItem.Image")));
-            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(239, 28);
-            this.signOutToolStripMenuItem.Text = "Sign Out";
-            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // servicesToolStripMenuItem
             // 
@@ -231,7 +177,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(429, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(441, 6);
             // 
             // ReplacementLostOrDamagedDrivingLicenseToolStripMenuItem
             // 
@@ -244,7 +190,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(429, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(441, 6);
             // 
             // releaseDetainedDrivingLicenseToolStripMenuItem
             // 
@@ -265,7 +211,7 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(303, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(347, 6);
             // 
             // tsMManageApplications
             // 
@@ -290,13 +236,13 @@
             // 
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Name = "ManageInternationaDrivingLicenseToolStripMenuItem1";
-            this.ManageInternationaDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(367, 28);
+            this.ManageInternationaDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(379, 38);
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Text = "International License Applications";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(303, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(347, 6);
             // 
             // DetainLicensesToolStripMenuItem1
             // 
@@ -348,6 +294,61 @@
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(350, 70);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
+            // 
+            // tsmManageUsers
+            // 
+            this.tsmManageUsers.AutoSize = false;
+            this.tsmManageUsers.BackColor = System.Drawing.Color.Tan;
+            this.tsmManageUsers.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsmManageUsers.Image = ((System.Drawing.Image)(resources.GetObject("tsmManageUsers.Image")));
+            this.tsmManageUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmManageUsers.Name = "tsmManageUsers";
+            this.tsmManageUsers.Size = new System.Drawing.Size(190, 150);
+            this.tsmManageUsers.Text = "Manage Users";
+            this.tsmManageUsers.Click += new System.EventHandler(this.tsmManageUsers_Click);
+            // 
+            // tsmAccountSettings
+            // 
+            this.tsmAccountSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tsmAccountSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentUserInfoToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.signOutToolStripMenuItem});
+            this.tsmAccountSettings.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsmAccountSettings.Image = ((System.Drawing.Image)(resources.GetObject("tsmAccountSettings.Image")));
+            this.tsmAccountSettings.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmAccountSettings.Name = "tsmAccountSettings";
+            this.tsmAccountSettings.Size = new System.Drawing.Size(224, 150);
+            this.tsmAccountSettings.Text = "Account Settings";
+            // 
+            // currentUserInfoToolStripMenuItem
+            // 
+            this.currentUserInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("currentUserInfoToolStripMenuItem.Image")));
+            this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
+            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(239, 28);
+            this.currentUserInfoToolStripMenuItem.Text = "Current Users Info";
+            this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolStripMenuItem.Image")));
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(239, 28);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(236, 6);
+            // 
+            // signOutToolStripMenuItem
+            // 
+            this.signOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("signOutToolStripMenuItem.Image")));
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(239, 28);
+            this.signOutToolStripMenuItem.Text = "Sign Out";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // frmMain
             // 

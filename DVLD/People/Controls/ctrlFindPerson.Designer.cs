@@ -1,6 +1,6 @@
 ﻿namespace DVLD.People.Controls
 {
-    partial class ctrlFindUser
+    partial class ctrlFindPerson
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlFindUser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlFindPerson));
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();

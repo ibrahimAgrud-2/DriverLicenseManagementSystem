@@ -10,9 +10,9 @@
 
     namespace DVLD.People.Controls
     {
-        public partial class ctrlFindUser : UserControl
+        public partial class ctrlFindPerson : UserControl
         {
-            public ctrlFindUser()
+            public ctrlFindPerson()
             {
                 InitializeComponent();
             }

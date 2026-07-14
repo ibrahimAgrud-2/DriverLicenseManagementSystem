@@ -48,9 +48,12 @@ namespace DVLD
             this.Close();
         }
 
-        private void servicesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented");
+            
+            frmUserDetails frm = new frmUserDetails(loginSettings.currentUser.userID);
+            frm.ShowDialog();
+
         }
     }
 }

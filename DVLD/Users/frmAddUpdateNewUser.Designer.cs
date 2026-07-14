@@ -36,7 +36,7 @@
             this.tbMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.ctrlFindUser1 = new DVLD.People.Controls.ctrlFindUser();
+            this.ctrlFindUser1 = new DVLD.People.Controls.ctrlFindPerson();
             this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.mskConfirmPassword = new System.Windows.Forms.MaskedTextBox();
@@ -290,7 +290,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private ctrlPersonInformation ctrlPersonInformation1;
-        private People.Controls.ctrlFindUser ctrlFindUser1;
+        private People.Controls.ctrlFindPerson ctrlFindUser1;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
