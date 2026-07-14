@@ -58,7 +58,7 @@ namespace DVLD.Users
             _RefreshUserList();
         }
 
-
+    
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -136,7 +136,8 @@ namespace DVLD.Users
 
 
         //=========  V FİLTERİNG V ====================
-     
+        //=========  V FİLTERİNG V ====================
+
         private enum _enFilters { none = 0, UserID = 1, UserName = 2, FullName = 3, isActive = 4 };
 
         private void txtFilet_TextChanged(object sender, EventArgs e)
