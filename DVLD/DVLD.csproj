@@ -147,6 +147,9 @@
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrlAddUpdatePerson.resx">
       <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>

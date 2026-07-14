@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageUsers));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.callToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +41,6 @@
             this.showDetialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmChangePassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblRecords = new System.Windows.Forms.Label();
@@ -58,7 +57,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 505);
+            this.label5.Location = new System.Drawing.Point(23, 507);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 29);
             this.label5.TabIndex = 33;
@@ -68,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(361, 19);
+            this.label1.Location = new System.Drawing.Point(356, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 26);
             this.label1.TabIndex = 29;
@@ -139,19 +138,10 @@
             this.tsmChangePassword.Text = "Change Password";
             this.tsmChangePassword.Click += new System.EventHandler(this.tsmChangePassword_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-80, 177);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 15);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Filter By";
-            // 
             // btnAddUser
             // 
             this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
-            this.btnAddUser.Location = new System.Drawing.Point(790, 87);
+            this.btnAddUser.Location = new System.Drawing.Point(785, 89);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(84, 75);
             this.btnAddUser.TabIndex = 36;
@@ -161,7 +151,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(795, 489);
+            this.button1.Location = new System.Drawing.Point(790, 491);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 59);
             this.button1.TabIndex = 35;
@@ -173,7 +163,7 @@
             // 
             this.lblRecords.AutoSize = true;
             this.lblRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecords.Location = new System.Drawing.Point(157, 505);
+            this.lblRecords.Location = new System.Drawing.Point(152, 507);
             this.lblRecords.Name = "lblRecords";
             this.lblRecords.Size = new System.Drawing.Size(37, 29);
             this.lblRecords.TabIndex = 34;
@@ -188,15 +178,15 @@
             this.dgvUsersList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsersList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvUsersList.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsersList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUsersList.Location = new System.Drawing.Point(33, 168);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsersList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsersList.Location = new System.Drawing.Point(28, 170);
             this.dgvUsersList.MultiSelect = false;
             this.dgvUsersList.Name = "dgvUsersList";
             this.dgvUsersList.ReadOnly = true;
@@ -209,7 +199,7 @@
             // 
             // txtFilet
             // 
-            this.txtFilet.Location = new System.Drawing.Point(342, 129);
+            this.txtFilet.Location = new System.Drawing.Point(337, 131);
             this.txtFilet.Multiline = true;
             this.txtFilet.Name = "txtFilet";
             this.txtFilet.Size = new System.Drawing.Size(193, 33);
@@ -228,7 +218,7 @@
             "User Name",
             "Full Name",
             "Is Active"});
-            this.cbFilterBy.Location = new System.Drawing.Point(131, 129);
+            this.cbFilterBy.Location = new System.Drawing.Point(126, 131);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(193, 33);
             this.cbFilterBy.TabIndex = 38;
@@ -238,7 +228,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 129);
+            this.label6.Location = new System.Drawing.Point(21, 131);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 29);
             this.label6.TabIndex = 39;
@@ -253,7 +243,7 @@
             "All",
             "Yes",
             "No"});
-            this.cbActive.Location = new System.Drawing.Point(342, 129);
+            this.cbActive.Location = new System.Drawing.Point(337, 131);
             this.cbActive.Name = "cbActive";
             this.cbActive.Size = new System.Drawing.Size(134, 33);
             this.cbActive.TabIndex = 41;
@@ -271,7 +261,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblRecords);
@@ -298,7 +287,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmEdit;
         private System.Windows.Forms.ToolStripMenuItem showDetialToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblRecords;

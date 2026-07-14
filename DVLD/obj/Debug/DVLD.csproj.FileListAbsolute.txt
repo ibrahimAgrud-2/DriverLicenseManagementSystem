@@ -42,3 +42,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmChangePassword.res
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmAddUpdateNewUser.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.Controls.ctrlUserInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmUserInfo.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Drivers.frmManageDrivers.resources
