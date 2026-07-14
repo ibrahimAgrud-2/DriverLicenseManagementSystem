@@ -38,8 +38,6 @@ namespace DVLD.Users
             }
 
         }
-      
-
     
         private void _RefreshUserList()
         {
@@ -60,7 +58,6 @@ namespace DVLD.Users
             _RefreshUserList();
         }
 
-        //------------------------------------
 
 
         private void btnClose_Click(object sender, EventArgs e)
