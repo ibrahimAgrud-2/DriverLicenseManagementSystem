@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlLoginInfo1 = new DVLD.Users.Controls.ctrlLoginInfo();
+            this.ctrlLoginInfo1 = new DVLD.Users.Controls.ctrlUserInfo();
             this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.mskConfirmPassword = new System.Windows.Forms.MaskedTextBox();
             this.mskPassword = new System.Windows.Forms.MaskedTextBox();
@@ -37,7 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ctrlLoginInfo1
@@ -45,7 +45,7 @@
             this.ctrlLoginInfo1.Location = new System.Drawing.Point(13, 397);
             this.ctrlLoginInfo1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlLoginInfo1.Name = "ctrlLoginInfo1";
-            this.ctrlLoginInfo1.Size = new System.Drawing.Size(1026, 170);
+            this.ctrlLoginInfo1.Size = new System.Drawing.Size(1045, 170);
             this.ctrlLoginInfo1.TabIndex = 0;
             // 
             // ctrlPersonInformation1
@@ -121,21 +121,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // button2
+            // btnSave
             // 
-            this.button2.Location = new System.Drawing.Point(889, 698);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 54);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(889, 698);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(129, 54);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 771);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.mskConfirmPassword);
             this.Controls.Add(this.mskPassword);
@@ -149,6 +149,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmChangePassword";
             this.Text = "frmChangePassword";
+            this.Load += new System.EventHandler(this.frmChangePassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +157,7 @@
 
         #endregion
 
-        private Controls.ctrlLoginInfo ctrlLoginInfo1;
+        private Controls.ctrlUserInfo ctrlLoginInfo1;
         private ctrlPersonInformation ctrlPersonInformation1;
         private System.Windows.Forms.MaskedTextBox mskConfirmPassword;
         private System.Windows.Forms.MaskedTextBox mskPassword;
@@ -165,6 +166,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSave;
     }
 }

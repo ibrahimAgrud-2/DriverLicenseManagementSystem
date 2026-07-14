@@ -110,11 +110,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Users\Controls\ctrlLoginInfo.cs">
+    <Compile Include="Users\Controls\ctrlUserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Users\Controls\ctrlLoginInfo.Designer.cs">
-      <DependentUpon>ctrlLoginInfo.cs</DependentUpon>
+    <Compile Include="Users\Controls\ctrlUserInfo.Designer.cs">
+      <DependentUpon>ctrlUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\frmAddUpdateNewUser.cs">
       <SubType>Form</SubType>
@@ -164,8 +164,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\Controls\ctrlLoginInfo.resx">
-      <DependentUpon>ctrlLoginInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Users\Controls\ctrlUserInfo.resx">
+      <DependentUpon>ctrlUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmAddUpdateNewUser.resx">
       <DependentUpon>frmAddUpdateNewUser.cs</DependentUpon>

@@ -36,8 +36,8 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmAddUpdatePerson.resource
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmPersonDetail.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Controls.ctrlPeople.ctrlAddUpdatePerson.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmManageUsers.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmAddNewUser.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.Controls.ctrlFindUser.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.exe.config
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.Controls.ctrlLoginInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmChangePassword.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmAddUpdateNewUser.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.Controls.ctrlUserInfo.resources

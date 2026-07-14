@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DVLD.Users.Controls
 {
-    public partial class ctrlLoginInfo : UserControl
+    public partial class ctrlUserInfo : UserControl
     {
-        public ctrlLoginInfo()
+        public ctrlUserInfo()
         {
             InitializeComponent();
         }
@@ -31,6 +31,11 @@ namespace DVLD.Users.Controls
                 lblIsActive.Text = ((loginSettings.currentUser.isActive) ? "Yes" : "No");
             }
           
+        }
+
+        private void lblUserID_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
