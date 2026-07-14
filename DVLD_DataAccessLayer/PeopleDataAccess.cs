@@ -141,15 +141,42 @@ namespace DVLD_DataAccessLayer
                     nationalNo = read["nationalNo"].ToString();
                     firstName = read["firstName"].ToString();
                     secondName = read["secondName"].ToString();
-                    thirdName = read["thirdName"].ToString();
                     lastName = read["lastName"].ToString();
                     dateOfBirth = Convert.ToDateTime(read["dateOfBirth"]);
                     gender = Convert.ToInt32(read["gender"]);
                     address = read["address"].ToString();
-                    email = read["email"].ToString();
                     phone = read["phone"].ToString();
                     countryID = Convert.ToInt32(read["nationalityCountryID"]);
-                    imagePath = read["imagePath"].ToString();
+
+                 
+                    if(read["thirdName"]!= DBNull.Value)
+                    {
+                        thirdName = read["thirdName"].ToString();
+                    }
+                    else
+                    {
+                        thirdName = "";
+                    }
+                    if (read["email"] != DBNull.Value)
+                    {
+                        email = read["email"].ToString();
+                    }
+                    else
+                    {
+                        email = "";
+                    }
+                    if (read["imagePath"] != DBNull.Value)
+                    {
+                        imagePath = read["imagePath"].ToString();
+                    }
+                    else
+                    {
+                        imagePath = "";
+                    }
+
+
+                    read.Close();
+
                     return true;
                 }
 
@@ -255,21 +282,43 @@ namespace DVLD_DataAccessLayer
 
             cmd.Parameters.AddWithValue("@firstName",firstName);
             cmd.Parameters.AddWithValue("@secondName", secondName);
-            cmd.Parameters.AddWithValue("@thirdName", thirdName);
             cmd.Parameters.AddWithValue("@lastName", lastName);
             cmd.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
             cmd.Parameters.AddWithValue("@gender", gender);
             cmd.Parameters.AddWithValue("@address", address);
-            cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@phone", phone);
              cmd.Parameters.AddWithValue("@nationalityCountryID", countryID);
             cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
-           
 
-            if (imagePath != "" && imagePath != null)
-                cmd.Parameters.AddWithValue("@imagePath", imagePath);
-            else
+
+            if (imagePath == string.Empty)
+            {
                 cmd.Parameters.AddWithValue("@imagePath", System.DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@imagePath", imagePath);
+
+            }
+
+            if (email == string.Empty)
+            {
+                cmd.Parameters.AddWithValue("@email", System.DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@email", email);
+
+            }
+            if (thirdName == string.Empty)
+            {
+                cmd.Parameters.AddWithValue("@thirdName", System.DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@thirdName", thirdName);
+
+            }
 
 
             try
