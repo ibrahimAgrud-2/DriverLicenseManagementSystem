@@ -26,7 +26,7 @@ namespace DVLD
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "PersonID", "PeopleBl ID" },
+              { "PersonID", "People ID" },
               { "FirstName", "First Name" },
               { "LastName", "Last Name" },
               { "SecondName", "Second Name" },
@@ -41,9 +41,6 @@ namespace DVLD
             {
                 dgvPeopleList.Columns[dict.Key].HeaderText = dict.Value;
             }
-            dgvPeopleList.Columns["Address"].Visible = false;
-            dgvPeopleList.Columns["CountryID"].Visible = false;
-            dgvPeopleList.Columns["ImagePath"].Visible = false;
 
         }
 
@@ -51,9 +48,7 @@ namespace DVLD
         {
             _DtPeople = Person.getAllPersonRecords();
 
-            
-            //toTable kullan visile yerinee
-            dgvPeopleList.DataSource = _DtPeople;
+            dgvPeopleList.DataSource = _DtPeople.DefaultView.ToTable("People", false, "PersonID", "NationalNo", "FirstName", "secondName", "thirdName", "LastName", "Gender", "DateOfBirth", "CountryName", "Address", "Email", "Phone");
             _SetColumnNames();
              lblRecords.Text = dgvPeopleList.RowCount.ToString();
         }
