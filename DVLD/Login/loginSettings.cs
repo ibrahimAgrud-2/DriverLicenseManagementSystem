@@ -8,7 +8,8 @@ namespace DVLD
     {
 
         public static User currentUser;
-        public static string filePath = @"C:\Users\ibrah\source\repos\DVLD\DVLD\UserRememberMeJustID.txt";
+        public static string filePath = @"C:\Users\ibrah\source\repos\DVLD\DVLD\Login\UserRememberMeJustID.txt";
+        
         //the separator in file. Example: user1##password
         public static string dim = "##";
     }
