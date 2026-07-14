@@ -30,40 +30,27 @@ namespace DVLD.Users
             };
 
 
-        private void _setDataResource()
+        private void _SetColumnNames()
         {
-            DataTable dt = User.getUserRecords();
-            dt.Columns.Add("FullName");
-            foreach (DataRow dr in dt.Rows)
+            foreach (KeyValuePair<string, string> dict in _ColumnNames)
             {
-                dr["FullName"] = $"{dr["firstName"]} {dr["secondName"]} {dr["thirdName"]} {dr["lastName"]}";
+                dgvUsersList.Columns[dict.Key].HeaderText = dict.Value;
             }
-            dt.Columns["FullName"].SetOrdinal(2);
-            _DtUsers = dt;
-         
+
         }
       
 
     
         private void _RefreshUserList()
         {
-            
-         
 
-            _setDataResource();
+            _DtUsers = User.getUserRecords().DefaultView.ToTable("Users", false, "UserID", "UserName", "PersonID", "FullName", "IsActive");
+
+
+
             dgvUsersList.DataSource = _DtUsers;
-            dgvUsersList.Columns["firstName"].Visible = false;
-            dgvUsersList.Columns["secondName"].Visible = false;
-            dgvUsersList.Columns["thirdName"].Visible = false;
-            dgvUsersList.Columns["lastName"].Visible = false;
-            dgvUsersList.Columns["password"].Visible = false;
-
-            foreach (KeyValuePair<string, string> dict in _ColumnNames)
-            {
-                dgvUsersList.Columns[dict.Key].HeaderText = dict.Value;
-            }
-
-
+            _SetColumnNames();
+               
             lblRecords.Text = dgvUsersList.RowCount.ToString();
         }
 
