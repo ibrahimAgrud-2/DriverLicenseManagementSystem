@@ -79,17 +79,17 @@ namespace DVLD
                 {
                     if(Person.delete(selectedPersonID))
                     {
-                        MessageBox.Show("PeopleBl Deleted");
+                        MessageBox.Show("People Deleted");
                         _RefreshPeopleList();
                     }
                     else
                     {
-                        MessageBox.Show("PeopleBl has data link to it");
+                        MessageBox.Show("People has data link to it");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("PeopleBl Not Found");
+                    MessageBox.Show("People Not Found");
                 }
 
             }

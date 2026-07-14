@@ -112,7 +112,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage1.Size = new System.Drawing.Size(1124, 598);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "PeopleBl Info";
+            this.tabPage1.Text = "People Info";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnNext

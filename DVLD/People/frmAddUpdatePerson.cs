@@ -28,7 +28,7 @@ namespace DVLD
             if(_PersonID > 0)
             {
                 lblPersonId.Text = _PersonID.ToString();
-                lblMode.Text = "Update PeopleBl";
+                lblMode.Text = "Update People";
             }
             this.ctrlAddUpdatePerson1.personID = _PersonID;
 
@@ -38,7 +38,7 @@ namespace DVLD
         private void ctrlAddUpdatePerson1_OnSaveComplete(int obj)
         {
             lblPersonId.Text = obj.ToString();
-            lblMode.Text = "Update PeopleBl";
+            lblMode.Text = "Update People";
         }
 
         private void ctrlAddUpdatePerson1_Load(object sender, EventArgs e)
