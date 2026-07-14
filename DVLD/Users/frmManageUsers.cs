@@ -84,7 +84,7 @@ namespace DVLD.Users
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            frmAddNewUser frm = new frmAddNewUser(-1);
+            frmAddUpdateNewUser frm = new frmAddUpdateNewUser(-1);
             frm.ShowDialog();
             _RefreshUserList();
             
@@ -96,7 +96,7 @@ namespace DVLD.Users
             if (int.TryParse(dgvUsersList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
             {
 
-                frmAddNewUser frm = new frmAddNewUser(selectedPersonID);
+                frmAddUpdateNewUser frm = new frmAddUpdateNewUser(selectedPersonID);
                 frm.ShowDialog();
                 _RefreshUserList();
             }

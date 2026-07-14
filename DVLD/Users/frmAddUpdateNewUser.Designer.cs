@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Users
 {
-    partial class frmAddNewUser
+    partial class frmAddUpdateNewUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddNewUser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUpdateNewUser));
             this.lblMode = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -256,7 +256,7 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // frmAddNewUser
+            // frmAddUpdateNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -267,9 +267,9 @@
             this.Controls.Add(this.lblMode);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmAddNewUser";
+            this.Name = "frmAddUpdateNewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddNewUser";
+            this.Text = "frmAddUpdateNewUser";
             this.Load += new System.EventHandler(this.frmAddNewUser_Load);
             this.tbMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

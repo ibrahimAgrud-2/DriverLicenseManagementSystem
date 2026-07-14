@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace DVLD.Users
 {
-    public partial class frmAddNewUser : Form
+    public partial class frmAddUpdateNewUser : Form
     {
-        public frmAddNewUser(int userID)
+        public frmAddUpdateNewUser(int userID)
         {
             InitializeComponent();
             _UserID = userID;
