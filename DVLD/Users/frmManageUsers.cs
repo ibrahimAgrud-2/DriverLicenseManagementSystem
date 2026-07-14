@@ -45,7 +45,7 @@ namespace DVLD.Users
       
 
     
-        private void _RefreshPeopleList()
+        private void _RefreshUserList()
         {
             
          
@@ -79,13 +79,14 @@ namespace DVLD.Users
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
             
-            _RefreshPeopleList();
+            _RefreshUserList();
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             frmAddNewUser frm = new frmAddNewUser();
             frm.ShowDialog();
+            _RefreshUserList();
             
         }
     }

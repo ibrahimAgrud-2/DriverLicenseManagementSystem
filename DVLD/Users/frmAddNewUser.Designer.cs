@@ -47,8 +47,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbIsActive = new System.Windows.Forms.CheckBox();
-            this.txtUserName = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtUserName = new System.Windows.Forms.TextBox();
             this.tbMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -244,6 +244,11 @@
             this.cbIsActive.Text = "Is Active";
             this.cbIsActive.UseVisualStyleBackColor = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,11 +257,6 @@
             this.txtUserName.Size = new System.Drawing.Size(209, 34);
             this.txtUserName.TabIndex = 0;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
             // 
             // frmAddNewUser
             // 
@@ -296,12 +296,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbIsActive;
-        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.MaskedTextBox mskConfirmPassword;
         private System.Windows.Forms.MaskedTextBox mskPassword;
+        private System.Windows.Forms.TextBox txtUserName;
     }
 }
