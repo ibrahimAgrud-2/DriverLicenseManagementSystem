@@ -151,13 +151,6 @@ namespace DVLD.Users
 
         //=========  V FİLTERİNG V ====================
      
-        /*
-         * None
-User ID
-User Name
-Full Name
-Is Active
-         */
         private enum _enFilters { none = 0, UserID = 1, UserName = 2, FullName = 3, isActive = 4 };
 
         private void txtFilet_TextChanged(object sender, EventArgs e)
@@ -225,5 +218,8 @@ Is Active
                 txtFilet.Visible = true;
             }
         }
+        //=========  ^^ FİLTERİNG ^^ ====================
+
+
     }
 }
