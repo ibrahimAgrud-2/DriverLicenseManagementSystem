@@ -45,7 +45,7 @@ namespace DVLD_BusinessLayer
         //static olmalı çünkü obje oluşturulmadan erişebilmeliyiz.
         public static DataTable getAllPersonRecords()
         {
-            return PeopleDataAccess.getPeople();
+            return PeopleDataAccess.getAllPeople();
         }
 
 

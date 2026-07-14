@@ -9,7 +9,7 @@ namespace DVLD_DataAccessLayer
     public class PeopleDataAccess
     {
 
-        public static DataTable getPeople()
+        public static DataTable getAllPeople()
         {
             DataTable dt = new DataTable();
 
