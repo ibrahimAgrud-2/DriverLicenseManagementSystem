@@ -1,4 +1,5 @@
-﻿using DVLD.Users;
+﻿using DVLD.Drivers;
+using DVLD.Users;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,8 @@ namespace DVLD
 
         private void tsmDrivers_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented");
+            frmManageDrivers frm = new frmManageDrivers();
+            frm.ShowDialog();
 
         }
 
@@ -40,19 +42,15 @@ namespace DVLD
 
         }
 
-        private void tsmApplicaitons_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This feature is not implemented");
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void servicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented");
         }
     }
 }
