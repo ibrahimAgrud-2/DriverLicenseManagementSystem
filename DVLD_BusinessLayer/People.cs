@@ -169,12 +169,12 @@ namespace DVLD_BusinessLayer
         //ID vermelisin çünkü bu fonk obje olmadan çağıralacak.
         public static bool isPersonExistByID(int personID)
         {
-            return PeopleDataAccess.isPersonExistByID(personID);
+            return PeopleDataAccess.isPersonExist(personID);
         }
         //TC sistemde var mı yoku kontrol edeceğiz bu sayede aynı TC ile sisteme kayıt olunmasın. Şu anlık DB'de bunu nasıl kontrol ederiz bilemiyorum. Veya bu yöntem daha hızlı olduğu için bunu tercih ederim.
         public static bool isPersonExistByNationalNo(string NationalNo)
         {
-            return PeopleDataAccess.isPersonExistByNationalNo(NationalNo);
+            return PeopleDataAccess.isPersonExist(NationalNo);
         }
 
 

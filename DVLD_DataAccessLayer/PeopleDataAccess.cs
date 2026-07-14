@@ -14,7 +14,9 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = "select PersonID,NationalNo,FirstName,SecondName,ThirdName,LastName,DateOfBirth,Gender=(Case People.Gender when 0 then 'male'  when 1 then 'female' else 'unknown' end ),CountryName,Address,CountryID, Phone,Email,ImagePath from People inner join Countries on Countries.CountryID=People.NationalityCountryID";
+            string sqlQuery = @"select PersonID,NationalNo,FirstName,SecondName,ThirdName,LastName,DateOfBirth,
+                    Gender=(Case People.Gender when 0 then 'male'  when 1 then 'female' else 'unknown' end ),
+                     CountryName,Address,CountryID, Phone,Email,ImagePath from People inner join Countries on Countries.CountryID=People.NationalityCountryID";
 
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -46,6 +48,8 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
        
+
+
         public static  bool findPersonByID(int personID, ref string nationalNo, ref string firstName, ref string secondName, ref
            string thirdName, ref string lastName, ref DateTime dateOfBirth, ref
            int gender, ref string address, ref string email, ref string phone, ref
@@ -164,26 +168,25 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-
-        public static bool isPersonExistByID(int personID)
+        public static bool isPersonExist(int personID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
-             
+
             string query = "select found =1 from people where PersonID=@PersonID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@personID", personID);
-        
+
 
             try
             {
                 connection.Open();
-          
+
                 //Sorgu sonucu bir sayı geldiyse (ID tek olduğu için sadece bir adet sayı gelir eğer ID varsa) bu demektir ki o ID sistemde var. sayı dışında bir şey gelirse bu demek oluyor ki o kişi sistemde yok.
 
                 object result = cmd.ExecuteScalar();
-                if (result!=null&&int.TryParse(result.ToString(), out int value))
+                if (result != null && int.TryParse(result.ToString(), out int value))
                 {
                     return true;
                 }
@@ -200,9 +203,8 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
-        //nationalNo yani TC eşsiz olacağı için yeni kişi eklemden önce sistemde o TC katıtlımı diye kontrol edebilmek için bu fonk kullanıyoruz.
-  
-        public static bool isPersonExistByNationalNo(string NationalNo)
+
+        public static bool isPersonExist(string NationalNo)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
@@ -219,7 +221,7 @@ namespace DVLD_DataAccessLayer
 
 
                 object result = cmd.ExecuteScalar();
-                if (result != null&&int.TryParse(result.ToString(), out int value))
+                if (result != null && int.TryParse(result.ToString(), out int value))
                 {
                     return true;
                 }
@@ -236,6 +238,9 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
+
+
 
         public static int addPerson(string nationalNo, string firstName, string secondName,
                    string thirdName, string lastName, DateTime dateOfBirth,

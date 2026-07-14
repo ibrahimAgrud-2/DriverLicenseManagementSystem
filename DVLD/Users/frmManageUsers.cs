@@ -136,7 +136,6 @@ namespace DVLD.Users
 
 
         //=========  V FİLTERİNG V ====================
-        //=========  V FİLTERİNG V ====================
 
         private enum _enFilters { none = 0, UserID = 1, UserName = 2, FullName = 3, isActive = 4 };
 
