@@ -19,6 +19,18 @@ namespace DVLD.Users.Controls
 
         private void ctrlLoginInfo_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public void LoadUserINfo()
+        {
+            if(loginSettings.currentUser!=null)
+            {
+                lblUserID.Text = loginSettings.currentUser.userID.ToString();
+                lblUserName.Text = loginSettings.currentUser.userName.ToString();
+                lblIsActive.Text = ((loginSettings.currentUser.isActive) ? "Yes" : "No");
+            }
+          
         }
     }
 }
