@@ -24,6 +24,7 @@ namespace DVLD_BusinessLayer
 
 
         public int countryID { set; get; }
+
         private Country _Country1;
         public Country Country
         {
