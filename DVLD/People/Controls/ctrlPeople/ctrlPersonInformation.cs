@@ -83,6 +83,7 @@ namespace DVLD
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
             frm.ShowDialog();
+            
             _Load();
         }
     }

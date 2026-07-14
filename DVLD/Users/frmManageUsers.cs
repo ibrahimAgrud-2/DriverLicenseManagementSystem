@@ -142,7 +142,7 @@ namespace DVLD.Users
 
             if (int.TryParse(dgvUsersList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
             {
-                frmUserInfo frm = new frmUserInfo(selectedPersonID);
+                frmUserDetails frm = new frmUserDetails(selectedPersonID);
                 frm.ShowDialog();
                
             }

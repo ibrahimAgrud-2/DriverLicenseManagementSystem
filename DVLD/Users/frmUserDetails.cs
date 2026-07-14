@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace DVLD.Users
 {
-    public partial class frmUserInfo : Form
+    public partial class frmUserDetails : Form
     {
 
         private int _UserID=-1;
        
-        public frmUserInfo(int userID)
+        public frmUserDetails(int userID)
         {
             InitializeComponent();
             _UserID = userID;
@@ -27,8 +27,7 @@ namespace DVLD.Users
             User usr = User.findUserByUserID(_UserID);
             if(usr!=null)
             {
-                this.ctrlPersonInformation1.PersonID = usr.personID;
-                this.ctrlUserInfo1.LoadUserINfo(usr);
+                this.ctrlUserInfo1.LoadDataToUserControls(usr.userID,usr.personID);
             }
         }
     }
