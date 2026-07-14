@@ -67,7 +67,13 @@ namespace DVLD.Users
             lblRecords.Text = dgvUsersList.RowCount.ToString();
         }
 
+        private void frmManageUsers_Load(object sender, EventArgs e)
+        {
 
+            _RefreshUserList();
+        }
+
+        //------------------------------------
 
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -76,11 +82,7 @@ namespace DVLD.Users
             this.Close();
         }
 
-        private void frmManageUsers_Load(object sender, EventArgs e)
-        {
-            
-            _RefreshUserList();
-        }
+ 
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
