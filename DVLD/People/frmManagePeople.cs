@@ -140,7 +140,6 @@ namespace DVLD
 
         }
 
-
         private void showDetaiToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
