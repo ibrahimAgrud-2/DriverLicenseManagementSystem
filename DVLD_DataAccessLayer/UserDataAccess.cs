@@ -188,6 +188,38 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+        public static bool isUserExistByPersonID(int personID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = "select found =1 from users where personID=@personID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@personID", personID);
+
+
+            try
+            {
+                connection.Open();
+
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int value))
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
 
 
         public static int addUser(int personID,  string userName,  string password, 

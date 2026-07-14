@@ -27,8 +27,13 @@ namespace DVLD.Users
         private int _PeronID = -1;
         private void ctrlFindUser1_OnFilteringComplete(int obj)
         {
-            _PeronID = obj;
-            this.ctrlPersonInformation1.PersonID = obj;
+           
+            if(obj>0)
+            {
+                _PeronID = obj;
+                this.ctrlPersonInformation1.PersonID = obj;
+            }
+          
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -36,26 +41,32 @@ namespace DVLD.Users
             this.Close();
         }
 
+
         private void btnNext_Click(object sender, EventArgs e)
         {
-   
-                tbMain.SelectedIndex = 1;
-            
-        }
-
-        private void tbMain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (User.findUserByUserID(_PeronID) != null)
+            if (_PeronID <= 0)
             {
-                MessageBox.Show("User Exist");
-                tbMain.SelectedIndex = 0;
+                MessageBox.Show("Select a person first");
                 return;
             }
-            if(_PeronID==-1)
+            else if (!PeopleBL.isPersonExistByID(_PeronID))
             {
-          
-                tbMain.SelectedIndex = 0;
-      
+                MessageBox.Show("Person does not exist or deleted");
+                return;
+            }
+            else if(1==1)
+            {
+
+            }
+            else
+            {
+                tbMain.SelectedIndex = 1;
+                lblID.Enabled = true;
+                txtUserName.Enabled = true;
+                lblID.Enabled = true;
+                txtPassword.Enabled = true;
+                txtConfirmPassword.Enabled = true;
+                cbIsActive.Enabled = true;
             }
 
 
