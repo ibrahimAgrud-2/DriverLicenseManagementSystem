@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddNewUser));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMode = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.tbMain = new System.Windows.Forms.TabControl();
@@ -47,23 +47,23 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbIsActive = new System.Windows.Forms.CheckBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtUserName = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tbMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblMode
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(488, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Add new user";
+            this.lblMode.AutoSize = true;
+            this.lblMode.Location = new System.Drawing.Point(488, 9);
+            this.lblMode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(128, 24);
+            this.lblMode.TabIndex = 0;
+            this.lblMode.Text = "Add new user";
             // 
             // btnSave
             // 
@@ -244,11 +244,6 @@
             this.cbIsActive.Text = "Is Active";
             this.cbIsActive.UseVisualStyleBackColor = true;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            // 
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,6 +253,11 @@
             this.txtUserName.TabIndex = 0;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -266,12 +266,13 @@
             this.Controls.Add(this.tbMain);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMode);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddNewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddNewUser";
+            this.Load += new System.EventHandler(this.frmAddNewUser_Load);
             this.tbMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -284,7 +285,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMode;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TabControl tbMain;

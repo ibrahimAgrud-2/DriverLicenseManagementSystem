@@ -73,40 +73,41 @@
             // 
             this.callToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("callToolStripMenuItem.Image")));
             this.callToolStripMenuItem.Name = "callToolStripMenuItem";
-            this.callToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.callToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.callToolStripMenuItem.Text = "Phone Call";
             // 
             // sendMailToolStripMenuItem
             // 
             this.sendMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendMailToolStripMenuItem.Image")));
             this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
-            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.sendMailToolStripMenuItem.Text = "Send Mail";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // tsmEdit
             // 
             this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(168, 26);
+            this.tsmEdit.Size = new System.Drawing.Size(213, 26);
             this.tsmEdit.Text = "Edit";
+            this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
             // showDetialToolStripMenuItem
             // 
             this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
             this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
-            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.showDetialToolStripMenuItem.Text = "Show Details";
             // 
             // contextMenuStrip1
@@ -120,7 +121,7 @@
             this.sendMailToolStripMenuItem,
             this.callToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 140);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 167);
             // 
             // label4
             // 

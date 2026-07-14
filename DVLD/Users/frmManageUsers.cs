@@ -84,10 +84,22 @@ namespace DVLD.Users
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            frmAddNewUser frm = new frmAddNewUser();
+            frmAddNewUser frm = new frmAddNewUser(-1);
             frm.ShowDialog();
             _RefreshUserList();
             
+        }
+
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+
+            if (int.TryParse(dgvUsersList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
+            {
+
+                frmAddNewUser frm = new frmAddNewUser(selectedPersonID);
+                frm.ShowDialog();
+                _RefreshUserList();
+            }
         }
     }
 }
