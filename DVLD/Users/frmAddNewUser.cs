@@ -99,9 +99,23 @@ namespace DVLD.Users
 
         //=========================== ^Next^=====================
 
+        private bool _IsUserNameInputValid()
+        {
+            if(User.isUserExistByID(_UserID))
+            {
+                if (this._Mode == enMode.enUpdate)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return true;
+             
+        }
         private bool _IsAllInputsValid()
         {
-            return (mskPassword.Text != string.Empty && _isPasswordsMatches() && !User.isUserExistByUserName(txtUserName.Text));
+            return (mskPassword.Text != string.Empty && _isPasswordsMatches() && _IsUserNameInputValid()); 
         }
 
         private bool _FillDataToObject()
