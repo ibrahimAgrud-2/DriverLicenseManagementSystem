@@ -30,8 +30,10 @@ namespace DVLD.Users
         {
             User usr = User.findUserByUserID(_UserID);
             if(usr!=null)
+            {
                 this.ctrlPersonInformation1.PersonID = usr.personID;
-
+                this.ctrlUserInfo1.LoadUserINfo(usr);
+            }
 
         }
     }
