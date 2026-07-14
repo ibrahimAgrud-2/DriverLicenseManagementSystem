@@ -107,7 +107,7 @@ namespace DVLD_BusinessLayer
         //çünkü sistemde henüz yok, eğer olmayan obje için save fonksiyonu çağırılırsa add yapılsın yani sisteme eklensin diye.
         public  People()
         {
-
+            this.personID = -1;
             this.nationalNo = "";
             this.firstName = "";
             this.secondName = "";

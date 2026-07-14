@@ -77,15 +77,20 @@ namespace DVLD
             {
                 if(Person.isPersonExistByID(selectedPersonID))
                 {
-                    if(Person.delete(selectedPersonID))
+                    if(MessageBox.Show("Are you sure you want to delete Person [" + dgvPeopleList.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        MessageBox.Show("People Deleted");
-                        _RefreshPeopleList();
+                        if (Person.delete(selectedPersonID))
+                        {
+                            MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _RefreshPeopleList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Person was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("People has data link to it");
-                    }
+
+
                 }
                 else
                 {
