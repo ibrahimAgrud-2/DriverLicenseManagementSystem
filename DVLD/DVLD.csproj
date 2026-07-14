@@ -110,6 +110,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Users\Controls\ctrlLoginInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\Controls\ctrlLoginInfo.Designer.cs">
+      <DependentUpon>ctrlLoginInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmAddNewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users\Controls\ctrlLoginInfo.resx">
+      <DependentUpon>ctrlLoginInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\frmAddNewUser.resx">
       <DependentUpon>frmAddNewUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,9 +197,7 @@
       <Name>DVLD_BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Users\Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="UserRememberMeJustID.txt" />
   </ItemGroup>
