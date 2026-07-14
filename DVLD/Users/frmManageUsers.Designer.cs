@@ -45,6 +45,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblRecords = new System.Windows.Forms.Label();
             this.dgvUsersList = new System.Windows.Forms.DataGridView();
+            this.tsmChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.SuspendLayout();
@@ -73,26 +74,26 @@
             // 
             this.callToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("callToolStripMenuItem.Image")));
             this.callToolStripMenuItem.Name = "callToolStripMenuItem";
-            this.callToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.callToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.callToolStripMenuItem.Text = "Phone Call";
             // 
             // sendMailToolStripMenuItem
             // 
             this.sendMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendMailToolStripMenuItem.Image")));
             this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
-            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.sendMailToolStripMenuItem.Text = "Send Mail";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -100,7 +101,7 @@
             // 
             this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(168, 26);
+            this.tsmEdit.Size = new System.Drawing.Size(213, 26);
             this.tsmEdit.Text = "Edit";
             this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
@@ -108,7 +109,7 @@
             // 
             this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
             this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
-            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.showDetialToolStripMenuItem.Text = "Show Details";
             // 
             // contextMenuStrip1
@@ -117,12 +118,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetialToolStripMenuItem,
             this.tsmEdit,
+            this.tsmChangePassword,
             this.deleteToolStripMenuItem,
             this.toolStripSeparator1,
             this.sendMailToolStripMenuItem,
             this.callToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 140);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 193);
             // 
             // label4
             // 
@@ -192,6 +194,14 @@
             this.dgvUsersList.Size = new System.Drawing.Size(853, 308);
             this.dgvUsersList.TabIndex = 31;
             // 
+            // tsmChangePassword
+            // 
+            this.tsmChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("tsmChangePassword.Image")));
+            this.tsmChangePassword.Name = "tsmChangePassword";
+            this.tsmChangePassword.Size = new System.Drawing.Size(213, 26);
+            this.tsmChangePassword.Text = "Change Password";
+            this.tsmChangePassword.Click += new System.EventHandler(this.tsmChangePassword_Click);
+            // 
             // frmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -231,5 +241,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.DataGridView dgvUsersList;
+        private System.Windows.Forms.ToolStripMenuItem tsmChangePassword;
     }
 }

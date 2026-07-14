@@ -409,6 +409,15 @@
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>-4, 18</value>
   </metadata>
+  <data name="tsmChangePassword.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAKtJREFUWEft
+        lcEJhjAMhTuKo/yjOIT98egmYh3EMerNUZQntdhnD4IaD+aDQGokeT6DGqMoivJ5rPOldeP8Qkz/zjcG
+        BxYlQd36AiIeF1D1/odBCOT72jr7aQHWjQMGxydOayICYn+elRWw2XU1D2devHX59vVEwGYT4kqeDCAO
+        jvBNaHRHDrg3X8sKuJPgyPlXIE0UwNZJEHZmNvgcZmySiAm/ARamKIryPRbMM522mHmCcwAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <data name="btnAddUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAABo1JREFUeF7d

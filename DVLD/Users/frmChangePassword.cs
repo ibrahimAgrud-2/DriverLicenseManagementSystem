@@ -14,6 +14,7 @@ namespace DVLD.Users
     {
 
         private int _UserID = -1;
+        private User _user = new User();
         
         public frmChangePassword(int userID)
         {
@@ -31,10 +32,57 @@ namespace DVLD.Users
             User usr = User.findUserByUserID(_UserID);
             if(usr!=null)
             {
+                _user = usr;
                 this.ctrlPersonInformation1.PersonID = usr.personID;
                 this.ctrlUserInfo1.LoadUserINfo(usr);
             }
+            errorProvider1.SetError(txtCurrentPassword,"Enter the current password");
+            errorProvider1.SetError(mskPassword,"New password");
+            errorProvider1.SetError(mskConfirmPassword,"Confirm new password");
+        }
 
+        private bool _IsPasswordsMatche()
+        {
+            return (mskPassword.Text==mskConfirmPassword.Text);
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(txtCurrentPassword.Text!=_user.password)
+            {
+                MessageBox.Show("Current password is wrong");
+                return;
+            }
+            if(!_IsPasswordsMatche())
+            {
+                MessageBox.Show("Passwords Does not match");
+                return;
+            }
+            _user.password = mskPassword.Text; 
+             if(_user.save())
+            {
+                MessageBox.Show("Saved successfully");
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
+        }
+
+        private void mskConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            if(_IsPasswordsMatche())
+            {
+                errorProvider1.SetError(mskConfirmPassword,"");
+            }
+        }
+
+        private void mskPassword_TextChanged(object sender, EventArgs e)
+        {
+            Control msk = (Control)sender;
+            if (msk.Text!=string.Empty)
+            {
+                errorProvider1.SetError(msk, "");
+            }
         }
     }
 }

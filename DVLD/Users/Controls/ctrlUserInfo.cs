@@ -24,7 +24,7 @@ namespace DVLD.Users.Controls
 
         public void LoadUserINfo(User user)
         {
-            if(loginSettings.currentUser!=null)
+            if(user!=null)
             {
                 lblUserID.Text = user.userID.ToString();
                 lblUserName.Text = user.userName.ToString();

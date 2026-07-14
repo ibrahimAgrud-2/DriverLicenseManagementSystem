@@ -125,5 +125,16 @@ namespace DVLD.Users
 
             }
         }
+
+        private void tsmChangePassword_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvUsersList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedUserID))
+            {
+
+                frmChangePassword frm = new frmChangePassword(selectedUserID);
+                frm.ShowDialog();
+              
+            }
+        }
     }
 }

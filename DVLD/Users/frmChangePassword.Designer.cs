@@ -28,27 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
+            this.components = new System.ComponentModel.Container();
             this.mskConfirmPassword = new System.Windows.Forms.MaskedTextBox();
             this.mskPassword = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ctrlUserInfo1 = new DVLD.Users.Controls.ctrlUserInfo();
+            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ctrlPersonInformation1
-            // 
-            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(13, 14);
-            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.PersonID = 0;
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1026, 373);
-            this.ctrlPersonInformation1.TabIndex = 1;
             // 
             // mskConfirmPassword
             // 
@@ -57,6 +50,7 @@
             this.mskConfirmPassword.Name = "mskConfirmPassword";
             this.mskConfirmPassword.Size = new System.Drawing.Size(209, 34);
             this.mskConfirmPassword.TabIndex = 11;
+            this.mskConfirmPassword.TextChanged += new System.EventHandler(this.mskConfirmPassword_TextChanged);
             // 
             // mskPassword
             // 
@@ -67,6 +61,7 @@
             this.mskPassword.PromptChar = ' ';
             this.mskPassword.Size = new System.Drawing.Size(209, 34);
             this.mskPassword.TabIndex = 12;
+            this.mskPassword.TextChanged += new System.EventHandler(this.mskPassword_TextChanged);
             // 
             // label4
             // 
@@ -95,13 +90,14 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Current Password";
             // 
-            // txtUserName
+            // txtCurrentPassword
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(231, 582);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(209, 34);
-            this.txtUserName.TabIndex = 4;
+            this.txtCurrentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrentPassword.Location = new System.Drawing.Point(231, 582);
+            this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.Size = new System.Drawing.Size(209, 34);
+            this.txtCurrentPassword.TabIndex = 4;
+            this.txtCurrentPassword.TextChanged += new System.EventHandler(this.mskPassword_TextChanged);
             // 
             // button1
             // 
@@ -121,6 +117,12 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
             // ctrlUserInfo1
             // 
@@ -129,6 +131,16 @@
             this.ctrlUserInfo1.Name = "ctrlUserInfo1";
             this.ctrlUserInfo1.Size = new System.Drawing.Size(1018, 141);
             this.ctrlUserInfo1.TabIndex = 14;
+            // 
+            // ctrlPersonInformation1
+            // 
+            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonInformation1.Location = new System.Drawing.Point(13, 14);
+            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
+            this.ctrlPersonInformation1.PersonID = 0;
+            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1026, 373);
+            this.ctrlPersonInformation1.TabIndex = 1;
             // 
             // frmChangePassword
             // 
@@ -143,13 +155,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtCurrentPassword);
             this.Controls.Add(this.ctrlPersonInformation1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmChangePassword";
             this.Text = "frmChangePassword";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,9 +175,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtCurrentPassword;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSave;
         private Controls.ctrlUserInfo ctrlUserInfo1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
