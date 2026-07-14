@@ -206,6 +206,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isPersonExist(string NationalNo)
         {
+            bool isFound = false;
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
@@ -219,24 +220,23 @@ namespace DVLD_DataAccessLayer
             {
                 connection.Open();
 
+              //Eğer varsa içinde 1 yazab bir satır döner. Onuda HasRows ile satır var mı yok mu kontrol ederiz.
+                SqlDataReader reader = cmd.ExecuteReader();
+                isFound =reader.HasRows;
+                reader.Close();
 
-                object result = cmd.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int value))
-                {
-                    return true;
-                }
             }
             catch (Exception)
             {
 
-                return false; ;
+                isFound = false; ;
             }
             finally
             {
                 connection.Close();
             }
 
-            return false;
+            return isFound;
         }
 
 
