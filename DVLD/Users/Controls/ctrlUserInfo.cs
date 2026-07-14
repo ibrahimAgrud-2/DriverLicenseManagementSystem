@@ -22,13 +22,13 @@ namespace DVLD.Users.Controls
 
         }
 
-        public void LoadUserINfo()
+        public void LoadUserINfo(User user)
         {
             if(loginSettings.currentUser!=null)
             {
-                lblUserID.Text = loginSettings.currentUser.userID.ToString();
-                lblUserName.Text = loginSettings.currentUser.userName.ToString();
-                lblIsActive.Text = ((loginSettings.currentUser.isActive) ? "Yes" : "No");
+                lblUserID.Text = user.userID.ToString();
+                lblUserName.Text = user.userName.ToString();
+                lblIsActive.Text = ((user.isActive) ? "Yes" : "No");
             }
           
         }
