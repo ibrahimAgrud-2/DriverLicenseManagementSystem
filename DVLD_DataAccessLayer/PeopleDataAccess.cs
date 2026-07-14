@@ -168,7 +168,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static bool isPersonExist(int personID)
+        public static bool IsPersonExist(int personID)
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
@@ -203,7 +203,7 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
 
-        public static bool isPersonExist(string NationalNo)
+        public static bool IsPersonExist(string NationalNo)
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
@@ -241,7 +241,7 @@ namespace DVLD_DataAccessLayer
 
 
 
-        public static int addPerson(string nationalNo, string firstName, string secondName,
+        public static int AddNewPerson(string nationalNo, string firstName, string secondName,
                    string thirdName, string lastName, DateTime dateOfBirth,
                    int gender, string address, string email, string phone,
                    int countryID, string imagePath)
@@ -249,7 +249,7 @@ namespace DVLD_DataAccessLayer
           
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
-            string query = "IF not exists (select personID from people where NationalNo=@nationalNo) begin insert into people values (@nationalNo,@firstName,@secondName,@thirdName,@lastName,@dateOfBirth,@gender,@address,@phone,@email,@nationalityCountryID,@imagePath) Select Scope_Identity() end;";
+            string query = @"IF not exists (select personID from people where NationalNo=@nationalNo) begin insert into people values (@nationalNo,@firstName,@secondName,@thirdName,@lastName,@dateOfBirth,@gender,@address,@phone,@email,@nationalityCountryID,@imagePath) Select Scope_Identity() end;";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
@@ -301,7 +301,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool updatePersonInfo(int personID ,string nationalNo, string firstName, string secondName,
+        public static bool UpdatePersonInfo(int personID ,string nationalNo, string firstName, string secondName,
           string thirdName, string lastName, DateTime dateOfBirth,
           int gender, string address, string email, string phone,
           int countryID, string imagePath)
@@ -351,7 +351,7 @@ namespace DVLD_DataAccessLayer
                 cmd.Parameters.AddWithValue("@email", System.DBNull.Value);
             }
             else
-            {
+            {   
                 cmd.Parameters.AddWithValue("@email", email);
 
             }
@@ -390,7 +390,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool deletePerson(int personID)
+        public static bool DeletePerson(int personID)
         {
             
             

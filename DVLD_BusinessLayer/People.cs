@@ -94,7 +94,7 @@ namespace DVLD_BusinessLayer
             //burada göderdiğimiz objeler ekleme yapılmadan önce ID'si olmuyor biz kullanıcıdan ID istemiyoruz ID database atıyor. 
             //burda eğer this.ID= demeseydik ilgili objenin ID'sı DB'de olursa ama burada henüz gelmemiş olurdu bizde eğer direk o objeyi sistemde kullanmaya kalkarsak ID'den hata alırız.
 
-            this.personID = PeopleDataAccess.addPerson(this.nationalNo, this.firstName, this.secondName, this.thirdName, this.lastName, this.dateOfBirth, this.gender, this.address, this.email, this.phone, this.countryID, this.imagePath);
+            this.personID = PeopleDataAccess.AddNewPerson(this.nationalNo, this.firstName, this.secondName, this.thirdName, this.lastName, this.dateOfBirth, this.gender, this.address, this.email, this.phone, this.countryID, this.imagePath);
 
             return (this.personID != -1);
         }
@@ -163,18 +163,18 @@ namespace DVLD_BusinessLayer
         private bool _updateInfo()
         {
           
-            return PeopleDataAccess.updatePersonInfo(this.personID, this.nationalNo, this.firstName, this.secondName, this.thirdName, this.lastName, this.dateOfBirth, this.gender, this.address, this.email, this.phone, this.countryID, this.imagePath);
+            return PeopleDataAccess.UpdatePersonInfo(this.personID, this.nationalNo, this.firstName, this.secondName, this.thirdName, this.lastName, this.dateOfBirth, this.gender, this.address, this.email, this.phone, this.countryID, this.imagePath);
         }
 
         //ID vermelisin çünkü bu fonk obje olmadan çağıralacak.
         public static bool isPersonExistByID(int personID)
         {
-            return PeopleDataAccess.isPersonExist(personID);
+            return PeopleDataAccess.IsPersonExist(personID);
         }
         //TC sistemde var mı yoku kontrol edeceğiz bu sayede aynı TC ile sisteme kayıt olunmasın. Şu anlık DB'de bunu nasıl kontrol ederiz bilemiyorum. Veya bu yöntem daha hızlı olduğu için bunu tercih ederim.
         public static bool isPersonExistByNationalNo(string NationalNo)
         {
-            return PeopleDataAccess.isPersonExist(NationalNo);
+            return PeopleDataAccess.IsPersonExist(NationalNo);
         }
 
 
@@ -184,7 +184,7 @@ namespace DVLD_BusinessLayer
         {
             if (isPersonExistByID(personID))
             { 
-                return PeopleDataAccess.deletePerson(personID);
+                return PeopleDataAccess.DeletePerson(personID);
             }
             return false;
           
