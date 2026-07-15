@@ -513,9 +513,11 @@
             // 
             // frmAddUpdatePerson
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1111, 609);
             this.Controls.Add(this.lblPersonID);
             this.Controls.Add(this.lblMode);
