@@ -169,8 +169,6 @@ namespace DVLD
         
         }
 
-
-
         private void txtFilet_TextChanged(object sender, EventArgs e)
         {
 
@@ -232,15 +230,13 @@ namespace DVLD
             if(cbFilterBy.Text == "Person ID")
             {
                _DtPeople.DefaultView.RowFilter = $"{FilterColumn} = {txtFilet.Text} ";
-                dgvPeopleList.DataSource = _DtPeople;
             }
             else
             {
                 _DtPeople.DefaultView.RowFilter = $"{FilterColumn} Like '{txtFilet.Text}%'";
-                dgvPeopleList.DataSource = _DtPeople;
             }
 
-              
+            dgvPeopleList.DataSource = _DtPeople;
 
         }
 
