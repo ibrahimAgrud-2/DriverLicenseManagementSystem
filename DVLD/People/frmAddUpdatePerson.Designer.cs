@@ -36,10 +36,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
-            this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.mskSecondName = new System.Windows.Forms.MaskedTextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.mskPhoneNumber = new System.Windows.Forms.MaskedTextBox();
@@ -69,9 +67,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.lblPersonID = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.lblMode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -142,6 +143,19 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(783, 487);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(141, 49);
+            this.btnClose.TabIndex = 125;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // pbPersonImage
             // 
             this.pbPersonImage.Location = new System.Drawing.Point(857, 134);
@@ -150,20 +164,6 @@
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPersonImage.TabIndex = 124;
             this.pbPersonImage.TabStop = false;
-            // 
-            // notifyIcon2
-            // 
-            this.notifyIcon2.Text = "notifyIcon1";
-            this.notifyIcon2.Visible = true;
-            // 
-            // errorProvider3
-            // 
-            this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider3.ContainerControl = this;
-            // 
-            // openFileDialog3
-            // 
-            this.openFileDialog3.FileName = "openFileDialog1";
             // 
             // mskSecondName
             // 
@@ -460,18 +460,19 @@
             this.label17.TabIndex = 96;
             this.label17.Text = "NationalNo";
             // 
-            // btnClose
+            // notifyIcon2
             // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(783, 487);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(141, 49);
-            this.btnClose.TabIndex = 125;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.notifyIcon2.Text = "notifyIcon1";
+            this.notifyIcon2.Visible = true;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // openFileDialog3
+            // 
+            this.openFileDialog3.FileName = "openFileDialog1";
             // 
             // lblPersonID
             // 
@@ -495,16 +496,28 @@
             this.label22.TabIndex = 114;
             this.label22.Text = "Person ID :";
             // 
+            // lblMode
+            // 
+            this.lblMode.AutoSize = true;
+            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMode.Location = new System.Drawing.Point(433, 9);
+            this.lblMode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(173, 25);
+            this.lblMode.TabIndex = 114;
+            this.lblMode.Text = "Add New Person";
+            // 
             // frmAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 609);
             this.Controls.Add(this.lblPersonID);
+            this.Controls.Add(this.lblMode);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddUpdatePerson";
             this.Text = "frmAddUpdatePerson";
             this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
@@ -563,5 +576,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog3;
         private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblMode;
     }
 }
