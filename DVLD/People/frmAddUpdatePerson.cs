@@ -151,14 +151,14 @@ namespace DVLD
 
             if (this.ValidateChildren())
             {
-                _Person.firstName = mskFirstName.Text;
-                _Person.secondName = mskSecondName.Text;
-                _Person.thirdName = mskThirdName.Text;
-                _Person.lastName = mskLastName.Text;
-                _Person.nationalNo = mskNationalNo.Text;
-                _Person.email = txtEmail.Text;
-                _Person.address = txtAddress.Text;
-                _Person.phone = mskPhoneNumber.Text;
+                _Person.firstName = mskFirstName.Text.Trim();
+                _Person.secondName = mskSecondName.Text.Trim();
+                _Person.thirdName = mskThirdName.Text.Trim();
+                _Person.lastName = mskLastName.Text.Trim();
+                _Person.nationalNo = mskNationalNo.Text.Trim();
+                _Person.email = txtEmail.Text.Trim();
+                _Person.address = txtAddress.Text.Trim();
+                _Person.phone = mskPhoneNumber.Text.Trim();
                 _Person.countryID = Country.findCountryByID(cbCountries.SelectedIndex + 1).countryID;
                 _Person.imagePath = _handleImage();
                 _Person.gender = (rbFemale.Checked ? 1 : 0);
