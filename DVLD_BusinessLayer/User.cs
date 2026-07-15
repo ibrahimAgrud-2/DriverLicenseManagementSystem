@@ -25,7 +25,7 @@ namespace DVLD_BusinessLayer
             get
             {
                 if (_Person == null)
-                    _Person = People.findPersonByID(personID);
+                    _Person = People.find(personID);
                 return _Person;
             }
         }

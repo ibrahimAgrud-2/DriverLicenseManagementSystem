@@ -61,7 +61,7 @@ namespace DVLD
                 return;
             }
 
-            _Person = PeopleBL.findPersonByID(_personID);
+            _Person = PeopleBL.find(_personID);
             fillObjectDataToField(_Person);
 
 

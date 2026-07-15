@@ -47,10 +47,10 @@
            switch(cbFilterBy.Text)
             {
                 case "National No":
-                    person = PeopleBL.findPersonByNationalNo(txtFilter.Text);
+                    person = PeopleBL.find(txtFilter.Text);
                     break;
                 case "Person ID":
-                    person = PeopleBL.findPersonByID(Convert.ToInt32(txtFilter.Text));
+                    person = PeopleBL.find(Convert.ToInt32(txtFilter.Text));
                     break;
             }
             if(person!=null)

@@ -73,7 +73,7 @@ namespace DVLD
 
         private void _Load()
         {
-            _Person = peoplBl.findPersonByID(_PersonID);
+            _Person = peoplBl.find(_PersonID);
 
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
