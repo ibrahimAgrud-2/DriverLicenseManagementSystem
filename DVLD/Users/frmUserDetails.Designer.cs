@@ -34,7 +34,7 @@
             // ctrlUserInfo1
             // 
             this.ctrlUserInfo1.Location = new System.Drawing.Point(-1, -2);
-            this.ctrlUserInfo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ctrlUserInfo1.Margin = new System.Windows.Forms.Padding(4);
             this.ctrlUserInfo1.Name = "ctrlUserInfo1";
             this.ctrlUserInfo1.Size = new System.Drawing.Size(1186, 686);
             this.ctrlUserInfo1.TabIndex = 0;
@@ -46,6 +46,7 @@
             this.ClientSize = new System.Drawing.Size(1181, 685);
             this.Controls.Add(this.ctrlUserInfo1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUserDetails";
             this.Text = "frmUserInfo";

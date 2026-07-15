@@ -50,13 +50,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-           // this.dVLDDataSet = new DVLD.DVLDDataSet();
             this.dVLDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtFilet = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-          //  ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -267,16 +265,6 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "Filter By: ";
             // 
-            // dVLDDataSet
-            // 
-            //this.dVLDDataSet.DataSetName = "DVLDDataSet";
-            //this.dVLDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dVLDDataSetBindingSource
-            // 
-          //  this.dVLDDataSetBindingSource.DataSource = this.dVLDDataSet;
-            this.dVLDDataSetBindingSource.Position = 0;
-            // 
             // txtFilet
             // 
             this.txtFilet.Location = new System.Drawing.Point(328, 350);
@@ -306,6 +294,7 @@
             this.Controls.Add(this.dgvPeopleList);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmManagePeople";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManagePeople";
@@ -313,7 +302,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-          //  ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
