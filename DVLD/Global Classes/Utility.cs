@@ -17,9 +17,10 @@ namespace DVLD
 
         public static bool copyImageToNewFolder(ref string imagePath, string destination = @"C:\Images\")
         {
-            string newImagePath = destination + Guid.NewGuid() + ".jpg";
             if (!File.Exists(imagePath))
                 return false;
+            string newImagePath = destination + Guid.NewGuid() + Path.GetExtension(imagePath);
+       
 
             File.Copy(imagePath, newImagePath, true);
             imagePath = newImagePath;
