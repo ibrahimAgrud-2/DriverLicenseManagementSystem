@@ -1,6 +1,8 @@
 ﻿using DVLD_BusinessLayer;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
+using PeopleBL = DVLD_BusinessLayer.People;
 
 namespace DVLD
 {
@@ -8,43 +10,34 @@ namespace DVLD
     {
 
 
+        private RegionInfo _Region = RegionInfo.CurrentRegion;
 
-        private int _PersonID;
+
+        private PeopleBL _Person;
+        private int _personID;
+        enum enMode { enAddNew = 1, enUpdate = 2 };
+        private enMode _Mode;
+
+        public frmAddUpdatePerson()
+        {
+            InitializeComponent();
+
+
+        }
 
         public frmAddUpdatePerson(int personID)
         {
            
             InitializeComponent();
 
-            _PersonID = personID;
+           
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
-            if(_PersonID > 0)
-            {
-                lblPersonId.Text = _PersonID.ToString();
-                lblMode.Text = "Update People";
-            }
-            this.ctrlAddUpdatePerson1.personID = _PersonID;
-
-
+    
         }
 
-        private void ctrlAddUpdatePerson1_OnSaveComplete(int obj)
-        {
-            lblPersonId.Text = obj.ToString();
-            lblMode.Text = "Update People";
-        }
-
-        private void ctrlAddUpdatePerson1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
