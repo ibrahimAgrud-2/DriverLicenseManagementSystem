@@ -67,13 +67,9 @@
             this.lblPersonID = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.lblMode = new System.Windows.Forms.Label();
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -497,20 +493,6 @@
             this.lblMode.TabIndex = 114;
             this.lblMode.Text = "Add New Person";
             // 
-            // errorProvider2
-            // 
-            this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider2.ContainerControl = this;
-            // 
-            // openFileDialog2
-            // 
-            this.openFileDialog2.FileName = "openFileDialog1";
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // frmAddUpdatePerson
             // 
             this.AcceptButton = this.button1;
@@ -532,7 +514,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,8 +557,5 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.OpenFileDialog openFileDialog2;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
