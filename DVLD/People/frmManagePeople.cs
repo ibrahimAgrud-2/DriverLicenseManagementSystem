@@ -236,7 +236,7 @@ namespace DVLD
                 _DtPeople.DefaultView.RowFilter = $"{FilterColumn} Like '{txtFilet.Text}%'";
             }
 
-            dgvPeopleList.DataSource = _DtPeople;
+            
 
         }
 
