@@ -55,7 +55,6 @@ namespace DVLD
 
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
-    
             _RefreshPeopleList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
@@ -152,6 +151,7 @@ namespace DVLD
         }
 
 
+        //------------ V  filtering V -------------------------
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtFilet.Text = "";
@@ -170,7 +170,7 @@ namespace DVLD
         }
 
 
-       private  enum _enFilters { none=0,ID=1,NationalNo=2,firstName=3,secondName=4,thirdName=5,lastName=6, Nationality = 7,Gender=8,phone=9,Email=10}
+
         private void txtFilet_TextChanged(object sender, EventArgs e)
         {
 
@@ -180,45 +180,67 @@ namespace DVLD
                 dgvPeopleList.DataSource = _DtPeople;
                 return;
             }
+            string FilterColumn = "";
 
-
-            switch ((_enFilters)cbFilterBy.SelectedIndex)
+            switch (cbFilterBy.Text)
             {
-                case _enFilters.ID:
-                    _DtPeople.DefaultView.RowFilter = $"PersonID = '{txtFilet.Text}'";
+                case "Person ID":
+                    FilterColumn = "PersonID";
                     break;
-                case _enFilters.firstName:
-                    _DtPeople.DefaultView.RowFilter = $"FirstName LIKE '%{txtFilet.Text}%'";
+
+                case "National No.":
+                    FilterColumn = "NationalNo";
                     break;
-                case _enFilters.NationalNo:
-                    _DtPeople.DefaultView.RowFilter = $"NationalNo = '{txtFilet.Text}'";
+
+                case "First Name":
+                    FilterColumn = "FirstName";
                     break;
-                case _enFilters.Nationality:
-                    _DtPeople.DefaultView.RowFilter = $"CountryName LIKE '%{txtFilet.Text}%'";
+
+                case "Second Name":
+                    FilterColumn = "SecondName";
                     break;
-                case _enFilters.phone:
-                    _DtPeople.DefaultView.RowFilter = $"Phone LIKE '%{txtFilet.Text}%'";
+
+                case "Third Name":
+                    FilterColumn = "ThirdName";
                     break;
-                case _enFilters.Email:
-                    _DtPeople.DefaultView.RowFilter = $"Email LIKE '%{txtFilet.Text}%'";
+
+                case "Last Name":
+                    FilterColumn = "LastName";
                     break;
-                case _enFilters.Gender:
-                    _DtPeople.DefaultView.RowFilter = $"Gender = '{txtFilet.Text}'";
+
+                case "Nationality":
+                    FilterColumn = "CountryName";
                     break;
-                case _enFilters.secondName:
-                    _DtPeople.DefaultView.RowFilter = $"SecondName LIKE '%{txtFilet.Text}%'";
+
+                case "Gender":
+                    FilterColumn = "Gender";
                     break;
-                case _enFilters.thirdName:
-                    _DtPeople.DefaultView.RowFilter = $"thirdName LIKE '%{txtFilet.Text}%'";
+
+                case "Phone":
+                    FilterColumn = "Phone";
                     break;
-                case _enFilters.lastName:
-                    _DtPeople.DefaultView.RowFilter = $"lastName LIKE '%{txtFilet.Text}%'";
+
+                case "Email":
+                    FilterColumn = "Email";
                     break;
+
                 default:
-                    MessageBox.Show("No Filter");
+                    FilterColumn = "None";
                     break;
             }
-            dgvPeopleList.DataSource = _DtPeople;
+
+            if(cbFilterBy.Text == "Person ID")
+            {
+               _DtPeople.DefaultView.RowFilter = $"{FilterColumn} = {txtFilet.Text} ";
+                dgvPeopleList.DataSource = _DtPeople;
+            }
+            else
+            {
+                _DtPeople.DefaultView.RowFilter = $"{FilterColumn} Like '{txtFilet.Text}%'";
+                dgvPeopleList.DataSource = _DtPeople;
+            }
+
+              
 
         }
 

@@ -67,8 +67,8 @@
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
-            "People ID",
-            "National No",
+            "Person ID",
+            "National No.",
             "First Name",
             "Second Name",
             "Third Name",
