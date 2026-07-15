@@ -45,6 +45,8 @@ namespace DVLD
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            loginSettings.currentUser = null;
+           
             this.Close();
         }
 
