@@ -85,12 +85,6 @@
     <Compile Include="People\Controls\ctrlPersonInformation.Designer.cs">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmAddUpdatePerson.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="People\frmAddUpdatePerson.Designer.cs">
-      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +96,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmAddUpdatePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmAddUpdatePerson.Designer.cs">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmManagePeople.cs">
       <SubType>Form</SubType>
@@ -165,14 +165,14 @@
     <EmbeddedResource Include="People\Controls\ctrlPersonInformation.resx">
       <DependentUpon>ctrlPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
-      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmManagePeople.resx">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
