@@ -127,12 +127,14 @@
             // 
             // pbPersonImage
             // 
+            this.pbPersonImage.Image = global::DVLD.Properties.Resources.Male_512;
             this.pbPersonImage.Location = new System.Drawing.Point(856, 119);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(215, 248);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPersonImage.TabIndex = 155;
             this.pbPersonImage.TabStop = false;
+            this.pbPersonImage.Tag = "0";
             // 
             // mskSecondName
             // 

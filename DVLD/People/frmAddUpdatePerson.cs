@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Properties;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -76,12 +77,19 @@ namespace DVLD
 
         }
 
-    
-        
+
+
         //======================= V SAVE V ========================================
 
         //____________ ^ SAVE - Image ^ __________________
+        private void cbGender_check(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            if (rb.Checked&&pbPersonImage.Tag=="1")
+                _SetDefaultImage();
 
+
+        }
         private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
@@ -96,6 +104,7 @@ namespace DVLD
             {
                 pbPersonImage.ImageLocation = openFileDialog1.FileName;
                 lnkLblRemove.Visible = true;
+                pbPersonImage.Tag = 0;
             }
 
         }
@@ -113,6 +122,7 @@ namespace DVLD
                 imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
                 pbPersonImage.ImageLocation = imagePath;
             }
+            pbPersonImage.Tag = "1";
             return imagePath;
 
         }
@@ -227,14 +237,7 @@ namespace DVLD
 
         //-------------  V Validaiton V --------------------
 
-        private void cbGender_check(object sender, EventArgs e)
-        {
-            RadioButton rb = (RadioButton)sender;
-            if (rb.Checked)
-                _SetDefaultImage();
-            
-              
-        }
+
         private void mskValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MaskedTextBox Temp = ((MaskedTextBox)sender);

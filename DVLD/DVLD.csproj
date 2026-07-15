@@ -226,6 +226,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Login\UserRememberMeJustID.txt" />
+    <None Include="Resources\Male 512.png" />
+    <None Include="Resources\Female 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
