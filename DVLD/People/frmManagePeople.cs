@@ -55,9 +55,7 @@ namespace DVLD
 
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(dgvPeopleList.AutoGenerateColumns.ToString());
     
-            _DtPeople = Person.getAllPersonRecords();
             _RefreshPeopleList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
