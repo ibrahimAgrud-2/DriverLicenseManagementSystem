@@ -203,7 +203,7 @@ namespace DVLD.Controls.ctrlPeople
             txtEmail.Text = person.email;
             txtAddress.Text = person.address;
             mskPhoneNumber.Text = person.phone;
-            cbCountries.SelectedIndex = cbCountries.FindString(person.Country.countryName);
+            cbCountries.SelectedIndex = cbCountries.FindString(person.CountryInfo.countryName);
            
 
             if(person.gender==0)
@@ -261,7 +261,7 @@ namespace DVLD.Controls.ctrlPeople
         //________________Validation Fields___________________________________
         private bool _isEmailInputValid()
         {
-            if (txtEmail.Text == string.Empty || Utility.IsEmailValid(txtEmail.Text))
+            if (string.IsNullOrEmpty(txtEmail.Text) || Utility.IsEmailValid(txtEmail.Text))
             {
                 return true;
             }
@@ -304,7 +304,7 @@ namespace DVLD.Controls.ctrlPeople
         }
         private void txtAddress_TextChanged(object sender, EventArgs e)
         {
-            if (txtAddress.Text == string.Empty)
+            if (string.IsNullOrEmpty(txtAddress.Text))
             {
                 errorProvider1.SetError(txtAddress, "Enter a valid Address");
             }
