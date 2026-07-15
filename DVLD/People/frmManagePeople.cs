@@ -49,16 +49,17 @@ namespace DVLD
             _DtPeople = Person.getAllPersonRecords();
 
             dgvPeopleList.DataSource = _DtPeople.DefaultView.ToTable("People", false, "PersonID", "NationalNo", "FirstName", "secondName", "thirdName", "LastName", "Gender", "DateOfBirth", "CountryName", "Address", "Email", "Phone");
-            _SetColumnNames();
-             lblRecords.Text = dgvPeopleList.RowCount.ToString();
+            lblRecords.Text = dgvPeopleList.RowCount.ToString();
+    
         }
 
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
-
+            MessageBox.Show(dgvPeopleList.AutoGenerateColumns.ToString());
     
             _DtPeople = Person.getAllPersonRecords();
             _RefreshPeopleList();
+            _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
         }
 

@@ -53,7 +53,6 @@
             this.dVLDDataSet = new DVLD.DVLDDataSet();
             this.dVLDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtFilet = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -289,24 +288,12 @@
             this.txtFilet.TextChanged += new System.EventHandler(this.txtFilet_TextChanged);
             this.txtFilet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilet_KeyPress);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(9, 21);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(411, 154);
-            this.textBox1.TabIndex = 29;
-            this.textBox1.Text = "Zaten her bir update ilgili control tarfonda gerçekleştiriliği için user.persıon." +
-    "save gibi bir durum söz konusu olmadı";
-            this.textBox1.Visible = false;
-            // 
             // frmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1501, 829);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtFilet);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.label6);
@@ -356,6 +343,5 @@
         private DVLDDataSet dVLDDataSet;
         private System.Windows.Forms.BindingSource dVLDDataSetBindingSource;
         private System.Windows.Forms.TextBox txtFilet;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
