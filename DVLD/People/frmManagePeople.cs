@@ -6,9 +6,10 @@ using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using Person = DVLD_BusinessLayer.People;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Person = DVLD_BusinessLayer.People;
 
 namespace DVLD
 {
@@ -114,12 +115,11 @@ namespace DVLD
 
 
 
-
+ 
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson();
-
             frm.ShowDialog();
             _RefreshPeopleList();
         }

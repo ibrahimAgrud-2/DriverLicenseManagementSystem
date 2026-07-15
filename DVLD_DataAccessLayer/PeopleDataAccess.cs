@@ -379,7 +379,7 @@ namespace DVLD_DataAccessLayer
                                 LastName = @LastName, 
                                 NationalNo = @NationalNo,
                                 DateOfBirth = @DateOfBirth,
-                                Gender=@Gender
+                                Gender=@Gender,
                                 Address = @Address,  
                                 Phone = @Phone,
                                 Email = @Email, 

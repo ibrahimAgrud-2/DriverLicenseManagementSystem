@@ -12,6 +12,11 @@ namespace DVLD
     public partial class frmAddUpdatePerson : Form
     {
 
+        public delegate void DataBackEventHandler(object sender, int PersonID);
+
+        // Declare an event using the delegate
+        public event DataBackEventHandler DataBack;
+
 
         private RegionInfo _Region = RegionInfo.CurrentRegion;
 
@@ -34,11 +39,8 @@ namespace DVLD
            
             InitializeComponent();
             this._Mode = enMode.enUpdate;
+            _personID = personID;
             _Load();
-        }
-        private void frmAddUpdatePerson_Load(object sender, EventArgs e)
-        {
-         
         }
         private void _Load()
         {
@@ -211,7 +213,7 @@ namespace DVLD
                 MessageBox.Show("Saved successfully");
                 _Mode = enMode.enUpdate;
 
-
+                DataBack?.Invoke(sender,_Person.personID);
             }
             else
             {

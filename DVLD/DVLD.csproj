@@ -67,12 +67,6 @@
       <DependentUpon>DVLDDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login\loginSettings.cs" />
-    <Compile Include="People\Controls\ctrlAddUpdatePerson.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="People\Controls\ctrlAddUpdatePerson.Designer.cs">
-      <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
-    </Compile>
     <Compile Include="People\Controls\ctrlFindPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,9 +149,6 @@
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="People\Controls\ctrlAddUpdatePerson.resx">
-      <DependentUpon>ctrlAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrlFindPerson.resx">
       <DependentUpon>ctrlFindPerson.cs</DependentUpon>

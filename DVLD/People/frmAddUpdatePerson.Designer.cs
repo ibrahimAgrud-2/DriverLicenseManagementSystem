@@ -228,7 +228,7 @@
             // 
             this.label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label4.Location = new System.Drawing.Point(125, 215);
+            this.label4.Location = new System.Drawing.Point(126, 203);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 33);
@@ -523,7 +523,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddUpdatePerson";
             this.Text = "frmAddUpdatePerson";
-            this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
