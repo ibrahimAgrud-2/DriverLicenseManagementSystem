@@ -27,7 +27,7 @@ namespace DVLD
         }
         private void _loadDataIfPersonExists()
         {
-            if(!peoplBl.isPersonExistByID(_PersonID))
+            if(!peoplBl.isPersonExist(_PersonID))
             {
                 return;
             }

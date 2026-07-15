@@ -74,7 +74,7 @@ namespace DVLD
         {
             if (int.TryParse(dgvPeopleList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
             {
-                if(Person.isPersonExistByID(selectedPersonID))
+                if(Person.isPersonExist(selectedPersonID))
                 {
                     if(MessageBox.Show("Are you sure you want to delete Person [" + dgvPeopleList.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {

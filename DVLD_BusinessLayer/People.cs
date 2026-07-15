@@ -164,12 +164,12 @@ namespace DVLD_BusinessLayer
         }
 
         //ID vermelisin çünkü bu fonk obje olmadan çağıralacak.
-        public static bool isPersonExistByID(int personID)
+        public static bool isPersonExist(int personID)
         {
             return PeopleDataAccess.IsPersonExist(personID);
         }
         //TC sistemde var mı yoku kontrol edeceğiz bu sayede aynı TC ile sisteme kayıt olunmasın. Şu anlık DB'de bunu nasıl kontrol ederiz bilemiyorum. Veya bu yöntem daha hızlı olduğu için bunu tercih ederim.
-        public static bool isPersonExistByNationalNo(string NationalNo)
+        public static bool isPersonExist(string NationalNo)
         {
             return PeopleDataAccess.IsPersonExist(NationalNo);
         }
@@ -179,7 +179,7 @@ namespace DVLD_BusinessLayer
         //bir objeyi silmek için onu ayrıyeten DB'den programam yüklemem gerek yok bu yüzden static yapıp sadece ID alarak silmek istedim. static olmayadabilirdi. Bu durumda fonk public olur ve obje.delete diyeceğimiz için ID'İ parametre olarak bu fonksyion'a vermemiz gerekmezdi, this kullanarak ID alırdık (çünkü program o anki obje üzerin olurdu)
         public static bool delete(int personID)
         {
-            if (isPersonExistByID(personID))
+            if (isPersonExist(personID))
             { 
                 return PeopleDataAccess.DeletePerson(personID);
             }
@@ -212,15 +212,6 @@ namespace DVLD_BusinessLayer
                         }
         }
 
-
-        public bool sendEmail(string from ,string to,string body)
-        {
-            return false;
-        }
-        public bool call(string phoneNumber)
-        {
-            return false;
-        }
 
     }
    
