@@ -67,7 +67,7 @@ namespace DVLD
                         File.WriteAllText(loginSettings.filePath, "");
                     }
 
-                    frmMain frm = new frmMain();
+                    frmMain frm = new frmMain(this);
                     frm.ShowDialog();
                     return;
                 }

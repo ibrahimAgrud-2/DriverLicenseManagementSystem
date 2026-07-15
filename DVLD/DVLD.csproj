@@ -61,11 +61,6 @@
     <Compile Include="Drivers\frmManageDrivers.Designer.cs">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLDDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DVLDDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Login\loginSettings.cs" />
     <Compile Include="People\Controls\ctrlFindPerson.cs">
       <SubType>UserControl</SubType>
@@ -146,7 +141,7 @@
     <Compile Include="Users\frmUserDetails.Designer.cs">
       <DependentUpon>frmUserDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility.cs" />
+    <Compile Include="Global Classes\Utility.cs" />
     <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,17 +186,6 @@
     <EmbeddedResource Include="Users\frmUserDetails.resx">
       <DependentUpon>frmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DVLDDataSet.xsc">
-      <DependentUpon>DVLDDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DVLDDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DVLDDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DVLDDataSet.xss">
-      <DependentUpon>DVLDDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -211,9 +195,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DVLD_BusinessLayer\DVLD_BusinessLayer.csproj">

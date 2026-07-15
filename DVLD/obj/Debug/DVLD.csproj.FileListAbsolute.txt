@@ -14,7 +14,6 @@ C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.CoreCompileInput
 C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD\obj\Debug\DVLD.exe
 C:\Users\ibrah\Masaüstü\repos\DVLD\DVLD\obj\Debug\DVLD.pdb
-C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD.exe.config
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD.exe
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD.pdb
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\DVLD_BusinessLayer.dll
@@ -35,7 +34,6 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmLogin.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmAddUpdatePerson.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.frmPersonDetail.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmManageUsers.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.exe.config
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmChangePassword.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmAddUpdateNewUser.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.Controls.ctrlUserInfo.resources

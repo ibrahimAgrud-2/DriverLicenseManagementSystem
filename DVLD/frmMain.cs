@@ -15,9 +15,12 @@ namespace DVLD
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+
+        private frmLogin _FrmLogin;
+        public frmMain(frmLogin frm)
         {
             InitializeComponent();
+            _FrmLogin = frm;
         }
 
         private void tsmDrivers_Click(object sender, EventArgs e)
@@ -46,7 +49,7 @@ namespace DVLD
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loginSettings.currentUser = null;
-           
+            _FrmLogin.Show();
             this.Close();
         }
 

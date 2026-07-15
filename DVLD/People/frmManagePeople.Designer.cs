@@ -50,13 +50,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dVLDDataSet = new DVLD.DVLDDataSet();
+           // this.dVLDDataSet = new DVLD.DVLDDataSet();
             this.dVLDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtFilet = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).BeginInit();
+          //  ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,12 +269,12 @@
             // 
             // dVLDDataSet
             // 
-            this.dVLDDataSet.DataSetName = "DVLDDataSet";
-            this.dVLDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.dVLDDataSet.DataSetName = "DVLDDataSet";
+            //this.dVLDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dVLDDataSetBindingSource
             // 
-            this.dVLDDataSetBindingSource.DataSource = this.dVLDDataSet;
+          //  this.dVLDDataSetBindingSource.DataSource = this.dVLDDataSet;
             this.dVLDDataSetBindingSource.Position = 0;
             // 
             // txtFilet
@@ -313,7 +313,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).EndInit();
+          //  ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -340,7 +340,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem sendMailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem callToolStripMenuItem;
-        private DVLDDataSet dVLDDataSet;
+     //   private DVLDDataSet dVLDDataSet;
         private System.Windows.Forms.BindingSource dVLDDataSetBindingSource;
         private System.Windows.Forms.TextBox txtFilet;
     }
