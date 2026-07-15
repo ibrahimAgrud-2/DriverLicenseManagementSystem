@@ -203,7 +203,7 @@ namespace DVLD.Controls.ctrlPeople
             txtEmail.Text = person.email;
             txtAddress.Text = person.address;
             mskPhoneNumber.Text = person.phone;
-            cbCountries.SelectedIndex = person.countryID-1;
+            cbCountries.SelectedIndex = cbCountries.FindString(person.Country.countryName);
            
 
             if(person.gender==0)

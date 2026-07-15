@@ -25,16 +25,8 @@ namespace DVLD_BusinessLayer
 
         public int countryID { set; get; }
 
-        private Country _Country1;
-        public Country Country
-        {
-            get
-            {
-                if (_Country1 == null)
-                    _Country1 = Country.findCountryByID(countryID);
-                return _Country1;
-            }
-        }
+        public Country CountryInfo;
+  
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         //Her object 2 farklı modu olur. Ya yeni üretilmiştir modu add ya da sitemde zaten vardır
@@ -77,6 +69,9 @@ namespace DVLD_BusinessLayer
             this.phone = phone;
             this.countryID = countryID;
             this.imagePath = imagePath;
+            //add yaparken country name lazım oluyor onuda person.CountryInfo.CountryName şeklinde almam gerekiyor. Bu durmda person objesi dolduğunda country'da gelsin.
+            this.CountryInfo = Country.findCountryByID(countryID);
+
             //[TR]
             //Bu cost DB'de var olan bir objeyi sistemde oluşturmak için kullanıldığı için
             //modu add olamaz. update olmalı; çünkü zaten sistemde var.

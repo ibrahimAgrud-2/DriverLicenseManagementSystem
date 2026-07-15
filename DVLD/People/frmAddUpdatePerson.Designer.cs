@@ -45,7 +45,7 @@
             this.lblMode.BackColor = System.Drawing.Color.Chartreuse;
             this.lblMode.Location = new System.Drawing.Point(522, 20);
             this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(218, 29);
+            this.lblMode.Size = new System.Drawing.Size(195, 29);
             this.lblMode.TabIndex = 2;
             this.lblMode.Text = "Add New Person";
             // 
@@ -90,7 +90,7 @@
             // 
             this.ctrlAddUpdatePerson1.BackColor = System.Drawing.SystemColors.Control;
             this.ctrlAddUpdatePerson1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlAddUpdatePerson1.Location = new System.Drawing.Point(48, 90);
+            this.ctrlAddUpdatePerson1.Location = new System.Drawing.Point(39, 88);
             this.ctrlAddUpdatePerson1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlAddUpdatePerson1.Name = "ctrlAddUpdatePerson1";
             this.ctrlAddUpdatePerson1.Size = new System.Drawing.Size(1174, 565);
