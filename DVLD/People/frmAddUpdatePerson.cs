@@ -232,6 +232,8 @@ namespace DVLD
             RadioButton rb = (RadioButton)sender;
             if (rb.Checked)
                 _SetDefaultImage();
+            
+              
         }
         private void mskValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
