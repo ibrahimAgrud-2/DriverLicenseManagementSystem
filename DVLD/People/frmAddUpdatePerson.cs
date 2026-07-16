@@ -112,7 +112,7 @@ namespace DVLD
             }
 
         }
-
+        //
         private string _SetDefaultImage()
         {
             string imagePath = "";
