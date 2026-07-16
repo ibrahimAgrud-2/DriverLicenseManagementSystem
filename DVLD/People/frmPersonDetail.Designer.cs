@@ -48,7 +48,7 @@
             this.ctrlPersonInformation1.Location = new System.Drawing.Point(107, 90);
             this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.PersonID = 0;
+            //this.ctrlPersonInformation1.PersonID = 0;
             this.ctrlPersonInformation1.Size = new System.Drawing.Size(1130, 485);
             this.ctrlPersonInformation1.TabIndex = 2;
             // 

@@ -38,7 +38,8 @@ namespace DVLD.Users.Controls
            
             if (id >0)
             {
-                this.ctrlPersonInformation1.PersonID = id;
+               
+                this.ctrlPersonInformation1.LoadPersonInfo(id);
             }
 
         }

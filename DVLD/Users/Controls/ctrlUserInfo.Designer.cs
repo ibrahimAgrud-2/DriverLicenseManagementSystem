@@ -122,7 +122,7 @@
             this.ctrlPersonInformation1.Location = new System.Drawing.Point(4, 5);
             this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.PersonID = 0;
+           // this.ctrlPersonInformation1.PersonID = 0;
             this.ctrlPersonInformation1.Size = new System.Drawing.Size(1026, 373);
             this.ctrlPersonInformation1.TabIndex = 2;
             // 

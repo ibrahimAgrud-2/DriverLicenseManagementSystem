@@ -43,8 +43,9 @@ namespace DVLD.Users
             mskConfirmPassword.Text = user.password;
             lblID.Text = user.userID.ToString();
             cbIsActive.Checked = user.isActive;
-            this.ctrlPersonInformation1.PersonID = user.personID;
-           
+            this.ctrlPersonInformation1.LoadPersonInfo(user.personID);
+
+
         }
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
@@ -77,7 +78,9 @@ namespace DVLD.Users
             {
                 _User.personID = obj;
             }
-                this.ctrlPersonInformation1.PersonID = obj;
+
+            this.ctrlPersonInformation1.LoadPersonInfo(obj);
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

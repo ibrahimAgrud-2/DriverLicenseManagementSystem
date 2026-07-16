@@ -31,17 +31,18 @@ namespace DVLD
         private peoplBl _Person;
 
 
-        public int PersonID { get { return _PersonID; } };
+        public int PersonID { get { return _PersonID; } }
+    
         public void LoadPersonInfo(int personID)
         {
             _Person = peoplBl.find(personID);
             if (_Person == null)
             {
                 _ResetForm();
+                MessageBox.Show("No Person with PersonID = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _Load();
-            IsLoadCompletedSuccessfully(_Person != null);
         }
         public void LoadPersonInfo(string nationalNo)
         {
@@ -49,10 +50,10 @@ namespace DVLD
             if (_Person == null)
             {
                 _ResetForm();
+                MessageBox.Show("No Person with national NO = " + nationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _Load();
-            IsLoadCompletedSuccessfully(_Person != null);
         }
 
 
@@ -61,6 +62,7 @@ namespace DVLD
         {
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
+            IsLoadCompletedSuccessfully(_Person != null);
         }
 
         private void _ResetForm()
@@ -100,7 +102,14 @@ namespace DVLD
 
             if (_Person.imagePath!="")
             {
-                pbPersonImage.ImageLocation = _Person.imagePath;
+                if(File.Exists(_Person.imagePath))
+                {
+                    pbPersonImage.ImageLocation = _Person.imagePath;
+                }
+                else
+                {
+                    MessageBox.Show("Could not find this image: = " + _Person.imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if(_Person.gender==1)
             {
