@@ -61,10 +61,9 @@
         private void btnSearch_Click(object sender, EventArgs e)
         {
             int personID = _findPerson();
-            if (personID!=-1)
-            {
+         
                 OnFilteringComplete(personID);
-            }
+            
         }
 
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)

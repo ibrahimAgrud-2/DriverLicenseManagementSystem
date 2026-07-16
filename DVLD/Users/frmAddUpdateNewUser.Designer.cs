@@ -168,6 +168,7 @@
             // 
             // mskConfirmPassword
             // 
+            this.mskConfirmPassword.Enabled = false;
             this.mskConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskConfirmPassword.Location = new System.Drawing.Point(240, 234);
             this.mskConfirmPassword.Name = "mskConfirmPassword";
@@ -177,6 +178,7 @@
             // 
             // mskPassword
             // 
+            this.mskPassword.Enabled = false;
             this.mskPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskPassword.HidePromptOnLeave = true;
             this.mskPassword.Location = new System.Drawing.Point(240, 180);
@@ -234,6 +236,7 @@
             // cbIsActive
             // 
             this.cbIsActive.AutoSize = true;
+            this.cbIsActive.Enabled = false;
             this.cbIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbIsActive.Location = new System.Drawing.Point(335, 288);
             this.cbIsActive.Name = "cbIsActive";
@@ -244,6 +247,7 @@
             // 
             // txtUserName
             // 
+            this.txtUserName.Enabled = false;
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(240, 119);
             this.txtUserName.Name = "txtUserName";

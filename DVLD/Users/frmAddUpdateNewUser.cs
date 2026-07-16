@@ -75,6 +75,11 @@ namespace DVLD.Users
                 _User.personID = obj;
                 this.ctrlPersonInformation1.PersonID = obj;
             }
+            else
+            {
+                MessageBox.Show("Person does not exist");
+            }
+
 
         }
 
@@ -91,32 +96,36 @@ namespace DVLD.Users
                 MessageBox.Show("Select a person first");
                 return;
             }
-            if(this._Mode == enMode.enAddNew)
+            else if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
             {
-                if (User.isUserExistByPersonID(_User.personID))
+                MessageBox.Show("The person is already a user");
+                return;
+            }
+            else
+            {
+                tbMain.SelectedIndex = 1;
+                lblID.Enabled = true;
+                txtUserName.Enabled = true;
+                lblID.Enabled = true;
+                mskConfirmPassword.Enabled = true;
+                mskPassword.Enabled = true;
+                if (this._Mode == enMode.enAddNew)
                 {
-                    MessageBox.Show("The person is already a user");
-                    return;
-                }
-                errorProvider1.SetError(mskPassword, "Password Required");
-                errorProvider1.SetError(txtUserName, "User name must be unique");
-                errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
+                    errorProvider1.SetError(mskPassword, "Password Required");
+                    errorProvider1.SetError(txtUserName, "User name must be unique");
+                    errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
 
+                }
+                cbIsActive.Enabled = true;
             }
 
-            tbMain.SelectedIndex = 1;
-            lblID.Enabled = true;
-            txtUserName.Enabled = true;
-            lblID.Enabled = true;
-            mskConfirmPassword.Enabled = true;
-            mskPassword.Enabled = true;
-            cbIsActive.Enabled = true;
+
         }
 
 
         //=========================== ^Next^=====================
-  
-       
+
+
         private bool _IsUserNameInputValid()
         {
                 
