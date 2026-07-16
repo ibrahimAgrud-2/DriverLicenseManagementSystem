@@ -126,9 +126,8 @@ namespace DVLD.People.Controls
                 if (!int.TryParse(e.KeyChar.ToString(), out int test))
                 {
 
-                    if (e.KeyChar == '\b')
-                        return;
-                    e.Handled = true;
+                    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
 
                 }
             }
