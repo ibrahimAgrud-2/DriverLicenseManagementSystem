@@ -11,6 +11,7 @@ namespace DVLD.Users
 
         private User _User;
         private int _UserID=-1;
+        private bool _PersonSelected = false;
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
@@ -42,6 +43,7 @@ namespace DVLD.Users
             lblID.Text = user.userID.ToString();
             cbIsActive.Checked = user.isActive;
             this.ctrlPersonInformation1.PersonID = user.personID;
+            _PersonSelected = true;
         }
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
@@ -74,75 +76,21 @@ namespace DVLD.Users
             {
                 _User.personID = obj;
             }
-            this.ctrlPersonInformation1.PersonID = obj;
+            else
+            {
+              
+            }
+                this.ctrlPersonInformation1.PersonID = obj;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-     
-             if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
-            {
-                MessageBox.Show("The person is already a user");
-                return;
-            }
-            else
-            {
-                tbMain.SelectedIndex = 1;
-                lblID.Enabled = true;
-                txtUserName.Enabled = true;
-                lblID.Enabled = true;
-                mskConfirmPassword.Enabled = true;
-                mskPassword.Enabled = true;
-                if (this._Mode == enMode.enAddNew)
-                {
-                    errorProvider1.SetError(mskPassword, "Password Required");
-                    errorProvider1.SetError(txtUserName, "User name must be unique");
-                    errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
-
-                }
-                cbIsActive.Enabled = true;
-            }
-
-
-        }
-
-
-        //=========================== ^Next^=====================
-
-
-        private bool _IsUserNameInputValid()
-        {
-                
-            
-            if(User.isUserExist(txtUserName.Text))
-            {
-                if (_User.userName==txtUserName.Text)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            } 
-            return (txtUserName.Text!=string.Empty);
-             
-        }
-        private bool _IsAllInputsValid()
-        {
-            return (mskPassword.Text != string.Empty && _isPasswordsMatches() && _IsUserNameInputValid()); 
-        }
-
         private bool _FillDataToObject()
         {
 
-            if (_IsAllInputsValid())
+            if (this.ValidateChildren())
             {
                 _User.userName = txtUserName.Text;
                 _User.password = mskPassword.Text;
@@ -176,21 +124,83 @@ namespace DVLD.Users
 
         }
 
-        private void txtUserName_TextChanged(object sender, EventArgs e)
+
+        private void btnNext_Click(object sender, EventArgs e)
         {
-            if (!_IsUserNameInputValid())
+     
+          
+                tbMain.SelectedIndex = 1;
+                lblID.Enabled = true;
+                txtUserName.Enabled = true;
+                lblID.Enabled = true;
+                mskConfirmPassword.Enabled = true;
+                mskPassword.Enabled = true;
+                if (this._Mode == enMode.enAddNew)
+                {
+                    errorProvider1.SetError(mskPassword, "Password Required");
+                    errorProvider1.SetError(txtUserName, "User name must be unique");
+                    errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
+
+                }
+                cbIsActive.Enabled = true;
+            
+
+
+        }
+
+
+        //=========================== ^Next^=====================
+
+
+
+        //------------------   V   Validation   V ------------------
+        private void txtUserName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (txtUserName.Text == "")
             {
-                errorProvider1.SetError(txtUserName, "User name already taken");
+                errorProvider1.SetError(txtUserName, "This field is required!");
+                e.Cancel = false;
+                return;
+            }
+
+            if (PeopleBL.isPersonExist(txtUserName.Text))
+            {
+                if (_User.userName == txtUserName.Text)
+                {
+                    errorProvider1.SetError(txtUserName, null);
+                }
+                else
+                {
+                    errorProvider1.SetError(txtUserName, "National no Already exist");
+                    e.Cancel = false;
+                }
             }
             else
             {
-                errorProvider1.SetError(txtUserName, "");
-
+                errorProvider1.SetError(txtUserName, null);
             }
         }
+
         private bool _isPasswordsMatches()
         {
             return (mskConfirmPassword.Text == mskPassword.Text);
+        }
+       
+        
+        private void mskPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (mskPassword.Text == string.Empty)
+            {
+                errorProvider1.SetError(mskPassword, "Password required");
+            }
+            else
+            {
+                errorProvider1.SetError(mskPassword, "");
+            }
+        }
+        private void mskPassword_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = (mskPassword.Text == string.Empty);
         }
 
         private void mskConfirmPassword_TextChanged(object sender, EventArgs e)
@@ -204,18 +214,17 @@ namespace DVLD.Users
                 errorProvider1.SetError(mskConfirmPassword, "");
             }
         }
-
-        private void mskPassword_TextChanged(object sender, EventArgs e)
+        private void mskConfirmPassword_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (mskPassword.Text == string.Empty)
-            {
-                errorProvider1.SetError(mskPassword, "Password required");
-            }
-            else
-            {
-                errorProvider1.SetError(mskPassword, "");
-            }
+            e.Cancel = (!_isPasswordsMatches());
         }
+
+
+        //------------------   ^^   Validation   ^^ ------------------
+
+
+
+
 
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -224,6 +233,13 @@ namespace DVLD.Users
                 MessageBox.Show("Select a person first");
                 e.Cancel = true;
             }
+            if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
+            {
+                MessageBox.Show("The person is already a user");
+                e.Cancel = true; ;
+            }
         }
+
+
     }
 }

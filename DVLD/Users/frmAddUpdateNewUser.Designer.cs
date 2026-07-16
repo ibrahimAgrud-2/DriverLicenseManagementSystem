@@ -176,6 +176,7 @@
             this.mskConfirmPassword.Size = new System.Drawing.Size(209, 34);
             this.mskConfirmPassword.TabIndex = 3;
             this.mskConfirmPassword.TextChanged += new System.EventHandler(this.mskConfirmPassword_TextChanged);
+            this.mskConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.mskConfirmPassword_Validating);
             // 
             // mskPassword
             // 
@@ -188,6 +189,7 @@
             this.mskPassword.Size = new System.Drawing.Size(209, 34);
             this.mskPassword.TabIndex = 3;
             this.mskPassword.TextChanged += new System.EventHandler(this.mskPassword_TextChanged);
+            this.mskPassword.Validating += new System.ComponentModel.CancelEventHandler(this.mskPassword_Validating);
             // 
             // label4
             // 
@@ -254,7 +256,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(209, 34);
             this.txtUserName.TabIndex = 0;
-            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
+            this.txtUserName.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserName_Validating);
             // 
             // errorProvider1
             // 

@@ -13,6 +13,17 @@ namespace DVLD
             InitializeComponent();
         }
 
+        public event Action<int> OnPersonLoadedSuccessfully;
+        protected virtual void loadCompletedSuccessfully(int result)
+        {
+            Action<int> test = OnPersonLoadedSuccessfully;
+            if (test != null)
+            {
+                test(result);
+            }
+
+        }
+
         private int _PersonID;
         private peoplBl _Person;
 
@@ -83,6 +94,7 @@ namespace DVLD
                 return;
             }
             fillObjectDataToField(_Person);
+            loadCompletedSuccessfully(_Person.personID);
             lnklblEditPersonInfo.Enabled = true;
 
         }
