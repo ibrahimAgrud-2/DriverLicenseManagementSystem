@@ -15,7 +15,6 @@ namespace DVLD
 
         public delegate void DataBackEventHandler(object sender, int PersonID);
 
-        // Declare an event using the delegate
         public event DataBackEventHandler DataBack;
 
 
@@ -144,7 +143,14 @@ namespace DVLD
 
             if (this._Mode == enMode.enUpdate && _Person.imagePath != pbPersonImage.ImageLocation)
             {
-                Utility.DeleteImageFromFolder(_Person.imagePath);
+                try
+                {
+                    Utility.DeleteImageFromFolder(_Person.imagePath);
+                }
+                catch(Exception)
+                {
+                  /*Log it*/
+                }
             }
 
             return imagePath;
@@ -348,21 +354,6 @@ namespace DVLD
         private void mskNationalNo_TextChanged(object sender, EventArgs e)
         {
 
-            if (_IsNationalNoInputValid())
-            {
-                
-
-                errorProvider1.SetError(mskNationalNo, null);
-            }
-            else
-            {
-                if (_Person.nationalNo != mskNationalNo.Text)
-                {
-                    errorProvider1.SetError(mskNationalNo, "National No Already taken");
-                    return;
-                }
-                errorProvider1.SetError(mskNationalNo, "This field is required");
-            }
         }
         //-------------------****------------------------------------
 

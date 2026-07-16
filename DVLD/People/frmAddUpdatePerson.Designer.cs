@@ -250,7 +250,6 @@
             this.mskNationalNo.PromptChar = ' ';
             this.mskNationalNo.Size = new System.Drawing.Size(164, 26);
             this.mskNationalNo.TabIndex = 154;
-            this.mskNationalNo.TextChanged += new System.EventHandler(this.mskNationalNo_TextChanged);
             this.mskNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateNationalNo);
             // 
             // label5
