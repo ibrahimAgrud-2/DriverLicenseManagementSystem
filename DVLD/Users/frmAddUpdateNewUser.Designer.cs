@@ -36,6 +36,8 @@
             this.tbMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
+            this.ctrlFindUser1 = new DVLD.People.Controls.ctrlFindPerson();
+            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.mskConfirmPassword = new System.Windows.Forms.MaskedTextBox();
             this.mskPassword = new System.Windows.Forms.MaskedTextBox();
@@ -47,8 +49,6 @@
             this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlFindUser1 = new DVLD.People.Controls.ctrlFindPerson();
-            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.tbMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,6 +67,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(1042, 731);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -127,6 +128,26 @@
             this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // ctrlFindUser1
+            // 
+            this.ctrlFindUser1.Location = new System.Drawing.Point(8, 16);
+            this.ctrlFindUser1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlFindUser1.Name = "ctrlFindUser1";
+            this.ctrlFindUser1.Size = new System.Drawing.Size(1099, 155);
+            this.ctrlFindUser1.TabIndex = 1;
+            this.ctrlFindUser1.OnFilteringComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
+            // 
+            // ctrlPersonInformation1
+            // 
+            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 207);
+            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
+            this.ctrlPersonInformation1.PersonID = 0;
+            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 334);
+            this.ctrlPersonInformation1.TabIndex = 0;
+            this.ctrlPersonInformation1.IsLoadCompleted += new System.Action<bool>(this.ctrlPersonInformation1_OnIsLoadCompleted);
             // 
             // tabPage2
             // 
@@ -243,26 +264,6 @@
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            // 
-            // ctrlFindUser1
-            // 
-            this.ctrlFindUser1.Location = new System.Drawing.Point(8, 16);
-            this.ctrlFindUser1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlFindUser1.Name = "ctrlFindUser1";
-            this.ctrlFindUser1.Size = new System.Drawing.Size(1099, 155);
-            this.ctrlFindUser1.TabIndex = 1;
-            this.ctrlFindUser1.OnFilteringComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
-            // 
-            // ctrlPersonInformation1
-            // 
-            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 207);
-            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.PersonID = 0;
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 334);
-            this.ctrlPersonInformation1.TabIndex = 0;
-            this.ctrlPersonInformation1.IsLoadCompleted += new System.Action<bool>(this.ctrlPersonInformation1_OnIsLoadCompleted);
             // 
             // frmAddUpdateNewUser
             // 

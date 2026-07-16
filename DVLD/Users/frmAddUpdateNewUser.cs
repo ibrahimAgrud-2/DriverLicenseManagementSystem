@@ -127,12 +127,12 @@ namespace DVLD.Users
      
           
                 tbMain.SelectedIndex = 1;
-                lblID.Enabled = true;
-                txtUserName.Enabled = true;
-                lblID.Enabled = true;
-                mskConfirmPassword.Enabled = true;
-                mskPassword.Enabled = true;
-                if (this._Mode == enMode.enAddNew)
+            lblID.Enabled = true;
+            txtUserName.Enabled = true;
+            lblID.Enabled = true;
+            mskConfirmPassword.Enabled = true;
+            mskPassword.Enabled = true;
+            if (this._Mode == enMode.enAddNew)
                 {
                     errorProvider1.SetError(mskPassword, "Password Required");
                     errorProvider1.SetError(txtUserName, "User name must be unique");
@@ -234,8 +234,10 @@ namespace DVLD.Users
             if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
             {
                 MessageBox.Show("The person is already a user");
-                e.Cancel = true; ;
+                e.Cancel = true;
+                return;
             }
+            btnSave.Enabled = true;
         }
 
 
