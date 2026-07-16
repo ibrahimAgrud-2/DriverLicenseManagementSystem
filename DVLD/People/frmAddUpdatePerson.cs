@@ -139,18 +139,19 @@ namespace DVLD
             }
 
 
-            Utility.CopyImageToNewFolder(ref imagePath);
+            if (!Utility.CopyImageToNewFolder(ref imagePath))
+            {
+                return "";
+            }
 
             if (this._Mode == enMode.enUpdate && _Person.imagePath != pbPersonImage.ImageLocation)
             {
-                try
+               
+                if (!Utility.DeleteImageFromFolder(_Person.imagePath))
                 {
-                    Utility.DeleteImageFromFolder(_Person.imagePath);
+                    return "";    
                 }
-                catch(Exception)
-                {
-                  /*Log it*/
-                }
+                
             }
 
             return imagePath;
@@ -171,6 +172,9 @@ namespace DVLD
                 _Person.phone = mskPhoneNumber.Text.Trim();
                 _Person.countryID = Country.findCountryByID(cbCountries.SelectedIndex + 1).countryID;
                 _Person.imagePath = _handleImage();
+
+                if (_Person.imagePath == "")
+                    return false;
                 _Person.gender = (rbFemale.Checked ? 1 : 0);
 
 
