@@ -50,7 +50,7 @@ namespace DVLD
             lblPhone.Text = person.phone;
             lblAddress.Text = person.address;
 
-            lblCountry.Text = Country.findCountryByID(person.countryID).countryName;
+            lblCountry.Text = Country.findCountry(person.countryID).countryName;
 
 
 

@@ -25,27 +25,27 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static Country findCountryByID(int countryID)
+        public static Country findCountry(int countryID)
         {
             string countryName = "";
 
       
 
 
-            if (CountriesDataAccess.findCountryByID(countryID, ref countryName))
+            if (CountriesDataAccess.findCountry(countryID, ref countryName))
             {
                 return new Country(countryID, countryName);
 
             }
             return null;
         }
-        public static Country findCountryByName(string countryName)
+        public static Country findCountry(string countryName)
         {
             int countryID = 0;
 
 
 
-            if (CountriesDataAccess.findCountryByName(ref countryID, countryName))
+            if (CountriesDataAccess.findCountry(ref countryID, countryName))
             {
                 return new Country(countryID, countryName);
 

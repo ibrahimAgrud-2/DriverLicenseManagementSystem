@@ -72,7 +72,7 @@ namespace DVLD_BusinessLayer
             this.countryID = countryID;
             this.imagePath = imagePath;
             //add yaparken country name lazım oluyor onuda person.CountryInfo.CountryName şeklinde almam gerekiyor. Bu durmda person objesi dolduğunda country'da gelsin.
-            this.CountryInfo = Country.findCountryByID(countryID);
+            this.CountryInfo = Country.findCountry(countryID);
 
             //[TR]
             //Bu cost DB'de var olan bir objeyi sistemde oluşturmak için kullanıldığı için
