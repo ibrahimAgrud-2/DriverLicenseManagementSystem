@@ -68,6 +68,7 @@ namespace DVLD
                 {
                     pbPersonImage.Image = Resources.Male_512;
                 }
+                temp();
                 setErrors();
                 return;
             }
@@ -90,19 +91,29 @@ namespace DVLD
 
         }
 
+        private void temp()
+        {
+            mskFirstName.Text = "ibo";
+            mskSecondName.Text = "aa";
+            mskLastName.Text = "agr";
+            mskPhoneNumber.Text = "1234567889";
+            txtAddress.Text = "Turkey";
+           
+        }
         //======================= V SAVE V ========================================
 
         //____________ ^ SAVE - Image ^ __________________
         private void rbMale_Click(object sender, EventArgs e)
         {
-            if (pbPersonImage.ImageLocation == "")
+          
+            if (pbPersonImage.ImageLocation ==null)
             {
                 pbPersonImage.Image = Resources.Male_512;
             }
         }
         private void rbFemale_Click(object sender, EventArgs e)
         {
-            if (pbPersonImage.ImageLocation == "")
+            if (pbPersonImage.ImageLocation == null)
             {
                 pbPersonImage.Image = Resources.Female_512;
             }
@@ -129,16 +140,20 @@ namespace DVLD
         //
  
         private string _handleImage()
-        {
-            string imagePath= pbPersonImage.ImageLocation;
-
-            if(pbPersonImage.ImageLocation!="")
+        {   
+            
+            if(pbPersonImage.ImageLocation==null)
+            {
+                return "";
+            }
+            string imagePath = pbPersonImage.ImageLocation.ToString();
+            if (pbPersonImage.ImageLocation!=null)
             {
                 if(!Utility.CopyImageToNewFolder(ref imagePath))
                 {
                     MessageBox.Show("Cant copy");
                 }
-                  
+
             }
 
             return imagePath;
@@ -150,8 +165,6 @@ namespace DVLD
             if (this.ValidateChildren())
             {
                 _Person.imagePath = _handleImage();
-                if (_Person.imagePath == "")
-                    return false;
                 _Person.firstName = mskFirstName.Text.Trim();
                 _Person.secondName = mskSecondName.Text.Trim();
                 _Person.thirdName = mskThirdName.Text.Trim();
@@ -207,7 +220,7 @@ namespace DVLD
                 }
                 else if (rbMale.Checked)
                 {
-                    pbPersonImage.Image = Resources.Female_512;
+                    pbPersonImage.Image = Resources.Male_512;
                 }
             }
 
