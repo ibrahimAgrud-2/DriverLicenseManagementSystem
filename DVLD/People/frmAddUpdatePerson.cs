@@ -398,6 +398,8 @@ namespace DVLD
                 pbPersonImage.Image = Resources.Male_512;
             }
             pbPersonImage.ImageLocation = null;
+
+            lnkLblRemove.Visible = false;
         }
 
 
