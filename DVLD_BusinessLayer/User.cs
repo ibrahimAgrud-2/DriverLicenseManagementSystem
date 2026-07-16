@@ -95,14 +95,14 @@ namespace DVLD_BusinessLayer
 
         private bool _addNewUser()
         {
-            this.userID = UserDataAccess.addUser(this.personID, this.userName, this.password, this.isActive);
+            this.userID = UserDataAccess.AddUser(this.personID, this.userName, this.password, this.isActive);
             return (this.userID != -1);
 
         }
         private bool _updateUserInfo()
         {
 
-            return UserDataAccess.updateUserInfo(this.userID, this.personID, this.userName, this.password, this.isActive);
+            return UserDataAccess.UpdateUserInfo(this.userID, this.personID, this.userName, this.password, this.isActive);
         }
 
 
@@ -124,7 +124,7 @@ namespace DVLD_BusinessLayer
         {
             if (isUserExistByID(userID))
             {
-                return UserDataAccess.deleteUser(userID);
+                return UserDataAccess.DeleteUser(userID);
             }
             return false;
 

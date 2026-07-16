@@ -82,6 +82,7 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+       
         public static bool findUserByUserName(ref int userID, ref int personID, string userName, ref string password, ref
      bool isActive)
         {
@@ -123,106 +124,99 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+     
         public static bool isUserExistByID(int userID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            bool isFound = false;
 
             string query = "select found =1 from users where userID=@userID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@userID", userID);
 
-
             try
             {
                 connection.Open();
 
-
-                object result = cmd.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int value))
-                {
-                    return true;
-                }
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+                read.Close();
             }
             catch (Exception)
             {
 
-                return false; ;
+                return false;
             }
             finally
             {
                 connection.Close();
             }
 
-            return false;
+            return isFound;
         }
-        public static bool isUserExistByUserName(string userName)
+
+        public static bool isUserExistByUserName(string UserName)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            bool isFound = false;
 
-            string query = "select found =1 from users where userName=@userName";
+            string query = "select found =1 from users where UserName=@UserName";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@userName", userName);
-
+            cmd.Parameters.AddWithValue("@UserName", UserName);
 
             try
             {
                 connection.Open();
 
-
-                object result = cmd.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int value))
-                {
-                    return true;
-                }
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+                read.Close();
             }
             catch (Exception)
             {
 
-                return false; ;
+                return false;
             }
             finally
             {
                 connection.Close();
             }
 
-            return false;
+            return isFound;
         }
 
-        public static bool isUserExistByPersonID(int personID)
+        public static bool isUserExistByPersonID(int PersonID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            bool isFound = false;
 
-            string query = "select found =1 from users where personID=@personID";
+            string query = "select found =1 from users where PersonID=@PersonID";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@personID", personID);
-
+            cmd.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {
                 connection.Open();
 
-
-                object result = cmd.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int value))
-                {
-                    return true;
-                }
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+                read.Close();
             }
             catch (Exception)
             {
 
-                return false; ;
+                return false;
             }
             finally
             {
                 connection.Close();
             }
 
-            return false;
+            return isFound;
         }
 
 
-        public static int addUser(int personID,  string userName,  string password, 
+        public static int AddUser(int personID,  string userName,  string password, 
            bool isActive)
         {
 
@@ -266,7 +260,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool updateUserInfo(int userID,int personID, string userName, string password,
+        public static bool UpdateUserInfo(int userID,int personID, string userName, string password,
            bool isActive)
         { 
 
@@ -307,7 +301,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool deleteUser(int userID)
+        public static bool DeleteUser(int userID)
         {
 
 

@@ -7,19 +7,33 @@ namespace DVLD.Users
 {
     public partial class frmAddUpdateNewUser : Form
     {
-        public frmAddUpdateNewUser(int userID)
-        {
-            InitializeComponent();
-            _User.userID = userID;
-        }
 
-       
-        private User _User = new User();
+
+        private User _User;
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
+
+        public frmAddUpdateNewUser()
+        {
+            InitializeComponent();
+            this._Mode = enMode.enAddNew;
+        }
+
+
+
+        public frmAddUpdateNewUser(int userID)
+        {
+            InitializeComponent();
+            this._Mode = enMode.enUpdate;
+            _User.userID = userID;
+        }
+
+
         private void fillObjectDataToField(User user)
         {
+            if (user == null)
+                return;
 
             txtUserName.Text = user.userName;
             mskPassword.Text = user.password;
@@ -27,14 +41,13 @@ namespace DVLD.Users
             lblID.Text = user.userID.ToString();
             cbIsActive.Checked = user.isActive;
             this.ctrlPersonInformation1.PersonID = user.personID;
-
         }
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
         {
 
             //when mode is update;
-            if ((_User.userID > 0)&&User.isUserExistByID(_User.userID))
+            if (this._Mode==enMode.enUpdate)
             {
                 _User = User.findUserByUserID(_User.userID);
                 lblID.Text = _User.personID.ToString();
@@ -99,6 +112,7 @@ namespace DVLD.Users
 
         //=========================== ^Next^=====================
   
+       
         private bool _IsUserNameInputValid()
         {
                 
