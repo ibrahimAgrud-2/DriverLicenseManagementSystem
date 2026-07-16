@@ -70,7 +70,7 @@ namespace DVLD.Users
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            frmAddUpdateNewUser frm = new frmAddUpdateNewUser(-1);
+            frmAddUpdateNewUser frm = new frmAddUpdateNewUser();
             frm.ShowDialog();
             _RefreshUserList();
             

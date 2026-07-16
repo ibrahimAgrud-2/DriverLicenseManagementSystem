@@ -10,6 +10,7 @@ namespace DVLD.Users
 
 
         private User _User;
+        private int _UserID;
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
@@ -26,7 +27,7 @@ namespace DVLD.Users
         {
             InitializeComponent();
             this._Mode = enMode.enUpdate;
-            _User.userID = userID;
+            _UserID = userID;
         }
 
 
@@ -49,7 +50,9 @@ namespace DVLD.Users
             //when mode is update;
             if (this._Mode==enMode.enUpdate)
             {
-                _User = User.Find(_User.userID);
+                _User = User.Find(_UserID);
+                if (_User == null)
+                    return;
                 lblID.Text = _User.personID.ToString();
                 lblMode.Text = "Update User";
                 ctrlFindUser1.Enabled = false;
@@ -88,29 +91,6 @@ namespace DVLD.Users
                 MessageBox.Show("Select a person first");
                 return;
             }
-            //else if (User.isUserExistByPersonID(_User.personID) &&this._Mode==enMode.enAddNew)
-            //{
-            //    MessageBox.Show("The person is already a user");
-            //    return;
-            //}
-            //else
-            //{
-            //    tbMain.SelectedIndex = 1;
-            //    lblID.Enabled = true;
-            //    txtUserName.Enabled = true;
-            //    lblID.Enabled = true;
-            //    mskConfirmPassword.Enabled = true;
-            //    mskPassword.Enabled = true;
-            //    if(this._Mode==enMode.enAddNew)
-            //    {
-            //        errorProvider1.SetError(mskPassword, "Password Required");
-            //        errorProvider1.SetError(txtUserName, "User name must be unique");
-            //        errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
-
-            //    }
-            //    cbIsActive.Enabled = true;
-            //}
-
             if(this._Mode == enMode.enAddNew)
             {
                 if (User.isUserExistByPersonID(_User.personID))
