@@ -60,7 +60,14 @@ namespace DVLD
                 _Person = new PeopleBL();
                 lblMode.Text = "Add New Person";
                 cbCountries.SelectedItem = _Region.EnglishName;
-                _SetDefaultImage();
+                if (rbFemale.Checked)
+                {
+                    pbPersonImage.Image = Resources.Female_512;
+                }
+                else if (rbMale.Checked)
+                {
+                    pbPersonImage.Image = Resources.Male_512;
+                }
                 setErrors();
                 return;
             }
@@ -86,14 +93,21 @@ namespace DVLD
         //======================= V SAVE V ========================================
 
         //____________ ^ SAVE - Image ^ __________________
-        private void cbGender_check(object sender, EventArgs e)
+        private void rbMale_Click(object sender, EventArgs e)
         {
-            RadioButton rb = (RadioButton)sender;
-            if (rb.Checked&&pbPersonImage.Tag=="1")
-                _SetDefaultImage();
-
-
+            if (pbPersonImage.ImageLocation == "")
+            {
+                pbPersonImage.Image = Resources.Male_512;
+            }
         }
+        private void rbFemale_Click(object sender, EventArgs e)
+        {
+            if (pbPersonImage.ImageLocation == "")
+            {
+                pbPersonImage.Image = Resources.Female_512;
+            }
+        }
+     
         private void lnkLblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.InitialDirectory = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images";
@@ -113,46 +127,18 @@ namespace DVLD
 
         }
         //
-        private string _SetDefaultImage()
-        {
-            string imagePath = "";
-            if (rbFemale.Checked)
-            {
-                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
-                pbPersonImage.ImageLocation = imagePath;
-            }
-            else if (rbMale.Checked)
-            {
-                imagePath = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
-                pbPersonImage.ImageLocation = imagePath;
-            }
-            pbPersonImage.Tag = "1";
-            return imagePath;
-
-        }
+ 
         private string _handleImage()
         {
-            string imagePath = pbPersonImage.ImageLocation;
-            //EĞER foto değişmemişse veya direk aynısı seçilmeşise upadate'e gerek yok. Fotoğraflık bir durum yok.
-            if (_Mode == enMode.enUpdate && _Person.imagePath == pbPersonImage.ImageLocation)
-            {
-                return imagePath;
-            }
+            string imagePath= pbPersonImage.ImageLocation;
 
-
-            if (!Utility.CopyImageToNewFolder(ref imagePath))
+            if(pbPersonImage.ImageLocation!="")
             {
-                return "";
-            }
-
-            if (this._Mode == enMode.enUpdate && _Person.imagePath != pbPersonImage.ImageLocation)
-            {
-               
-                if (!Utility.DeleteImageFromFolder(_Person.imagePath))
+                if(!Utility.CopyImageToNewFolder(ref imagePath))
                 {
-                    return "";    
+                    MessageBox.Show("Cant copy");
                 }
-                
+                  
             }
 
             return imagePath;
@@ -215,8 +201,14 @@ namespace DVLD
             }
             else
             {
-                //Fotoğraf eğer yoksa default eklesin. radio button bazı durumlarda olmuyor. Bu yüzden bunu burda halletmelisin.
-                _SetDefaultImage();
+                if (rbFemale.Checked)
+                {
+                    pbPersonImage.Image = Resources.Female_512;
+                }
+                else if (rbMale.Checked)
+                {
+                    pbPersonImage.Image = Resources.Female_512;
+                }
             }
 
 
@@ -350,7 +342,14 @@ namespace DVLD
         //------------ V indepente V ---------------------
         private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            _SetDefaultImage();
+            if (rbFemale.Checked)
+            {
+                pbPersonImage.Image = Resources.Female_512;
+            }
+            else if (rbMale.Checked)
+            {
+                pbPersonImage.Image = Resources.Female_512;
+            }
         }
 
 
@@ -389,6 +388,6 @@ namespace DVLD
             }
         }
 
-  
+
     }
 }

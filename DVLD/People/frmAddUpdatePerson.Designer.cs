@@ -326,7 +326,7 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbFemale.UseVisualStyleBackColor = true;
-            this.rbFemale.CheckedChanged += new System.EventHandler(this.cbGender_check);
+            this.rbFemale.Click += new System.EventHandler(this.rbFemale_Click);
             // 
             // txtEmail
             // 
@@ -432,7 +432,7 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
-            this.rbMale.CheckedChanged += new System.EventHandler(this.cbGender_check);
+            this.rbMale.Click += new System.EventHandler(this.rbMale_Click);
             // 
             // btnClose
             // 
