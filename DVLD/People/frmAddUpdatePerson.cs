@@ -351,10 +351,6 @@ namespace DVLD
             }
 
         }
-        private void mskNationalNo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         //-------------------****------------------------------------
 
         //------------ V indepente V ---------------------

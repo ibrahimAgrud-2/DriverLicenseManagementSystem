@@ -15,6 +15,24 @@ namespace DVLD
             return regex.IsMatch(email);
         }
 
+        public static bool createFolderIsNotExists(string folderPath)
+        {
+            if (!Directory.Exists(folderPath))
+            {
+                try
+                {
+                    Directory.CreateDirectory(folderPath);
+                    return true;
+
+                }
+                catch(Exception)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public static bool copyImageToNewFolder(ref string imagePath, string destination = @"C:\Images\")
         {
             if (!File.Exists(imagePath))
