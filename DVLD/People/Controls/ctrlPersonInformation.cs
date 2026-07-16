@@ -25,29 +25,40 @@ namespace DVLD
 
         }
 
+
+
         private int _PersonID;
         private peoplBl _Person;
 
 
-        public int PersonID
+        public int PersonID { get { return _PersonID; } };
+        public void LoadPersonInfo(int personID)
         {
-            
-            set
-            {
-                _PersonID = value;
-                _Load();
-                IsLoadCompletedSuccessfully(_Person!=null);
-            }
-            get { return _PersonID;}
-        }
-        private void _Load()
-        {
-            _Person = peoplBl.find(_PersonID);
+            _Person = peoplBl.find(personID);
             if (_Person == null)
             {
                 _ResetForm();
                 return;
             }
+            _Load();
+            IsLoadCompletedSuccessfully(_Person != null);
+        }
+        public void LoadPersonInfo(string nationalNo)
+        {
+            _Person = peoplBl.find(nationalNo);
+            if (_Person == null)
+            {
+                _ResetForm();
+                return;
+            }
+            _Load();
+            IsLoadCompletedSuccessfully(_Person != null);
+        }
+
+
+
+        private void _Load()
+        {
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
         }
@@ -87,17 +98,17 @@ namespace DVLD
 
             lblGender.Text = person.gender == 0 ? "Male" : "Female"; 
 
-            if (File.Exists(_Person.imagePath))
+            if (_Person.imagePath!="")
             {
                 pbPersonImage.ImageLocation = _Person.imagePath;
             }
             else if(_Person.gender==1)
             {
-                pbPersonImage.ImageLocation = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
+                pbPersonImage.Image=Resources.Female_512;
             }
             else
             {
-                pbPersonImage.ImageLocation = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\male 512.png";
+                pbPersonImage.Image = Resources.Male_512;
             }
         }
 
