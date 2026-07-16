@@ -32,11 +32,24 @@
             }
 
         }
+        public event Action<int> OnAddComplete;
+        protected virtual void AddCompleted(object sender, int result)
+        {
+            Action<int> test = OnAddComplete;
+            if (test != null)
+            {
+                test(result);
+            }
+
+        }
         //______________ ^^^ Event ^^^ ______________________
+
+   
      
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson();
+            frm.DataBack += AddCompleted;
             frm.ShowDialog();
         }
 

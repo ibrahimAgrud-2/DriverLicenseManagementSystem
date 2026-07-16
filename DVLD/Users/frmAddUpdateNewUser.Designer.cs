@@ -137,6 +137,7 @@
             this.ctrlFindUser1.Size = new System.Drawing.Size(1099, 155);
             this.ctrlFindUser1.TabIndex = 1;
             this.ctrlFindUser1.OnFilteringComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
+            this.ctrlFindUser1.OnAddComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
             // 
             // ctrlPersonInformation1
             // 
