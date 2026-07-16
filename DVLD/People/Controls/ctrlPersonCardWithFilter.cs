@@ -17,8 +17,21 @@ namespace DVLD.People.Controls
             cbFilterBy.SelectedIndex = 0;
         }
 
+       
+       //Bazı durumlarda örneğin update'te filter aktif olmamalı. Onun için dışardan enable'ı değiştirebilmek için var. 
         private bool _FilterEnabled = true;
 
+        public bool FilterEnabled
+        {
+            get
+            {
+                return _FilterEnabled;
+            }
+            set
+            {
+
+            }
+        }
 
         private PeopleBL _findPerson()
         {
