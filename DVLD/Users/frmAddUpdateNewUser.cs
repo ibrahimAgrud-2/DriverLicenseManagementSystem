@@ -11,6 +11,7 @@ namespace DVLD.Users
 
         private User _User;
         private int _UserID=-1;
+       
         private bool _PersonSelected = false;
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
@@ -43,7 +44,7 @@ namespace DVLD.Users
             lblID.Text = user.userID.ToString();
             cbIsActive.Checked = user.isActive;
             this.ctrlPersonInformation1.PersonID = user.personID;
-            _PersonSelected = true;
+           
         }
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
@@ -71,14 +72,10 @@ namespace DVLD.Users
 
         private void ctrlFindUser1_OnFilteringComplete(int obj)
         {
-           
+
             if (obj > 0)
             {
                 _User.personID = obj;
-            }
-            else
-            {
-              
             }
                 this.ctrlPersonInformation1.PersonID = obj;
         }
@@ -222,16 +219,17 @@ namespace DVLD.Users
 
         //------------------   ^^   Validation   ^^ ------------------
 
-
-
-
-
+        private void ctrlPersonInformation1_OnIsLoadCompleted(bool obj)
+        {
+            _PersonSelected= obj;
+        }
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (_User.personID <= 0)
+            if (!_PersonSelected)
             {
                 MessageBox.Show("Select a person first");
                 e.Cancel = true;
+                return;
             }
             if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
             {

@@ -13,13 +13,13 @@ namespace DVLD
             InitializeComponent();
         }
 
-        public event Action<int> OnPersonLoadedSuccessfully;
-        protected virtual void loadCompletedSuccessfully(int result)
+        public event Action<bool> OnIsLoadCompleted;
+        protected virtual void IsLoadCompletedSuccessfully(bool isCompletedSuccessfully)
         {
-            Action<int> test = OnPersonLoadedSuccessfully;
+            Action<bool> test = OnIsLoadCompleted;
             if (test != null)
             {
-                test(result);
+                test(isCompletedSuccessfully);
             }
 
         }
@@ -77,7 +77,6 @@ namespace DVLD
             else if(_Person.gender==1)
             {
                 pbPersonImage.ImageLocation = @"C:\Users\ibrah\source\repos\DVLD\Resources\Images\Female 512.png";
-
             }
             else
             {
@@ -88,15 +87,15 @@ namespace DVLD
         private void _Load()
         {
             _Person = peoplBl.find(_PersonID);
-            if(_Person==null)
+            if (_Person==null)
             {
                 _ResetForm();
+                IsLoadCompletedSuccessfully(false);
                 return;
             }
+            IsLoadCompletedSuccessfully(true);
             fillObjectDataToField(_Person);
-            loadCompletedSuccessfully(_Person.personID);
             lnklblEditPersonInfo.Enabled = true;
-
         }
 
         private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
