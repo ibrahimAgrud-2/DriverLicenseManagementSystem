@@ -158,8 +158,16 @@ namespace DVLD
                 if (_Person.imagePath != "")
                 {
 
-                        Utility.DeleteImageFromFolder(_Person.imagePath);
-                    
+                    try
+                    {
+                        File.Delete(_Person.imagePath);
+                    }
+                    catch (IOException)
+                    {
+                        // We could not delete the file.
+                        //log it later   
+                    }
+
                 }
                 //sildikten sonra eğer PB'de foto varsa kopyala eğer PB'de foto yoksa yani foto default kalmışsa kopyalanmaz. Yani default DB'e eklenmez. Sadece programda gösterilir. 
                 string imagePath = pbPersonImage.ImageLocation;
