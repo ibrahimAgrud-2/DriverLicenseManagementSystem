@@ -510,6 +510,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddUpdatePerson";
             this.Text = "frmAddUpdatePerson";
+            this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

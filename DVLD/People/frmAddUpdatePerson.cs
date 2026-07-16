@@ -31,7 +31,7 @@ namespace DVLD
         {
             InitializeComponent();
             this._Mode = enMode.enAddNew;
-            _Load();
+           
 
         }
 
@@ -41,6 +41,10 @@ namespace DVLD
             InitializeComponent();
             this._Mode = enMode.enUpdate;
             _personID = personID;
+           
+        }
+        private void frmAddUpdatePerson_Load(object sender, EventArgs e)
+        {
             _Load();
         }
         private void _Load()
@@ -404,6 +408,6 @@ namespace DVLD
             }
         }
 
-
+  
     }
 }
