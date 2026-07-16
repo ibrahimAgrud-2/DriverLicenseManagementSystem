@@ -60,16 +60,8 @@ namespace DVLD
                 _Person = new PeopleBL();
                 lblMode.Text = "Add New Person";
                 cbCountries.SelectedItem = _Region.EnglishName;
-                if (rbFemale.Checked)
-                {
-                    pbPersonImage.Image = Resources.Female_512;
-                }
-                else if (rbMale.Checked)
-                {
-                    pbPersonImage.Image = Resources.Male_512;
-                }
+                _SetDefaultImage();
                 temp();
-                pbPersonImage.ImageLocation = "";
                 setErrors();
                 return;
             }
@@ -104,6 +96,18 @@ namespace DVLD
         //======================= V SAVE V ========================================
 
         //____________ ^ SAVE - Image ^ __________________
+
+        private void _SetDefaultImage()
+        {
+            if (rbFemale.Checked)
+            {
+                pbPersonImage.Image = Resources.Female_512;
+            }
+            else if (rbMale.Checked)
+            {
+                pbPersonImage.Image = Resources.Male_512;
+            }
+        }
         private void rbMale_Click(object sender, EventArgs e)
         {
           
@@ -389,14 +393,7 @@ namespace DVLD
         //------------ V indepente V ---------------------
         private void lnkLblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (rbFemale.Checked)
-            {
-                pbPersonImage.Image = Resources.Female_512;
-            }
-            else if (rbMale.Checked)
-            {
-                pbPersonImage.Image = Resources.Male_512;
-            }
+            _SetDefaultImage();
             pbPersonImage.ImageLocation = null;
 
             lnkLblRemove.Visible = false;
