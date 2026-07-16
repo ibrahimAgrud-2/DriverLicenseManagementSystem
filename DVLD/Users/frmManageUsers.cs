@@ -189,6 +189,7 @@ namespace DVLD.Users
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtFilet.Text = "";
             if (cbFilterBy.SelectedIndex == 0)
             {
                 txtFilet.Visible = false;
@@ -202,6 +203,14 @@ namespace DVLD.Users
             else
             {
                 txtFilet.Visible = true;
+            }
+        }
+
+        private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(cbFilterBy.Text=="User ID")
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
         //=========  ^^ FİLTERİNG ^^ ====================

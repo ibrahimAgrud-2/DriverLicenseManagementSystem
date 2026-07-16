@@ -206,6 +206,7 @@
             this.txtFilet.TabIndex = 40;
             this.txtFilet.Visible = false;
             this.txtFilet.TextChanged += new System.EventHandler(this.txtFilet_TextChanged);
+            this.txtFilet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilet_KeyPress);
             // 
             // cbFilterBy
             // 
