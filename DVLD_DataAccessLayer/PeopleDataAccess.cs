@@ -403,7 +403,8 @@ namespace DVLD_DataAccessLayer
             cmd.Parameters.AddWithValue("@nationalityCountryID", countryID);
             cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
 
-            if (imagePath == string.Empty)
+
+            if (string.IsNullOrEmpty(imagePath))
             {
                 cmd.Parameters.AddWithValue("@imagePath", System.DBNull.Value);
             }
@@ -412,17 +413,17 @@ namespace DVLD_DataAccessLayer
                 cmd.Parameters.AddWithValue("@imagePath", imagePath);
 
             }
-      
-            if (email == string.Empty)
+
+            if (string.IsNullOrEmpty(email))
             {
                 cmd.Parameters.AddWithValue("@email", System.DBNull.Value);
             }
             else
-            {   
+            {
                 cmd.Parameters.AddWithValue("@email", email);
 
             }
-            if (thirdName == string.Empty)
+            if (string.IsNullOrEmpty(thirdName))
             {
                 cmd.Parameters.AddWithValue("@thirdName", System.DBNull.Value);
             }
