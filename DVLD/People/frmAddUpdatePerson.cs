@@ -162,6 +162,9 @@ namespace DVLD
 
             if (this.ValidateChildren())
             {
+                _Person.imagePath = _handleImage();
+                if (_Person.imagePath == "")
+                    return false;
                 _Person.firstName = mskFirstName.Text.Trim();
                 _Person.secondName = mskSecondName.Text.Trim();
                 _Person.thirdName = mskThirdName.Text.Trim();
@@ -171,10 +174,6 @@ namespace DVLD
                 _Person.address = txtAddress.Text.Trim();
                 _Person.phone = mskPhoneNumber.Text.Trim();
                 _Person.countryID = Country.findCountryByID(cbCountries.SelectedIndex + 1).countryID;
-                _Person.imagePath = _handleImage();
-
-                if (_Person.imagePath == "")
-                    return false;
                 _Person.gender = (rbFemale.Checked ? 1 : 0);
 
 
