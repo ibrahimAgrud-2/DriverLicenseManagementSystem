@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using DVLD.Properties;
 using DVLD_BusinessLayer;
+using System;
+using System.IO;
 using System.Windows.Forms;
 using peoplBl = DVLD_BusinessLayer.People;
 namespace DVLD
@@ -21,28 +23,29 @@ namespace DVLD
             set
             {
                 _PersonID = value;
-                _loadDataIfPersonExists();
+                _Load();
             }
             get { return _PersonID;}
         }
-        private void _loadDataIfPersonExists()
+
+        private void _ResetForm()
         {
-            if(!peoplBl.isPersonExist(_PersonID))
-            {
-                return;
-            }
-            else
-            {
-               
-                _Load();
-                
-            }
+            lblName.Text = "????";
+            lblPersonID.Text = "????";
+            lblNationalNo.Text = "????";
+            lblBirthDate.Text = "????";
+            lblEmail.Text = "????";
+            lblPhone.Text = "????";
+            lblAddress.Text = "????";
+            lblCountry.Text = "????";
+            lblGender.Text = "????";
+            pbPersonImage.Image = Resources.Male_512;
         }
 
 
         private void fillObjectDataToField(peoplBl person)
         {
-            lblName.Text = person.firstName + " " + person.secondName + " " + person.thirdName + " " + person.lastName; ;
+            lblName.Text = person.fullName;
             lblPersonID.Text = person.personID.ToString();
             lblNationalNo.Text = person.nationalNo;
             lblBirthDate.Text = person.dateOfBirth.ToString("yyyy/mm/dd");
@@ -74,7 +77,11 @@ namespace DVLD
         private void _Load()
         {
             _Person = peoplBl.find(_PersonID);
-
+            if(_Person==null)
+            {
+                _ResetForm();
+                return;
+            }
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
 

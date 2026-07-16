@@ -278,6 +278,7 @@
             // 
             // pbPersonImage
             // 
+            this.pbPersonImage.Image = global::DVLD.Properties.Resources.Male_512;
             this.pbPersonImage.Location = new System.Drawing.Point(719, 61);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(215, 248);

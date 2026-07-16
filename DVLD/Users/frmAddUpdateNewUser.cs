@@ -69,18 +69,12 @@ namespace DVLD.Users
 
         private void ctrlFindUser1_OnFilteringComplete(int obj)
         {
-
+           
             if (obj > 0)
             {
                 _User.personID = obj;
-                this.ctrlPersonInformation1.PersonID = obj;
             }
-            else
-            {
-                MessageBox.Show("Person does not exist");
-            }
-
-
+            this.ctrlPersonInformation1.PersonID = obj;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
