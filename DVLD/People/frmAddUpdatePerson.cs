@@ -58,6 +58,7 @@ namespace DVLD
             {
                 dtpBirthDate.MaxDate = DateTime.Now.AddYears(-18);
                 _Person = new PeopleBL();
+                lblMode.Text = "Add New Person";
                 cbCountries.SelectedItem = _Region.EnglishName;
                 _SetDefaultImage();
                 setErrors();
@@ -65,7 +66,7 @@ namespace DVLD
             }
 
             _Person = PeopleBL.find(_personID);
-            lblMode.Text="Update Person"
+            lblMode.Text = "Update Person";
             fillObjectDataToField(_Person);
 
 
