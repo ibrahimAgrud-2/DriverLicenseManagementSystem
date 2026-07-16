@@ -69,6 +69,7 @@ namespace DVLD
                     pbPersonImage.Image = Resources.Male_512;
                 }
                 temp();
+                pbPersonImage.ImageLocation = "";
                 setErrors();
                 return;
             }
@@ -138,33 +139,47 @@ namespace DVLD
 
         }
         //
+
+
  
-        private string _handleImage()
-        {   
-            
-            if(pbPersonImage.ImageLocation==null)
+
+        //return'e gerek yok. Çünkü _person global
+        private bool _handleImage()
+        {
+
+         
+
+            //Add new'da yani ilk kez ekleme olacaında ikisi birbirine eşit olmica için true. Update te ise  foto değişmişse birbirne eşit olmaz o zaman da true olur.
+            //Yani add new ve foto değişmişse if içine gir. Onun dışında update olduğunda PB'deki foto person'daki ile aynısa zaten güncelleme olmayacak.
+
+            if (_Person.imagePath!=pbPersonImage.ImageLocation)
             {
-                return "";
-            }
-            string imagePath = pbPersonImage.ImageLocation.ToString();
-            if (pbPersonImage.ImageLocation!=null)
-            {
-                if(!Utility.CopyImageToNewFolder(ref imagePath))
+                //_Person.imagePath eğer boş değilse her türlü sil.
+                if (_Person.imagePath != "")
                 {
-                    MessageBox.Show("Cant copy");
+
+                        Utility.DeleteImageFromFolder(_Person.imagePath);
+                    
                 }
-
+                //sildikten sonra eğer PB'de foto varsa kopyala eğer PB'de foto yoksa yani foto default kalmışsa kopyalanmaz. Yani default DB'e eklenmez. Sadece programda gösterilir. 
+                string imagePath = pbPersonImage.ImageLocation;
+                if (pbPersonImage.ImageLocation != null)
+                {
+                    Utility.CopyImageToNewFolder(ref imagePath);
+                    pbPersonImage.ImageLocation = imagePath;
+                }
+               
+                
             }
-
-            return imagePath;
+            return true;
         }
         //__________________________________________
         private bool _FillDataToObject()
         {
 
-            if (this.ValidateChildren())
+            if (this.ValidateChildren()&&_handleImage())
             {
-                _Person.imagePath = _handleImage();
+                _Person.imagePath =pbPersonImage.ImageLocation;
                 _Person.firstName = mskFirstName.Text.Trim();
                 _Person.secondName = mskSecondName.Text.Trim();
                 _Person.thirdName = mskThirdName.Text.Trim();
@@ -214,6 +229,7 @@ namespace DVLD
             }
             else
             {
+                pbPersonImage.ImageLocation = "";
                 if (rbFemale.Checked)
                 {
                     pbPersonImage.Image = Resources.Female_512;
@@ -361,8 +377,9 @@ namespace DVLD
             }
             else if (rbMale.Checked)
             {
-                pbPersonImage.Image = Resources.Female_512;
+                pbPersonImage.Image = Resources.Male_512;
             }
+            pbPersonImage.ImageLocation = null;
         }
 
 
@@ -401,6 +418,10 @@ namespace DVLD
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
 
+           this.Close();
+        }
     }
 }
