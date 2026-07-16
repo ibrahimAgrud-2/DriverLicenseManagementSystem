@@ -29,14 +29,34 @@ namespace DVLD.People.Controls
             }
             set
             {
-
+                _FilterEnabled = value;
+                gbFilter.Enabled = _FilterEnabled;
             }
         }
 
-        private PeopleBL _findPerson()
+        public int personID
+        {
+            get { return this.ctrlPersonInformation1.PersonID; }
+        }
+        public PeopleBL selectedPerson
+        {
+            get { return this.ctrlPersonInformation1.SelectedPerson; }
+        }
+
+
+        //bazı durumlarda textbox'ta girmek yerine kod'dan veriyti yüklemek için kullanabiliriz.
+        public void LoadData(int personID)
+        {
+            txtFilter.Text = personID.ToString();
+            cbFilterBy.SelectedIndex = 0;
+            _findPerson();
+        }
+
+
+        private void _findPerson()
         {
 
-            PeopleBL person = new PeopleBL();
+         
             switch (cbFilterBy.Text)
             {
                 case "National No":
@@ -47,13 +67,15 @@ namespace DVLD.People.Controls
                     break;
             }
    
-            return person;
         }
 
+    
         private void btnSearch_Click(object sender, EventArgs e)
         {
             _findPerson();
         }
+
+
 
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {

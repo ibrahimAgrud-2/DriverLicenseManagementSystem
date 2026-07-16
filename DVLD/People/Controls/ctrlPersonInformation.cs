@@ -32,7 +32,10 @@ namespace DVLD
 
 
         public int PersonID { get { return _PersonID; } }
-    
+
+        public peoplBl SelectedPerson { get { return _Person; } }
+
+
         public void LoadPersonInfo(int personID)
         {
             _Person = peoplBl.find(personID);
