@@ -61,6 +61,7 @@
     <Compile Include="Drivers\frmManageDrivers.Designer.cs">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\Validation.cs" />
     <Compile Include="Login\loginSettings.cs" />
     <Compile Include="People\Controls\ctrlFindPerson.cs">
       <SubType>UserControl</SubType>

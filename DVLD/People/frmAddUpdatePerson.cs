@@ -1,4 +1,5 @@
-﻿using DVLD.Properties;
+﻿using DVLD.Global_Classes;
+using DVLD.Properties;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -324,7 +325,7 @@ namespace DVLD
 
         private bool _isEmailInputValid()
         {
-            if (string.IsNullOrEmpty(txtEmail.Text) || Utility.IsEmailValid(txtEmail.Text))
+            if (string.IsNullOrEmpty(txtEmail.Text) || Validation.IsEmailValid(txtEmail.Text))
             {
                 return true;
             }
