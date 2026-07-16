@@ -24,7 +24,7 @@ namespace DVLD.Users.Controls
 
         private void _LoadUserInfo(int id )
         {
-            User user = User.findUserByUserID(id);
+            User user = User.Find(id);
             if(user!=null)
             {
                 lblUserID.Text = user.userID.ToString();

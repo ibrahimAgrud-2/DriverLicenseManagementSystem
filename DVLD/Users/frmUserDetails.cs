@@ -24,7 +24,7 @@ namespace DVLD.Users
 
         private void frmUserInfo_Load(object sender, EventArgs e)
         {
-            User usr = User.findUserByUserID(_UserID);
+            User usr = User.Find(_UserID);
             if(usr!=null)
             {
                 this.ctrlUserInfo1.LoadDataToUserControls(usr.userID,usr.personID);

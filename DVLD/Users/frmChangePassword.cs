@@ -29,7 +29,7 @@ namespace DVLD.Users
 
         private void frmChangePassword_Load(object sender, EventArgs e)
         {
-            User usr = User.findUserByUserID(_UserID);
+            User usr = User.Find(_UserID);
             if(usr!=null)
             {
                 _user = usr;

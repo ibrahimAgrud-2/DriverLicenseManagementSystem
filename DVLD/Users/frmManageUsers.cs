@@ -92,7 +92,7 @@ namespace DVLD.Users
         {
             if (int.TryParse(dgvUsersList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedUserID))
             {
-                if (User.isUserExistByID(selectedUserID))
+                if (User.isUserExist(selectedUserID))
                 {
                     if (User.deleteUser(selectedUserID))
                     {

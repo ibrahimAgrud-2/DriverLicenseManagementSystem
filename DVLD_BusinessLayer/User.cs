@@ -19,16 +19,8 @@ namespace DVLD_BusinessLayer
         public int personID { set; get; }
 
         //Person composition
-        private People _Person;
-        public People Person
-        {
-            get
-            {
-                if (_Person == null)
-                    _Person = People.find(personID);
-                return _Person;
-            }
-        }
+        public  People Person;
+
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode mode;
@@ -52,6 +44,7 @@ namespace DVLD_BusinessLayer
             this.userName = userName;
             this.password = password;
             this.isActive = isActive;
+            this.Person = People.find(personID);
             this.mode = enMode.enUpdate;
         }
        public static DataTable getUserRecords()
@@ -62,7 +55,7 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static User findUserByUserID(int userID)
+        public static User Find(int userID)
         {
 
             string userName = "", password = "";
@@ -76,7 +69,7 @@ namespace DVLD_BusinessLayer
             }
             return null;
         }
-        public static User findUserByUserByUserName(string userName )
+        public static User Find(string userName )
         {
 
             string password = "";
@@ -106,23 +99,23 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public static bool isUserExistByID(int userID)
+        public static bool isUserExist(int userID)
         {
-            return UserDataAccess.isUserExistByID(userID);
+            return UserDataAccess.isUserExist(userID);
         }
         public static bool isUserExistByPersonID(int personID)
         {
             return UserDataAccess.isUserExistByPersonID(personID);
         }
-        public static bool isUserExistByUserName(string userName)
+        public static bool isUserExist(string userName)
         {
-            return UserDataAccess.isUserExistByUserName(userName);
+            return UserDataAccess.isUserExist(userName);
         }
 
 
         public static bool deleteUser(int userID)
         {
-            if (isUserExistByID(userID))
+            if (isUserExist(userID))
             {
                 return UserDataAccess.DeleteUser(userID);
             }

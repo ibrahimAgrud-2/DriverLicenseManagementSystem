@@ -32,7 +32,7 @@ namespace DVLD_BusinessLayer
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         //Her object 2 farklı modu olur. Ya yeni üretilmiştir modu add ya da sitemde zaten vardır
-        //ki bunuda find ile bulmuşuzdur modu update. Bunuda diğer propertylerden farkı yoktur.
+        //ki bunuda Find ile bulmuşuzdur modu update. Bunuda diğer propertylerden farkı yoktur.
         public enMode mode=enMode.enAddNew;
 
 
@@ -50,7 +50,7 @@ namespace DVLD_BusinessLayer
         //tüm bilgilerini ister, dolaysıyla dışardan hiç bir şekilde ID'e direk erişim olmadığı için
         //bu const ile dışarda obje oluşturamayız. * Bu const ile sadece DB'de var olan contact'ı/objeyi sistemde
         //kullanmak istediğimiz zaman bu const ile oluştururuz.
-        //Mesela bunu find fonksiyonunda kullandık. Çünkü bir contact DB de bulunursa sistemde
+        //Mesela bunu Find fonksiyonunda kullandık. Çünkü bir contact DB de bulunursa sistemde
         //kullanılabilmesi için bu const gerekir.
         private People(int personID,string nationalNo, string firstName, string secondName,
            string thirdName, string lastName, DateTime dateOfBirth,

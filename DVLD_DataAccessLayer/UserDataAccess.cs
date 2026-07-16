@@ -42,6 +42,8 @@ namespace DVLD_DataAccessLayer
 
             return dt;
         }
+       
+        
         public static bool findUserByID(int userID, ref int personID, ref string userName, ref string password, ref
            bool isActive)
         {
@@ -125,7 +127,7 @@ namespace DVLD_DataAccessLayer
         }
 
      
-        public static bool isUserExistByID(int userID)
+        public static bool isUserExist(int userID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
             bool isFound = false;
@@ -155,7 +157,7 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
 
-        public static bool isUserExistByUserName(string UserName)
+        public static bool isUserExist(string UserName)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
             bool isFound = false;

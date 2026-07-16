@@ -49,7 +49,7 @@ namespace DVLD.Users
             //when mode is update;
             if (this._Mode==enMode.enUpdate)
             {
-                _User = User.findUserByUserID(_User.userID);
+                _User = User.Find(_User.userID);
                 lblID.Text = _User.personID.ToString();
                 lblMode.Text = "Update User";
                 ctrlFindUser1.Enabled = false;
@@ -117,7 +117,7 @@ namespace DVLD.Users
         {
                 
             
-            if(User.isUserExistByUserName(txtUserName.Text))
+            if(User.isUserExist(txtUserName.Text))
             {
                 if (_User.userName==txtUserName.Text)
                 {

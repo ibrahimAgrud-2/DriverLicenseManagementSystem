@@ -44,9 +44,9 @@ namespace DVLD
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            if(User.isUserExistByUserName(txtUserName.Text))
+            if(User.isUserExist(txtUserName.Text))
             {
-                User u1 = User.findUserByUserByUserName(txtUserName.Text);
+                User u1 = User.Find(txtUserName.Text);
                 if(u1.password==maskedTextBox1.Text)
                 {
                     
