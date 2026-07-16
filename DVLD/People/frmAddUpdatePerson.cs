@@ -165,7 +165,7 @@ namespace DVLD
 
                     try
                     {
-                        File.Delete(_Person.imagePath);
+                        Utility.DeleteImageFromFolder(_Person.imagePath);
                     }
                     catch (IOException)
                     {
