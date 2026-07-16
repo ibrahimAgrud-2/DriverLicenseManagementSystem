@@ -173,11 +173,21 @@ namespace DVLD
                 string imagePath = pbPersonImage.ImageLocation;
                 if (pbPersonImage.ImageLocation != null)
                 {
-                    Utility.CopyImageToNewFolder(ref imagePath);
-                    pbPersonImage.ImageLocation = imagePath;
+                    if (Utility.CopyImageToNewFolder(ref imagePath))
+                    {
+                        pbPersonImage.ImageLocation = imagePath;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Copying Image File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                 }
-               
-                
+
+
+
+
             }
             return true;
         }
