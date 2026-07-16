@@ -10,7 +10,7 @@ namespace DVLD.Users
 
 
         private User _User;
-        private int _UserID;
+        private int _UserID=-1;
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
@@ -56,12 +56,12 @@ namespace DVLD.Users
                 lblID.Text = _User.personID.ToString();
                 lblMode.Text = "Update User";
                 ctrlFindUser1.Enabled = false;
-                _Mode = enMode.enUpdate;
                 fillObjectDataToField(_User);
 
             }
             else
             {
+                lblMode.Text = "Add New User";
                 _User = new User();
             }
         }
@@ -91,12 +91,8 @@ namespace DVLD.Users
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (_User.personID <= 0)
-            {
-                MessageBox.Show("Select a person first");
-                return;
-            }
-            else if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
+     
+             if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
             {
                 MessageBox.Show("The person is already a user");
                 return;
@@ -227,6 +223,13 @@ namespace DVLD.Users
             }
         }
 
-
+        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (_User.personID <= 0)
+            {
+                MessageBox.Show("Select a person first");
+                e.Cancel = true;
+            }
+        }
     }
 }

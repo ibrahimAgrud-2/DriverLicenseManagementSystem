@@ -100,6 +100,7 @@
             this.tbMain.SelectedIndex = 0;
             this.tbMain.Size = new System.Drawing.Size(1132, 633);
             this.tbMain.TabIndex = 80;
+            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
             // tabPage1
             // 
