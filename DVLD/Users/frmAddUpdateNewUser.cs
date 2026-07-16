@@ -55,6 +55,11 @@ namespace DVLD.Users
                 ctrlFindUser1.Enabled = false;
                 _Mode = enMode.enUpdate;
                 fillObjectDataToField(_User);
+
+            }
+            else
+            {
+                _User = new User();
             }
         }
 
@@ -83,30 +88,49 @@ namespace DVLD.Users
                 MessageBox.Show("Select a person first");
                 return;
             }
-            else if (User.isUserExistByPersonID(_User.personID) &&this._Mode==enMode.enAddNew)
+            //else if (User.isUserExistByPersonID(_User.personID) &&this._Mode==enMode.enAddNew)
+            //{
+            //    MessageBox.Show("The person is already a user");
+            //    return;
+            //}
+            //else
+            //{
+            //    tbMain.SelectedIndex = 1;
+            //    lblID.Enabled = true;
+            //    txtUserName.Enabled = true;
+            //    lblID.Enabled = true;
+            //    mskConfirmPassword.Enabled = true;
+            //    mskPassword.Enabled = true;
+            //    if(this._Mode==enMode.enAddNew)
+            //    {
+            //        errorProvider1.SetError(mskPassword, "Password Required");
+            //        errorProvider1.SetError(txtUserName, "User name must be unique");
+            //        errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
+
+            //    }
+            //    cbIsActive.Enabled = true;
+            //}
+
+            if(this._Mode == enMode.enAddNew)
             {
-                MessageBox.Show("The person is already a user");
-                return;
-            }
-            else
-            {
-                tbMain.SelectedIndex = 1;
-                lblID.Enabled = true;
-                txtUserName.Enabled = true;
-                lblID.Enabled = true;
-                mskConfirmPassword.Enabled = true;
-                mskPassword.Enabled = true;
-                if(this._Mode==enMode.enAddNew)
+                if (User.isUserExistByPersonID(_User.personID))
                 {
-                    errorProvider1.SetError(mskPassword, "Password Required");
-                    errorProvider1.SetError(txtUserName, "User name must be unique");
-                    errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
-
+                    MessageBox.Show("The person is already a user");
+                    return;
                 }
-                cbIsActive.Enabled = true;
+                errorProvider1.SetError(mskPassword, "Password Required");
+                errorProvider1.SetError(txtUserName, "User name must be unique");
+                errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
+
             }
 
-
+            tbMain.SelectedIndex = 1;
+            lblID.Enabled = true;
+            txtUserName.Enabled = true;
+            lblID.Enabled = true;
+            mskConfirmPassword.Enabled = true;
+            mskPassword.Enabled = true;
+            cbIsActive.Enabled = true;
         }
 
 

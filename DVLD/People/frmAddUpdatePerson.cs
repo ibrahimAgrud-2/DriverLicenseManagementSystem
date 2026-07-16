@@ -315,44 +315,34 @@ namespace DVLD
         }
 
 
-        private bool _IsNationalNoInputValid()
+        private void ValidateNationalNo(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(mskNationalNo.Text=="")
+            if (mskNationalNo.Text == "")
             {
-                return false;
+                errorProvider1.SetError(mskNationalNo, "This field is required!");
+                e.Cancel = false;
+                return;
             }
 
             if (PeopleBL.isPersonExist(mskNationalNo.Text))
             {
 
-                //Bu aslında mod update olduğun'da national no'yu özel olarak kontrol ediyor. Çünkü national no update yaplmas istenirken şu kontrl yapılmalı. O national no hem DB'de başka bir person tarafından kullanılmış olmamalı. Ancak bu mod update olduğu için national no her türlü DB'de olacak çünkü person DB'de halen. Bu yüzden update'te national no update olunca sadece başka personlarda olmamalı. Aynı personda olabilir. Bunuda şu şekilde yuapıyorz. Eğer NO varsa ve naitonalno değişmemişse sıkıntı yok. Ama eğer NO db'de var ve no buradan değişmiş. Bu demek oluyor ki buradan başka bit person'un national NO'su alınmaya çalışılıyopr.
+                /*
+                 Bu aslında mod update olduğun'da national no'yu özel olarak kontrol ediyor. Çünkü national no update yaplmas istenirken şu kontrl yapılmalı. O national no hem DB'de başka bir person tarafından kullanılmış olmamalı. Ancak bu mod update olduğu için national no her türlü DB'de olacak çünkü person DB'de halen. Bu yüzden update'te national no update olunca sadece başka personlarda olmamalı. Aynı personda olabilir. Bunuda şu şekilde yuapıyorz. Eğer NO varsa ve naitonalno değişmemişse sıkıntı yok. Ama eğer NO db'de var ve no buradan değişmiş. Bu demek oluyor ki buradan başka bit person'un national NO'su alınmaya çalışılıyopr.*/
                 if (_Person.nationalNo == mskNationalNo.Text)
                 {
-                    return true;
+                    errorProvider1.SetError(mskNationalNo, null);
                 }
                 else
                 {
-                    return false;
+                    errorProvider1.SetError(mskNationalNo, "National no Already exist");
+                    e.Cancel = false;
                 }
             }
             else
             {
-                return true;
-            }
-        }
-
-        private void ValidateNationalNo(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            
-            if (_IsNationalNoInputValid())
-            {
                 errorProvider1.SetError(mskNationalNo, null);
             }
-            else
-            {
-                errorProvider1.SetError(mskNationalNo, "This field is required!");
-            }
-
         }
         //-------------------****------------------------------------
 
