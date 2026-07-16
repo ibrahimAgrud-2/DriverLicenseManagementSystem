@@ -46,6 +46,7 @@
             this.gbFilter.Controls.Add(this.cbFilterBy);
             this.gbFilter.Controls.Add(this.txtFilter);
             this.gbFilter.Controls.Add(this.label1);
+            this.gbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFilter.Location = new System.Drawing.Point(3, 15);
             this.gbFilter.Name = "gbFilter";
             this.gbFilter.Size = new System.Drawing.Size(953, 77);
@@ -84,18 +85,18 @@
             this.cbFilterBy.Items.AddRange(new object[] {
             "Person ID",
             "National No"});
-            this.cbFilterBy.Location = new System.Drawing.Point(96, 25);
+            this.cbFilterBy.Location = new System.Drawing.Point(114, 29);
             this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.Size = new System.Drawing.Size(210, 24);
+            this.cbFilterBy.Size = new System.Drawing.Size(210, 33);
             this.cbFilterBy.TabIndex = 16;
             // 
             // txtFilter
             // 
             this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFilter.Location = new System.Drawing.Point(313, 25);
+            this.txtFilter.Location = new System.Drawing.Point(331, 29);
             this.txtFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(214, 22);
+            this.txtFilter.Size = new System.Drawing.Size(214, 30);
             this.txtFilter.TabIndex = 17;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
             // 
@@ -111,11 +112,11 @@
             // 
             // ctrlPersonInformation1
             // 
-            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 100);
             this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(948, 411);
+            this.ctrlPersonInformation1.Size = new System.Drawing.Size(948, 322);
             this.ctrlPersonInformation1.TabIndex = 18;
             // 
             // ctrlPersonCardWithFilter
@@ -125,7 +126,7 @@
             this.Controls.Add(this.ctrlPersonInformation1);
             this.Controls.Add(this.gbFilter);
             this.Name = "ctrlPersonCardWithFilter";
-            this.Size = new System.Drawing.Size(965, 522);
+            this.Size = new System.Drawing.Size(1019, 427);
             this.Load += new System.EventHandler(this.ctrlFindUser_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();

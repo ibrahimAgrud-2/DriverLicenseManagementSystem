@@ -41,4 +41,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Drivers.frmManageDrivers.re
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmUserDetails.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.Controls.ctrlFindPerson.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.Controls.ctrlPersonCardWithFilter.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.Controls.frmTest.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.frmFindPerson.resources
