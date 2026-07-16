@@ -139,7 +139,7 @@ namespace DVLD
             }
 
 
-            Utility.copyImageToNewFolder(ref imagePath);
+            Utility.CopyImageToNewFolder(ref imagePath);
 
             if (this._Mode == enMode.enUpdate && _Person.imagePath != pbPersonImage.ImageLocation)
             {

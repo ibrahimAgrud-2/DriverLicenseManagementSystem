@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 namespace DVLD
@@ -33,16 +34,39 @@ namespace DVLD
             return true;
         }
 
-        public static bool copyImageToNewFolder(ref string imagePath, string destination = @"C:\Images\")
+        public static string GenerateGuid()
         {
-            if (!File.Exists(imagePath))
-                return false;
-            string newImagePath = destination + Guid.NewGuid() + Path.GetExtension(imagePath);
-       
+            return Guid.NewGuid().ToString();
+        }
 
-            File.Copy(imagePath, newImagePath, true);
-            imagePath = newImagePath;
-            return true;
+        public static string ReplaceFileNameWithGUID(string fileName)
+        {
+            return GenerateGuid() + Path.GetExtension(fileName);
+        }
+        public static bool CopyImageToNewFolder(ref string imagePath, string destination = @"C:\Images\")
+        {
+            if(createFolderIsNotExists(destination))
+            {
+                if (!File.Exists(imagePath))
+                    return false;
+              
+                string newImagePath = destination + ReplaceFileNameWithGUID(imagePath);
+
+
+                try
+                {
+                    File.Copy(imagePath, newImagePath, true);
+                    imagePath = newImagePath;
+                    return true;
+                }
+                catch (Exception iox)
+                {
+                    MessageBox.Show(iox.Message);
+                    return false;
+                }
+              
+            }
+            return false;
         }
 
         public static bool DeleteImageFromFolder(string imagePath)
@@ -52,9 +76,9 @@ namespace DVLD
                 File.Delete(imagePath);
 
             }
-            catch (IOException)
+            catch (Exception iox)
             {
-                MessageBox.Show("Previous image could not deleted");
+                MessageBox.Show(iox.Message);
                 return false;
             }
             return true;
