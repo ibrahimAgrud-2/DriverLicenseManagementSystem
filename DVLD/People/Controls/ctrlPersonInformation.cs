@@ -13,10 +13,11 @@ namespace DVLD
             InitializeComponent();
         }
 
-        public event Action<bool> OnIsLoadCompleted;
+        //Load bitiğinde tetiklernir. paramtere olarak'ta true false yükleme başarılıysa eğer. 
+        public event Action<bool> IsLoadCompleted;
         protected virtual void IsLoadCompletedSuccessfully(bool isCompletedSuccessfully)
         {
-            Action<bool> test = OnIsLoadCompleted;
+            Action<bool> test = IsLoadCompleted;
             if (test != null)
             {
                 test(isCompletedSuccessfully);
@@ -35,8 +36,20 @@ namespace DVLD
             {
                 _PersonID = value;
                 _Load();
+                IsLoadCompletedSuccessfully(_Person!=null);
             }
             get { return _PersonID;}
+        }
+        private void _Load()
+        {
+            _Person = peoplBl.find(_PersonID);
+            if (_Person == null)
+            {
+                _ResetForm();
+                return;
+            }
+            fillObjectDataToField(_Person);
+            lnklblEditPersonInfo.Enabled = true;
         }
 
         private void _ResetForm()
@@ -64,7 +77,11 @@ namespace DVLD
             lblPhone.Text = person.phone;
             lblAddress.Text = person.address;
 
-            lblCountry.Text = Country.findCountry(person.countryID).countryName;
+            // lblCountry.Text= Country.findCountry(person.countryID).countryName;
+
+            //composition
+            lblCountry.Text = person.CountryInfo.countryName;
+       
 
 
 
@@ -84,19 +101,6 @@ namespace DVLD
             }
         }
 
-        private void _Load()
-        {
-            _Person = peoplBl.find(_PersonID);
-            if (_Person==null)
-            {
-                _ResetForm();
-                IsLoadCompletedSuccessfully(false);
-                return;
-            }
-            IsLoadCompletedSuccessfully(true);
-            fillObjectDataToField(_Person);
-            lnklblEditPersonInfo.Enabled = true;
-        }
 
         private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

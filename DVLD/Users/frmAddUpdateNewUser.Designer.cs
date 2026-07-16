@@ -262,7 +262,7 @@
             this.ctrlPersonInformation1.PersonID = 0;
             this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 334);
             this.ctrlPersonInformation1.TabIndex = 0;
-            this.ctrlPersonInformation1.OnIsLoadCompleted += new System.Action<bool>(this.ctrlPersonInformation1_OnIsLoadCompleted);
+            this.ctrlPersonInformation1.IsLoadCompleted += new System.Action<bool>(this.ctrlPersonInformation1_OnIsLoadCompleted);
             // 
             // frmAddUpdateNewUser
             // 
