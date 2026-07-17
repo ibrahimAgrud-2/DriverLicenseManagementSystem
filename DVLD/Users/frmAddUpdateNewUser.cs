@@ -11,7 +11,8 @@ namespace DVLD.Users
 
         private User _User;
         private int _UserID=-1;
-       
+        private int _PersonID = -1;
+
         private bool _PersonSelected = false;
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
@@ -22,8 +23,6 @@ namespace DVLD.Users
             InitializeComponent();
             this._Mode = enMode.enAddNew;
         }
-
-
 
         public frmAddUpdateNewUser(int userID)
         {
@@ -109,7 +108,6 @@ namespace DVLD.Users
             {
                 MessageBox.Show("Something went wrong");
             }
-
         }
 
 
@@ -117,26 +115,21 @@ namespace DVLD.Users
         {
      
           
-                tbMain.SelectedIndex = 1;
+            tbMain.SelectedIndex = 1;
             lblID.Enabled = true;
             txtUserName.Enabled = true;
             lblID.Enabled = true;
             mskConfirmPassword.Enabled = true;
             mskPassword.Enabled = true;
-            if (this._Mode == enMode.enAddNew)
+                if (this._Mode == enMode.enAddNew)
                 {
                     errorProvider1.SetError(mskPassword, "Password Required");
                     errorProvider1.SetError(txtUserName, "User name must be unique");
                     errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
-
                 }
                 cbIsActive.Enabled = true;
-            
-
 
         }
-
-
         //=========================== ^Next^=====================
 
 
@@ -210,10 +203,13 @@ namespace DVLD.Users
 
         //------------------   ^^   Validation   ^^ ------------------
 
-        private void ctrlPersonInformation1_OnIsLoadCompleted(bool obj)
+        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
         {
-            _PersonSelected= obj;
+            _PersonSelected = (obj>0);
+            _PersonID = obj;
         }
+     
+        
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (!_PersonSelected)
@@ -222,7 +218,7 @@ namespace DVLD.Users
                 e.Cancel = true;
                 return;
             }
-            if (User.isUserExistByPersonID(_User.personID) && this._Mode == enMode.enAddNew)
+            if (User.isUserExistByPersonID(_PersonID) && this._Mode == enMode.enAddNew)
             {
                 MessageBox.Show("The person is already a user");
                 e.Cancel = true;
@@ -231,9 +227,6 @@ namespace DVLD.Users
             btnSave.Enabled = true;
         }
 
-        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
-        {
-            MessageBox.Show("Yes");
-        }
+      
     }
 }
