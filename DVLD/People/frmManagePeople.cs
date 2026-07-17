@@ -2,13 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Security.Cryptography;
-using System.Security.Policy;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Person = DVLD_BusinessLayer.People;
 
 namespace DVLD
@@ -53,7 +47,7 @@ namespace DVLD
             lblRecords.Text = dgvPeopleList.RowCount.ToString();
     
         }
-
+        string a="dd";
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
             _RefreshPeopleList();
@@ -236,7 +230,7 @@ namespace DVLD
                 _DtPeople.DefaultView.RowFilter = $"{FilterColumn} Like '{txtFilet.Text}%'";
             }
 
-            
+            lblRecords.Text = dgvPeopleList.RowCount.ToString();
 
         }
 
@@ -248,10 +242,8 @@ namespace DVLD
                 if (!int.TryParse(e.KeyChar.ToString(), out int test))
                 {
 
-                    if (e.KeyChar == '\b')
-                        return;
-                    e.Handled = true;
-
+                    
+                    e.Handled = !(char.IsControl(e.KeyChar)&&!char.IsDigit(e.KeyChar));
                 }
             }
         }
