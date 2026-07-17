@@ -63,12 +63,6 @@
     </Compile>
     <Compile Include="Global Classes\Validation.cs" />
     <Compile Include="Login\loginSettings.cs" />
-    <Compile Include="People\Controls\ctrlFindPerson.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="People\Controls\ctrlFindPerson.Designer.cs">
-      <DependentUpon>ctrlFindPerson.cs</DependentUpon>
-    </Compile>
     <Compile Include="People\Controls\ctrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,9 +151,6 @@
     <Compile Include="Global Classes\Utility.cs" />
     <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="People\Controls\ctrlFindPerson.resx">
-      <DependentUpon>ctrlFindPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrlPersonCardWithFilter.resx">
       <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>

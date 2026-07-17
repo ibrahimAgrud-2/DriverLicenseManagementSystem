@@ -36,8 +36,6 @@
             this.tbMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.ctrlFindUser1 = new DVLD.People.Controls.ctrlFindPerson();
-            this.ctrlPersonInformation1 = new DVLD.ctrlPersonInformation();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.mskConfirmPassword = new System.Windows.Forms.MaskedTextBox();
             this.mskPassword = new System.Windows.Forms.MaskedTextBox();
@@ -49,6 +47,7 @@
             this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
             this.tbMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -69,7 +68,7 @@
             // 
             this.btnSave.Enabled = false;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(1042, 731);
+            this.btnSave.Location = new System.Drawing.Point(1111, 740);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 38);
@@ -81,7 +80,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(937, 731);
+            this.btnClose.Location = new System.Drawing.Point(1006, 740);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 38);
@@ -99,27 +98,26 @@
             this.tbMain.Multiline = true;
             this.tbMain.Name = "tbMain";
             this.tbMain.SelectedIndex = 0;
-            this.tbMain.Size = new System.Drawing.Size(1132, 633);
+            this.tbMain.Size = new System.Drawing.Size(1227, 686);
             this.tbMain.TabIndex = 80;
             this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.tabPage1.Controls.Add(this.btnNext);
-            this.tabPage1.Controls.Add(this.ctrlFindUser1);
-            this.tabPage1.Controls.Add(this.ctrlPersonInformation1);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1124, 598);
+            this.tabPage1.Size = new System.Drawing.Size(1219, 651);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "People Info";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(1007, 549);
+            this.btnNext.Location = new System.Drawing.Point(1097, 598);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 38);
@@ -128,27 +126,6 @@
             this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // ctrlFindUser1
-            // 
-            this.ctrlFindUser1.Location = new System.Drawing.Point(8, 16);
-            this.ctrlFindUser1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlFindUser1.Name = "ctrlFindUser1";
-            this.ctrlFindUser1.Size = new System.Drawing.Size(1099, 155);
-            this.ctrlFindUser1.TabIndex = 1;
-            this.ctrlFindUser1.OnFilteringComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
-            this.ctrlFindUser1.OnAddComplete += new System.Action<int>(this.ctrlFindUser1_OnFilteringComplete);
-            // 
-            // ctrlPersonInformation1
-            // 
-            this.ctrlPersonInformation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonInformation1.Location = new System.Drawing.Point(8, 207);
-            this.ctrlPersonInformation1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonInformation1.Name = "ctrlPersonInformation1";
-          //  this.ctrlPersonInformation1.PersonID = 0;
-            this.ctrlPersonInformation1.Size = new System.Drawing.Size(1116, 334);
-            this.ctrlPersonInformation1.TabIndex = 0;
-            this.ctrlPersonInformation1.IsLoadCompleted += new System.Action<bool>(this.ctrlPersonInformation1_OnIsLoadCompleted);
             // 
             // tabPage2
             // 
@@ -165,7 +142,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1124, 598);
+            this.tabPage2.Size = new System.Drawing.Size(1219, 651);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Login Info";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -266,11 +243,22 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(0, 3);
+            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPersonButton = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1212, 588);
+            this.ctrlPersonCardWithFilter1.TabIndex = 82;
+            this.ctrlPersonCardWithFilter1.OnPersonLoaded += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonLoaded);
+            // 
             // frmAddUpdateNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 781);
+            this.ClientSize = new System.Drawing.Size(1235, 781);
             this.Controls.Add(this.tbMain);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -300,8 +288,6 @@
         private System.Windows.Forms.TabControl tbMain;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
-        private ctrlPersonInformation ctrlPersonInformation1;
-        private People.Controls.ctrlFindPerson ctrlFindUser1;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -313,5 +299,6 @@
         private System.Windows.Forms.MaskedTextBox mskConfirmPassword;
         private System.Windows.Forms.MaskedTextBox mskPassword;
         private System.Windows.Forms.TextBox txtUserName;
+        private People.Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
     }
 }

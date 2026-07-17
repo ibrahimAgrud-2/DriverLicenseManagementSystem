@@ -43,7 +43,7 @@ namespace DVLD.Users
             mskConfirmPassword.Text = user.password;
             lblID.Text = user.userID.ToString();
             cbIsActive.Checked = user.isActive;
-            this.ctrlPersonInformation1.LoadPersonInfo(user.personID);
+            this.ctrlPersonCardWithFilter1.LoadData(user.personID);
 
 
         }
@@ -59,7 +59,7 @@ namespace DVLD.Users
                     return;
                 lblID.Text = _User.personID.ToString();
                 lblMode.Text = "Update User";
-                ctrlFindUser1.Enabled = false;
+                ctrlPersonCardWithFilter1.FilterEnabled = false;
                 fillObjectDataToField(_User);
 
             }
@@ -70,18 +70,6 @@ namespace DVLD.Users
             }
         }
 
-
-        private void ctrlFindUser1_OnFilteringComplete(int obj)
-        {
-
-            if (obj > 0)
-            {
-                _User.personID = obj;
-            }
-
-            this.ctrlPersonInformation1.LoadPersonInfo(obj);
-
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -243,6 +231,9 @@ namespace DVLD.Users
             btnSave.Enabled = true;
         }
 
-   
+        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
+        {
+            MessageBox.Show("Yes");
+        }
     }
 }

@@ -63,6 +63,7 @@ namespace DVLD
 
         private void _Load()
         {
+            _PersonID = _Person.personID;
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
             IsLoadCompletedSuccessfully(_Person != null);
@@ -129,7 +130,7 @@ namespace DVLD
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
             frm.ShowDialog();
-            _Load();
+            LoadPersonInfo(PersonID);
         }
     }
 }
