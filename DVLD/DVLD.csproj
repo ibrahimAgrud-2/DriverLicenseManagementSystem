@@ -49,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Drivers\frmLincesHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Drivers\frmLincesHistory.Designer.cs">
-      <DependentUpon>frmLincesHistory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Drivers\frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>

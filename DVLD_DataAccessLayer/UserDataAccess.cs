@@ -25,7 +25,6 @@ namespace DVLD_DataAccessLayer
                 {
                     dt.Load(read);
                 }
-
                 read.Close();
             }
             catch (Exception)

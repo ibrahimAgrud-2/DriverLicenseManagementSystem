@@ -82,6 +82,7 @@ namespace DVLD.Users
                 _User.userName = txtUserName.Text;
                 _User.password = mskPassword.Text;
                 _User.isActive = cbIsActive.Checked;
+            //   _User.personID = 2105;
                 return true;
             }
             else
@@ -224,6 +225,7 @@ namespace DVLD.Users
                 e.Cancel = true;
                 return;
             }
+ 
             btnSave.Enabled = true;
         }
 
