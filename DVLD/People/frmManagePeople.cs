@@ -47,7 +47,7 @@ namespace DVLD
             lblRecords.Text = dgvPeopleList.RowCount.ToString();
     
         }
-        string a="dd";
+       
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
             _RefreshPeopleList();
