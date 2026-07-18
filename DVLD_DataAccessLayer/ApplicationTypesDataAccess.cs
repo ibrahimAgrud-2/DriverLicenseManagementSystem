@@ -128,8 +128,8 @@ namespace DVLD_DataAccessLayer
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
             string query = @"Update  applicationTypes  
-                            set applicationTypeTitle = @PersonID,
-                                ApplicationFees = @ApplicationFees,
+                            set applicationTypeTitle = @applicationTypeTitle,
+                                ApplicationFees = @ApplicationFees
                                 where applicationTypeID = @applicationTypeID";
 
             SqlCommand cmd = new SqlCommand(query, connection);

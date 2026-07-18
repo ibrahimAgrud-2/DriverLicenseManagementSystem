@@ -47,7 +47,7 @@ namespace DVLD_BusinessLayer
         public static ApplicationTypes Find(int applicationID)
         {
 
-            int applicationTypeID = -1;
+     
             string applicantTypeTitle = "";
             double paidFees = 0.0;
 
@@ -55,7 +55,7 @@ namespace DVLD_BusinessLayer
             if (ApplicationTypesDataAccess.findApplicationType(applicationID,ref applicantTypeTitle, ref paidFees))
              
                 {
-                return new ApplicationTypes(applicationTypeID, applicantTypeTitle, paidFees);
+                return new ApplicationTypes(applicationID, applicantTypeTitle, paidFees);
             }
             return null;
         }
