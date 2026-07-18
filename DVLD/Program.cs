@@ -1,4 +1,5 @@
-﻿using DVLD.Application.Application_Types;
+﻿
+using DVLD.Applications.Application_Types;
 using DVLD.People;
 using DVLD.People.Controls;
 using DVLD.Users;
@@ -22,7 +23,7 @@ namespace DVLD
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new frmAddUpdatePerson());
-            System.Windows.Forms.Application.Run(new frmManageApplications());
+            System.Windows.Forms.Application.Run(new frmManageApplicationTypes());
 
         }
     }
