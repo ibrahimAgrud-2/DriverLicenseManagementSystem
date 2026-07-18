@@ -95,7 +95,7 @@ namespace DVLD.Applications.Application_Types
 
             }
             else
-            {
+            {       
                 errorProvider1.SetError(txtAppFees, null);
             }
         }
