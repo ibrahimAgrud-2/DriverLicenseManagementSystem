@@ -44,9 +44,11 @@ namespace DVLD.Users.Controls
             }
             else
             {
-                MessageBox.Show($"User With ID {id} Not Found");
                 _ResetForm();
+                MessageBox.Show("No User with UserID = " + UserID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          
             }
+
           
         }
         public void LoadUserData(int userID)

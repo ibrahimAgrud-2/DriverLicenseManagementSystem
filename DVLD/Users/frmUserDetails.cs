@@ -24,11 +24,13 @@ namespace DVLD.Users
 
         private void frmUserInfo_Load(object sender, EventArgs e)
         {
-            User usr = User.Find(_UserID);
-            if(usr!=null)
-            {
                 this.ctrlUserInfo1.LoadUserData(_UserID);
-            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }
