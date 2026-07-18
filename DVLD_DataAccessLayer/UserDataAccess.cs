@@ -274,7 +274,12 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
-            string query = "update users set personID=@personID,userName=@userName,password=@password,isActive= @isActive where userID =@userID";
+            string query = @"Update  Users  
+                            set PersonID = @PersonID,
+                                UserName = @UserName,
+                                Password = @Password,
+                                IsActive = @IsActive
+                                where UserID = @UserID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@userID", userID);
