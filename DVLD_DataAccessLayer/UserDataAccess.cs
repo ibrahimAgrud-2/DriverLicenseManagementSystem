@@ -12,7 +12,14 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = "select userID,People.PersonID,userName,isActive,password,FullName=firstName+' '+secondName+' '+thirdName+' '+lastName from users join people on Users.PersonID=People.PersonID";
+            string sqlQuery = @"select userID,
+                                        People.PersonID,
+                                        userName,
+                                        isActive,
+                                        password,
+                                        FullName=firstName+' '+secondName+' '+IsNUll(thirdName,'')+' ' +lastName 
+                                        
+                                        from users join people on Users.PersonID=People.PersonID";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 
