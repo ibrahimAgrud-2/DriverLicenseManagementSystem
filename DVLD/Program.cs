@@ -1,4 +1,5 @@
-﻿using DVLD.People;
+﻿using DVLD.Application.Application_Types;
+using DVLD.People;
 using DVLD.People.Controls;
 using DVLD.Users;
 using System;
@@ -18,10 +19,10 @@ namespace DVLD
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new frmAddUpdatePerson());
-            Application.Run(new frmChangePassword(48));
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            // Application.Run(new frmAddUpdatePerson());
+            System.Windows.Forms.Application.Run(new frmManageApplications());
 
         }
     }

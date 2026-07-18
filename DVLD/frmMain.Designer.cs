@@ -123,7 +123,7 @@
             this.servicesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.servicesToolStripMenuItem.Name = "servicesToolStripMenuItem";
             this.servicesToolStripMenuItem.Size = new System.Drawing.Size(200, 150);
-            this.servicesToolStripMenuItem.Text = "&Applications";
+            this.servicesToolStripMenuItem.Text = "&Application";
             // 
             // drivingLicensesToolStripMenuItem
             // 
@@ -224,7 +224,7 @@
             this.tsMManageApplications.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsMManageApplications.Name = "tsMManageApplications";
             this.tsMManageApplications.Size = new System.Drawing.Size(350, 70);
-            this.tsMManageApplications.Text = "Manage Applications";
+            this.tsMManageApplications.Text = "Manage Application";
             // 
             // manageLocalDrivingLicenseApplicationsToolStripMenuItem
             // 
@@ -232,14 +232,14 @@
             this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Name = "manageLocalDrivingLicenseApplicationsToolStripMenuItem";
             this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(379, 38);
-            this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Text = "Local Driving License Applications";
+            this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Text = "Local Driving License Application";
             // 
             // ManageInternationaDrivingLicenseToolStripMenuItem1
             // 
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Name = "ManageInternationaDrivingLicenseToolStripMenuItem1";
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(379, 38);
-            this.ManageInternationaDrivingLicenseToolStripMenuItem1.Text = "International License Applications";
+            this.ManageInternationaDrivingLicenseToolStripMenuItem1.Text = "International License Application";
             // 
             // toolStripSeparator5
             // 

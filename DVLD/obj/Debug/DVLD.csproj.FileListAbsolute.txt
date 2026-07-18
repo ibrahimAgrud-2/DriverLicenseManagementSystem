@@ -45,3 +45,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmShowPersonLicen
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.frmDetainLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.International_Licenses.frmShowInternationalLicenseInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.frmTest.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Application.Application_Types.frmManageApplications.resources
