@@ -67,7 +67,11 @@ namespace DVLD_BusinessLayer
             return ApplicationTypesDataAccess.isApplicationTypeExists(applicationTypeID);
         }
 
-     
+        public  bool UpdateApplicationType()
+        {
+            return ApplicationTypesDataAccess.UpdateApplicationType(this.applicationTypeID,this.applicantTypeTitle,this.applicationFee);
+        }
+
 
     }
 }

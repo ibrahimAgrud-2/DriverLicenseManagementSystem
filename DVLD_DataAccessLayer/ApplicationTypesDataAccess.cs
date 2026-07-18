@@ -122,7 +122,7 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
-        public static bool UpdateApplicationType(int applicationTypeID, ref string applicationTypeTitle, ref double ApplicationFees)
+        public static bool UpdateApplicationType(int applicationTypeID,  string applicationTypeTitle,  double ApplicationFees)
         {
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
