@@ -100,13 +100,9 @@ namespace DVLD.People.Controls
         
             if (OnPersonLoaded!=null&&FilterEnabled)
             {
-                if(this.ctrlPersonInformation1.SelectedPerson == null)
-                { OnPersonLoaded(-1); }
-                else
-                {
-                    OnPersonLoaded(this.ctrlPersonInformation1.PersonID);
-                }
-              
+                OnPersonLoaded(-1);
+
+
             }
         }
 
@@ -145,6 +141,11 @@ namespace DVLD.People.Controls
             cbFilterBy.SelectedIndex = 0;
             txtFilter.Text = personID.ToString();
             this.ctrlPersonInformation1.LoadPersonInfo(personID);
+            if (OnPersonLoaded != null && FilterEnabled&& this.ctrlPersonInformation1.PersonID>0)
+            {
+                    OnPersonLoaded(this.ctrlPersonInformation1.PersonID);
+
+            }
         }
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)

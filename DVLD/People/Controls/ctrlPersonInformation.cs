@@ -13,22 +13,13 @@ namespace DVLD
             InitializeComponent();
         }
 
-        //Load bitiğinde tetiklernir. paramtere olarak'ta true false yükleme başarılıysa eğer. 
-        public event Action<bool> IsLoadCompleted;
-        protected virtual void IsLoadCompletedSuccessfully(bool isCompletedSuccessfully)
-        {
-            Action<bool> test = IsLoadCompleted;
-            if (test != null)
-            {
-                test(isCompletedSuccessfully);
-            }
 
-        }
+        //bu formun mantığı çok kolay. Eğer yükleme başarılı olursa _PersonID yüklenen kişinin ID si olur 
+        // yani -1 olmaz bu sayde yükleme tamamlanmıştır. Yok eğer yükleme başarısız olursa ID -1 kalır ve
+        //yükleme başarısız olmuştur.
 
-
-
-        private int _PersonID;
-        private peoplBl _Person;
+        private int _PersonID = -1;
+        private peoplBl _Person=null;
 
 
         public int PersonID { get { return _PersonID; } }
@@ -70,11 +61,14 @@ namespace DVLD
             _PersonID = _Person.personID;
             fillObjectDataToField(_Person);
             lnklblEditPersonInfo.Enabled = true;
-            IsLoadCompletedSuccessfully(_Person != null);
+
         }
 
         private void _ResetForm()
         {
+            //Yükleme başarılı olup olmadığını ID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
+            //formu temizlerken ID'i de -1 yapıyoruz.
+            _PersonID = -1;
             lblName.Text = "????";
             lblPersonID.Text = "????";
             lblNationalNo.Text = "????";

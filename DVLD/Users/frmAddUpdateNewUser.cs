@@ -2,6 +2,7 @@
 using System;
 using PeopleBL = DVLD_BusinessLayer.People;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace DVLD.Users
 {
@@ -11,7 +12,7 @@ namespace DVLD.Users
 
         private User _User;
         private int _UserID=-1;
-        private int _PersonID = -1;
+
 
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
@@ -52,10 +53,17 @@ namespace DVLD.Users
             if (this._Mode==enMode.enUpdate)
             {
                 _User = User.Find(_UserID);
+
                 if (_User == null)
-                    return;
+                {
+                    MessageBox.Show("No User with ID = " + _UserID, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                }
+
                 lblID.Text = _User.personID.ToString();
                 lblMode.Text = "Update User";
+                this.Text = "Update User";
+                tpLoginInfo.Enabled = true;
                 ctrlPersonCardWithFilter1.FilterEnabled = false;
                 fillObjectDataToField(_User);
 
@@ -63,7 +71,9 @@ namespace DVLD.Users
             else
             {
                 lblMode.Text = "Add New User";
+                tpLoginInfo.Enabled = false ;
                 _User = new User();
+                
             }
         }
 
@@ -81,7 +91,7 @@ namespace DVLD.Users
                 _User.userName = txtUserName.Text;
                 _User.password = mskPassword.Text;
                 _User.isActive = cbIsActive.Checked;
-                _User.personID = _PersonID;
+                _User.personID = this.ctrlPersonCardWithFilter1.personID;
                 return true;
             }
             else
@@ -102,36 +112,26 @@ namespace DVLD.Users
             if (_User.save())
             {
                 MessageBox.Show("Saved successfully");
-                lblID.Text = _User.userID.ToString();
                 this._Mode = enMode.enUpdate;
+                lblMode.Text = "Update User";
+                this.Text = "Update User";
+                lblID.Text = _User.userID.ToString();
+
             }
             else
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
-        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
-        {
-           
-            _PersonID = obj;
-        }
-
         //=========================== V Next V =====================
-        private void btnNext_Click(object sender, EventArgs e)
+        private void changeTab()
         {
 
-
-            tbMain.SelectedIndex = 1;
-            if (tbMain.SelectedIndex==1)
+            if (tbMain.SelectedIndex == 1)
             {
-                lblID.Enabled = true;
-                txtUserName.Enabled = true;
-                lblID.Enabled = true;
-                MessageBox.Show("e");
-                mskConfirmPassword.Enabled = true;
-                mskPassword.Enabled = true;
+                tpLoginInfo.Enabled = true;
                 if (this._Mode == enMode.enAddNew)
                 {
                     errorProvider1.SetError(mskPassword, "Password Required");
@@ -140,36 +140,39 @@ namespace DVLD.Users
                 }
                 cbIsActive.Enabled = true;
             }
-          
- 
-
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            tbMain.SelectedIndex = 1;
+            changeTab();
         }
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (_PersonID==-1)
+            if (this.ctrlPersonCardWithFilter1.personID<=0)
             {
                 MessageBox.Show("Select a person first");
                 e.Cancel = true;
                 return;
             }
-            if (User.isUserExistByPersonID(_PersonID) && this._Mode == enMode.enAddNew)
+            if (User.isUserExistByPersonID(this.ctrlPersonCardWithFilter1.personID) && this._Mode == enMode.enAddNew)
             {
                 MessageBox.Show("The person is already a user");
 
                 e.Cancel = true;
                 return;
             }
-            
 
 
             btnSave.Enabled = true;
+            changeTab();
+
         }
-//=========================== ^Next^=====================
+        //=========================== ^Next^=====================
 
 
 
 
- 
+
 
 
 
@@ -181,7 +184,7 @@ namespace DVLD.Users
             if (txtUserName.Text == "")
             {
                 errorProvider1.SetError(txtUserName, "This field is required!");
-                e.Cancel = false;
+                e.Cancel = true;
                 return;
             }
 
@@ -194,7 +197,7 @@ namespace DVLD.Users
                 else
                 {
                     errorProvider1.SetError(txtUserName, "National no Already exist");
-                    e.Cancel = false;
+                    e.Cancel = true;
                 }
             }
             else

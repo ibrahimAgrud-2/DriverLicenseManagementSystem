@@ -24,13 +24,14 @@ namespace DVLD.People
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmManagePeople frm = new frmManagePeople();
-            frm.ShowDialog();
+            this.ctrlPersonInformation1.LoadPersonInfo((textBox1.Text));
+            MessageBox.Show(this.ctrlPersonInformation1.PersonID.ToString());
         }
 
         private void btn(object sender, EventArgs e)
         {
-            MessageBox.Show(this.ctrlPersonCardWithFilter1.personID.ToString());
+            this.ctrlPersonInformation1.LoadPersonInfo(Convert.ToInt32(textBox1.Text));
+            MessageBox.Show(this.ctrlPersonInformation1.PersonID.ToString());
 
         }
     }
