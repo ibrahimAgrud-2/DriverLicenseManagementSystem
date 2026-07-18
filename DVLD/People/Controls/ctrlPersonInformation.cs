@@ -41,6 +41,7 @@ namespace DVLD
             _Person = peoplBl.find(personID);
             if (_Person == null)
             {
+                _PersonID = -1;
                 _ResetForm();   
                 MessageBox.Show("No Person with PersonID = " + personID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -52,9 +53,11 @@ namespace DVLD
             _Person = peoplBl.find(nationalNo);
             if (_Person == null)
             {
+                
                 _ResetForm();
                 MessageBox.Show("No Person with national NO = " + nationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               
+
+
                 return;
             }
             _Load();

@@ -85,7 +85,6 @@ namespace DVLD.People.Controls
         private void _findPerson()
         {
 
-         
             switch (cbFilterBy.Text)
             {
                 case "National No":
@@ -97,7 +96,9 @@ namespace DVLD.People.Controls
             }
 
             //OnPersonLoaded ile Bu evente abone olan biri var mı kontrol ediypruz. YOksa çöker. 2.kontrol ise eğer filtreleme kontrol edilmişmi onu kontrol ediyoruz. 3.Konrol de ise yükleme başarılımı onu kontrol ediyoruz
-            if (OnPersonLoaded!=null&&FilterEnabled)
+
+        
+            if (OnPersonLoaded!=null&&FilterEnabled && this.ctrlPersonInformation1.SelectedPerson != null)
             {
                 OnPersonLoaded(this.ctrlPersonInformation1.PersonID);
             }

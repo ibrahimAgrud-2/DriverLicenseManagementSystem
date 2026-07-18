@@ -74,6 +74,7 @@ namespace DVLD.Users
         {
             this.Close();
         }
+       
         private bool _FillDataToObject()
         {
 
@@ -91,6 +92,7 @@ namespace DVLD.Users
             }
 
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!_FillDataToObject())
@@ -135,6 +137,36 @@ namespace DVLD.Users
 
 
 
+
+        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
+        {
+            _PersonSelected = (obj>0);
+            _PersonID = obj;
+        }
+     
+        
+        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (!_PersonSelected)
+            {
+                MessageBox.Show("Select a person first");
+                e.Cancel = true;
+                return;
+            }
+            if (User.isUserExistByPersonID(_PersonID) && this._Mode == enMode.enAddNew)
+            {
+                MessageBox.Show("The person is already a user");
+                e.Cancel = true;
+                return;
+            }
+ 
+            btnSave.Enabled = true;
+        }
+
+
+
+
+
         //------------------   V   Validation   V ------------------
         private void txtUserName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -167,8 +199,8 @@ namespace DVLD.Users
         {
             return (mskConfirmPassword.Text == mskPassword.Text);
         }
-       
-        
+
+
         private void mskPassword_TextChanged(object sender, EventArgs e)
         {
             if (mskPassword.Text == string.Empty)
@@ -204,31 +236,6 @@ namespace DVLD.Users
 
         //------------------   ^^   Validation   ^^ ------------------
 
-        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
-        {
-            _PersonSelected = (obj>0);
-            _PersonID = obj;
-        }
-     
-        
-        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (!_PersonSelected)
-            {
-                MessageBox.Show("Select a person first");
-                e.Cancel = true;
-                return;
-            }
-            if (User.isUserExistByPersonID(_PersonID) && this._Mode == enMode.enAddNew)
-            {
-                MessageBox.Show("The person is already a user");
-                e.Cancel = true;
-                return;
-            }
- 
-            btnSave.Enabled = true;
-        }
 
-      
     }
 }
