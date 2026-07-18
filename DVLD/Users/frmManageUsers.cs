@@ -36,19 +36,13 @@ namespace DVLD.Users
             {
                 dgvUsersList.Columns[dict.Key].HeaderText = dict.Value;
             }
-
         }
     
         private void _RefreshUserList()
         {
 
             _DtUsers = User.getUserRecords().DefaultView.ToTable("Users", false, "UserID", "UserName", "PersonID", "FullName", "IsActive");
-
-
-
             dgvUsersList.DataSource = _DtUsers;
-         
-               
             lblRecords.Text = dgvUsersList.RowCount.ToString();
         }
 
@@ -57,26 +51,113 @@ namespace DVLD.Users
 
             _RefreshUserList();
             _SetColumnNames();
+            cbFilterBy.SelectedIndex = 0;
         }
 
-    
 
-        private void btnClose_Click(object sender, EventArgs e)
+
+
+
+        //=========  V FİLTERİNG V ====================
+
+        private enum _enFilters { none = 0, UserID = 1, UserName = 2, FullName = 3, isActive = 4 };
+
+        private void txtFilet_TextChanged(object sender, EventArgs e)
         {
-          
-            this.Close();
+
+
+            if (txtFilet.Text == "")
+            {
+                _DtUsers.DefaultView.RowFilter = null;
+                dgvUsersList.DataSource = _DtUsers;
+                return;
+            }
+
+            switch ((_enFilters)cbFilterBy.SelectedIndex)
+            {
+            
+                case _enFilters.UserID:
+                    _DtUsers.DefaultView.RowFilter = $"UserID = '{txtFilet.Text}'";
+                    break;
+                case _enFilters.UserName:
+                    _DtUsers.DefaultView.RowFilter = $"UserName = '{txtFilet.Text}'";
+                    break;
+                case _enFilters.FullName:
+                    _DtUsers.DefaultView.RowFilter = $"FullName LIKE '%{txtFilet.Text}%'";
+                    break;
+                default:
+                    MessageBox.Show("No Filter");
+                    break;
+            }
+            dgvUsersList.DataSource = _DtUsers;
+            lblRecords.Text = dgvUsersList.RowCount.ToString();
+
         }
 
- 
+        private void cbActive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbActive.SelectedIndex == 1)
+            {
+                _DtUsers.DefaultView.RowFilter = $"isActive = 'true'";
+                return;
+            }
+            else if(cbActive.SelectedIndex==2)
+            {
+                _DtUsers.DefaultView.RowFilter = $"isActive = 'false'";
+                return;
+            }
+            _DtUsers.DefaultView.RowFilter = null;
+            dgvUsersList.DataSource = _DtUsers;
+            lblRecords.Text = dgvUsersList.RowCount.ToString();
+        }
 
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilet.Text = "";
+            if (cbFilterBy.SelectedIndex == 0)
+            {
+                txtFilet.Visible = false;
+                _DtUsers.DefaultView.RowFilter = null;
+            }
+            else if (cbFilterBy.SelectedIndex == 4)
+            {
+                txtFilet.Visible = false;
+                cbActive.Visible = true;
+            }
+            else
+            {
+                txtFilet.Visible = true;
+            }
+        }
+
+        private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(cbFilterBy.Text=="User ID")
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+        //=========  ^^ FİLTERİNG ^^ ====================
+
+
+
+
+
+
+        //=================
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             frmAddUpdateNewUser frm = new frmAddUpdateNewUser();
             frm.ShowDialog();
             _RefreshUserList();
-            
+
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
         private void tsmEdit_Click(object sender, EventArgs e)
         {
 
@@ -120,7 +201,7 @@ namespace DVLD.Users
 
                 frmChangePassword frm = new frmChangePassword(selectedUserID);
                 frm.ShowDialog();
-              
+
             }
         }
 
@@ -131,91 +212,8 @@ namespace DVLD.Users
             {
                 frmUserDetails frm = new frmUserDetails(selectedPersonID);
                 frm.ShowDialog();
-               
+
             }
         }
-
-
-        //=========  V FİLTERİNG V ====================
-
-        private enum _enFilters { none = 0, UserID = 1, UserName = 2, FullName = 3, isActive = 4 };
-
-        private void txtFilet_TextChanged(object sender, EventArgs e)
-        {
-
-
-            if (txtFilet.Text == "")
-            {
-                _DtUsers.DefaultView.RowFilter = null;
-                dgvUsersList.DataSource = _DtUsers;
-                return;
-            }
-
-            switch ((_enFilters)cbFilterBy.SelectedIndex)
-            {
-            
-                case _enFilters.UserID:
-                    _DtUsers.DefaultView.RowFilter = $"UserID = '{txtFilet.Text}'";
-                    break;
-                case _enFilters.UserName:
-                    _DtUsers.DefaultView.RowFilter = $"UserName = '{txtFilet.Text}'";
-                    break;
-                case _enFilters.FullName:
-                    _DtUsers.DefaultView.RowFilter = $"FullName LIKE '%{txtFilet.Text}%'";
-                    break;
-                default:
-                    MessageBox.Show("No Filter");
-                    break;
-            }
-            dgvUsersList.DataSource = _DtUsers;
-
-        }
-
-        private void cbActive_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbActive.SelectedIndex == 1)
-            {
-                _DtUsers.DefaultView.RowFilter = $"isActive = 'true'";
-                return;
-            }
-            else if(cbActive.SelectedIndex==2)
-            {
-                _DtUsers.DefaultView.RowFilter = $"isActive = 'false'";
-                return;
-            }
-            _DtUsers.DefaultView.RowFilter = null;
-            dgvUsersList.DataSource = _DtUsers;
-
-        }
-
-        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtFilet.Text = "";
-            if (cbFilterBy.SelectedIndex == 0)
-            {
-                txtFilet.Visible = false;
-                _DtUsers.DefaultView.RowFilter = null;
-            }
-            else if (cbFilterBy.SelectedIndex == 4)
-            {
-                txtFilet.Visible = false;
-                cbActive.Visible = true;
-            }
-            else
-            {
-                txtFilet.Visible = true;
-            }
-        }
-
-        private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(cbFilterBy.Text=="User ID")
-            {
-                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-            }
-        }
-        //=========  ^^ FİLTERİNG ^^ ====================
-
-
     }
 }
