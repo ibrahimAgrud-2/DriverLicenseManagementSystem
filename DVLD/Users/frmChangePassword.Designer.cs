@@ -50,6 +50,7 @@
             this.mskConfirmPassword.Size = new System.Drawing.Size(209, 24);
             this.mskConfirmPassword.TabIndex = 11;
             this.mskConfirmPassword.TextChanged += new System.EventHandler(this.mskConfirmPassword_TextChanged);
+            this.mskConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.mskConfirmPassword_Validating);
             // 
             // mskPassword
             // 
@@ -60,7 +61,7 @@
             this.mskPassword.PromptChar = ' ';
             this.mskPassword.Size = new System.Drawing.Size(209, 24);
             this.mskPassword.TabIndex = 12;
-            this.mskPassword.TextChanged += new System.EventHandler(this.mskPassword_TextChanged);
+            this.mskPassword.Validating += new System.ComponentModel.CancelEventHandler(this.mskPassword_Validating);
             // 
             // label4
             // 
@@ -99,7 +100,7 @@
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.Size = new System.Drawing.Size(209, 24);
             this.txtCurrentPassword.TabIndex = 4;
-            this.txtCurrentPassword.TextChanged += new System.EventHandler(this.mskPassword_TextChanged);
+            this.txtCurrentPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtCurrentPassword_Validating);
             // 
             // button1
             // 
@@ -141,6 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1173, 688);
             this.Controls.Add(this.ctrlUserInfo1);
             this.Controls.Add(this.btnSave);
@@ -155,6 +157,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmChangePassword";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

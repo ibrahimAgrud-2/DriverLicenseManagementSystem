@@ -20,7 +20,9 @@ namespace DVLD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmManageUsers());
+           // Application.Run(new frmAddUpdatePerson());
+            Application.Run(new frmChangePassword(48));
+
         }
     }
 }
