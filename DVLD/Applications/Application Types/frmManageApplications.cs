@@ -45,5 +45,10 @@ namespace DVLD.Application.Application_Types
             _RefreshList();
             _SetColumnNames();
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }

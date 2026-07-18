@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageApplications));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAppList = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lblRecords = new System.Windows.Forms.Label();
+            this.cmsApplicationTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppList)).BeginInit();
+            this.cmsApplicationTypes.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -88,6 +95,35 @@
             this.lblRecords.TabIndex = 25;
             this.lblRecords.Text = "??";
             // 
+            // cmsApplicationTypes
+            // 
+            this.cmsApplicationTypes.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsApplicationTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator2,
+            this.editToolStripMenuItem,
+            this.toolStripSeparator1});
+            this.cmsApplicationTypes.Name = "contextMenuStrip1";
+            this.cmsApplicationTypes.Size = new System.Drawing.Size(237, 81);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(233, 6);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
+            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
+            this.editToolStripMenuItem.Text = "&Edit Application Type";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(233, 6);
+            // 
             // frmManageApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -106,6 +142,7 @@
             this.Text = "frmManageApplications";
             this.Load += new System.EventHandler(this.frmManageApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppList)).EndInit();
+            this.cmsApplicationTypes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +155,9 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblRecords;
+        private System.Windows.Forms.ContextMenuStrip cmsApplicationTypes;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
