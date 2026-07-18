@@ -87,28 +87,24 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static bool isApplicationTypeExists(int applicationTypeID)
+        public static bool isApplicationTypeExists(string applicationTypeTitle)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            bool isFound = false;
 
-            //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
-
-            string query = "select found =1 from applicationTypes where applicationTypeID=@applicationTypeID";
+            string query = "select found =1 from applicationTypes where applicationTypeTitle=@applicationTypeTitle";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@applicationTypeID", applicationTypeID);
+            cmd.Parameters.AddWithValue("@applicationTypeTitle", applicationTypeTitle);
 
 
             try
             {
                 connection.Open();
 
-                //Sorgu sonucu bir sayı geldiyse (ID tek olduğu için sadece bir adet sayı gelir eğer ID varsa) bu demektir ki o ID sistemde var. sayı dışında bir şey gelirse bu demek oluyor ki o kişi sistemde yok.
 
-                object result = cmd.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int value))
-                {
-                    return true;
-                }
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+                read.Close();
             }
             catch (Exception)
             {
@@ -120,7 +116,7 @@ namespace DVLD_DataAccessLayer
                 connection.Close();
             }
 
-            return false;
+            return isFound;
         }
         public static bool UpdateApplicationType(int applicationTypeID,  string applicationTypeTitle,  double ApplicationFees)
         {

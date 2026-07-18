@@ -1,4 +1,5 @@
-﻿using DVLD.Drivers;
+﻿using DVLD.Applications.Application_Types;
+using DVLD.Drivers;
 using DVLD.Users;
 using DVLD_BusinessLayer;
 using System;
@@ -64,6 +65,12 @@ namespace DVLD
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChangePassword frm = new frmChangePassword(loginSettings.currentUser.userID);
+            frm.ShowDialog();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
             frm.ShowDialog();
         }
     }

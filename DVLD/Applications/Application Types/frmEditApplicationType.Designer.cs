@@ -40,8 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAppFees = new System.Windows.Forms.TextBox();
+            this.txtAppTypeName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -139,32 +139,32 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // textBox2
+            // txtAppFees
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(252, 232);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(381, 36);
-            this.textBox2.TabIndex = 34;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
-            this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
+            this.txtAppFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAppFees.Location = new System.Drawing.Point(252, 232);
+            this.txtAppFees.Name = "txtAppFees";
+            this.txtAppFees.Size = new System.Drawing.Size(381, 36);
+            this.txtAppFees.TabIndex = 34;
+            this.txtAppFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
+            this.txtAppFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
             // 
-            // textBox1
+            // txtAppTypeName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(252, 183);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(381, 36);
-            this.textBox1.TabIndex = 34;
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.txtAppTypeName_Validating);
+            this.txtAppTypeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAppTypeName.Location = new System.Drawing.Point(252, 183);
+            this.txtAppTypeName.Name = "txtAppTypeName";
+            this.txtAppTypeName.Size = new System.Drawing.Size(381, 36);
+            this.txtAppTypeName.TabIndex = 34;
+            this.txtAppTypeName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAppTypeName_Validating);
             // 
             // frmEditApplicationType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 365);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAppFees);
+            this.Controls.Add(this.txtAppTypeName);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -201,7 +201,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAppFees;
+        private System.Windows.Forms.TextBox txtAppTypeName;
     }
 }

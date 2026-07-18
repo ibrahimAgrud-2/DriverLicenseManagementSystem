@@ -231,14 +231,14 @@
             this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("manageLocalDrivingLicenseApplicationsToolStripMenuItem.Image")));
             this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Name = "manageLocalDrivingLicenseApplicationsToolStripMenuItem";
-            this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(379, 38);
+            this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(372, 38);
             this.manageLocalDrivingLicenseApplicationsToolStripMenuItem.Text = "Local Driving License Application";
             // 
             // ManageInternationaDrivingLicenseToolStripMenuItem1
             // 
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Name = "ManageInternationaDrivingLicenseToolStripMenuItem1";
-            this.ManageInternationaDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(379, 38);
+            this.ManageInternationaDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(372, 38);
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Text = "International License Application";
             // 
             // toolStripSeparator5
@@ -288,6 +288,7 @@
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
             this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(350, 70);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
+            this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationTypesToolStripMenuItem_Click);
             // 
             // manageTestTypesToolStripMenuItem
             // 

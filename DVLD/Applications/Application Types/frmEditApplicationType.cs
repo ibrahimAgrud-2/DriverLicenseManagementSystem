@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Global_Classes;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,8 +35,8 @@ namespace DVLD.Applications.Application_Types
                 return;
             }
             lblID.Text = _Apt.applicationTypeID.ToString();
-            textBox1.Text = _Apt.applicantTypeTitle;
-            textBox2.Text = _Apt.applicationFee.ToString();
+            txtAppTypeName.Text = _Apt.applicantTypeTitle;
+            txtAppFees.Text = _Apt.applicationFee.ToString();
 
         }
         private void frmEditApplicationType_Load(object sender, EventArgs e)
@@ -48,8 +49,8 @@ namespace DVLD.Applications.Application_Types
         {
             if (this.ValidateChildren())
             {
-                _Apt.applicantTypeTitle = textBox1.Text;
-                _Apt.applicationFee = Convert.ToDouble(textBox2.Text);
+                _Apt.applicantTypeTitle = txtAppTypeName.Text;
+                _Apt.applicationFee = Convert.ToDouble(txtAppFees.Text);
                 if (_Apt.UpdateApplicationType())
                 {
                     MessageBox.Show("Saved successfully");
@@ -82,20 +83,20 @@ namespace DVLD.Applications.Application_Types
 
         private void txtFees_Validating(object sender, CancelEventArgs e)
         {
-            if(string.IsNullOrEmpty(textBox2.Text))
+            if(string.IsNullOrEmpty(txtAppFees.Text))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(textBox2, "Enter Application Type fees");
+                errorProvider1.SetError(txtAppFees, "Enter Application Type fees");
             }
-            else if(!double.TryParse(textBox2.Text, out double fees))
+            else if(Validation.isNumber(txtAppFees.Text))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(textBox2, "Fee is not properly formated");
+                errorProvider1.SetError(txtAppFees, "Fee is not properly formated");
 
             }
             else
             {
-                errorProvider1.SetError(textBox2, null);
+                errorProvider1.SetError(txtAppFees, null);
             }
         }
 
@@ -113,14 +114,19 @@ namespace DVLD.Applications.Application_Types
 
         private void txtAppTypeName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text))
+            if (string.IsNullOrEmpty(txtAppTypeName.Text))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(textBox1, "Enter Application Type fees");
+                errorProvider1.SetError(txtAppTypeName, "Enter Application Type fees");
+            }
+            else if(ApplicationTypes.isApplicationTypeExist(txtAppTypeName.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtAppTypeName, "Application Type title already exists");
             }
             else
             {
-                errorProvider1.SetError(textBox1, null);
+                errorProvider1.SetError(txtAppTypeName, null);
             }
         }
     }
