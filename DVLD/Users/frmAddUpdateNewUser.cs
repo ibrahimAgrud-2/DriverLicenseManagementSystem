@@ -13,8 +13,6 @@ namespace DVLD.Users
         private int _UserID=-1;
         private int _PersonID = -1;
 
-        private bool _PersonSelected = false;
-
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
 
@@ -83,7 +81,7 @@ namespace DVLD.Users
                 _User.userName = txtUserName.Text;
                 _User.password = mskPassword.Text;
                 _User.isActive = cbIsActive.Checked;
-            //   _User.personID = 2105;
+                _User.personID = _PersonID;
                 return true;
             }
             else
@@ -114,16 +112,26 @@ namespace DVLD.Users
         }
 
 
+        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
+        {
+           
+            _PersonID = obj;
+        }
+
+        //=========================== V Next V =====================
         private void btnNext_Click(object sender, EventArgs e)
         {
-     
-          
+
+
             tbMain.SelectedIndex = 1;
-            lblID.Enabled = true;
-            txtUserName.Enabled = true;
-            lblID.Enabled = true;
-            mskConfirmPassword.Enabled = true;
-            mskPassword.Enabled = true;
+            if (tbMain.SelectedIndex==1)
+            {
+                lblID.Enabled = true;
+                txtUserName.Enabled = true;
+                lblID.Enabled = true;
+                MessageBox.Show("e");
+                mskConfirmPassword.Enabled = true;
+                mskPassword.Enabled = true;
                 if (this._Mode == enMode.enAddNew)
                 {
                     errorProvider1.SetError(mskPassword, "Password Required");
@@ -131,23 +139,14 @@ namespace DVLD.Users
                     errorProvider1.SetError(mskConfirmPassword, "Passwords should Match");
                 }
                 cbIsActive.Enabled = true;
+            }
+          
+ 
 
         }
-        //=========================== ^Next^=====================
-
-
-
-
-        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
-        {
-            _PersonSelected = (obj>0);
-            _PersonID = obj;
-        }
-     
-        
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (!_PersonSelected)
+            if (_PersonID==-1)
             {
                 MessageBox.Show("Select a person first");
                 e.Cancel = true;
@@ -156,12 +155,21 @@ namespace DVLD.Users
             if (User.isUserExistByPersonID(_PersonID) && this._Mode == enMode.enAddNew)
             {
                 MessageBox.Show("The person is already a user");
+
                 e.Cancel = true;
                 return;
             }
- 
+            
+
+
             btnSave.Enabled = true;
         }
+//=========================== ^Next^=====================
+
+
+
+
+ 
 
 
 
