@@ -38,6 +38,7 @@ namespace DVLD.Application.Application_Types
         {
             _AppList = Applications.getApplicationsRecord();
             dgvAppList.DataSource = _AppList;
+            lblRecords.Text = dgvAppList.RowCount.ToString();
 
         }
         private void frmManageApplications_Load(object sender, EventArgs e)
