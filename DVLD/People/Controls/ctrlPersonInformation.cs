@@ -33,7 +33,7 @@ namespace DVLD
             if (_Person == null)
             {
                 _PersonID = -1;
-                _ResetForm();   
+                ResetForm();   
                 MessageBox.Show("No Person with PersonID = " + personID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -45,7 +45,7 @@ namespace DVLD
             if (_Person == null)
             {
                 
-                _ResetForm();
+                ResetForm();
                 MessageBox.Show("No Person with national NO = " + nationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
@@ -64,7 +64,7 @@ namespace DVLD
 
         }
 
-        private void _ResetForm()
+        public void ResetForm()
         {
             //Yükleme başarılı olup olmadığını ID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
             //formu temizlerken ID'i de -1 yapıyoruz.

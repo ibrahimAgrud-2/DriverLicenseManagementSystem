@@ -33,7 +33,7 @@ namespace DVLD.Users
             if(usr!=null)
             {
                 _user = usr;
-                this.ctrlUserInfo1.LoadDataToUserControls(usr.userID, usr.personID);
+                this.ctrlUserInfo1.LoadUserData(_user.personID);
             }
             errorProvider1.SetError(txtCurrentPassword,"Enter the current password");
             errorProvider1.SetError(mskPassword,"New password");

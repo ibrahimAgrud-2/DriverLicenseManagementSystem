@@ -27,7 +27,7 @@ namespace DVLD.Users
             User usr = User.Find(_UserID);
             if(usr!=null)
             {
-                this.ctrlUserInfo1.LoadDataToUserControls(usr.userID,usr.personID);
+                this.ctrlUserInfo1.LoadUserData(_UserID);
             }
         }
     }
