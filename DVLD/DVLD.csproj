@@ -56,6 +56,24 @@
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\Validation.cs" />
+    <Compile Include="Licenses\Detained Licenses\frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Detained Licenses\frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\frmShowPersonLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\frmShowPersonLicenseHistory.Designer.cs">
+      <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\International Licenses\frmShowInternationalLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\International Licenses\frmShowInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>frmShowInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\loginSettings.cs" />
     <Compile Include="People\Controls\ctrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
@@ -146,6 +164,15 @@
     <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Detained Licenses\frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\frmShowPersonLicenseHistory.resx">
+      <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\International Licenses\frmShowInternationalLicenseInfo.resx">
+      <DependentUpon>frmShowInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrlPersonCardWithFilter.resx">
       <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Drivers\Controls\" />
+    <Folder Include="Licenses\Controls\" />
+    <Folder Include="Licenses\International Licenses\Controls\" />
+    <Folder Include="Licenses\Local Licenses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Login\UserRememberMeJustID.txt" />

@@ -47,7 +47,7 @@ namespace DVLD.Users
 
 
             dgvUsersList.DataSource = _DtUsers;
-            _SetColumnNames();
+         
                
             lblRecords.Text = dgvUsersList.RowCount.ToString();
         }
@@ -56,6 +56,7 @@ namespace DVLD.Users
         {
 
             _RefreshUserList();
+            _SetColumnNames();
         }
 
     

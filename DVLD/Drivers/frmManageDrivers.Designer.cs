@@ -38,13 +38,13 @@
             this.lblRecords = new System.Windows.Forms.Label();
             this.dgvUsersList = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showDetialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.sendMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.showDetialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -144,36 +144,15 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(269, 94);
             // 
-            // showDetialToolStripMenuItem
-            // 
-            this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
-            this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
-            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
-            this.showDetialToolStripMenuItem.Text = "Show Details";
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(265, 6);
             // 
-            // tsmEdit
-            // 
-            this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
-            this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(268, 26);
-            this.tsmEdit.Text = "Issue International License";
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(265, 6);
-            // 
-            // sendMailToolStripMenuItem
-            // 
-            this.sendMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendMailToolStripMenuItem.Image")));
-            this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
-            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
-            this.sendMailToolStripMenuItem.Text = "Show Person License History";
             // 
             // label1
             // 
@@ -195,6 +174,27 @@
             this.label5.TabIndex = 44;
             this.label5.Text = "# Records";
             // 
+            // showDetialToolStripMenuItem
+            // 
+            this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
+            this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
+            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.showDetialToolStripMenuItem.Text = "Show Details";
+            // 
+            // tsmEdit
+            // 
+            this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(268, 26);
+            this.tsmEdit.Text = "Issue International License";
+            // 
+            // sendMailToolStripMenuItem
+            // 
+            this.sendMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendMailToolStripMenuItem.Image")));
+            this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
+            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.sendMailToolStripMenuItem.Text = "Show Person License History";
+            // 
             // frmManageDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -209,8 +209,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmManageDrivers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManageDrivers";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

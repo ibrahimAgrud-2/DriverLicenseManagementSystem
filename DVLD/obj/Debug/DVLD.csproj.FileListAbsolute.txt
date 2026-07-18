@@ -41,3 +41,6 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Drivers.frmManageDrivers.re
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmUserDetails.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.Controls.ctrlPersonCardWithFilter.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.frmFindPerson.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmShowPersonLicenseHistory.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.frmDetainLicense.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.International_Licenses.frmShowInternationalLicenseInfo.resources
