@@ -87,7 +87,7 @@ namespace DVLD_BusinessLayer
         {
 
             //Başvuru ücretini elle girmemek için bu kodu ekledirk.
-            ApplicationTypes type1 = ApplicationTypes.findApplicationType(this.applicationTypeID);
+            ApplicationTypes type1 = ApplicationTypes.Find(this.applicationTypeID);
             if (type1 == null)
             {
                 return false;

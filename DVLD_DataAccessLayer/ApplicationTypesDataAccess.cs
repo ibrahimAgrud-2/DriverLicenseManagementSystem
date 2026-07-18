@@ -87,7 +87,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static bool isApplicationTypeExistByID(int applicationTypeID)
+        public static bool isApplicationTypeExists(int applicationTypeID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
@@ -122,5 +122,45 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+        public static bool UpdateApplicationType(int applicationTypeID, ref string applicationTypeTitle, ref double ApplicationFees)
+        {
+
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = @"Update  applicationTypes  
+                            set applicationTypeTitle = @PersonID,
+                                ApplicationFees = @ApplicationFees,
+                                where applicationTypeID = @applicationTypeID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@applicationTypeID", applicationTypeID);
+            cmd.Parameters.AddWithValue("@applicationTypeTitle", applicationTypeTitle);
+            cmd.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
+
+
+
+            try
+            {
+                connection.Open();
+                //affectedRowsNumber==1 çünkü her seferinde sadece 1 satır günnceleyebiliriz onun dışındaki tüm durumlar beklenmedik durum.
+                int affectedRowsNumber = cmd.ExecuteNonQuery();
+                if (affectedRowsNumber == 1)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
+
     }
 }

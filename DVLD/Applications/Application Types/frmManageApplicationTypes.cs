@@ -47,7 +47,7 @@ namespace DVLD.Applications.Application_Types
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
             {
-                frmEditApplicationType frm = new frmEditApplicationType();
+                frmEditApplicationType frm = new frmEditApplicationType(selectedPersonID);
                 frm.ShowDialog();
                 _RefreshList();
             }

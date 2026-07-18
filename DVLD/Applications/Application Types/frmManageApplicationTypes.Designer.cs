@@ -89,7 +89,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAppList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAppList.Location = new System.Drawing.Point(12, 73);
+            this.dgvAppList.Location = new System.Drawing.Point(17, 77);
             this.dgvAppList.MultiSelect = false;
             this.dgvAppList.Name = "dgvAppList";
             this.dgvAppList.ReadOnly = true;

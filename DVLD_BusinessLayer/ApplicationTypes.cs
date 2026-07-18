@@ -44,7 +44,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public static ApplicationTypes findApplicationType(int applicationID)
+        public static ApplicationTypes Find(int applicationID)
         {
 
             int applicationTypeID = -1;
@@ -64,7 +64,7 @@ namespace DVLD_BusinessLayer
 
         public static bool isApplicationTypeExist(int applicationTypeID)
         {
-            return ApplicationTypesDataAccess.isApplicationTypeExistByID(applicationTypeID);
+            return ApplicationTypesDataAccess.isApplicationTypeExists(applicationTypeID);
         }
 
      

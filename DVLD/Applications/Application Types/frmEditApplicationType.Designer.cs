@@ -28,20 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditApplicationType));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFilet = new System.Windows.Forms.TextBox();
+            this.txtAppTypeName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFees = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,14 +57,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Edit Application Types";
             // 
-            // txtFilet
+            // txtAppTypeName
             // 
-            this.txtFilet.Location = new System.Drawing.Point(235, 175);
-            this.txtFilet.Multiline = true;
-            this.txtFilet.Name = "txtFilet";
-            this.txtFilet.Size = new System.Drawing.Size(193, 33);
-            this.txtFilet.TabIndex = 29;
-            this.txtFilet.Visible = false;
+            this.txtAppTypeName.Location = new System.Drawing.Point(235, 175);
+            this.txtAppTypeName.Multiline = true;
+            this.txtAppTypeName.Name = "txtAppTypeName";
+            this.txtAppTypeName.Size = new System.Drawing.Size(193, 33);
+            this.txtAppTypeName.TabIndex = 29;
+            this.txtAppTypeName.Visible = false;
+            this.txtAppTypeName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAppTypeName_Validating);
             // 
             // label6
             // 
@@ -82,14 +86,16 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // txtFees
             // 
-            this.textBox1.Location = new System.Drawing.Point(235, 228);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 33);
-            this.textBox1.TabIndex = 29;
-            this.textBox1.Visible = false;
+            this.txtFees.Location = new System.Drawing.Point(235, 228);
+            this.txtFees.Multiline = true;
+            this.txtFees.Name = "txtFees";
+            this.txtFees.Size = new System.Drawing.Size(193, 33);
+            this.txtFees.TabIndex = 29;
+            this.txtFees.Visible = false;
+            this.txtFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
+            this.txtFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
             // 
             // label2
             // 
@@ -118,6 +124,7 @@
             this.btnSave.TabIndex = 32;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -127,6 +134,7 @@
             this.btnClose.TabIndex = 32;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label3
             // 
@@ -148,6 +156,10 @@
             this.lblID.TabIndex = 33;
             this.lblID.Text = "???";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmEditApplicationType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -161,17 +173,19 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtFilet);
+            this.Controls.Add(this.txtFees);
+            this.Controls.Add(this.txtAppTypeName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEditApplicationType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditApplicationType";
+            this.Load += new System.EventHandler(this.frmEditApplicationType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,15 +194,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFilet;
+        private System.Windows.Forms.TextBox txtAppTypeName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFees;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
