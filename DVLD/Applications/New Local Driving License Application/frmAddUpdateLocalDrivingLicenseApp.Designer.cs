@@ -44,10 +44,10 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.tbMain = new System.Windows.Forms.TabControl();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
+            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblMode = new System.Windows.Forms.Label();
-            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tpLoginInfo.SuspendLayout();
             this.tbMain.SuspendLayout();
@@ -204,6 +204,18 @@
             this.tpPersonInfo.Text = "People Info";
             this.tpPersonInfo.UseVisualStyleBackColor = true;
             // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(38, 7);
+            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPersonButton = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1082, 435);
+            this.ctrlPersonCardWithFilter1.TabIndex = 82;
+            this.ctrlPersonCardWithFilter1.Load += new System.EventHandler(this.ctrlPersonCardWithFilter1_Load);
+            // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,6 +240,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblMode
             // 
@@ -239,18 +252,6 @@
             this.lblMode.Size = new System.Drawing.Size(452, 31);
             this.lblMode.TabIndex = 81;
             this.lblMode.Text = "Add new Driving License Application\r\n";
-            // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(38, 7);
-            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.ShowAddPersonButton = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1082, 435);
-            this.ctrlPersonCardWithFilter1.TabIndex = 82;
-            this.ctrlPersonCardWithFilter1.Load += new System.EventHandler(this.ctrlPersonCardWithFilter1_Load);
             // 
             // frmAddUpdateLocalDrivingLicenseApp
             // 
@@ -265,6 +266,7 @@
             this.Name = "frmAddUpdateLocalDrivingLicenseApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdateLocalDrivingLicenseApp";
+            this.Load += new System.EventHandler(this.frmAddUpdateLocalDrivingLicenseApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tpLoginInfo.ResumeLayout(false);
             this.tpLoginInfo.PerformLayout();
