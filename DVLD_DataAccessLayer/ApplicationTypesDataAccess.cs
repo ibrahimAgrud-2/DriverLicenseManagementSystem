@@ -118,6 +118,40 @@ namespace DVLD_DataAccessLayer
 
             return isFound;
         }
+
+        public static bool isApplicationTypeExists(int applicationTypeID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            bool isFound = false;
+
+            string query = "select found =1 from applicationTypes where applicationTypeID=@applicationTypeID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@applicationTypeID", applicationTypeID);
+
+
+            try
+            {
+                connection.Open();
+
+
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+                read.Close();
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+
         public static bool UpdateApplicationType(int applicationTypeID,  string applicationTypeTitle,  double ApplicationFees)
         {
 

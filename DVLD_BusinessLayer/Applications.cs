@@ -113,11 +113,15 @@ namespace DVLD_BusinessLayer
         }
 
 
+
         public static bool isApplicationExist(int applicationID)
         {
             return ApplicationsDataAccess.isApplicationExistByID(applicationID);
         }
-
+        public static bool isApplicationExistByPersonID(int personID,ApplicationTypes.enApplicationType appType)
+        {
+           return ApplicationsDataAccess.isApplicationExistByPersonID(personID, (int)appType);
+        }
         public static bool deleteApplication(int applicationID)
         {
             if (isApplicationExist(applicationID))

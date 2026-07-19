@@ -58,8 +58,9 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 this.Text = "Update";
                 tpAppllicationInfo.Enabled = true;
                 ctrlPersonCardWithFilter1.FilterEnabled = false;
-
                 lblAppDate.Text = _LDLA.ApplicationInfo.applicationDate.ToShortDateString();
+
+
                 cbLicenseClasses.SelectedIndex = cbLicenseClasses.FindString(_LDLA.ApplicationInfo.ApplicationTypeInfo.applicantTypeTitle);
                 lblID.Text = _LDLA.id.ToString();
                 this.ctrlPersonCardWithFilter1.LoadData(_LDLA.ApplicationInfo.applicantPersonID);
@@ -70,6 +71,8 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 lblMode.Text = "Add Local Driving License Application";
                 tpAppllicationInfo.Enabled = false;
                 _LDLA = new LocalDrivingLicenseApp();
+                lblAppDate.Text = DateTime.Now.ToString();
+
             }
 
 
@@ -91,16 +94,17 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
        */
         private int saveNewApplication()
         {
-            ApplicationsDb NewApplication = new ApplicationsDb();
-            NewApplication.applicantPersonID = 1;
-            NewApplication.applicationDate = DateTime.Now;
-            NewApplication.applicationTypeID = ApplicationTypes.enApplicationType.NewLocalDrivingLicenseService;
-            NewApplication.applicationStatus = ApplicationsDb.enApplicationStatus.New;
-            NewApplication.lastStatusDate = DateTime.Now;
-            NewApplication.paidFee = ApplicationTypes.Find(NewApplication.applicationTypeID).applicationFee;
+            _LDLA.ApplicationInfo = new ApplicationsDb();
+            _LDLA.ApplicationInfo.applicantPersonID = 1;
+            _LDLA.ApplicationInfo.applicationDate = DateTime.Now;
+            _LDLA.ApplicationInfo.applicationTypeID = ApplicationTypes.enApplicationType.NewLocalDrivingLicenseService;
+            _LDLA.ApplicationInfo.applicationStatus = ApplicationsDb.enApplicationStatus.New;
+            _LDLA.ApplicationInfo.lastStatusDate = DateTime.Now;
+            _LDLA.ApplicationInfo.paidFee = ApplicationTypes.Find(_LDLA.ApplicationInfo.applicationTypeID).applicationFee;
             //   NewApplication.createdByUserID = loginSettings.currentUser.userID;
-            NewApplication.createdByUserID = 1;
-            return NewApplication.applicationID;
+            _LDLA.ApplicationInfo.createdByUserID = 1;
+            _LDLA.ApplicationInfo.save();
+            return _LDLA.ApplicationInfo.applicationID;
 
 
 
@@ -108,7 +112,23 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if(this.ValidateChildren())
+            {
 
+            }
+            if (_LDLA.Save())
+            {
+                MessageBox.Show("Saved successfully");
+                this._Mode = enMode.enUpdate;
+                lblMode.Text = "Update Local Driving License Application";
+                this.Text = "Update";
+                lblID.Text = _LDLA.id.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
@@ -119,16 +139,15 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 e.Cancel = true;
                 return;
             }
+            saveNewApplication();
 
-            //checked if person have same uncompleted app 
+            if (ApplicationsDb.isApplicationExistByPersonID(_LDLA.ApplicationInfo.applicantPersonID,(ApplicationTypes.enApplicationType)1)&& this._Mode == enMode.enAddNew)
+            {
+                MessageBox.Show("The person has same application");
 
-            //if (User.isUserExistByPersonID(this.ctrlPersonCardWithFilter1.personID) && this._Mode == enMode.enAddNew)
-            //{
-            //    MessageBox.Show("The person is already a user");
-
-            //    e.Cancel = true;
-            //    return;
-            //}
+                e.Cancel = true;
+                return;
+            }
 
 
             btnSave.Enabled = true;
