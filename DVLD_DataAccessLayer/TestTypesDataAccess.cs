@@ -103,4 +103,43 @@ public class TestTypesDataAccess
 
         return false;
     }
+    public static bool UpdateApplicationType(int TestTypeID, string TestTypeTitle, string description, double ApplicationFees)
+    {
+
+        SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+        string query = @"Update  TestTypes  
+                            set applicationTypeTitle = @applicationTypeTitle,
+                                ApplicationFees = @ApplicationFees
+                                where TestTypeID = @TestTypeID";
+
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+        cmd.Parameters.AddWithValue("@applicationTypeTitle", applicationTypeTitle);
+        cmd.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
+
+
+
+        try
+        {
+            connection.Open();
+            //affectedRowsNumber==1 çünkü her seferinde sadece 1 satır günnceleyebiliriz onun dışındaki tüm durumlar beklenmedik durum.
+            int affectedRowsNumber = cmd.ExecuteNonQuery();
+            if (affectedRowsNumber == 1)
+            {
+                return true;
+            }
+        }
+        catch (Exception)
+        {
+
+            return false; ;
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+        return false;
+    }
 }
