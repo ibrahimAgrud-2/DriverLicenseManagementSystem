@@ -83,7 +83,12 @@ namespace DVLD.People.Controls
 
 
         private void _findPerson()
-        {
+        { 
+            if(string.IsNullOrEmpty(txtFilter.Text))
+            {
+                MessageBox.Show("Enter a valid filter value");
+                return;
+            }
 
             switch (cbFilterBy.Text)
             {
