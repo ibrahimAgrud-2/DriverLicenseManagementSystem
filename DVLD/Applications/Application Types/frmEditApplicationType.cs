@@ -88,7 +88,7 @@ namespace DVLD.Applications.Application_Types
                 e.Cancel = true;
                 errorProvider1.SetError(txtAppFees, "Enter Application Type fees");
             }
-            else if(Validation.isNumber(txtAppFees.Text))
+            else if(!Validation.isNumber(txtAppFees.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtAppFees, "Fee is not properly formated");

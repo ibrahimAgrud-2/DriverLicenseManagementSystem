@@ -48,3 +48,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.frmTest.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmEditApplicationType.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmManageApplicationTypes.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.Test_Types.frmManageTestTypes.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.Test_Types.frmEditTestTypes.resources

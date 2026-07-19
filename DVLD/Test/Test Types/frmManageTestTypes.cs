@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Applications.Application_Types;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,7 +55,17 @@ namespace DVLD.Test.Test_Types
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (int.TryParse(dgvTestList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
+            {
+                frmEditTestTypes frm = new frmEditTestTypes(selectedPersonID);
+                frm.ShowDialog();
+                _RefreshList();
+            }
+        }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

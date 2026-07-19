@@ -103,22 +103,22 @@ public class TestTypesDataAccess
 
         return false;
     }
-    public static bool UpdateApplicationType(int TestTypeID, string TestTypeTitle, string description, double ApplicationFees)
+    public static bool UpdateApplicationType(int TestTypeID, string TestTypeTitle, string description, double TestTypeFee)
     {
 
         SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
         string query = @"Update  TestTypes  
-                            set applicationTypeTitle = @applicationTypeTitle,
-                                TestTypeFees = @ApplicationFees,
+                            set TestTypeTitle = @applicationTypeTitle,
+                                TestTypeFees = @TestTypeFee,
                                 TestTypeDescription = @description
                                 where TestTypeID = @TestTypeID";
 
         SqlCommand cmd = new SqlCommand(query, connection);
         cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
         cmd.Parameters.AddWithValue("@applicationTypeTitle", TestTypeTitle);
-        cmd.Parameters.AddWithValue("@TestTypeDescription", description);
-        cmd.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
+        cmd.Parameters.AddWithValue("@Description", description);
+        cmd.Parameters.AddWithValue("@TestTypeFee", TestTypeFee);
 
 
 

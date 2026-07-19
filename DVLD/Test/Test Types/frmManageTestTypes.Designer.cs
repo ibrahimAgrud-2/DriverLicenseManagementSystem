@@ -108,7 +108,7 @@
             this.editToolStripMenuItem,
             this.toolStripSeparator1});
             this.cmsApplicationTypes.Name = "contextMenuStrip1";
-            this.cmsApplicationTypes.Size = new System.Drawing.Size(221, 67);
+            this.cmsApplicationTypes.Size = new System.Drawing.Size(221, 40);
             // 
             // toolStripSeparator2
             // 
@@ -147,6 +147,7 @@
             this.btnClose.TabIndex = 37;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmManageTestTypes
             // 

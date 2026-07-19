@@ -24,7 +24,7 @@ public class clsTestType
         TestTypeFees = testTypeFees;
     }
 
-    public static clsTestType findTestType(int testTypeID)
+    public static clsTestType Find(int testTypeID)
     {
         string title = string.Empty;
         string description = string.Empty;
