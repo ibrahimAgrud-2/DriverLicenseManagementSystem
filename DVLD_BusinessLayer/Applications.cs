@@ -16,7 +16,7 @@ namespace DVLD_BusinessLayer
         public double paidFee { set; get; }
         public int createdByUserID { set; get; }
         public ApplicationTypes.enApplicationType applicationTypeID { set; get; }
-
+        public ApplicationTypes ApplicationTypeInfo;
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode mode;
@@ -49,6 +49,7 @@ namespace DVLD_BusinessLayer
             this.applicationStatus = applicationStatus;
             this.lastStatusDate = LastStatusDate;
             this.paidFee = paidFee;
+            ApplicationTypeInfo = ApplicationTypes.Find(applicationTypeID);
             this.createdByUserID = createdByUserID;
             this.mode = enMode.enUpdate;
 

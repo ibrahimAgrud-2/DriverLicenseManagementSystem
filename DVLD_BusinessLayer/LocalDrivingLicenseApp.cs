@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccessLayer;
 using System;
 using System.Data;
+using ApplicationDb=DVLD_BusinessLayer.Applications;
 
 
 namespace DVLD_BusinessLayer
@@ -10,6 +11,7 @@ namespace DVLD_BusinessLayer
 
         public int id { set; get; }
         public int applicationID { set; get; }
+        public ApplicationDb ApplicationInfo;
         public LicenseClass.enLicenseClass licenseClassID { set; get; }
      
         public enum enMode { enAddNew = 1, enUpdate = 2 };
@@ -28,6 +30,7 @@ namespace DVLD_BusinessLayer
             this.id = id;
             this.applicationID = applicationID;
             this.licenseClassID = licenseClassID;
+            this.ApplicationInfo = ApplicationDb.findApplication(applicationID);
             this.mode = enMode.enUpdate;
         }
 
@@ -41,7 +44,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public static LocalDrivingLicenseApp findLocalDrivingLicenseApp(int id)
+        public static LocalDrivingLicenseApp Find(int id)
         {
               int applicationID=0,
               licenseClassID=0;
