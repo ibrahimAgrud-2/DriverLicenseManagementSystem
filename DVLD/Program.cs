@@ -2,6 +2,7 @@
 using DVLD.Applications.Application_Types;
 using DVLD.People;
 using DVLD.People.Controls;
+using DVLD.Test.Test_Types;
 using DVLD.Users;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace DVLD
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new frmAddUpdatePerson());
-            System.Windows.Forms.Application.Run(new frmLogin());
+            System.Windows.Forms.Application.Run(new frmManageTestTypes());
 
         }
     }

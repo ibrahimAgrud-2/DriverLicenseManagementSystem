@@ -148,6 +148,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Test\Test Types\frmManageTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\Test Types\frmManageTestTypes.Designer.cs">
+      <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\Controls\ctrlUserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,6 +234,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\Test Types\frmManageTestTypes.resx">
+      <DependentUpon>frmManageTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Controls\ctrlUserInfo.resx">
       <DependentUpon>ctrlUserInfo.cs</DependentUpon>
