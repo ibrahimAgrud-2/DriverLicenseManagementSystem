@@ -13,7 +13,7 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = "select * from LocalDrivingLicenseApplications";
+            string sqlQuery = "select * from LocalDrivingLicenseApplications_View";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 
@@ -45,7 +45,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool findLocalDrivingLicenseApp(int id,ref int applicationID,ref int licenseClassID)
+        public static bool Find(int id,ref int applicationID,ref int licenseClassID)
         {
             string query = "select * from LocalDrivingLicenseApplications where LocalDrivingLicenseApplicationID=@id";
 
@@ -54,9 +54,6 @@ namespace DVLD_DataAccessLayer
             SqlCommand cmd = new SqlCommand(query, connection);
 
             cmd.Parameters.AddWithValue("@id", id);
-
-
-
 
             try
             {
@@ -85,7 +82,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static bool isLocalDrivingLicenseAppExist(int id)
+        public static bool isLocalDrivingLicenseAppExistByID(int id)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
@@ -120,7 +117,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static int addLocalDrivingLicense(int applicationID,  int licenseClassID)
+        public static int AddLocalDrivingLicense(int applicationID,  int licenseClassID)
         {
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
@@ -160,7 +157,7 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool updateLocalDrivingLicenseInfo(int id,  int applicationID,  int licenseClassID)
+        public static bool UpdateLocalDrivingLicenseInfo(int id,  int applicationID,  int licenseClassID)
         {
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);

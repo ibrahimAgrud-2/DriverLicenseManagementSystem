@@ -46,7 +46,7 @@ namespace DVLD_BusinessLayer
               int applicationID=0,
               licenseClassID=0;
 
-            if (clsLocalDrivingLicenseAppDataAccess.findLocalDrivingLicenseApp(id, ref applicationID, ref licenseClassID))
+            if (clsLocalDrivingLicenseAppDataAccess.Find(id, ref applicationID, ref licenseClassID))
             {
                 return new LocalDrivingLicenseApp(id, applicationID, licenseClassID);
             }
@@ -59,21 +59,21 @@ namespace DVLD_BusinessLayer
 
 
 
-            this.id = clsLocalDrivingLicenseAppDataAccess.addLocalDrivingLicense( this.applicationID, this.licenseClassID);
+            this.id = clsLocalDrivingLicenseAppDataAccess.AddLocalDrivingLicense( this.applicationID, this.licenseClassID);
             return (this.id != -1);
 
         }
         private bool _updateDLocalDriverLicenseAppInfo()
         {
 
-            return clsLocalDrivingLicenseAppDataAccess.updateLocalDrivingLicenseInfo(this.id, this.applicationID,this.licenseClassID);
+            return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.id, this.applicationID,this.licenseClassID);
         }
 
 
   
         public static bool isLocalDriverLicenseExist(int id)
         {
-            return clsLocalDrivingLicenseAppDataAccess.isLocalDrivingLicenseAppExist(id);
+            return clsLocalDrivingLicenseAppDataAccess.isLocalDrivingLicenseAppExistByID(id);
         }
 
         public static bool deleteLocalDrivingLicenseApp(int DriverID)
