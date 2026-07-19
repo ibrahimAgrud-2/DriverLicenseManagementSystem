@@ -3,34 +3,36 @@ using System.Threading;
 
 public class clsTestType
 {
-    public int TestTypeID { get; set; }
+   public enum enTestTypes {VisionTest=1,WrittenTest=2,StreetTest=3 };
+
+    public clsTestType.enTestTypes ID { get; set; }
     public string TestTypeTitle { get; set; }
     public string TestTypeDescription { get; set; }
     public double TestTypeFees { get; set; }
 
     public clsTestType()
     {
-        TestTypeID = -1;
+        ID = enTestTypes.VisionTest;
         TestTypeTitle = string.Empty;
         TestTypeDescription = string.Empty;
         TestTypeFees = 0.0;
     }
 
-    private clsTestType(int testTypeID, string testTypeTitle, string testTypeDescription, double testTypeFees)
+    private clsTestType(enTestTypes testTypeID, string testTypeTitle, string testTypeDescription, double testTypeFees)
     {
-        TestTypeID = testTypeID;
+        ID = testTypeID;
         TestTypeTitle = testTypeTitle;
         TestTypeDescription = testTypeDescription;
         TestTypeFees = testTypeFees;
     }
 
-    public static clsTestType Find(int testTypeID)
+    public static clsTestType Find(enTestTypes testTypeID)
     {
         string title = string.Empty;
         string description = string.Empty;
         double fees = 0.0;
 
-        if (TestTypesDataAccess.findTestType(testTypeID, ref title, ref description, ref fees))
+        if (TestTypesDataAccess.findTestType((int)testTypeID, ref title, ref description, ref fees))
         {
             return new clsTestType(testTypeID, title, description, fees);
         }
@@ -38,13 +40,13 @@ public class clsTestType
         return null;
     }
 
-    public static bool isTestTypeExist(int testTypeID)
+    public static bool isTestTypeExist(enTestTypes TestTypeID )
     {
-        return TestTypesDataAccess.isTestTypeExistByID(testTypeID);
+        return TestTypesDataAccess.isTestTypeExistByID((int)TestTypeID);
     }
     public bool UpdateTestTypes()
     {
-        return TestTypesDataAccess.UpdateApplicationType(this.TestTypeID,this.TestTypeTitle,this.TestTypeDescription,this.TestTypeFees);
+        return TestTypesDataAccess.UpdateApplicationType((int)this.ID,this.TestTypeTitle,this.TestTypeDescription,this.TestTypeFees);
     }
 
     public static DataTable getAllRecords()

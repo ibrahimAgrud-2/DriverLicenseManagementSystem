@@ -14,33 +14,28 @@ namespace DVLD.Test.Test_Types
 {
     public partial class frmEditTestTypes : Form
     {
-        public frmEditTestTypes(int testTypeID)
+        public frmEditTestTypes(clsTestType.enTestTypes testTypeID)
         {
             InitializeComponent();
             _TestTypeID = testTypeID;
         }
 
-        private int _TestTypeID = -1;
+        private clsTestType.enTestTypes _TestTypeID;
         clsTestType _TestType;
-        private void _loadData(int appTypeID)
+
+        private void frmEditTestTypes_Load(object sender, EventArgs e)
         {
-            _TestType = clsTestType.Find(appTypeID);
+            _TestType = clsTestType.Find(_TestTypeID);
             if (_TestType == null)
             {
                 MessageBox.Show("Test Type could not found",
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            lblID.Text = _TestType.TestTypeID.ToString();
+            lblID.Text = _TestType.ID.ToString();
             txtTestTypeName.Text = _TestType.TestTypeTitle;
             txtTypeFee.Text = _TestType.TestTypeFees.ToString();
             txtDescription.Text = _TestType.TestTypeDescription.ToString();
-
-        }
-
-        private void frmEditTestTypes_Load(object sender, EventArgs e)
-        {
-            _loadData(_TestTypeID);
         }
 
 

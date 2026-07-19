@@ -10,7 +10,7 @@ public class TestTypesDataAccess
         DataTable dt = new DataTable();
 
         SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-        string sqlQuery = "select * from TestTypes";
+        string sqlQuery = "select * from TestTypes order by testTypeID";
 
         SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 
@@ -77,7 +77,7 @@ public class TestTypesDataAccess
     public static bool isTestTypeExistByID(int testTypeID)
     {
         SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-
+        bool isFound = false;
         string query = "select found = 1 from TestTypes where TestTypeID = @testTypeID";
         SqlCommand cmd = new SqlCommand(query, connection);
         cmd.Parameters.AddWithValue("@testTypeID", testTypeID);
@@ -85,12 +85,9 @@ public class TestTypesDataAccess
         try
         {
             connection.Open();
-            object result = cmd.ExecuteScalar();
-
-            if (result != null && int.TryParse(result.ToString(), out int value))
-            {
-                return true;
-            }
+            SqlDataReader read = cmd.ExecuteReader();
+            isFound= read.HasRows;
+            
         }
         catch (Exception)
         {
@@ -101,7 +98,7 @@ public class TestTypesDataAccess
             connection.Close();
         }
 
-        return false;
+        return isFound;
     }
     public static bool UpdateApplicationType(int TestTypeID, string TestTypeTitle, string description, double TestTypeFee)
     {

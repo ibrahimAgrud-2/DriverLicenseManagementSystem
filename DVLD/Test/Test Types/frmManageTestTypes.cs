@@ -57,7 +57,7 @@ namespace DVLD.Test.Test_Types
         {
             if (int.TryParse(dgvTestList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
             {
-                frmEditTestTypes frm = new frmEditTestTypes(selectedPersonID);
+                frmEditTestTypes frm = new frmEditTestTypes((clsTestType.enTestTypes)selectedPersonID);
                 frm.ShowDialog();
                 _RefreshList();
             }
