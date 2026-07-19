@@ -10,18 +10,19 @@ namespace DVLD_BusinessLayer
     {
         public int applicationID { set; get; }
         public int applicantPersonID { set; get; }
-        public int applicationTypeID { set; get; }
+
         public DateTime lastStatusDate{ set; get; }
         public DateTime applicationDate { set; get; }
         public double paidFee { set; get; }
         public int createdByUserID { set; get; }
+        public ApplicationTypes.enApplicationType applicationTypeID { set; get; }
+
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
-        public enum enApplicationStatus {New=1, Cancelled=2 ,Completed =3};
-      
-        public enApplicationStatus applicationStatus;
-
         public enMode mode;
+
+        public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };
+        public enApplicationStatus applicationStatus;
 
 
         public Applications()
@@ -30,14 +31,14 @@ namespace DVLD_BusinessLayer
             this.applicantPersonID = -1;
             this.createdByUserID = -1;
             this.applicationDate=DateTime.Now;
-            this.applicationTypeID = -1;
+            this.applicationTypeID = ApplicationTypes.enApplicationType.NewLocalDrivingLicenseService;
             this.applicationStatus = enApplicationStatus.New;
             this.lastStatusDate = DateTime.Now;
             this.paidFee = 0.0;
             this.mode=enMode.enAddNew;
         }
 
-        private Applications(int applicationID, int applicantPersonID, DateTime ApplicationDate, int applicationTypeID,
+        private Applications(int applicationID, int applicantPersonID, DateTime ApplicationDate, ApplicationTypes.enApplicationType applicationTypeID,
            enApplicationStatus applicationStatus, DateTime LastStatusDate, double paidFee, int createdByUserID)
         {
 
@@ -75,7 +76,7 @@ namespace DVLD_BusinessLayer
             if (ApplicationsDataAccess.findApplication( applicationID, ref  applicantPersonID, ref  applicationDate, ref  applicationTypeID, ref
             applicationStatus, ref lastStatusDate, ref  paidFee, ref  createdByUserID))
             {
-                return new Applications(applicationID,  applicantPersonID,  applicationDate,  applicationTypeID, 
+                return new Applications(applicationID,  applicantPersonID,  applicationDate, (ApplicationTypes.enApplicationType)applicationTypeID, 
             (enApplicationStatus)applicationStatus,  lastStatusDate,  paidFee,  createdByUserID);
 
             }
@@ -97,7 +98,7 @@ namespace DVLD_BusinessLayer
             //Normalde bu bilgi o anki giriş yapan kullanıcı bilgilerinde çekilir ama şu anda giriş ekranı daha yok. 
             //Giriş ekranı olduğunda kullanıcı aktif kullanıcı bilgilerinden çekilir.
             this.createdByUserID = 1;
-            this.applicationID = ApplicationsDataAccess.addApplication(this.applicantPersonID, this.applicationTypeID, 
+            this.applicationID = ApplicationsDataAccess.addApplication(this.applicantPersonID, (int)this.applicationTypeID, 
                 Convert.ToByte(this.applicationStatus), this.lastStatusDate, this.paidFee, this.createdByUserID);
             return (this.applicationID != -1);
 
@@ -107,7 +108,7 @@ namespace DVLD_BusinessLayer
         private bool _updateApplication()
         {
             this.lastStatusDate = DateTime.Now;
-            return ApplicationsDataAccess.updateApplicationInfo(this.applicationID,this.applicantPersonID, this.applicationDate, this.applicationTypeID, Convert.ToByte(this.applicationStatus), this.lastStatusDate, this.paidFee, this.createdByUserID);
+            return ApplicationsDataAccess.updateApplicationInfo(this.applicationID,this.applicantPersonID, this.applicationDate, (int)this.applicationTypeID, Convert.ToByte(this.applicationStatus), this.lastStatusDate, this.paidFee, this.createdByUserID);
         }
 
 

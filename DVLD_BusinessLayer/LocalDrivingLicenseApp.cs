@@ -69,7 +69,7 @@ namespace DVLD_BusinessLayer
             return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.id, this.applicationID,(int)this.licenseClassID);
         }
 
-
+            
   
         public static bool IsLocalDriverLicenseExist(int id)
         {

@@ -10,7 +10,13 @@ namespace DVLD_BusinessLayer
 {
     public class ApplicationTypes
     {
-        public int applicationTypeID { set; get; }
+
+        public enum enApplicationType
+        {
+            NewLocalDrivingLicenseService = 1, RenewDrivingLicenseService = 2, ReplacementForLostDrivingLicense = 3, ReplacementForDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicenses = 5,
+            NewInternationalLicense = 6, RetakeTest = 7
+        }
+        public enApplicationType applicationTypeID { set; get; }
         public string applicantTypeTitle { set; get; }
 
         public double applicationFee { set; get; }
@@ -19,13 +25,13 @@ namespace DVLD_BusinessLayer
 
         public ApplicationTypes()
         {
-            this.applicationTypeID = -1;
+            this.applicationTypeID =enApplicationType.NewLocalDrivingLicenseService ;
             this.applicantTypeTitle = "";
             this.applicationFee = 0.0;
 
         }
 
-        private ApplicationTypes(int applicationTypeID, string applicantTypeTitle, double paidFees)
+        private ApplicationTypes(enApplicationType applicationTypeID, string applicantTypeTitle, double paidFees)
         {
 
             this.applicationTypeID = applicationTypeID;
@@ -44,7 +50,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public static ApplicationTypes Find(int applicationID)
+        public static ApplicationTypes Find(enApplicationType applicationID)
         {
 
      
@@ -52,7 +58,7 @@ namespace DVLD_BusinessLayer
             double paidFees = 0.0;
 
 
-            if (ApplicationTypesDataAccess.findApplicationType(applicationID,ref applicantTypeTitle, ref paidFees))
+            if (ApplicationTypesDataAccess.findApplicationType((int)applicationID,ref applicantTypeTitle, ref paidFees))
              
                 {
                 return new ApplicationTypes(applicationID, applicantTypeTitle, paidFees);
@@ -69,7 +75,7 @@ namespace DVLD_BusinessLayer
 
         public  bool UpdateApplicationType()
         {
-            return ApplicationTypesDataAccess.UpdateApplicationType(this.applicationTypeID,this.applicantTypeTitle,this.applicationFee);
+            return ApplicationTypesDataAccess.UpdateApplicationType((int)this.applicationTypeID,this.applicantTypeTitle,this.applicationFee);
         }
 
 
