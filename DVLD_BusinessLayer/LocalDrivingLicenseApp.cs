@@ -35,7 +35,7 @@ namespace DVLD_BusinessLayer
         {
             DataTable dt = new DataTable();
 
-            dt = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
+            dt = clsLocalDrivingLicenseAppDataAccess.getAllLocalDrivingLicenseApps();
             return dt;
         }
 
@@ -54,7 +54,7 @@ namespace DVLD_BusinessLayer
         }
 
 
-        private bool _addNewLocalDriverLicenseApp()
+        private bool _AddNewLocalDriverLicenseApp()
         {
 
 
@@ -63,7 +63,7 @@ namespace DVLD_BusinessLayer
             return (this.id != -1);
 
         }
-        private bool _updateDLocalDriverLicenseAppInfo()
+        private bool _UpdateDLocalDriverLicenseAppInfo()
         {
 
             return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.id, this.applicationID,this.licenseClassID);
@@ -71,7 +71,7 @@ namespace DVLD_BusinessLayer
 
 
   
-        public static bool isLocalDriverLicenseExist(int id)
+        public static bool IsLocalDriverLicenseExist(int id)
         {
             return clsLocalDrivingLicenseAppDataAccess.isLocalDrivingLicenseAppExistByID(id);
         }
@@ -83,12 +83,12 @@ namespace DVLD_BusinessLayer
 
         }
 
-        public bool save()
+        public bool Save()
         {
             switch (this.mode)
             {
                 case enMode.enAddNew:
-                    if (_addNewLocalDriverLicenseApp())
+                    if (_AddNewLocalDriverLicenseApp())
                     {
                         this.mode = enMode.enUpdate;
                         return true;
@@ -99,7 +99,7 @@ namespace DVLD_BusinessLayer
                     }
 
                 case enMode.enUpdate:
-                    return _updateDLocalDriverLicenseAppInfo();
+                    return _UpdateDLocalDriverLicenseAppInfo();
                 default:
                     return false;
             }

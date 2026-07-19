@@ -101,7 +101,7 @@ namespace DVLD_BusinessLayer
 
         
         //[TR] Sadece parametresiz const public. Ayrıca parametresiniz const ile oluşturacağımız objenin mode add;
-        //çünkü sistemde henüz yok, eğer olmayan obje için save fonksiyonu çağırılırsa add yapılsın yani sisteme eklensin diye.
+        //çünkü sistemde henüz yok, eğer olmayan obje için Save fonksiyonu çağırılırsa add yapılsın yani sisteme eklensin diye.
         public  People()
         {
             this.personID = -1;
@@ -156,7 +156,7 @@ namespace DVLD_BusinessLayer
         }
 
 
-        //bu fonkisyonun parameter almasında gerek yok çünkü ben bir objeyinin istediğimi kısımlarını güncellerim sonra save ile update yaparım.
+        //bu fonkisyonun parameter almasında gerek yok çünkü ben bir objeyinin istediğimi kısımlarını güncellerim sonra Save ile update yaparım.
         private bool _updateInfo()
         {
           
