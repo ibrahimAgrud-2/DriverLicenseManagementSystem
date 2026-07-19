@@ -110,12 +110,14 @@ public class TestTypesDataAccess
 
         string query = @"Update  TestTypes  
                             set applicationTypeTitle = @applicationTypeTitle,
-                                ApplicationFees = @ApplicationFees
+                                TestTypeFees = @ApplicationFees,
+                                TestTypeDescription = @description
                                 where TestTypeID = @TestTypeID";
 
         SqlCommand cmd = new SqlCommand(query, connection);
         cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
-        cmd.Parameters.AddWithValue("@applicationTypeTitle", applicationTypeTitle);
+        cmd.Parameters.AddWithValue("@applicationTypeTitle", TestTypeTitle);
+        cmd.Parameters.AddWithValue("@TestTypeDescription", description);
         cmd.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
 
 
@@ -123,7 +125,6 @@ public class TestTypesDataAccess
         try
         {
             connection.Open();
-            //affectedRowsNumber==1 çünkü her seferinde sadece 1 satır günnceleyebiliriz onun dışındaki tüm durumlar beklenmedik durum.
             int affectedRowsNumber = cmd.ExecuteNonQuery();
             if (affectedRowsNumber == 1)
             {

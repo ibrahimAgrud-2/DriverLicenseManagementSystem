@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Threading;
 
 public class clsTestType
 {
@@ -40,6 +41,10 @@ public class clsTestType
     public static bool isTestTypeExist(int testTypeID)
     {
         return TestTypesDataAccess.isTestTypeExistByID(testTypeID);
+    }
+    public bool UpdateTestTypes()
+    {
+        return TestTypesDataAccess.UpdateApplicationType(this.TestTypeID,this.TestTypeTitle,this.TestTypeDescription,this.TestTypeFees);
     }
 
     public static DataTable getAllRecords()
