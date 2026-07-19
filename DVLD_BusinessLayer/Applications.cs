@@ -8,21 +8,28 @@ namespace DVLD_BusinessLayer
 {
     public class Applications
     {
-        public int applicationID { set; get; }
-        public int applicantPersonID { set; get; }
 
-        public DateTime lastStatusDate{ set; get; }
-        public DateTime applicationDate { set; get; }
-        public double paidFee { set; get; }
-        public int createdByUserID { set; get; }
-        public ApplicationTypes.enApplicationType applicationTypeID { set; get; }
-        public ApplicationTypes ApplicationTypeInfo;
 
-        public enum enMode { enAddNew = 1, enUpdate = 2 };
-        public enMode mode;
+        public int ApplicationID { set; get; }
 
-        public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };
-        public enApplicationStatus applicationStatus;
+        public int ApplicantPersonID { set; get; }
+        public People ApplicantPerson { set; get; }
+
+        public DateTime ApplicationDate { set; get; }
+
+        public int ApplicationTypeID { set; get; }
+        public ApplicationTypes ApplicationType { set; get; }
+
+
+
+
+
+
+
+
+
+
+
 
 
         public Applications()
