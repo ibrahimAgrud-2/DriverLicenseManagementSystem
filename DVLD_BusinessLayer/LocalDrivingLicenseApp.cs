@@ -10,7 +10,7 @@ namespace DVLD_BusinessLayer
 
         public int id { set; get; }
         public int applicationID { set; get; }
-        public int licenseClassID { set; get; }
+        public LicenseClass.enLicenseClass licenseClassID { set; get; }
      
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode mode;
@@ -19,11 +19,11 @@ namespace DVLD_BusinessLayer
         {
             this.id = -1;
             this.applicationID = -1;
-            this.licenseClassID = -1;
+            this.licenseClassID = LicenseClass.enLicenseClass.OrdinaryDrivingLicense;
             this.mode = enMode.enAddNew;
         }
 
-        private LocalDrivingLicenseApp(int id, int applicationID, int licenseClassID)
+        private LocalDrivingLicenseApp(int id, int applicationID, LicenseClass.enLicenseClass licenseClassID)
         {
             this.id = id;
             this.applicationID = applicationID;
@@ -48,7 +48,7 @@ namespace DVLD_BusinessLayer
 
             if (clsLocalDrivingLicenseAppDataAccess.Find(id, ref applicationID, ref licenseClassID))
             {
-                return new LocalDrivingLicenseApp(id, applicationID, licenseClassID);
+                return new LocalDrivingLicenseApp(id, applicationID, (LicenseClass.enLicenseClass) licenseClassID);
             }
             return null;
         }
@@ -59,14 +59,14 @@ namespace DVLD_BusinessLayer
 
 
 
-            this.id = clsLocalDrivingLicenseAppDataAccess.AddLocalDrivingLicense( this.applicationID, this.licenseClassID);
+            this.id = clsLocalDrivingLicenseAppDataAccess.AddLocalDrivingLicense( this.applicationID,(int) this.licenseClassID);
             return (this.id != -1);
 
         }
         private bool _UpdateDLocalDriverLicenseAppInfo()
         {
 
-            return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.id, this.applicationID,this.licenseClassID);
+            return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.id, this.applicationID,(int)this.licenseClassID);
         }
 
 
