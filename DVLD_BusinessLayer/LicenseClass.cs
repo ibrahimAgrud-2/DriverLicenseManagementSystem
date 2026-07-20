@@ -7,13 +7,10 @@ namespace DVLD_BusinessLayer
 {
     public class LicenseClass
     {
-        public enum enLicenseClass
-        {
-            SmallMotorcycle = 1, HeavyMotorcycleLicense = 2, OrdinaryDrivingLicense = 3, Commercial = 4, Agricultural = 5, SmallAndMediumBus = 6, TruckAndHeavyVehicle = 7
-        }
 
 
-        public enLicenseClass ID { set; get; }
+
+        public int ID { set; get; }
 
         string className { set; get; }
         string classDescription { set; get; }
@@ -23,7 +20,7 @@ namespace DVLD_BusinessLayer
 
        public LicenseClass()
         {
-            this.ID = enLicenseClass.OrdinaryDrivingLicense;
+            this.ID = -1;
             this.className = "";
             this.classDescription = "";
             this.minimumAge = 0;
@@ -32,7 +29,7 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public LicenseClass(enLicenseClass licenseClassID,  string className,  string classDescription,  int minimumAge,  int defaultValidityLength, double classFee)
+        public LicenseClass(int licenseClassID,  string className,  string classDescription,  int minimumAge,  int defaultValidityLength, double classFee)
         {
             this.ID = licenseClassID;
             this.className = className;
@@ -47,13 +44,13 @@ namespace DVLD_BusinessLayer
             return LicenseClassesDataAccess.getLicenseClassesRecords();
         }
 
-        public static LicenseClass findLicenseClass(enLicenseClass licenseClassID)
+        public static LicenseClass Find(int licenseClassID)
         {
             string className="", classDescription="";
             int minimumAge=1, defaultValidityLength=1;
             double classFee=0.0;
 
-            if (LicenseClassesDataAccess.findLicenseClass((int)licenseClassID,ref className, ref classDescription, ref minimumAge, ref defaultValidityLength, ref classFee))
+            if (LicenseClassesDataAccess.findLicenseClass(licenseClassID,ref className, ref classDescription, ref minimumAge, ref defaultValidityLength, ref classFee))
             {
                 return new LicenseClass(licenseClassID,  className,  classDescription,  minimumAge,  defaultValidityLength,  classFee);
 

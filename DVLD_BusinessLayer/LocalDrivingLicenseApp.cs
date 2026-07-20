@@ -12,7 +12,9 @@ namespace DVLD_BusinessLayer
         public int id { set; get; }
         public int applicationID { set; get; }
         public ApplicationDb ApplicationInfo;
-        public LicenseClass.enLicenseClass licenseClassID { set; get; }
+
+        public int licenseClassID { set; get; }
+        public LicenseClass LicenseClassInfo { set; get; }
      
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode mode;
@@ -21,16 +23,19 @@ namespace DVLD_BusinessLayer
         {
             this.id = -1;
             this.applicationID = -1;
-            this.licenseClassID = LicenseClass.enLicenseClass.OrdinaryDrivingLicense;
+            this.licenseClassID = -1;
             this.mode = enMode.enAddNew;
         }
 
-        private LocalDrivingLicenseApp(int id, int applicationID, LicenseClass.enLicenseClass licenseClassID)
+        private LocalDrivingLicenseApp(int id, int applicationID, int licenseClassID)
         {
             this.id = id;
             this.applicationID = applicationID;
-            this.licenseClassID = licenseClassID;
             this.ApplicationInfo = ApplicationDb.FindApplication(applicationID);
+
+            this.licenseClassID = licenseClassID;
+            this.LicenseClassInfo = LicenseClass.Find(applicationID);
+
             this.mode = enMode.enUpdate;
         }
 
@@ -51,7 +56,7 @@ namespace DVLD_BusinessLayer
 
             if (clsLocalDrivingLicenseAppDataAccess.Find(id, ref applicationID, ref licenseClassID))
             {
-                return new LocalDrivingLicenseApp(id, applicationID, (LicenseClass.enLicenseClass) licenseClassID);
+                return new LocalDrivingLicenseApp(id, applicationID, licenseClassID);
             }
             return null;
         }
