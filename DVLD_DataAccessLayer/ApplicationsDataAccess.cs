@@ -133,7 +133,7 @@ namespace DVLD_DataAccessLayer
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
 
-            string query = "select found =1 from applications where ApplicantPersonID=@personID and ApplicationTypeID=@applicationTypeID and applicationStatus=1";
+            string query = "select found =1 from applications where ApplicantPersonID=@personID and ApplicationTypeID=@applicationTypeID and applicationStatus in (1,3)";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@personID", personID);
             cmd.Parameters.AddWithValue("@applicationTypeID", applicationTypeID);
