@@ -25,14 +25,14 @@ namespace DVLD.Test
         private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA;
 
-        enum enTestType {Vision=1, Written= 2,Street=3 }
+        enum enTestType {Vision=0, Written= 1,Street=2 }
         enTestType TestType=enTestType.Vision;
 
 
         private void GetTestType()
         {
-           
-            TestType = (enTestType)_LDLA.ApplicationInfo.ApplicationTypeID;
+
+            TestType = (enTestType)LocalDrivingLicenseApp.GetTotalCompletedTests(_LDLA.ApplicationInfo.ApplicantPerson.nationalNo);
         }
 
     
@@ -64,6 +64,11 @@ namespace DVLD.Test
 
 
           
+        }
+
+        private void btnAddApplication_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

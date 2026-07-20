@@ -233,7 +233,7 @@ namespace DVLD_DataAccessLayer
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
 
-            string query = "select PassedTestCount from LocalDrivingLicenseApplications_View where NationalNo=@nationalNo";
+            string query = "select PassedTestCount from LocalDrivingLicenseApplications_View where NationalNo=@nationalNo and Status='New'";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
 

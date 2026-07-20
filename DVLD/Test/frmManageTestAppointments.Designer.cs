@@ -29,24 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageTestAppointments));
-            this.ctrlLDLAInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo();
             this.lblMode = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.lblRecords = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnAddPerson = new System.Windows.Forms.Button();
+            this.btnAddApplication = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlLDLAInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ctrlLDLAInfo1
-            // 
-            this.ctrlLDLAInfo1.Location = new System.Drawing.Point(-6, 52);
-            this.ctrlLDLAInfo1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlLDLAInfo1.Name = "ctrlLDLAInfo1";
-            this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1178, 510);
-            this.ctrlLDLAInfo1.TabIndex = 0;
             // 
             // lblMode
             // 
@@ -98,14 +90,15 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
-            // btnAddPerson
+            // btnAddApplication
             // 
-            this.btnAddPerson.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPerson.Image")));
-            this.btnAddPerson.Location = new System.Drawing.Point(1088, 526);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(60, 56);
-            this.btnAddPerson.TabIndex = 26;
-            this.btnAddPerson.UseVisualStyleBackColor = true;
+            this.btnAddApplication.Image = ((System.Drawing.Image)(resources.GetObject("btnAddApplication.Image")));
+            this.btnAddApplication.Location = new System.Drawing.Point(1088, 526);
+            this.btnAddApplication.Name = "btnAddApplication";
+            this.btnAddApplication.Size = new System.Drawing.Size(60, 56);
+            this.btnAddApplication.TabIndex = 26;
+            this.btnAddApplication.UseVisualStyleBackColor = true;
+            this.btnAddApplication.Click += new System.EventHandler(this.btnAddApplication_Click);
             // 
             // label1
             // 
@@ -118,13 +111,21 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Appointments: ";
             // 
+            // ctrlLDLAInfo1
+            // 
+            this.ctrlLDLAInfo1.Location = new System.Drawing.Point(-6, 52);
+            this.ctrlLDLAInfo1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlLDLAInfo1.Name = "ctrlLDLAInfo1";
+            this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1178, 510);
+            this.ctrlLDLAInfo1.TabIndex = 0;
+            // 
             // frmManageTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 817);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAddPerson);
+            this.Controls.Add(this.btnAddApplication);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblRecords);
@@ -152,7 +153,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAddPerson;
+        private System.Windows.Forms.Button btnAddApplication;
         private System.Windows.Forms.Label label1;
     }
 }
