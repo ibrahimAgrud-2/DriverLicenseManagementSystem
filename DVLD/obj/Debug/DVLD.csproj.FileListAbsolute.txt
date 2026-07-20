@@ -51,3 +51,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.Test_Types.frmManageTe
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.Test_Types.frmEditTestTypes.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.New_Local_Driving_License_Application.frmAddUpdateLocalDrivingLicenseApp.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.frmManageLDLA.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Control.ctrlApplicationBasicInfo.resources
