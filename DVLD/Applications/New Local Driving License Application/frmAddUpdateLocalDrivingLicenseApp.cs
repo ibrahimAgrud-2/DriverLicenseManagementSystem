@@ -34,7 +34,12 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         }
         private void _FillLicenseClassToComboBox()
         {
-        
+            DataTable dt = LicenseClass.getAllRecords();
+            foreach(DataRow row in dt.Rows)
+            {
+                cbLicenseClasses.Items.Add(row["ClassName"]);
+            }
+
         }
 
         private void frmAddUpdateLocalDrivingLicenseApp_Load(object sender, EventArgs e)

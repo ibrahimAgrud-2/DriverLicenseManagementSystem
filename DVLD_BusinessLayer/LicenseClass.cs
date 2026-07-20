@@ -39,7 +39,7 @@ namespace DVLD_BusinessLayer
             this.classFee = classFee;
         }
 
-        public static DataTable getAllClassLicenseRecords()
+        public static DataTable getAllRecords()
         {
             return LicenseClassesDataAccess.getLicenseClassesRecords();
         }
