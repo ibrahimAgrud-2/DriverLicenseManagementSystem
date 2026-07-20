@@ -13,7 +13,7 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = "select * from Drivers";
+            string sqlQuery = "select * from Drivers_View";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 

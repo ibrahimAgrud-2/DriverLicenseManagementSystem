@@ -33,7 +33,7 @@ namespace DVLD_BusinessLayer
             this.mode = enMode.enUpdate;
         }
 
-        public static DataTable getDriverRecords()
+        public static DataTable GetDrivers()
         {
             DataTable dt = new DataTable();
 

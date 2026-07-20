@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageDrivers));
             this.txtFilet = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblRecords = new System.Windows.Forms.Label();
-            this.dgvUsersList = new System.Windows.Forms.DataGridView();
+            this.dgvDriverList = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showDetialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.sendMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.showDetialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDriverList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,8 @@
             this.txtFilet.Size = new System.Drawing.Size(193, 33);
             this.txtFilet.TabIndex = 51;
             this.txtFilet.Visible = false;
+            this.txtFilet.TextChanged += new System.EventHandler(this.txtFilet_TextChanged);
+            this.txtFilet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilet_KeyPress);
             // 
             // cbFilterBy
             // 
@@ -73,6 +75,7 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(193, 33);
             this.cbFilterBy.TabIndex = 49;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -93,6 +96,7 @@
             this.btnClose.TabIndex = 46;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblRecords
             // 
@@ -104,33 +108,33 @@
             this.lblRecords.TabIndex = 45;
             this.lblRecords.Text = "??";
             // 
-            // dgvUsersList
+            // dgvDriverList
             // 
-            this.dgvUsersList.AllowUserToAddRows = false;
-            this.dgvUsersList.AllowUserToDeleteRows = false;
-            this.dgvUsersList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsersList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvUsersList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsersList.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvUsersList.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsersList.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUsersList.Location = new System.Drawing.Point(10, 144);
-            this.dgvUsersList.MultiSelect = false;
-            this.dgvUsersList.Name = "dgvUsersList";
-            this.dgvUsersList.ReadOnly = true;
-            this.dgvUsersList.RowHeadersVisible = false;
-            this.dgvUsersList.RowHeadersWidth = 51;
-            this.dgvUsersList.RowTemplate.Height = 24;
-            this.dgvUsersList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsersList.Size = new System.Drawing.Size(1026, 308);
-            this.dgvUsersList.TabIndex = 43;
+            this.dgvDriverList.AllowUserToAddRows = false;
+            this.dgvDriverList.AllowUserToDeleteRows = false;
+            this.dgvDriverList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDriverList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDriverList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDriverList.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvDriverList.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDriverList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDriverList.Location = new System.Drawing.Point(10, 144);
+            this.dgvDriverList.MultiSelect = false;
+            this.dgvDriverList.Name = "dgvDriverList";
+            this.dgvDriverList.ReadOnly = true;
+            this.dgvDriverList.RowHeadersVisible = false;
+            this.dgvDriverList.RowHeadersWidth = 51;
+            this.dgvDriverList.RowTemplate.Height = 24;
+            this.dgvDriverList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDriverList.Size = new System.Drawing.Size(1026, 308);
+            this.dgvDriverList.TabIndex = 43;
             // 
             // contextMenuStrip1
             // 
@@ -144,15 +148,36 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(269, 94);
             // 
+            // showDetialToolStripMenuItem
+            // 
+            this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
+            this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
+            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.showDetialToolStripMenuItem.Text = "Show Details";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(265, 6);
             // 
+            // tsmEdit
+            // 
+            this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(268, 26);
+            this.tsmEdit.Text = "Issue International License";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(265, 6);
+            // 
+            // sendMailToolStripMenuItem
+            // 
+            this.sendMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendMailToolStripMenuItem.Image")));
+            this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
+            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.sendMailToolStripMenuItem.Text = "Show Person License History";
             // 
             // label1
             // 
@@ -174,27 +199,6 @@
             this.label5.TabIndex = 44;
             this.label5.Text = "# Records";
             // 
-            // showDetialToolStripMenuItem
-            // 
-            this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
-            this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
-            this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
-            this.showDetialToolStripMenuItem.Text = "Show Details";
-            // 
-            // tsmEdit
-            // 
-            this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
-            this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(268, 26);
-            this.tsmEdit.Text = "Issue International License";
-            // 
-            // sendMailToolStripMenuItem
-            // 
-            this.sendMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendMailToolStripMenuItem.Image")));
-            this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
-            this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
-            this.sendMailToolStripMenuItem.Text = "Show Person License History";
-            // 
             // frmManageDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -205,7 +209,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRecords);
-            this.Controls.Add(this.dgvUsersList);
+            this.Controls.Add(this.dgvDriverList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,7 +218,8 @@
             this.Name = "frmManageDrivers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManageDrivers";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
+            this.Load += new System.EventHandler(this.frmManageDrivers_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDriverList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -227,7 +232,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblRecords;
-        private System.Windows.Forms.DataGridView dgvUsersList;
+        private System.Windows.Forms.DataGridView dgvDriverList;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem showDetialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmEdit;

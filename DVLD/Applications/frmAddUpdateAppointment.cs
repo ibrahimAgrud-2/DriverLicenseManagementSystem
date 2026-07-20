@@ -35,12 +35,22 @@ namespace DVLD.Applications
 
         private void fillObjectDataToField()
         {
+            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
             if (_LDLA == null)
                 return;
 
-  
+            lblLDLAID.Text = _LDLA.ID.ToString();
+            lblApplicationFee.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
+            lblPersonFullName.Text = _LDLA.ApplicationInfo.ApplicantPerson.fullName;
+            //lbltrail.Text
+            dtpApplicationDate.Value = _LDLA.ApplicationInfo.ApplicationDate;
 
-           
+
+        }
+
+        private void frmAddUpdateAppointment_Load(object sender, EventArgs e)
+        {
+            fillObjectDataToField();
         }
     }
 }

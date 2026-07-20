@@ -53,19 +53,20 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 590);
+            this.dataGridView1.Location = new System.Drawing.Point(66, 590);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1160, 168);
+            this.dataGridView1.Size = new System.Drawing.Size(1057, 168);
             this.dataGridView1.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(-3, 770);
+            this.label5.Location = new System.Drawing.Point(61, 773);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 29);
             this.label5.TabIndex = 23;
@@ -75,7 +76,7 @@
             // 
             this.lblRecords.AutoSize = true;
             this.lblRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecords.Location = new System.Drawing.Point(117, 770);
+            this.lblRecords.Location = new System.Drawing.Point(181, 773);
             this.lblRecords.Name = "lblRecords";
             this.lblRecords.Size = new System.Drawing.Size(37, 29);
             this.lblRecords.TabIndex = 24;
@@ -83,7 +84,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(1058, 761);
+            this.btnClose.Location = new System.Drawing.Point(1019, 764);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(104, 51);
             this.btnClose.TabIndex = 25;
@@ -93,9 +94,9 @@
             // btnAddApplication
             // 
             this.btnAddApplication.Image = ((System.Drawing.Image)(resources.GetObject("btnAddApplication.Image")));
-            this.btnAddApplication.Location = new System.Drawing.Point(1088, 526);
+            this.btnAddApplication.Location = new System.Drawing.Point(1045, 513);
             this.btnAddApplication.Name = "btnAddApplication";
-            this.btnAddApplication.Size = new System.Drawing.Size(60, 56);
+            this.btnAddApplication.Size = new System.Drawing.Size(78, 71);
             this.btnAddApplication.TabIndex = 26;
             this.btnAddApplication.UseVisualStyleBackColor = true;
             this.btnAddApplication.Click += new System.EventHandler(this.btnAddApplication_Click);
@@ -105,7 +106,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(13, 558);
+            this.label1.Location = new System.Drawing.Point(62, 560);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 24);
             this.label1.TabIndex = 27;
@@ -113,10 +114,11 @@
             // 
             // ctrlLDLAInfo1
             // 
-            this.ctrlLDLAInfo1.Location = new System.Drawing.Point(-6, 52);
+            this.ctrlLDLAInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlLDLAInfo1.Location = new System.Drawing.Point(55, 65);
             this.ctrlLDLAInfo1.Margin = new System.Windows.Forms.Padding(4);
             this.ctrlLDLAInfo1.Name = "ctrlLDLAInfo1";
-            this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1178, 510);
+            this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1068, 441);
             this.ctrlLDLAInfo1.TabIndex = 0;
             // 
             // frmManageTestAppointments
