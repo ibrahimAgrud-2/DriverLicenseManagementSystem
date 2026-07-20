@@ -229,13 +229,18 @@ namespace DVLD.Applications
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[5].Value.ToString(), out int completedTestCount))
             {
+                
                 for (int i = 0; i < 3; i++)
                 {
+                    //3 seçeneğide dolaş ve false yap.
                     ItemList.ElementAt(i).Enabled = false;
+
+                    /*
+                     sadece tamamlanmamış test'i true yap. Mesela tamamlanmış test sayısı 2. O zaman i=0 ve 1 için if içine girmez yani 0 ve 1 false kalır. ama i=2, tamamlanmış test sayısına eşit olduğu için if içine girer ve dolaysıyla o seçenek true olur. Eğer hepsi tamamlanmışsa completedTestCount=3 olur ve i<3 olduğu için if içine hiç girmez.
+                    */
                     if (i == completedTestCount)
                     {
                         ItemList.ElementAt(i).Enabled = true;
-
                     }
                 }
             }
