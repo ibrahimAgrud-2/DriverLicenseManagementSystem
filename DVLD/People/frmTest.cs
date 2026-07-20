@@ -17,21 +17,9 @@ namespace DVLD.People
             InitializeComponent();
         }
 
-        private void ctrlPersonCardWithFilter1_OnPersonLoaded(int obj)
-        {
-            MessageBox.Show(obj.ToString());
-           }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            this.ctrlPersonInformation1.LoadPersonInfo((textBox1.Text));
-            MessageBox.Show(this.ctrlPersonInformation1.PersonID.ToString());
-        }
-
-        private void btn(object sender, EventArgs e)
-        {
-            this.ctrlPersonInformation1.LoadPersonInfo(Convert.ToInt32(textBox1.Text));
-            MessageBox.Show(this.ctrlPersonInformation1.PersonID.ToString());
+            ctrlApplicationBasicInfo1.LoadAppInfo(Convert.ToInt32(textBox1.Text));
 
         }
     }

@@ -76,7 +76,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 App = ApplicationsDb.FindApplication(_LDLA.applicationID);
                 if (App == null)
                 {
-                    MessageBox.Show("No Application with ID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No Application with ID = " + _ApplicationID, "_App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
                 lblMode.Text = "Update User";
@@ -127,7 +127,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             App.ApplicationStatus = ApplicationsDb.enApplicationStatus.New;
             App.LastStatusDate = DateTime.Now;
             App.PaidFees = ApplicationTypes.Find(App.ApplicationTypeID).applicationFee;
-            // App.CreatedByUserID = loginSettings.currentUser.userID;
+            // _App.CreatedByUserID = loginSettings.currentUser.userID;
             App.CreatedByUserID = 1;
 
 
@@ -138,7 +138,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         {
             if(!_AddNewApplication())
             {
-                MessageBox.Show("Could not save new App");
+                MessageBox.Show("Could not save new _App");
                 return;
             }
             if (!_FillDataToObject())

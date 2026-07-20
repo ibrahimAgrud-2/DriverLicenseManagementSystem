@@ -52,6 +52,7 @@
             // llViewPersonInfo
             // 
             this.llViewPersonInfo.AutoSize = true;
+            this.llViewPersonInfo.Enabled = false;
             this.llViewPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llViewPersonInfo.Location = new System.Drawing.Point(720, 171);
             this.llViewPersonInfo.Name = "llViewPersonInfo";
@@ -59,12 +60,13 @@
             this.llViewPersonInfo.TabIndex = 187;
             this.llViewPersonInfo.TabStop = true;
             this.llViewPersonInfo.Text = "View Person Info.";
+            this.llViewPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llViewPersonInfo_LinkClicked);
             // 
             // lblStatusDate
             // 
             this.lblStatusDate.AutoSize = true;
             this.lblStatusDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusDate.Location = new System.Drawing.Point(737, 76);
+            this.lblStatusDate.Location = new System.Drawing.Point(736, 69);
             this.lblStatusDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatusDate.Name = "lblStatusDate";
             this.lblStatusDate.Size = new System.Drawing.Size(136, 25);
@@ -196,7 +198,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(737, 44);
+            this.lblDate.Location = new System.Drawing.Point(736, 37);
             this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(136, 25);
