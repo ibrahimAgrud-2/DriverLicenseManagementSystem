@@ -178,6 +178,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Test\frmManageTestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\frmManageTestAppointments.Designer.cs">
+      <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\Test Types\frmEditTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Test\frmManageTestAppointments.resx">
+      <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test\Test Types\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +337,7 @@
     <Folder Include="Licenses\Controls\" />
     <Folder Include="Licenses\International Licenses\Controls\" />
     <Folder Include="Licenses\Local Licenses\" />
+    <Folder Include="Test\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Login\UserRememberMeJustID.txt" />
