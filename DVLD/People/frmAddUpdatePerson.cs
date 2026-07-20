@@ -67,7 +67,7 @@ namespace DVLD
                 return;
             }
 
-            _Person = PeopleBL.find(_personID);
+            _Person = PeopleBL.Find(_personID);
             lblMode.Text = "Update Person";
             fillObjectDataToField(_Person);
 

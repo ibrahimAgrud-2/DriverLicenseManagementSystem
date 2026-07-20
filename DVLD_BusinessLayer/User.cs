@@ -44,7 +44,7 @@ namespace DVLD_BusinessLayer
             this.userName = userName;
             this.password = password;
             this.isActive = isActive;
-            this.Person = People.find(personID);
+            this.Person = People.Find(personID);
             this.mode = enMode.enUpdate;
         }
        public static DataTable getUserRecords()

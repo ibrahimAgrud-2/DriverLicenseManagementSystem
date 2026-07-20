@@ -30,7 +30,7 @@ namespace DVLD_BusinessLayer
             this.id = id;
             this.applicationID = applicationID;
             this.licenseClassID = licenseClassID;
-            this.ApplicationInfo = ApplicationDb.findApplication(applicationID);
+            this.ApplicationInfo = ApplicationDb.FindApplication(applicationID);
             this.mode = enMode.enUpdate;
         }
 

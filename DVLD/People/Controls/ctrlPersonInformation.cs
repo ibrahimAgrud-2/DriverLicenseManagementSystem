@@ -29,7 +29,7 @@ namespace DVLD
 
         public void LoadPersonInfo(int personID)
         {
-            _Person = peoplBl.find(personID);
+            _Person = peoplBl.Find(personID);
             if (_Person == null)
             {
                 _PersonID = -1;
@@ -41,7 +41,7 @@ namespace DVLD
         }
         public void LoadPersonInfo(string nationalNo)
         {
-            _Person = peoplBl.find(nationalNo);
+            _Person = peoplBl.Find(nationalNo);
             if (_Person == null)
             {
                 
@@ -110,7 +110,7 @@ namespace DVLD
                 }
                 else
                 {
-                    MessageBox.Show("Could not find this image: = " + _Person.imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Could not Find this image: = " + _Person.imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if(_Person.gender==1)

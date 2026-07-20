@@ -29,7 +29,7 @@ namespace DVLD_BusinessLayer
 
 
         public int CreatedByUserID { set; get; }
-        public ApplicationTypes UserInfo { set; get; }
+
 
         public enum enMode { enAddNew = 1, enUpdate = 2};
         public enMode Mode;
@@ -69,11 +69,14 @@ namespace DVLD_BusinessLayer
             this.ApplicationStatus = applicationStatus;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = paidFee;
-            ApplicationTypeInfo = ApplicationTypes.Find(applicationTypeID);
+            this.ApplicationTypeInfo = ApplicationTypes.Find(applicationTypeID);
+            this.ApplicantPerson = People.Find(applicantPersonID);
             this.CreatedByUserID = createdByUserID;
             this.Mode = enMode.enUpdate;
 
         }
+     
+        
         public static DataTable getApplicationsRecord()
         {
             DataTable dt = new DataTable();
@@ -84,7 +87,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public static Applications findApplication(int applicationID)
+        public static Applications FindApplication(int applicationID)
         {
 
             int applicantPersonID = -1, createdByUserID=-1, applicationTypeID=-1;
@@ -105,27 +108,16 @@ namespace DVLD_BusinessLayer
         }
 
 
-        private bool _addNewApplication()
+        private bool _AddNewApplication()
         {
 
-            //Başvuru ücretini elle girmemek için bu kodu ekledirk.
-            ApplicationTypes type1 = ApplicationTypes.Find(this.ApplicationTypeID);
-            if (type1 == null)
-            {
-                return false;
-            }
-            this.PaidFees = type1.applicationFee;
-
-            //Normalde bu bilgi o anki giriş yapan kullanıcı bilgilerinde çekilir ama şu anda giriş ekranı daha yok. 
-            //Giriş ekranı olduğunda kullanıcı aktif kullanıcı bilgilerinden çekilir.
-            this.CreatedByUserID = 1;
             this.ApplicationID = ApplicationsDataAccess.addApplication(ApplicantPersonID,ApplicationTypeID,Convert.ToByte(ApplicationStatus),LastStatusDate,PaidFees,CreatedByUserID);
             return (this.ApplicationID != -1);
 
         }
 
         //Update yaparken lastStatus güncellenmeli.
-        private bool _updateApplication()
+        private bool _UpdateApplication()
         {
             this.LastStatusDate = DateTime.Now;
             return ApplicationsDataAccess.updateApplicationInfo(this.ApplicationID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID, Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
@@ -137,6 +129,8 @@ namespace DVLD_BusinessLayer
         {
             return ApplicationsDataAccess.isApplicationExistByID(applicationID);
         }
+
+        //Kişinin o başvuru türünden atif bir başvurusu var mı?
         public static bool isApplicationExistByPersonID(int personID,int appType)
         {
            return ApplicationsDataAccess.isApplicationExistByPersonID(personID, (int)appType);
@@ -156,7 +150,7 @@ namespace DVLD_BusinessLayer
             switch (this.Mode)
             {
                 case enMode.enAddNew:
-                    if (_addNewApplication())
+                    if (_AddNewApplication())
                     {
                         this.Mode = enMode.enUpdate;
                         return true;
@@ -166,10 +160,8 @@ namespace DVLD_BusinessLayer
                         return false;
                     }
 
-                      
-
                 case enMode.enUpdate:
-                    return _updateApplication();
+                    return _UpdateApplication();
                 default:
                     return false;
             }

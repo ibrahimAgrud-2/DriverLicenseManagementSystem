@@ -122,7 +122,7 @@ namespace DVLD_BusinessLayer
         }
 
         //Find ile bulunan obje parametreli const ile oluşturulduğu için modu update olsun çünkü artık obje var ve add'lik bir durum kalmamış. Artık yaparsak update yaparız
-        public static People find(int personID)
+        public static People Find(int personID)
         {
             
             string nationalNo="", firstName = "", secondName = "",thirdName = "",lastName = "", address = "", email = "", phone = "", imagePath = "";
@@ -138,7 +138,7 @@ namespace DVLD_BusinessLayer
             return null;
         }
 
-        public static People find(string nationalNo)
+        public static People Find(string nationalNo)
         {
 
             string firstName = "", secondName = "", thirdName = "", lastName = "", address = "", email = "", phone = "", imagePath = "";
