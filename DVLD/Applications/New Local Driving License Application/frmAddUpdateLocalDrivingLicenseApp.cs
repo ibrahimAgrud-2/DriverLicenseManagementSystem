@@ -39,7 +39,6 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             {
                 cbLicenseClasses.Items.Add(row["ClassName"]);
             }
-
         }
 
         private void frmAddUpdateLocalDrivingLicenseApp_Load(object sender, EventArgs e)

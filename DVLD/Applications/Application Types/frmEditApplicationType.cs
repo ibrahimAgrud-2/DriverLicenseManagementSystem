@@ -14,18 +14,18 @@ namespace DVLD.Applications.Application_Types
 {
     public partial class frmEditApplicationType : Form
     {
-        private ApplicationTypes.enApplicationType _AppTypeID;
+        private int _AppTypeID;
         ApplicationTypes _Apt;
 
 
-        public frmEditApplicationType(ApplicationTypes.enApplicationType  appTypeID)
+        public frmEditApplicationType(int appTypeID)
         {
             InitializeComponent();
             _AppTypeID = appTypeID;
         }
 
 
-        private void _loadData(ApplicationTypes.enApplicationType appTypeID)
+        private void _loadData(int appTypeID)
         {
             _Apt = ApplicationTypes.Find(appTypeID);
             if(_Apt == null)
