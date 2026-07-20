@@ -48,24 +48,24 @@ namespace DVLD
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            if(User.isUserExist(txtUserName.Text))
+            if (User.isUserExistByUserNameAndPassword(txtUserName.Text.Trim(),maskedTextBox1.Text.Trim()))
             {
-                User u1 = User.Find(txtUserName.Text);
-                if(u1.password==maskedTextBox1.Text)
+                User u1 = User.Find(txtUserName.Text.Trim());
+                if (u1.password == maskedTextBox1.Text.Trim())
                 {
-                    
-                    Global.currentUser = u1;
 
+                   
                     if (!u1.isActive)
                     {
                         MessageBox.Show("User is not active. Contact to you admin.");
                         return;
                     }
+                    Global.currentUser = u1;
+
 
                     if (cbRemeberMe.Checked)
                     {
-                        Global.RememberUsernameAndPassword(txtUserName.Text, txtUserName.Text);
+                        Global.RememberUsernameAndPassword(txtUserName.Text, maskedTextBox1.Text);
 
 
                     }
@@ -75,12 +75,21 @@ namespace DVLD
                     }
 
                     frmMain frm = new frmMain(this);
+                    this.Hide();
                     frm.ShowDialog();
                     return;
                 }
-            }
-            MessageBox.Show("Invalid User Name/password");
 
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid User Name/password");
+
+            }
+           
+       
+         
         }
 
         private void button1_Click(object sender, EventArgs e)

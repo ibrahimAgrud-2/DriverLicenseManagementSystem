@@ -10,13 +10,9 @@ namespace DVLD
     {
 
         public static User currentUser;
-        public static string filePath = @"C:\Users\ibrah\source\repos\DVLD\DVLD\Login\UserRememberMeJustID.txt";
-        
-        //the separator in file. Example: user1##password
-        public static string dim = "##";
+    
 
-
-        public static bool RememberUsernameAndPassword(string userName,string passwored)
+        public static bool RememberUsernameAndPassword(string userName,string password)
         {
             try
             {
@@ -30,7 +26,7 @@ namespace DVLD
                     return true;
                 }
 
-                string dataToSave = userName + "#//#" + passwored;
+                string dataToSave = userName + "#//#" + password;
 
                 using (StreamWriter write =new StreamWriter(filePath))
                 {

@@ -107,6 +107,10 @@ namespace DVLD_BusinessLayer
         {
             return UserDataAccess.isUserExistByPersonID(personID);
         }
+        public static bool isUserExistByUserNameAndPassword(string userName,string password)
+        {
+            return UserDataAccess.isUserExistByUserNameAndPassword(userName, password);
+        }
         public static bool isUserExist(string userName)
         {
             return UserDataAccess.isUserExist(userName);

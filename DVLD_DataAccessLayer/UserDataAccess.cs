@@ -223,6 +223,36 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
 
+        public static bool isUserExistByUserNameAndPassword(string userName,string password)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            bool isFound = false;
+
+            string query = "select found =1 from users where userName=@userName and Password=@password";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@userName", userName);
+            cmd.Parameters.AddWithValue("@password", password);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+                read.Close();
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
 
         public static int AddUser(int personID,  string userName,  string password, 
            bool isActive)
