@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.New_Local_Driving_License_Application;
+using DVLD.Test;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace DVLD.Applications
             }
 
         }
-        private void _RefreshPeopleList()
+        private void _RefreshLDLAList()
         {
             _DtAppList = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
 
@@ -54,7 +55,7 @@ namespace DVLD.Applications
 
         private void frmManageLDLA_Load(object sender, EventArgs e)
         {
-            _RefreshPeopleList();
+            _RefreshLDLAList();
             _SetColumnNames();
             ItemList.Add(scheduleVisionTestToolStripMenuItem);
             ItemList.Add(scheduleWrittenTestToolStripMenuItem);
@@ -71,7 +72,7 @@ namespace DVLD.Applications
         {
             frmAddUpdateLocalDrivingLicenseApp frm = new frmAddUpdateLocalDrivingLicenseApp();
             frm.ShowDialog();
-            _RefreshPeopleList();
+            _RefreshLDLAList();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace DVLD.Applications
 
                 frmAddUpdateLocalDrivingLicenseApp frm = new frmAddUpdateLocalDrivingLicenseApp(selectedPersonID);
                 frm.ShowDialog();
-                _RefreshPeopleList();
+                _RefreshLDLAList();
             }
         }
 
@@ -96,7 +97,7 @@ namespace DVLD.Applications
                         if (LocalDrivingLicenseApp.deleteLocalDrivingLicenseApp(selectedPersonID))
                         {
                             MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            _RefreshPeopleList();
+                            _RefreshLDLAList();
                         }
                         else
                         {
@@ -224,7 +225,6 @@ namespace DVLD.Applications
 
         List<ToolStripMenuItem> ItemList = new List<ToolStripMenuItem>();
 
-
         private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[5].Value.ToString(), out int completedTestCount))
@@ -246,6 +246,18 @@ namespace DVLD.Applications
             }
 
         
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[5].Value.ToString(), out int SelectedID))
+            {
+                frmManageTestAppointments frm = new frmManageTestAppointments(SelectedID);
+                frm.ShowDialog();
+                _RefreshLDLAList();
+            }
+
+     
         }
     }
 }
