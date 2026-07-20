@@ -67,6 +67,12 @@
     <Compile Include="Applications\Control\ctrlApplicationBasicInfo.Designer.cs">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\New Local Driving License Application\Controls\ctrlLDLAInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\New Local Driving License Application\Controls\ctrlLDLAInfo.Designer.cs">
+      <DependentUpon>ctrlLDLAInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\New Local Driving License Application\frmManageLDLA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Control\ctrlApplicationBasicInfo.resx">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\New Local Driving License Application\Controls\ctrlLDLAInfo.resx">
+      <DependentUpon>ctrlLDLAInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\New Local Driving License Application\frmManageLDLA.resx">
       <DependentUpon>frmManageLDLA.cs</DependentUpon>
