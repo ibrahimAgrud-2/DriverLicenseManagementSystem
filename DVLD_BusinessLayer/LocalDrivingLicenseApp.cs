@@ -91,6 +91,14 @@ namespace DVLD_BusinessLayer
 
         }
 
+        public static int GetTotalCompletedTests(string nationalNo)
+        {
+
+            return clsLocalDrivingLicenseAppDataAccess.GetTotalCompletedTests(nationalNo);
+
+        }
+
+
         public bool Save()
         {
             switch (this.mode)
