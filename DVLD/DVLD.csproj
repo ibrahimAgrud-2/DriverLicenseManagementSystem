@@ -61,11 +61,11 @@
     <Compile Include="Applications\Application Types\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\frmManageApplication.cs">
+    <Compile Include="Applications\New Local Driving License Application\frmManageLDLA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\frmManageApplication.Designer.cs">
-      <DependentUpon>frmManageApplication.cs</DependentUpon>
+    <Compile Include="Applications\New Local Driving License Application\frmManageLDLA.Designer.cs">
+      <DependentUpon>frmManageLDLA.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\New Local Driving License Application\frmAddUpdateLocalDrivingLicenseApp.cs">
       <SubType>Form</SubType>
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="Applications\Application Types\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\frmManageApplication.resx">
-      <DependentUpon>frmManageApplication.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\New Local Driving License Application\frmManageLDLA.resx">
+      <DependentUpon>frmManageLDLA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\New Local Driving License Application\frmAddUpdateLocalDrivingLicenseApp.resx">
       <DependentUpon>frmAddUpdateLocalDrivingLicenseApp.cs</DependentUpon>
