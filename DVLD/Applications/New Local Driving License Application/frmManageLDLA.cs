@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace DVLD.Applications
 {
@@ -54,6 +56,9 @@ namespace DVLD.Applications
         {
             _RefreshPeopleList();
             _SetColumnNames();
+            ItemList.Add(scheduleVisionTestToolStripMenuItem);
+            ItemList.Add(scheduleWrittenTestToolStripMenuItem);
+            ItemList.Add(scheduleStreetTestToolStripMenuItem);
             cbFilterBy.SelectedIndex = 0;
         }
 
@@ -211,6 +216,31 @@ namespace DVLD.Applications
                 
             dgvAppList.DataSource = _DtAppList;
             lblRecords.Text = dgvAppList.RowCount.ToString();
+        }
+
+
+
+        //--------------- V schedule test V ---------------
+
+        List<ToolStripMenuItem> ItemList = new List<ToolStripMenuItem>();
+
+
+        private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[5].Value.ToString(), out int completedTestCount))
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    ItemList.ElementAt(i).Enabled = false;
+                    if (i == completedTestCount)
+                    {
+                        ItemList.ElementAt(i).Enabled = true;
+
+                    }
+                }
+            }
+
+        
         }
     }
 }
