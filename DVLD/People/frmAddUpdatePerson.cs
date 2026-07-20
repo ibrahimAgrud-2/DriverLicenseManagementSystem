@@ -211,7 +211,7 @@ namespace DVLD
                 _Person.email = txtEmail.Text.Trim();
                 _Person.address = txtAddress.Text.Trim();
                 _Person.phone = mskPhoneNumber.Text.Trim();
-                _Person.countryID = Country.findCountry(cbCountries.SelectedIndex + 1).countryID;
+                _Person.countryID = Country.findCountry(cbCountries.Text).countryID;
                 _Person.gender = (rbFemale.Checked ? 1 : 0);
 
 

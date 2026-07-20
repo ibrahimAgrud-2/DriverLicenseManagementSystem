@@ -50,9 +50,22 @@ namespace DVLD_BusinessLayer
             int minimumAge=1, defaultValidityLength=1;
             double classFee=0.0;
 
-            if (LicenseClassesDataAccess.findLicenseClass(licenseClassID,ref className, ref classDescription, ref minimumAge, ref defaultValidityLength, ref classFee))
+            if (LicenseClassesDataAccess.findLicenseClassByID(licenseClassID,ref className, ref classDescription, ref minimumAge, ref defaultValidityLength, ref classFee))
             {
                 return new LicenseClass(licenseClassID,  className,  classDescription,  minimumAge,  defaultValidityLength,  classFee);
+
+            }
+            return null;
+        }
+        public static LicenseClass Find(string licenseClassTitle)
+        {
+            string className = "", classDescription = "";
+            int minimumAge = 1, defaultValidityLength = 1,classID=-1;
+            double classFee = 0.0;
+
+            if (LicenseClassesDataAccess.findLicenseClassByClassName(ref classID,  className, ref classDescription, ref minimumAge, ref defaultValidityLength, ref classFee))
+            {
+                return new LicenseClass(classID, className, classDescription, minimumAge, defaultValidityLength, classFee);
 
             }
             return null;

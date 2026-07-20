@@ -68,6 +68,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // tpAppllicationInfo
             // 
@@ -199,6 +200,7 @@
             this.btnNext.Text = "Next";
             this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // tpPersonInfo
             // 
@@ -263,6 +265,7 @@
             this.tbMain.SelectedIndex = 0;
             this.tbMain.Size = new System.Drawing.Size(1138, 536);
             this.tbMain.TabIndex = 92;
+            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
             // frmAddUpdateLocalDrivingLicenseApp
             // 
