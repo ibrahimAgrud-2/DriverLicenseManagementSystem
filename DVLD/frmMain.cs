@@ -1,4 +1,5 @@
-﻿using DVLD.Applications.Application_Types;
+﻿using DVLD.Applications;
+using DVLD.Applications.Application_Types;
 using DVLD.Drivers;
 using DVLD.Users;
 using DVLD_BusinessLayer;
@@ -72,6 +73,13 @@ namespace DVLD
         {
             frmManageApplicationTypes frm = new frmManageApplicationTypes();
             frm.ShowDialog();
+        }
+
+        private void manageLocalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageLDLA frm = new frmManageLDLA();
+            frm.ShowDialog();
+
         }
     }
 }
