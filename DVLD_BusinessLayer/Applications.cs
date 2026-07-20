@@ -133,7 +133,7 @@ namespace DVLD_BusinessLayer
         //Kişinin o başvuru türünden atif bir başvurusu var mı?
         public static bool isApplicationExistByPersonID(int personID,int appType)
         {
-           return ApplicationsDataAccess.isApplicationExistByPersonID(personID, (int)appType);
+           return ApplicationsDataAccess.isApplicationExistByPersonID(personID, appType);
         }
         public static bool deleteApplication(int applicationID)
         {

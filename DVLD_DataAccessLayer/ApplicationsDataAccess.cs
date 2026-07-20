@@ -127,15 +127,17 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool isApplicationExistByPersonID(int applicationID,int applicationTypeID)
+        public static bool isApplicationExistByPersonID(int personID,int applicationTypeID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
 
-            string query = "select found =1 from applications where applicationID=@applicationID and applicationTypeID=@applicationTypeID and applicationStatus=1";
+            string query = "select found =1 from applications where ApplicantPersonID=@personID and ApplicationTypeID=@applicationTypeID and applicationStatus=1";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@applicationID", applicationID);
+            cmd.Parameters.AddWithValue("@personID", personID);
+            cmd.Parameters.AddWithValue("@applicationTypeID", applicationTypeID);
+
 
 
             try
