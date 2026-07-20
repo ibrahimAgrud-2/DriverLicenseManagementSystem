@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.People.Controls;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,18 +17,53 @@ namespace DVLD.Test
         public frmManageTestAppointments(int LDLAID)
         {
             InitializeComponent();
+            _LDLAID = LDLAID;
+           
         }
 
 
-        private int _LDLAInfo = -1;
+        private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA;
 
         enum enTestType {Vision=1, Written= 2,Street=3 }
         enTestType TestType=enTestType.Vision;
 
+
+        private void GetTestType()
+        {
+           
+            TestType = (enTestType)_LDLA.ApplicationInfo.ApplicationTypeID;
+        }
+
+    
+
+        private void fillObjectDataToField()
+        {
+            if (_LDLA == null)
+                return;
+
+            this.ctrlLDLAInfo1.LoadData(_LDLA.ID);
+        }
         private void frmManageTestAppointments_Load(object sender, EventArgs e)
         {
+            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
+            GetTestType();
+            fillObjectDataToField();
+          switch (TestType)
+            {
+                case enTestType.Vision:
+                    this.Text = "Vision Test Appointment";
+                    break;
+                case enTestType.Written:
+                    this.Text = "Written Test Appointment";
+                    break;
+                case enTestType.Street:
+                    this.Text = "Street Test Appointment";
+                    break;
+            }
 
+
+          
         }
     }
 }

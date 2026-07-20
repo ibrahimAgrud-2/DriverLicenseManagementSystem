@@ -250,7 +250,7 @@ namespace DVLD.Applications
 
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[5].Value.ToString(), out int SelectedID))
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int SelectedID))
             {
                 frmManageTestAppointments frm = new frmManageTestAppointments(SelectedID);
                 frm.ShowDialog();

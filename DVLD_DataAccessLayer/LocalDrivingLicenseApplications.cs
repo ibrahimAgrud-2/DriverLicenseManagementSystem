@@ -228,5 +228,39 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+        public static int GetTotalCompletedTests(string nationalNo)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+
+            string query = "select PassedTestCount from LocalDrivingLicenseApplications_View where NationalNo=@nationalNo";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
+
+
+            try
+            {
+                connection.Open();
+
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int value))
+                {
+                    return value;
+                }
+            }
+            catch (Exception)
+            {
+
+                return -1; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return -1;
+        }
+            
     }
 }
