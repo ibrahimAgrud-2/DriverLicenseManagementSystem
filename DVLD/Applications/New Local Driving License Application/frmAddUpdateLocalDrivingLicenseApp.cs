@@ -21,6 +21,9 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA;
 
+        private int _ApplicationID = -1;
+        private ApplicationsDb App;
+
 
         public frmAddUpdateLocalDrivingLicenseApp()
         {
@@ -52,9 +55,11 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             lblAppDate.Text = _LDLA.ApplicationInfo.ApplicationDate.ToString("yyyy/mm/dd");
             lblAppFees.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
             lblCreatedByUserID.Text = _LDLA.ApplicationInfo.CreatedByUserID.ToString();
+            cbLicenseClasses.SelectedIndex = _LDLA.licenseClassID;
 
             this.ctrlPersonCardWithFilter1.LoadData(_LDLA.ApplicationInfo.ApplicantPersonID);
         }
+ 
         private void frmAddUpdateLocalDrivingLicenseApp_Load(object sender, EventArgs e)
         {
             _FillLicenseClassToComboBox();
@@ -62,13 +67,18 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             if (this._Mode == enMode.enUpdate)
             {
                 _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
-
+                
                 if (_LDLA == null)
                 {
-                    MessageBox.Show("No User with ID = " + _LDLAID, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No LDLA with ID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
-
+                App = ApplicationsDb.FindApplication(_LDLA.applicationID);
+                if (App == null)
+                {
+                    MessageBox.Show("No Application with ID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                }
                 lblMode.Text = "Update User";
                 this.Text = "Update User";
                 tpAppllicationInfo.Enabled = true;
@@ -80,8 +90,12 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             {
                 lblMode.Text = "Add New User";
                 tpAppllicationInfo.Enabled = false;
+                lblAppFees.Text = ApplicationTypes.Find(1).applicationFee.ToString();
+                lblCreatedByUserID.Text = "1";
+                lblAppDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
+                cbLicenseClasses.SelectedIndex = 3;
                 _LDLA = new LocalDrivingLicenseApp();
-                _LDLA.ApplicationInfo = new ApplicationsDb();
+                 App = new ApplicationsDb();
 
             }
 
@@ -92,7 +106,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             if (this.ValidateChildren())
             {
                 _LDLA.licenseClassID = LicenseClass.Find(cbLicenseClasses.Text).ID;
-                _LDLA.applicationID = _LDLA.ApplicationInfo.ApplicationID;
+                _LDLA.applicationID = App.ID;
                 return true;
             }
             else
@@ -105,8 +119,28 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         /*
      Önce kayıt ekleme işlemi burada olmalı. Çünkü DL, henüz 2 tanbloya nasıl veri ekleriz bilmiyorzu. BL'de ise LocalApp sınıfından personID'e direk erişim yok. Bu yüzden buradan eklenmeli.
    */
+        private bool _AddNewApplication()
+        {
+            App.ApplicantPersonID = ctrlPersonCardWithFilter1.personID;
+            App.ApplicationDate = DateTime.Now;
+            App.ApplicationTypeID = 1;
+            App.ApplicationStatus = ApplicationsDb.enApplicationStatus.New;
+            App.LastStatusDate = DateTime.Now;
+            App.PaidFees = ApplicationTypes.Find(App.ApplicationTypeID).applicationFee;
+            // App.CreatedByUserID = loginSettings.currentUser.userID;
+            App.CreatedByUserID = 1;
+
+
+            return App.save(); ;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if(!_AddNewApplication())
+            {
+                MessageBox.Show("Could not save new App");
+                return;
+            }
             if (!_FillDataToObject())
             {
                 MessageBox.Show("Fill requireds properly");

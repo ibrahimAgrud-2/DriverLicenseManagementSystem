@@ -45,7 +45,7 @@ namespace DVLD_DataAccessLayer
 
             return dt;
         }
-        public static bool findLicenseClassByID(int licenseClassID, ref string className,ref string classDescription,ref int minimumAge,ref int defaultValidityLength,ref double classFee)
+        public static bool findLicenseClassByID(int licenseClassID, ref string className, ref string classDescription, ref int minimumAge, ref int defaultValidityLength, ref double classFee)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
@@ -111,7 +111,7 @@ namespace DVLD_DataAccessLayer
                     licenseClassID = read["licenseClassID"] != DBNull.Value ? Convert.ToInt32(read["licenseClassID"]) : 0;
                     className = read["className"].ToString();
                     classDescription = read["classDescription"].ToString();
-                    minimumAge = read["minimumAge"] != DBNull.Value ? Convert.ToInt32(read["minimumAge"]) : 0;
+                    minimumAge = Convert.ToInt32(read["MinimumAllowedAge"]);
                     defaultValidityLength = read["defaultValidityLength"] != DBNull.Value ? Convert.ToInt32(read["defaultValidityLength"]) : 0;
                     classFee = read["ClassFees"] != DBNull.Value ? Convert.ToDouble(read["ClassFees"]) : 0.0
                     ;
@@ -169,7 +169,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        
+
 
     }
 }

@@ -10,7 +10,7 @@ namespace DVLD_BusinessLayer
     {
 
 
-        public int ApplicationID { set; get; }
+        public int ID { set; get; }
 
         public int ApplicantPersonID { set; get; }
         public People ApplicantPerson { set; get; }
@@ -47,7 +47,7 @@ namespace DVLD_BusinessLayer
 
         public Applications()
         {
-            this.ApplicationID = -1;
+            this.ID = -1;
             this.ApplicantPersonID = -1;
             this.CreatedByUserID = -1;
             this.ApplicationDate=DateTime.Now;
@@ -62,7 +62,7 @@ namespace DVLD_BusinessLayer
            enApplicationStatus applicationStatus, DateTime LastStatusDate, double paidFee, int createdByUserID)
         {
 
-            this.ApplicationID = applicationID;
+            this.ID = applicationID;
             this.ApplicantPersonID = applicantPersonID;
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = applicationTypeID;
@@ -111,8 +111,8 @@ namespace DVLD_BusinessLayer
         private bool _AddNewApplication()
         {
 
-            this.ApplicationID = ApplicationsDataAccess.addApplication(ApplicantPersonID,ApplicationTypeID,Convert.ToByte(ApplicationStatus),LastStatusDate,PaidFees,CreatedByUserID);
-            return (this.ApplicationID != -1);
+            this.ID = ApplicationsDataAccess.addApplication(ApplicantPersonID,ApplicationTypeID,Convert.ToByte(ApplicationStatus),LastStatusDate,PaidFees,CreatedByUserID);
+            return (this.ID != -1);
 
         }
 
@@ -120,7 +120,7 @@ namespace DVLD_BusinessLayer
         private bool _UpdateApplication()
         {
             this.LastStatusDate = DateTime.Now;
-            return ApplicationsDataAccess.updateApplicationInfo(this.ApplicationID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID, Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
+            return ApplicationsDataAccess.updateApplicationInfo(this.ID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID, Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
 
