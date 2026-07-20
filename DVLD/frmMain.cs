@@ -50,7 +50,7 @@ namespace DVLD
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loginSettings.currentUser = null;
+            Global.currentUser = null;
             _FrmLogin.Show();
             this.Close();
         }
@@ -58,14 +58,14 @@ namespace DVLD
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            frmUserDetails frm = new frmUserDetails(loginSettings.currentUser.userID);
+            frmUserDetails frm = new frmUserDetails(Global.currentUser.userID);
             frm.ShowDialog();
 
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(loginSettings.currentUser.userID);
+            frmChangePassword frm = new frmChangePassword(Global.currentUser.userID);
             frm.ShowDialog();
         }
 

@@ -122,7 +122,7 @@
     <Compile Include="Licenses\International Licenses\frmShowInternationalLicenseInfo.Designer.cs">
       <DependentUpon>frmShowInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\loginSettings.cs" />
+    <Compile Include="Global Classes\Global.cs" />
     <Compile Include="People\Controls\ctrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>

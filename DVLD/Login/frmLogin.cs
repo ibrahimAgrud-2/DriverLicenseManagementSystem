@@ -20,24 +20,29 @@ namespace DVLD
         }       
 
 
-        private void _fillDataFromFileToField(string filePath,string dim="##")
+        private void _fillDataFromFileToField()
         {
+            string userName = "";
+            string password = "";
 
+            
+            if(Global.GetStoredCredential(ref userName, ref password))
+            {
+                txtUserName.Text = userName;
+                maskedTextBox1.Text = password;
+                cbRemeberMe.Checked = true; 
 
-            string fileContent = File.ReadAllText(filePath);
-            if (fileContent == string.Empty)
-                return;
-
-            int index = fileContent.IndexOf(loginSettings.dim);
-
-            txtUserName.Text = fileContent.Substring(0, index);
-            maskedTextBox1.Text = fileContent.Remove(0, index+dim.Length);
+            }
+            else
+            {
+                cbRemeberMe.Checked = false;
+            }
         }
 
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            _fillDataFromFileToField(loginSettings.filePath, loginSettings.dim);
+            _fillDataFromFileToField();
         }
 
 
@@ -50,7 +55,7 @@ namespace DVLD
                 if(u1.password==maskedTextBox1.Text)
                 {
                     
-                    loginSettings.currentUser = u1;
+                    Global.currentUser = u1;
 
                     if (!u1.isActive)
                     {
@@ -60,11 +65,13 @@ namespace DVLD
 
                     if (cbRemeberMe.Checked)
                     {
-                        File.WriteAllText(loginSettings.filePath, u1.userName+loginSettings.dim+u1.password);
+                        Global.RememberUsernameAndPassword(txtUserName.Text, txtUserName.Text);
+
+
                     }
                     else
                     {
-                        File.WriteAllText(loginSettings.filePath, "");
+                        Global.RememberUsernameAndPassword("", "");
                     }
 
                     frmMain frm = new frmMain(this);
@@ -74,6 +81,11 @@ namespace DVLD
             }
             MessageBox.Show("Invalid User Name/password");
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

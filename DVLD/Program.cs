@@ -27,7 +27,7 @@ namespace DVLD
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new frmAddUpdatePerson());
-            System.Windows.Forms.Application.Run(new frmManageDrivers());
+            System.Windows.Forms.Application.Run(new frmLogin());
 
         }
     }
