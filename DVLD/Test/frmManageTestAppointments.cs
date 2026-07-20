@@ -1,4 +1,5 @@
-﻿using DVLD.People.Controls;
+﻿using DVLD.Applications;
+using DVLD.People.Controls;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -68,7 +69,9 @@ namespace DVLD.Test
 
         private void btnAddApplication_Click(object sender, EventArgs e)
         {
-           
+            frmAddUpdateAppointment frm = new frmAddUpdateAppointment(_LDLAID);
+            frm.ShowDialog();
+
         }
     }
 }

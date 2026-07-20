@@ -36,17 +36,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblLDLAID = new System.Windows.Forms.Label();
+            this.lblPersonFullName = new System.Windows.Forms.Label();
+            this.lblApplicationFee = new System.Windows.Forms.Label();
+            this.lblClass = new System.Windows.Forms.Label();
+            this.lblTrail = new System.Windows.Forms.Label();
+            this.dtpApplicationDate = new System.Windows.Forms.DateTimePicker();
             this.gbRetakeTest = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblTotalFee = new System.Windows.Forms.Label();
+            this.retakeTestAppID = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblRetakeDate = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,17 +59,17 @@
             // 
             this.gbTestType.Controls.Add(this.button1);
             this.gbTestType.Controls.Add(this.gbRetakeTest);
-            this.gbTestType.Controls.Add(this.dateTimePicker1);
-            this.gbTestType.Controls.Add(this.label13);
+            this.gbTestType.Controls.Add(this.dtpApplicationDate);
+            this.gbTestType.Controls.Add(this.lblTrail);
             this.gbTestType.Controls.Add(this.label10);
-            this.gbTestType.Controls.Add(this.label12);
+            this.gbTestType.Controls.Add(this.lblClass);
             this.gbTestType.Controls.Add(this.label3);
-            this.gbTestType.Controls.Add(this.label11);
-            this.gbTestType.Controls.Add(this.label9);
+            this.gbTestType.Controls.Add(this.lblApplicationFee);
+            this.gbTestType.Controls.Add(this.lblPersonFullName);
             this.gbTestType.Controls.Add(this.label1);
             this.gbTestType.Controls.Add(this.label2);
             this.gbTestType.Controls.Add(this.label5);
-            this.gbTestType.Controls.Add(this.label7);
+            this.gbTestType.Controls.Add(this.lblLDLAID);
             this.gbTestType.Controls.Add(this.label6);
             this.gbTestType.Controls.Add(this.label4);
             this.gbTestType.Location = new System.Drawing.Point(97, 12);
@@ -157,76 +157,76 @@
             this.label6.TabIndex = 187;
             this.label6.Text = "Test Type";
             // 
-            // label7
+            // lblLDLAID
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(206, 126);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 25);
-            this.label7.TabIndex = 187;
-            this.label7.Text = "???";
+            this.lblLDLAID.AutoSize = true;
+            this.lblLDLAID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLDLAID.Location = new System.Drawing.Point(206, 126);
+            this.lblLDLAID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLDLAID.Name = "lblLDLAID";
+            this.lblLDLAID.Size = new System.Drawing.Size(48, 25);
+            this.lblLDLAID.TabIndex = 187;
+            this.lblLDLAID.Text = "???";
             // 
-            // label9
+            // lblPersonFullName
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(206, 187);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 25);
-            this.label9.TabIndex = 191;
-            this.label9.Text = "???";
+            this.lblPersonFullName.AutoSize = true;
+            this.lblPersonFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonFullName.Location = new System.Drawing.Point(206, 187);
+            this.lblPersonFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPersonFullName.Name = "lblPersonFullName";
+            this.lblPersonFullName.Size = new System.Drawing.Size(48, 25);
+            this.lblPersonFullName.TabIndex = 191;
+            this.lblPersonFullName.Text = "???";
             // 
-            // label11
+            // lblApplicationFee
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(206, 298);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 25);
-            this.label11.TabIndex = 194;
-            this.label11.Text = "???";
+            this.lblApplicationFee.AutoSize = true;
+            this.lblApplicationFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationFee.Location = new System.Drawing.Point(206, 298);
+            this.lblApplicationFee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApplicationFee.Name = "lblApplicationFee";
+            this.lblApplicationFee.Size = new System.Drawing.Size(48, 25);
+            this.lblApplicationFee.TabIndex = 194;
+            this.lblApplicationFee.Text = "???";
             // 
-            // label12
+            // lblClass
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(206, 158);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 25);
-            this.label12.TabIndex = 195;
-            this.label12.Text = "???";
+            this.lblClass.AutoSize = true;
+            this.lblClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClass.Location = new System.Drawing.Point(206, 158);
+            this.lblClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClass.Name = "lblClass";
+            this.lblClass.Size = new System.Drawing.Size(48, 25);
+            this.lblClass.TabIndex = 195;
+            this.lblClass.Text = "???";
             // 
-            // label13
+            // lblTrail
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(206, 219);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 25);
-            this.label13.TabIndex = 197;
-            this.label13.Text = "???";
+            this.lblTrail.AutoSize = true;
+            this.lblTrail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrail.Location = new System.Drawing.Point(206, 219);
+            this.lblTrail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTrail.Name = "lblTrail";
+            this.lblTrail.Size = new System.Drawing.Size(48, 25);
+            this.lblTrail.TabIndex = 197;
+            this.lblTrail.Text = "???";
             // 
-            // dateTimePicker1
+            // dtpApplicationDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(205, 258);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePicker1.TabIndex = 198;
+            this.dtpApplicationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpApplicationDate.Location = new System.Drawing.Point(205, 258);
+            this.dtpApplicationDate.Name = "dtpApplicationDate";
+            this.dtpApplicationDate.Size = new System.Drawing.Size(200, 28);
+            this.dtpApplicationDate.TabIndex = 198;
             // 
             // gbRetakeTest
             // 
-            this.gbRetakeTest.Controls.Add(this.label8);
+            this.gbRetakeTest.Controls.Add(this.lblTotalFee);
             this.gbRetakeTest.Controls.Add(this.label17);
             this.gbRetakeTest.Controls.Add(this.label18);
-            this.gbRetakeTest.Controls.Add(this.label16);
-            this.gbRetakeTest.Controls.Add(this.label14);
+            this.gbRetakeTest.Controls.Add(this.lblRetakeDate);
+            this.gbRetakeTest.Controls.Add(this.retakeTestAppID);
             this.gbRetakeTest.Controls.Add(this.label15);
             this.gbRetakeTest.Location = new System.Drawing.Point(13, 397);
             this.gbRetakeTest.Name = "gbRetakeTest";
@@ -235,27 +235,27 @@
             this.gbRetakeTest.TabStop = false;
             this.gbRetakeTest.Text = "Retake Test Info";
             // 
-            // label8
+            // lblTotalFee
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(337, 51);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 25);
-            this.label8.TabIndex = 202;
-            this.label8.Text = "Trail";
+            this.lblTotalFee.AutoSize = true;
+            this.lblTotalFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalFee.Location = new System.Drawing.Point(417, 51);
+            this.lblTotalFee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalFee.Name = "lblTotalFee";
+            this.lblTotalFee.Size = new System.Drawing.Size(55, 25);
+            this.lblTotalFee.TabIndex = 202;
+            this.lblTotalFee.Text = "Trail";
             // 
-            // label14
+            // retakeTestAppID
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(29, 81);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 25);
-            this.label14.TabIndex = 201;
-            this.label14.Text = "Fees";
+            this.retakeTestAppID.AutoSize = true;
+            this.retakeTestAppID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retakeTestAppID.Location = new System.Drawing.Point(29, 81);
+            this.retakeTestAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.retakeTestAppID.Name = "retakeTestAppID";
+            this.retakeTestAppID.Size = new System.Drawing.Size(60, 25);
+            this.retakeTestAppID.TabIndex = 201;
+            this.retakeTestAppID.Text = "Fees";
             // 
             // label15
             // 
@@ -268,16 +268,16 @@
             this.label15.TabIndex = 200;
             this.label15.Text = "Date:";
             // 
-            // label16
+            // lblRetakeDate
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(101, 41);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 25);
-            this.label16.TabIndex = 200;
-            this.label16.Text = "????";
+            this.lblRetakeDate.AutoSize = true;
+            this.lblRetakeDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRetakeDate.Location = new System.Drawing.Point(101, 41);
+            this.lblRetakeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRetakeDate.Name = "lblRetakeDate";
+            this.lblRetakeDate.Size = new System.Drawing.Size(60, 25);
+            this.lblRetakeDate.TabIndex = 200;
+            this.lblRetakeDate.Text = "????";
             // 
             // label17
             // 
@@ -294,12 +294,12 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(400, 51);
+            this.label18.Location = new System.Drawing.Point(294, 51);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 25);
+            this.label18.Size = new System.Drawing.Size(115, 25);
             this.label18.TabIndex = 200;
-            this.label18.Text = "????";
+            this.label18.Text = "Total Fees";
             // 
             // button1
             // 
@@ -350,19 +350,19 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lblTrail;
+        private System.Windows.Forms.Label lblClass;
+        private System.Windows.Forms.Label lblApplicationFee;
+        private System.Windows.Forms.Label lblPersonFullName;
+        private System.Windows.Forms.Label lblLDLAID;
+        private System.Windows.Forms.DateTimePicker dtpApplicationDate;
         private System.Windows.Forms.GroupBox gbRetakeTest;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblTotalFee;
+        private System.Windows.Forms.Label retakeTestAppID;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblRetakeDate;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }
