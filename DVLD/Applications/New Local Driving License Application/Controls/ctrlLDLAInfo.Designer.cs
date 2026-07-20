@@ -60,18 +60,19 @@
             // llShowLicenceInfo
             // 
             this.llShowLicenceInfo.AutoSize = true;
-            this.llShowLicenceInfo.Location = new System.Drawing.Point(149, 79);
+            this.llShowLicenceInfo.Location = new System.Drawing.Point(21, 82);
             this.llShowLicenceInfo.Name = "llShowLicenceInfo";
             this.llShowLicenceInfo.Size = new System.Drawing.Size(190, 26);
             this.llShowLicenceInfo.TabIndex = 191;
             this.llShowLicenceInfo.TabStop = true;
             this.llShowLicenceInfo.Text = "Show License Info";
+            this.llShowLicenceInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenceInfo_LinkClicked);
             // 
             // lblPassedTests
             // 
             this.lblPassedTests.AutoSize = true;
             this.lblPassedTests.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassedTests.Location = new System.Drawing.Point(544, 68);
+            this.lblPassedTests.Location = new System.Drawing.Point(553, 67);
             this.lblPassedTests.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassedTests.Name = "lblPassedTests";
             this.lblPassedTests.Size = new System.Drawing.Size(24, 25);
@@ -82,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(376, 68);
+            this.label2.Location = new System.Drawing.Point(387, 67);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 25);

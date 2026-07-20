@@ -53,3 +53,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.New_Local_Driv
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.frmManageLDLA.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Control.ctrlApplicationBasicInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.New_Local_Driving_License_Application.frmLDLAInfo.resources
