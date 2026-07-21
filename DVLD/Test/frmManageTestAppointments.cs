@@ -68,7 +68,7 @@ namespace DVLD.Test
         {
             frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment(_LDLAID);
             frm.ShowDialog();
-
+            _RefreshAppointmentList();
         }
     }
 }
