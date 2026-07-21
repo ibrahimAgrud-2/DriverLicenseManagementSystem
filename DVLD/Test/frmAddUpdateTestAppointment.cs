@@ -45,7 +45,7 @@ namespace DVLD.Applications
             //lbltrail.Text
             lblClass.Text = _LDLA.LicenseClassInfo.className;
             dtpApplicationDate.Value = _LDLA.ApplicationInfo.ApplicationDate;
-
+            
 
         }
 

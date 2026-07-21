@@ -8,10 +8,15 @@ namespace DVLD_BusinessLayer
     {
         public int testAppointmentID { get; set; }
         public int testTypeID { get; set; }
+        public clsTestType TestTypeInfo { get; set; }
+
         public int localDrivingLicenseApplicationID { get; set; }
+        public LocalDrivingLicenseApp LDLAInfo { get; set; }
+
         public DateTime appointmentDate { get; set; }
         public double paidFees { get; set; }
         public int createdByUserID { get; set; }
+        public User UserInfo { get; set; }
         public bool isLocked { get; set; }
         public int retakeTestApplicationID { get; set; }
 
