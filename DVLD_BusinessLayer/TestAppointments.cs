@@ -132,5 +132,10 @@ namespace DVLD_BusinessLayer
         {
             return TestAppointmentsDataAccess.deleteTestAppointment(testAppointmentID);
         }
+        public static int GetTestAppointmentCount(int LDLAID,int testTypeID)
+        {
+            return TestAppointmentsDataAccess.GetTestAppointmentCount(LDLAID,testTypeID);
+        }
+
     }
 }

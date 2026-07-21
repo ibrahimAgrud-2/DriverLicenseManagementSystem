@@ -37,7 +37,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.lblRetakeDate = new System.Windows.Forms.Label();
             this.retakeTestAppID = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.RetakeTestFees = new System.Windows.Forms.Label();
             this.dtpApplicationDate = new System.Windows.Forms.DateTimePicker();
             this.lblTrail = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -107,7 +107,8 @@
             this.gbRetakeTest.Controls.Add(this.label18);
             this.gbRetakeTest.Controls.Add(this.lblRetakeDate);
             this.gbRetakeTest.Controls.Add(this.retakeTestAppID);
-            this.gbRetakeTest.Controls.Add(this.label15);
+            this.gbRetakeTest.Controls.Add(this.RetakeTestFees);
+            this.gbRetakeTest.Enabled = false;
             this.gbRetakeTest.Location = new System.Drawing.Point(13, 397);
             this.gbRetakeTest.Name = "gbRetakeTest";
             this.gbRetakeTest.Size = new System.Drawing.Size(515, 143);
@@ -122,20 +123,20 @@
             this.lblTotalFee.Location = new System.Drawing.Point(417, 51);
             this.lblTotalFee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalFee.Name = "lblTotalFee";
-            this.lblTotalFee.Size = new System.Drawing.Size(55, 25);
+            this.lblTotalFee.Size = new System.Drawing.Size(48, 25);
             this.lblTotalFee.TabIndex = 202;
-            this.lblTotalFee.Text = "Trail";
+            this.lblTotalFee.Text = "???";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(105, 81);
+            this.label17.Location = new System.Drawing.Point(74, 91);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 25);
+            this.label17.Size = new System.Drawing.Size(111, 25);
             this.label17.TabIndex = 201;
-            this.label17.Text = "????";
+            this.label17.Text = "R.App.ID: ";
             // 
             // label18
             // 
@@ -144,15 +145,15 @@
             this.label18.Location = new System.Drawing.Point(294, 51);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(115, 25);
+            this.label18.Size = new System.Drawing.Size(128, 25);
             this.label18.TabIndex = 200;
-            this.label18.Text = "Total Fees";
+            this.label18.Text = "Total Fees: ";
             // 
             // lblRetakeDate
             // 
             this.lblRetakeDate.AutoSize = true;
             this.lblRetakeDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRetakeDate.Location = new System.Drawing.Point(101, 41);
+            this.lblRetakeDate.Location = new System.Drawing.Point(193, 41);
             this.lblRetakeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRetakeDate.Name = "lblRetakeDate";
             this.lblRetakeDate.Size = new System.Drawing.Size(60, 25);
@@ -163,23 +164,23 @@
             // 
             this.retakeTestAppID.AutoSize = true;
             this.retakeTestAppID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.retakeTestAppID.Location = new System.Drawing.Point(29, 81);
+            this.retakeTestAppID.Location = new System.Drawing.Point(193, 91);
             this.retakeTestAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.retakeTestAppID.Name = "retakeTestAppID";
             this.retakeTestAppID.Size = new System.Drawing.Size(60, 25);
             this.retakeTestAppID.TabIndex = 201;
             this.retakeTestAppID.Text = "Fees";
             // 
-            // label15
+            // RetakeTestFees
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(25, 41);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(64, 25);
-            this.label15.TabIndex = 200;
-            this.label15.Text = "Date:";
+            this.RetakeTestFees.AutoSize = true;
+            this.RetakeTestFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RetakeTestFees.Location = new System.Drawing.Point(7, 41);
+            this.RetakeTestFees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RetakeTestFees.Name = "RetakeTestFees";
+            this.RetakeTestFees.Size = new System.Drawing.Size(182, 25);
+            this.RetakeTestFees.TabIndex = 200;
+            this.RetakeTestFees.Text = "Retake Test Fees";
             // 
             // dtpApplicationDate
             // 
@@ -361,7 +362,7 @@
         private System.Windows.Forms.GroupBox gbRetakeTest;
         private System.Windows.Forms.Label lblTotalFee;
         private System.Windows.Forms.Label retakeTestAppID;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label RetakeTestFees;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblRetakeDate;

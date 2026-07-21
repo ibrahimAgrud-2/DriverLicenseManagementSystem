@@ -9,7 +9,7 @@ namespace DVLD
     public class Global
     {
 
-        public static User currentUser;
+        public static User currentUser=User.Find(1);
     
 
         public static bool RememberUsernameAndPassword(string userName,string password)

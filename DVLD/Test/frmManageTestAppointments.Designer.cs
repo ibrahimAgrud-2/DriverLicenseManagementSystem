@@ -156,7 +156,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmManageTestAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "For Each Test Type";
+            this.Text = "Manage Test Appointments (For each)";
             this.Load += new System.EventHandler(this.frmManageTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).EndInit();
             this.ResumeLayout(false);

@@ -50,9 +50,9 @@ namespace DVLD.Test
         private void _RefreshAppointmentList()
         {
             DataTable dt = TestAppointments.getTestAppointmentsRecords();
-            dt.DefaultView.RowFilter = $"TestTypeID={(int)this.TestType} and LocalDrivingLicenseApplicationID={_LDLAID}";
-            if (dgvAppointmentList.Rows.Count > 0)
-                    dgvAppointmentList.DataSource = dt;
+            dt.DefaultView.RowFilter = $"TestTypeID={(int)this.TestType+1} and LocalDrivingLicenseApplicationID={_LDLAID}";
+            dgvAppointmentList.DataSource = dt;
+
 
 
         }

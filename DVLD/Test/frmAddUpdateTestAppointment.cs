@@ -22,7 +22,7 @@ namespace DVLD.Applications
 
         private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA;
-        enum enTestType { Vision = 0, Written = 1, Street = 2 }
+        enum enTestType { Vision = 1, Written = 2, Street = 3 }
         enTestType TestType = enTestType.Vision;
 
         private void GetTestType()
@@ -42,10 +42,12 @@ namespace DVLD.Applications
             lblLDLAID.Text = _LDLA.ID.ToString();
             lblApplicationFee.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
             lblPersonFullName.Text = _LDLA.ApplicationInfo.ApplicantPerson.fullName;
-            //lbltrail.Text
+            lblTrail.Text = TestAppointments.GetTestAppointmentCount(_LDLA.ID, (int)TestType).ToString();
             lblClass.Text = _LDLA.LicenseClassInfo.className;
             dtpApplicationDate.Value = _LDLA.ApplicationInfo.ApplicationDate;
             
+            //fill the group box incase new retake test app added.
+
 
         }
 
@@ -56,6 +58,25 @@ namespace DVLD.Applications
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            TestAppointments testAppointment = new TestAppointments();
+
+            testAppointment.isLocked = false;
+            testAppointment.localDrivingLicenseApplicationID = _LDLAID;
+            testAppointment.testTypeID = (int)TestType;
+            testAppointment.appointmentDate = DateTime.Now;
+            testAppointment.paidFees = clsTestType.Find(clsTestType.enTestTypes.VisionTest).TestTypeFees;
+            testAppointment.createdByUserID = Global.currentUser.userID;
+
+            if(testAppointment.save())
+            {
+                MessageBox.Show("Yes");
+            }
+            else
+            {
+                MessageBox.Show("NO");
+            }
+
+
 
         }
     }
