@@ -229,8 +229,12 @@ namespace DVLD.Applications
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[5].Value.ToString(), out int completedTestCount))
             {
-                
-                for (int i = 0; i < 3; i++)
+                //eğer seçilen başvuru iptal edilmişse sınav başvurusu yapılamamalı.
+                if (dgvAppList.SelectedRows[0].Cells[6].Value.ToString() == "Cancelled")
+                {
+                    return;
+                }
+                    for (int i = 0; i < 3; i++)
                 {
                     //3 seçeneğide dolaş ve false yap.
                     ItemList.ElementAt(i).Enabled = false;
@@ -250,6 +254,7 @@ namespace DVLD.Applications
 
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int SelectedID))
             {
                 frmManageTestAppointments frm = new frmManageTestAppointments(SelectedID);
