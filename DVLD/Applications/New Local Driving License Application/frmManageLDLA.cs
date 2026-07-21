@@ -227,6 +227,7 @@ namespace DVLD.Applications
 
         private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            _HandleCsmOptionsEnabling();
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[5].Value.ToString(), out int completedTestCount))
             {
                 //eğer seçilen başvuru iptal edilmişse sınav başvurusu yapılamamalı.
@@ -263,6 +264,22 @@ namespace DVLD.Applications
             }
 
      
+        }
+   
+    
+    
+    //---------- Handle enabling context menu options -------------
+        private void _HandleCsmOptionsEnabling()
+        {
+            string AppStatus = dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
+
+            editToolStripMenuItem.Enabled = (AppStatus == "New");
+            DeleteApplicationToolStripMenuItem.Enabled = (AppStatus == "New");
+            ScheduleTestsMenue.Enabled = (AppStatus == "New");
+            CancelApplicaitonToolStripMenuItem.Enabled = (AppStatus == "New");
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (AppStatus == "Completed");
+
+
         }
     }
 }
