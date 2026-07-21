@@ -7,10 +7,14 @@ namespace DVLD_BusinessLayer
     public class Tests
     {
         public int testID { get; set; }
+
         public int testAppointmentID { get; set; }
+        public TestAppointments testAppointmentInfo { get; set; }
         public int testResult { get; set; }
         public string notes { get; set; }
         public int createdByUserID { get; private set; }
+        public User createdByUserInfo { get; set; }
+
 
         enum enMode {enAddNew=1,enUpdate=2 };
         enMode mode = enMode.enAddNew;

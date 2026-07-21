@@ -229,5 +229,42 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
+        public static int GetTestAppointmentCount(int LocalDrivingLicenseApplicationID, int testTypeID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = @"select COUNT(*) from TestAppointments where TestTypeID=@testTypeID and LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@testTypeID", testTypeID);
+            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+
+            try
+            {
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    return insertedID;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+ 
     }
 }
