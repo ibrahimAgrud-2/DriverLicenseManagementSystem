@@ -47,7 +47,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
             }
             _LDLAID = LDLAID;
             lblLocalDrivingLicenseApplicationID.Text = _LDLA.ID.ToString();
-            lblAppliedFor.Text = _LDLA.ApplicationInfo.ApplicationTypeInfo.applicantTypeTitle;
+            lblAppliedFor.Text = _LDLA.LicenseClassInfo.className;
             lblPassedTests.Text ="2";
             this.ctrlApplicationBasicInfo1.LoadAppInfo(_LDLA.applicationID);
 

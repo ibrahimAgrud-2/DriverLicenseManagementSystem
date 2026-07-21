@@ -28,24 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlApplicationBasicInfo1 = new DVLD.Applications.Control.ctrlApplicationBasicInfo();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // ctrlApplicationBasicInfo1
-            // 
-            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(48, 35);
-            this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
-            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1004, 225);
-            this.ctrlApplicationBasicInfo1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(217, 373);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(596, 22);
-            this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
@@ -63,21 +47,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 617);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.ctrlApplicationBasicInfo1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTest";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Applications.Control.ctrlApplicationBasicInfo ctrlApplicationBasicInfo1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
     }
 }

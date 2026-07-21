@@ -98,6 +98,7 @@
             this.button1.TabIndex = 200;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // gbRetakeTest
             // 

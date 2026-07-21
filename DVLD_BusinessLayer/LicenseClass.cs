@@ -12,11 +12,11 @@ namespace DVLD_BusinessLayer
 
         public int ID { set; get; }
 
-        string className { set; get; }
-        string classDescription { set; get; }
-        int minimumAge { set; get; }
-        int defaultValidityLength { set; get; }
-        double classFee { set; get; }
+        public string className { set; get; }
+        public string classDescription { set; get; }
+        public int minimumAge { set; get; }
+        public int defaultValidityLength { set; get; }
+        public double classFee { set; get; }
 
        public LicenseClass()
         {

@@ -34,7 +34,7 @@ namespace DVLD_BusinessLayer
             this.ApplicationInfo = ApplicationDb.FindApplication(applicationID);
 
             this.licenseClassID = licenseClassID;
-            this.LicenseClassInfo = LicenseClass.Find(applicationID);
+            this.LicenseClassInfo = LicenseClass.Find(licenseClassID);
 
             this.mode = enMode.enUpdate;
         }

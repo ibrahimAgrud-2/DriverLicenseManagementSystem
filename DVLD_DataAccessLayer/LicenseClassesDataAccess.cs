@@ -66,7 +66,7 @@ namespace DVLD_DataAccessLayer
                     licenseClassID = read["licenseClassID"] != DBNull.Value ? Convert.ToInt32(read["licenseClassID"]) : 0;
                     className = read["className"].ToString();
                     classDescription = read["classDescription"].ToString();
-                    minimumAge = read["minimumAge"] != DBNull.Value ? Convert.ToInt32(read["minimumAge"]) : 0;
+                    minimumAge = read["minimumAllowedAge"] != DBNull.Value ? Convert.ToInt32(read["minimumAllowedAge"]) : 0;
                     defaultValidityLength = read["defaultValidityLength"] != DBNull.Value ? Convert.ToInt32(read["defaultValidityLength"]) : 0;
                     classFee = read["ClassFees"] != DBNull.Value ? Convert.ToDouble(read["ClassFees"]) : 0.0
                     ;

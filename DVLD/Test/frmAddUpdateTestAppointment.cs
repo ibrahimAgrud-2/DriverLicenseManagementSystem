@@ -43,6 +43,7 @@ namespace DVLD.Applications
             lblApplicationFee.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
             lblPersonFullName.Text = _LDLA.ApplicationInfo.ApplicantPerson.fullName;
             //lbltrail.Text
+            //lbltrail.Text
             dtpApplicationDate.Value = _LDLA.ApplicationInfo.ApplicationDate;
 
 
@@ -51,6 +52,11 @@ namespace DVLD.Applications
         private void frmAddUpdateAppointment_Load(object sender, EventArgs e)
         {
             fillObjectDataToField();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

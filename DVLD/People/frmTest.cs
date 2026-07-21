@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,9 @@ namespace DVLD.People
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ctrlApplicationBasicInfo1.LoadAppInfo(Convert.ToInt32(textBox1.Text));
+            LicenseClass lC = LicenseClass.Find(4);
+            MessageBox.Show(lC.className);
+
 
         }
     }
