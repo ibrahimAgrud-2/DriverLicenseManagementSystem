@@ -53,6 +53,7 @@ namespace DVLD.Applications
 
         private void frmAddUpdateAppointment_Load(object sender, EventArgs e)
         {
+
             fillObjectDataToField();
         }
 

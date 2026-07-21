@@ -265,6 +265,39 @@ namespace DVLD_DataAccessLayer
                 connection.Close();
             }
         }
- 
+
+
+
+        public static bool IsSameActiveTestAppointmentExists(int LDLAID, int TestTypeID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = @"select * from TestAppointments where LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID and IsLocked=0 and TestTypeID=@TestTypeID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LDLAID);
+            cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int value))
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
+
     }
 }

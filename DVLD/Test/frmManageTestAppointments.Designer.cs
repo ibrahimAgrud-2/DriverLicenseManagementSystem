@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageTestAppointments));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblMode = new System.Windows.Forms.Label();
@@ -36,9 +37,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddApplication = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlLDLAInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo();
             this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
+            this.ctrlLDLAInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblMode
@@ -102,15 +107,6 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Appointments: ";
             // 
-            // ctrlLDLAInfo1
-            // 
-            this.ctrlLDLAInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlLDLAInfo1.Location = new System.Drawing.Point(55, 65);
-            this.ctrlLDLAInfo1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlLDLAInfo1.Name = "ctrlLDLAInfo1";
-            this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1068, 441);
-            this.ctrlLDLAInfo1.TabIndex = 0;
-            // 
             // dgvAppointmentList
             // 
             this.dgvAppointmentList.AllowUserToAddRows = false;
@@ -118,6 +114,7 @@
             this.dgvAppointmentList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAppointmentList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointmentList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvAppointmentList.Cursor = System.Windows.Forms.Cursors.Default;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -137,6 +134,36 @@
             this.dgvAppointmentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAppointmentList.Size = new System.Drawing.Size(1047, 168);
             this.dgvAppointmentList.TabIndex = 32;
+            // 
+            // ctrlLDLAInfo1
+            // 
+            this.ctrlLDLAInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlLDLAInfo1.Location = new System.Drawing.Point(55, 65);
+            this.ctrlLDLAInfo1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlLDLAInfo1.Name = "ctrlLDLAInfo1";
+            this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1068, 441);
+            this.ctrlLDLAInfo1.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.takeToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 52);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // takeToolStripMenuItem
+            // 
+            this.takeToolStripMenuItem.Name = "takeToolStripMenuItem";
+            this.takeToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.takeToolStripMenuItem.Text = "Take";
             // 
             // frmManageTestAppointments
             // 
@@ -159,6 +186,7 @@
             this.Text = "Manage Test Appointments (For each)";
             this.Load += new System.EventHandler(this.frmManageTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,5 +202,8 @@
         private System.Windows.Forms.Button btnAddApplication;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvAppointmentList;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem takeToolStripMenuItem;
     }
 }

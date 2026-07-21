@@ -136,6 +136,10 @@ namespace DVLD_BusinessLayer
         {
             return TestAppointmentsDataAccess.GetTestAppointmentCount(LDLAID,testTypeID);
         }
+        public static bool IsSameActiveTestAppointmentExists(int LDLAID, int testTypeID)   
+        {
+            return TestAppointmentsDataAccess.IsSameActiveTestAppointmentExists(LDLAID, testTypeID);
+        }
 
     }
 }

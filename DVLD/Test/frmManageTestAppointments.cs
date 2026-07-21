@@ -66,6 +66,11 @@ namespace DVLD.Test
 
         private void btnAddApplication_Click(object sender, EventArgs e)
         {
+            if (TestAppointments.IsSameActiveTestAppointmentExists(_LDLAID, (int)TestType+1))
+            {
+                MessageBox.Show("Already Exists");
+                return;
+            }
             frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment(_LDLAID);
             frm.ShowDialog();
             _RefreshAppointmentList();
