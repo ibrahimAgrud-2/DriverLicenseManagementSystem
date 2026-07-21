@@ -67,11 +67,11 @@
     <Compile Include="Applications\Control\ctrlApplicationBasicInfo.Designer.cs">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\frmAddUpdateAppointment.cs">
+    <Compile Include="Applications\frmAddUpdateTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\frmAddUpdateAppointment.Designer.cs">
-      <DependentUpon>frmAddUpdateAppointment.cs</DependentUpon>
+    <Compile Include="Applications\frmAddUpdateTestAppointment.Designer.cs">
+      <DependentUpon>frmAddUpdateTestAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\New Local Driving License Application\Controls\ctrlLDLAInfo.cs">
       <SubType>UserControl</SubType>
@@ -242,8 +242,8 @@
     <EmbeddedResource Include="Applications\Control\ctrlApplicationBasicInfo.resx">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\frmAddUpdateAppointment.resx">
-      <DependentUpon>frmAddUpdateAppointment.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\frmAddUpdateTestAppointment.resx">
+      <DependentUpon>frmAddUpdateTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\New Local Driving License Application\Controls\ctrlLDLAInfo.resx">
       <DependentUpon>ctrlLDLAInfo.cs</DependentUpon>

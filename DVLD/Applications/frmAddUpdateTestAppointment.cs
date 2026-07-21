@@ -12,9 +12,9 @@ using static clsTestType;
 
 namespace DVLD.Applications
 {
-    public partial class frmAddUpdateAppointment : Form
+    public partial class frmAddUpdateTestAppointment : Form
     {
-        public frmAddUpdateAppointment(int LDLAID)
+        public frmAddUpdateTestAppointment(int LDLAID)
         {
             InitializeComponent();
             _LDLAID = LDLAID;

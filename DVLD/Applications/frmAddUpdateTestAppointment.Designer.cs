@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications
 {
-    partial class frmAddUpdateAppointment
+    partial class frmAddUpdateTestAppointment
     {
         /// <summary>
         /// Required designer variable.
@@ -319,7 +319,7 @@
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // frmAddUpdateAppointment
+            // frmAddUpdateTestAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -329,9 +329,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmAddUpdateAppointment";
+            this.Name = "frmAddUpdateTestAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddUpdateAppointment";
+            this.Text = "Add Update Test Appointment";
             this.Load += new System.EventHandler(this.frmAddUpdateAppointment_Load);
             this.gbTestType.ResumeLayout(false);
             this.gbTestType.PerformLayout();

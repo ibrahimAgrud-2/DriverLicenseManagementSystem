@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageTestAppointments));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblMode = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.lblRecords = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddApplication = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ctrlLDLAInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMode
@@ -50,17 +51,6 @@
             this.lblMode.Size = new System.Drawing.Size(177, 39);
             this.lblMode.TabIndex = 1;
             this.lblMode.Text = "Test Type";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(66, 590);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1057, 168);
-            this.dataGridView1.TabIndex = 2;
             // 
             // label5
             // 
@@ -94,7 +84,7 @@
             // btnAddApplication
             // 
             this.btnAddApplication.Image = ((System.Drawing.Image)(resources.GetObject("btnAddApplication.Image")));
-            this.btnAddApplication.Location = new System.Drawing.Point(1045, 513);
+            this.btnAddApplication.Location = new System.Drawing.Point(1035, 513);
             this.btnAddApplication.Name = "btnAddApplication";
             this.btnAddApplication.Size = new System.Drawing.Size(78, 71);
             this.btnAddApplication.TabIndex = 26;
@@ -121,17 +111,44 @@
             this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1068, 441);
             this.ctrlLDLAInfo1.TabIndex = 0;
             // 
+            // dgvAppointmentList
+            // 
+            this.dgvAppointmentList.AllowUserToAddRows = false;
+            this.dgvAppointmentList.AllowUserToDeleteRows = false;
+            this.dgvAppointmentList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAppointmentList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointmentList.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAppointmentList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAppointmentList.Location = new System.Drawing.Point(66, 590);
+            this.dgvAppointmentList.MultiSelect = false;
+            this.dgvAppointmentList.Name = "dgvAppointmentList";
+            this.dgvAppointmentList.ReadOnly = true;
+            this.dgvAppointmentList.RowHeadersVisible = false;
+            this.dgvAppointmentList.RowHeadersWidth = 51;
+            this.dgvAppointmentList.RowTemplate.Height = 24;
+            this.dgvAppointmentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAppointmentList.Size = new System.Drawing.Size(1047, 168);
+            this.dgvAppointmentList.TabIndex = 32;
+            // 
             // frmManageTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 817);
+            this.Controls.Add(this.dgvAppointmentList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddApplication);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblRecords);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblMode);
             this.Controls.Add(this.ctrlLDLAInfo1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,9 +156,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmManageTestAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmManageTestAppointments";
+            this.Text = "For Each Test Type";
             this.Load += new System.EventHandler(this.frmManageTestAppointments_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,11 +168,11 @@
 
         private Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo ctrlLDLAInfo1;
         private System.Windows.Forms.Label lblMode;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAddApplication;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvAppointmentList;
     }
 }

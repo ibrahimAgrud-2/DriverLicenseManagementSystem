@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataGrid;
 
 namespace DVLD.Test
 {
@@ -45,31 +46,27 @@ namespace DVLD.Test
 
             this.ctrlLDLAInfo1.LoadData(_LDLA.ID);
         }
+
+        private void _RefreshAppointmentList()
+        {
+            DataTable dt = TestAppointments.getTestAppointmentsRecords();
+            dt.DefaultView.RowFilter = $"TestTypeID={(int)this.TestType} and LocalDrivingLicenseApplicationID={_LDLAID}";
+            if (dgvAppointmentList.Rows.Count > 0)
+                    dgvAppointmentList.DataSource = dt;
+
+
+        }
         private void frmManageTestAppointments_Load(object sender, EventArgs e)
         {
             _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
             GetTestType();
             fillObjectDataToField();
-          switch (TestType)
-            {
-                case enTestType.Vision:
-                    this.Text = "Vision Test Appointment";
-                    break;
-                case enTestType.Written:
-                    this.Text = "Written Test Appointment";
-                    break;
-                case enTestType.Street:
-                    this.Text = "Street Test Appointment";
-                    break;
-            }
-
-
-          
+            _RefreshAppointmentList();
         }
 
         private void btnAddApplication_Click(object sender, EventArgs e)
         {
-            frmAddUpdateAppointment frm = new frmAddUpdateAppointment(_LDLAID);
+            frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment(_LDLAID);
             frm.ShowDialog();
 
         }
