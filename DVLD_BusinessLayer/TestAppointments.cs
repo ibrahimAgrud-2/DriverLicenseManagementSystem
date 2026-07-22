@@ -78,6 +78,10 @@ namespace DVLD_BusinessLayer
         {
             return TestAppointmentsDataAccess.isTestAppointmentExist(testAppointmentID);
         }
+        public static bool isSameActiveTestAppointmentExistsForLocalLicenseApp(int LocalLicenseApplication,int testType)
+        {
+            return TestAppointmentsDataAccess.isSameActiveTestAppointmentExistsForLocalLicenseApp(LocalLicenseApplication, testType);
+        }
 
         public bool save()
         {
@@ -131,5 +135,6 @@ namespace DVLD_BusinessLayer
         {
             return TestAppointmentsDataAccess.deleteTestAppointment(testAppointmentID);
         }
+
     }
 }
