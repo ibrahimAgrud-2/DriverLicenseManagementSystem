@@ -291,13 +291,13 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
                 }
                 else
                 {
-                    return -1;
+                    return 0;
                 }
             }
             catch (Exception)
             {
 
-                return -1;
+                return 0;
             }
             finally
             {

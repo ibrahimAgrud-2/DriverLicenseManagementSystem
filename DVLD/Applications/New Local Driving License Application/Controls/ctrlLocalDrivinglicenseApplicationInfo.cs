@@ -32,7 +32,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
 
             lblLDLAID.Text = LDLA.ID.ToString() ;
             lblAppliedForLicense.Text = LDLA.LicenseClassInfo.className;
-            //lblPassedTestCount.Text
+            lblPassedTestCount.Text = LDLA.GetPassedTestCount().ToString();
         }
 
 

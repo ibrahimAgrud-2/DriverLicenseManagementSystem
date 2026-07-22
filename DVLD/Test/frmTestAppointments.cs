@@ -98,7 +98,9 @@ namespace DVLD.Test
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-
+            frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment();
+            frm.ShowDialog();
+            _RefreshAppointmentList();
         }
 
     }
