@@ -29,24 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlLocalDrivinglicenseApplicationInfo));
-            this.ctrlApplicationInfo1 = new DVLD.Applications.Controls.ctrlApplicationInfo();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lnklblEditPersonInfo = new System.Windows.Forms.LinkLabel();
             this.lblPassedTestCount = new System.Windows.Forms.Label();
             this.lblAppliedForLicense = new System.Windows.Forms.Label();
             this.lblLDLAID = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lnklblEditPersonInfo = new System.Windows.Forms.LinkLabel();
+            this.ctrlApplicationInfo1 = new DVLD.Applications.Controls.ctrlApplicationInfo();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ctrlApplicationInfo1
-            // 
-            this.ctrlApplicationInfo1.Location = new System.Drawing.Point(0, 166);
-            this.ctrlApplicationInfo1.Name = "ctrlApplicationInfo1";
-            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(954, 359);
-            this.ctrlApplicationInfo1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -60,15 +53,26 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(936, 157);
+            this.groupBox1.Size = new System.Drawing.Size(681, 157);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Local License App Info";
             // 
+            // lnklblEditPersonInfo
+            // 
+            this.lnklblEditPersonInfo.AutoSize = true;
+            this.lnklblEditPersonInfo.Enabled = false;
+            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(45, 108);
+            this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
+            this.lnklblEditPersonInfo.Size = new System.Drawing.Size(164, 24);
+            this.lnklblEditPersonInfo.TabIndex = 87;
+            this.lnklblEditPersonInfo.TabStop = true;
+            this.lnklblEditPersonInfo.Text = "Show License Info";
+            // 
             // lblPassedTestCount
             // 
             this.lblPassedTestCount.AutoSize = true;
-            this.lblPassedTestCount.Location = new System.Drawing.Point(616, 108);
+            this.lblPassedTestCount.Location = new System.Drawing.Point(547, 108);
             this.lblPassedTestCount.Name = "lblPassedTestCount";
             this.lblPassedTestCount.Size = new System.Drawing.Size(60, 24);
             this.lblPassedTestCount.TabIndex = 84;
@@ -77,7 +81,7 @@
             // lblAppliedForLicense
             // 
             this.lblAppliedForLicense.AutoSize = true;
-            this.lblAppliedForLicense.Location = new System.Drawing.Point(616, 45);
+            this.lblAppliedForLicense.Location = new System.Drawing.Point(547, 45);
             this.lblAppliedForLicense.Name = "lblAppliedForLicense";
             this.lblAppliedForLicense.Size = new System.Drawing.Size(60, 24);
             this.lblAppliedForLicense.TabIndex = 85;
@@ -96,7 +100,7 @@
             // 
             this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(411, 108);
+            this.label7.Location = new System.Drawing.Point(342, 108);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(160, 32);
@@ -106,7 +110,7 @@
             // label4
             // 
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label4.Location = new System.Drawing.Point(411, 45);
+            this.label4.Location = new System.Drawing.Point(342, 45);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(198, 32);
@@ -123,16 +127,12 @@
             this.label12.TabIndex = 83;
             this.label12.Text = "LDLA ID: ";
             // 
-            // lnklblEditPersonInfo
+            // ctrlApplicationInfo1
             // 
-            this.lnklblEditPersonInfo.AutoSize = true;
-            this.lnklblEditPersonInfo.Enabled = false;
-            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(45, 108);
-            this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
-            this.lnklblEditPersonInfo.Size = new System.Drawing.Size(164, 24);
-            this.lnklblEditPersonInfo.TabIndex = 87;
-            this.lnklblEditPersonInfo.TabStop = true;
-            this.lnklblEditPersonInfo.Text = "Show License Info";
+            this.ctrlApplicationInfo1.Location = new System.Drawing.Point(18, 166);
+            this.ctrlApplicationInfo1.Name = "ctrlApplicationInfo1";
+            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(681, 258);
+            this.ctrlApplicationInfo1.TabIndex = 0;
             // 
             // ctrlLocalDrivinglicenseApplicationInfo
             // 
@@ -141,7 +141,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ctrlApplicationInfo1);
             this.Name = "ctrlLocalDrivinglicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(970, 512);
+            this.Size = new System.Drawing.Size(718, 443);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

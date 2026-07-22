@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.New_Local_Driving_License_Application;
+using DVLD.Test;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace DVLD.Applications
 
         }
 
-        private void _RefreshPeopleList()
+        private void _RefreshLocalLicenseApplicationList()
         {
             _DtAppList = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
 
@@ -50,7 +51,7 @@ namespace DVLD.Applications
 
         private void frmManageLDLA_Load(object sender, EventArgs e)
         {
-            _RefreshPeopleList();
+            _RefreshLocalLicenseApplicationList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
 
@@ -71,7 +72,7 @@ namespace DVLD.Applications
         {
             frmAddUpdateLocalDrivingLicenseApp frm = new frmAddUpdateLocalDrivingLicenseApp();
             frm.ShowDialog();
-            _RefreshPeopleList();
+            _RefreshLocalLicenseApplicationList();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace DVLD.Applications
 
                 frmAddUpdateLocalDrivingLicenseApp frm = new frmAddUpdateLocalDrivingLicenseApp(selectedPersonID);
                 frm.ShowDialog();
-                _RefreshPeopleList();
+                _RefreshLocalLicenseApplicationList();
             }
         }
 
@@ -96,7 +97,7 @@ namespace DVLD.Applications
                         if (LocalDrivingLicenseApp.deleteLocalDrivingLicenseApp(selectedPersonID))
                         {
                             MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            _RefreshPeopleList();
+                            _RefreshLocalLicenseApplicationList();
                         }
                         else
                         {
@@ -261,6 +262,13 @@ namespace DVLD.Applications
         private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             _HandleEnablingCsmOptions();
+        }
+
+        private void ScheduleTest_Click(object sender, EventArgs e)
+        {
+            frmTestAppointments frm = new frmTestAppointments();
+            frm.ShowDialog();
+            _RefreshLocalLicenseApplicationList();
         }
     }
 }

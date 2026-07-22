@@ -32,23 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlApplicationInfo));
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblApplicantPersonFullName = new System.Windows.Forms.Label();
+            this.lblAppType = new System.Windows.Forms.Label();
             this.lblFees = new System.Windows.Forms.Label();
             this.lblAppStatus = new System.Windows.Forms.Label();
             this.lnklblEditPersonInfo = new System.Windows.Forms.LinkLabel();
             this.lblCountry = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblAppLastStatusDate = new System.Windows.Forms.Label();
             this.lblCreatedByUserID = new System.Windows.Forms.Label();
             this.lblAppDate = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblAppType = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblApplicantPersonFullName = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblAppLastStatusDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -78,12 +78,30 @@
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(23, 20);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(927, 312);
+            this.groupBox1.Size = new System.Drawing.Size(678, 252);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Application Info";
+            // 
+            // lblApplicantPersonFullName
+            // 
+            this.lblApplicantPersonFullName.AutoSize = true;
+            this.lblApplicantPersonFullName.Location = new System.Drawing.Point(215, 217);
+            this.lblApplicantPersonFullName.Name = "lblApplicantPersonFullName";
+            this.lblApplicantPersonFullName.Size = new System.Drawing.Size(60, 24);
+            this.lblApplicantPersonFullName.TabIndex = 80;
+            this.lblApplicantPersonFullName.Text = "?????";
+            // 
+            // lblAppType
+            // 
+            this.lblAppType.AutoSize = true;
+            this.lblAppType.Location = new System.Drawing.Point(215, 154);
+            this.lblAppType.Name = "lblAppType";
+            this.lblAppType.Size = new System.Drawing.Size(60, 24);
+            this.lblAppType.TabIndex = 80;
+            this.lblAppType.Text = "?????";
             // 
             // lblFees
             // 
@@ -124,6 +142,28 @@
             this.lblCountry.TabIndex = 85;
             this.lblCountry.Text = "?????";
             // 
+            // label7
+            // 
+            this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.Location = new System.Drawing.Point(25, 217);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(160, 32);
+            this.label7.TabIndex = 74;
+            this.label7.Text = "Applicant: ";
+            // 
+            // label4
+            // 
+            this.label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.Location = new System.Drawing.Point(25, 154);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(160, 32);
+            this.label4.TabIndex = 74;
+            this.label4.Text = "App.Type";
+            // 
             // label1
             // 
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
@@ -146,6 +186,15 @@
             this.label2.TabIndex = 75;
             this.label2.Text = "Status";
             // 
+            // lblAppLastStatusDate
+            // 
+            this.lblAppLastStatusDate.AutoSize = true;
+            this.lblAppLastStatusDate.Location = new System.Drawing.Point(609, 91);
+            this.lblAppLastStatusDate.Name = "lblAppLastStatusDate";
+            this.lblAppLastStatusDate.Size = new System.Drawing.Size(60, 24);
+            this.lblAppLastStatusDate.TabIndex = 84;
+            this.lblAppLastStatusDate.Text = "?????";
+            // 
             // lblCreatedByUserID
             // 
             this.lblCreatedByUserID.Image = ((System.Drawing.Image)(resources.GetObject("lblCreatedByUserID.Image")));
@@ -165,6 +214,17 @@
             this.lblAppDate.Size = new System.Drawing.Size(60, 24);
             this.lblAppDate.TabIndex = 83;
             this.lblAppDate.Text = "?????";
+            // 
+            // label11
+            // 
+            this.label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Location = new System.Drawing.Point(423, 91);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(142, 26);
+            this.label11.TabIndex = 77;
+            this.label11.Text = "Status Date";
             // 
             // lbID
             // 
@@ -196,73 +256,13 @@
             this.label5.TabIndex = 79;
             this.label5.Text = "ID: ";
             // 
-            // label4
-            // 
-            this.label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label4.Location = new System.Drawing.Point(25, 154);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 32);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "App.Type";
-            // 
-            // lblAppType
-            // 
-            this.lblAppType.AutoSize = true;
-            this.lblAppType.Location = new System.Drawing.Point(215, 154);
-            this.lblAppType.Name = "lblAppType";
-            this.lblAppType.Size = new System.Drawing.Size(60, 24);
-            this.lblAppType.TabIndex = 80;
-            this.lblAppType.Text = "?????";
-            // 
-            // label7
-            // 
-            this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(25, 217);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 32);
-            this.label7.TabIndex = 74;
-            this.label7.Text = "Applicant: ";
-            // 
-            // lblApplicantPersonFullName
-            // 
-            this.lblApplicantPersonFullName.AutoSize = true;
-            this.lblApplicantPersonFullName.Location = new System.Drawing.Point(215, 217);
-            this.lblApplicantPersonFullName.Name = "lblApplicantPersonFullName";
-            this.lblApplicantPersonFullName.Size = new System.Drawing.Size(60, 24);
-            this.lblApplicantPersonFullName.TabIndex = 80;
-            this.lblApplicantPersonFullName.Text = "?????";
-            // 
-            // label11
-            // 
-            this.label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Location = new System.Drawing.Point(423, 91);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(142, 26);
-            this.label11.TabIndex = 77;
-            this.label11.Text = "Status Date";
-            // 
-            // lblAppLastStatusDate
-            // 
-            this.lblAppLastStatusDate.AutoSize = true;
-            this.lblAppLastStatusDate.Location = new System.Drawing.Point(609, 91);
-            this.lblAppLastStatusDate.Name = "lblAppLastStatusDate";
-            this.lblAppLastStatusDate.Size = new System.Drawing.Size(60, 24);
-            this.lblAppLastStatusDate.TabIndex = 84;
-            this.lblAppLastStatusDate.Text = "?????";
-            // 
-            // frmApplicationInfo
+            // ctrlApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmApplicationInfo";
-            this.Size = new System.Drawing.Size(965, 347);
+            this.Name = "ctrlApplicationInfo";
+            this.Size = new System.Drawing.Size(690, 262);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
