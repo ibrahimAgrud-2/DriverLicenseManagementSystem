@@ -53,7 +53,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(681, 157);
+            this.groupBox1.Size = new System.Drawing.Size(949, 157);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Local License App Info";
@@ -131,7 +131,7 @@
             // 
             this.ctrlApplicationInfo1.Location = new System.Drawing.Point(18, 166);
             this.ctrlApplicationInfo1.Name = "ctrlApplicationInfo1";
-            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(681, 258);
+            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(975, 258);
             this.ctrlApplicationInfo1.TabIndex = 0;
             // 
             // ctrlLocalDrivinglicenseApplicationInfo
@@ -141,7 +141,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ctrlApplicationInfo1);
             this.Name = "ctrlLocalDrivinglicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(718, 443);
+            this.Size = new System.Drawing.Size(982, 443);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

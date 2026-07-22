@@ -266,9 +266,20 @@ namespace DVLD.Applications
 
         private void ScheduleTest_Click(object sender, EventArgs e)
         {
-            frmTestAppointments frm = new frmTestAppointments();
-            frm.ShowDialog();
-            _RefreshLocalLicenseApplicationList();
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedLDLAID))
+            {
+
+                int passedTestCount = (int)dgvAppList.SelectedRows[0].Cells[5].Value;
+
+                
+
+                frmTestAppointments frm = new frmTestAppointments(selectedLDLAID,(frmTestAppointments.enTestType)(passedTestCount));
+                frm.ShowDialog();
+                _RefreshLocalLicenseApplicationList();
+            }
+
+
+         
         }
     }
 }

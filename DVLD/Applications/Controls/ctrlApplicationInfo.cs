@@ -79,7 +79,7 @@ namespace DVLD.Applications.Controls
 
         private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmAddUpdatePerson frm = new frmAddUpdatePerson(_App.ApplicantPersonID);
+            frmPersonDetail frm = new frmPersonDetail(_App.ApplicantPersonID);
             frm.ShowDialog();
             LoadAppInfo(ApplicationID);
         }

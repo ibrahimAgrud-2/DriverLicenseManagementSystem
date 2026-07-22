@@ -26,12 +26,12 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
         public LocalDrivingLicenseApp SelectedLocalLicenseApp { get { return _LDLA; } }
 
 
-        private void fillObjectDataToField(LocalDrivingLicenseApp App)
+        private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
         {
-            this.ctrlApplicationInfo1.LoadAppInfo(App.applicationID);
+            this.ctrlApplicationInfo1.LoadAppInfo(LDLA.applicationID);
 
-            lblLDLAID.Text = App.ID.ToString() ;
-            lblAppliedForLicense.Text = App.LicenseClassInfo.className;
+            lblLDLAID.Text = LDLA.ID.ToString() ;
+            lblAppliedForLicense.Text = LDLA.LicenseClassInfo.className;
             //lblPassedTestCount.Text
         }
 
