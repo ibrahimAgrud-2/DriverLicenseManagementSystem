@@ -11,8 +11,12 @@ namespace DVLD_BusinessLayer
 
         public int InternationalLicenseID { get; set; }
         public int ApplicationID { get; set; }
+        public Applications ApplicationInfo { get; set; }
         public int DriverID { get; set; }
+        public Driver DriverInfo { get; set; }
+
         public int IssuedUsingLocalLicenseID { get; set; }
+        public Licenses IssuedUsingLocalLicenseInfo  { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
         public bool IsActive { get; set; }

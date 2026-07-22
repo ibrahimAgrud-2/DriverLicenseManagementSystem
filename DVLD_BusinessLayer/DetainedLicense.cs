@@ -10,10 +10,12 @@ namespace DVLD_BusinessLayer
     {
          int detainID { set; get; }
        public int licenseID { set; get; }
+        public Licenses LicenseInfo { set; get; }
 
             public  DateTime _detainDate { set; get; }
            public   double fineFees { set; get; }
-        public int _createdByUserID { set; get; }
+        public int CreatedByUserID { set; get; }
+      
            public  bool isReleased { set; get; }
             DateTime releaseDate { set; get; }
 
@@ -30,7 +32,7 @@ namespace DVLD_BusinessLayer
             this.licenseID = -1;
             this._detainDate = DateTime.Now;
             this.fineFees = 0.0;
-            this._createdByUserID = -1;
+            this.CreatedByUserID = -1;
             this.isReleased = false;
             this.releaseDate = DateTime.Now;
             this.releasedByUserID = -1;
@@ -43,7 +45,7 @@ namespace DVLD_BusinessLayer
             this.licenseID = licensedID;
             this._detainDate = detainDate;
             this.fineFees = fineFees;
-            this._createdByUserID = createdByUserID;
+            this.CreatedByUserID = createdByUserID;
             this.isReleased = isReleased;
             this.releaseDate = releaseDate;
             this.releasedByUserID = releasedByUserID;
@@ -78,13 +80,13 @@ namespace DVLD_BusinessLayer
         {
 
             //bunlar şimdilik böyle ama gerekli ayarlamalar yapıldıktan sonra (arayüz, admin/user sistemi) sistem otomatik belirleyecek
-            this._createdByUserID = 1;
+            this.CreatedByUserID = 1;
             this._detainDate = DateTime.Now;
             this.releasedByUserID = 1;
 
        
 
-            this.detainID = DetainedLicensesDataAccess.addDetainedLicense(this.licenseID, this._detainDate, this.fineFees, this._createdByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
+            this.detainID = DetainedLicensesDataAccess.addDetainedLicense(this.licenseID, this._detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
 
 
             return (this.detainID != -1);
@@ -93,14 +95,14 @@ namespace DVLD_BusinessLayer
 
         private bool _updateDetainedLicense()
         {
-            this._createdByUserID = 1;
+            this.CreatedByUserID = 1;
             this.releasedByUserID = 1;
             this.fineFees = 12;
             this._detainDate = DateTime.Now;
             this.releaseDate = DateTime.Now;
             
 
-            return DetainedLicensesDataAccess.updateDetainedLicense(this.detainID,this.licenseID, this._detainDate, this.fineFees, this._createdByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
+            return DetainedLicensesDataAccess.updateDetainedLicense(this.detainID,this.licenseID, this._detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
         }
          public  static bool isDetainedLicenseExist(int detainID)
         {

@@ -73,7 +73,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                     MessageBox.Show("No LDLA with ID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
-                App = ApplicationsDb.FindApplication(_LDLA.applicationID);
+                App = ApplicationsDb.Find(_LDLA.applicationID);
                 if (App == null)
                 {
                     MessageBox.Show("No Application with ID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -186,6 +186,11 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         private void btnNext_Click(object sender, EventArgs e)
         {
             tbMain.SelectedIndex = 1;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

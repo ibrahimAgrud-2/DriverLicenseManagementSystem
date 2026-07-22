@@ -14,18 +14,18 @@ namespace DVLD.Test.Test_Types
 {
     public partial class frmEditTestTypes : Form
     {
-        public frmEditTestTypes(clsTestType.enTestTypes testTypeID)
+        public frmEditTestTypes(TestType.enTestTypes testTypeID)
         {
             InitializeComponent();
             _TestTypeID = testTypeID;
         }
 
-        private clsTestType.enTestTypes _TestTypeID;
-        clsTestType _TestType;
+        private TestType.enTestTypes _TestTypeID;
+        TestType _TestType;
 
         private void frmEditTestTypes_Load(object sender, EventArgs e)
         {
-            _TestType = clsTestType.Find(_TestTypeID);
+            _TestType = TestType.Find(_TestTypeID);
             if (_TestType == null)
             {
                 MessageBox.Show("Test Type could not found",

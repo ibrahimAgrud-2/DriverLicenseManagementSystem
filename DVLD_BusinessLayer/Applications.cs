@@ -87,7 +87,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public static Applications FindApplication(int applicationID)
+        public static Applications Find(int applicationID)
         {
 
             int applicantPersonID = -1, createdByUserID=-1, applicationTypeID=-1;

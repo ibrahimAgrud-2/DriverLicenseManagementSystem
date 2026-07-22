@@ -7,11 +7,18 @@ namespace DVLD_BusinessLayer
     public class Licenses
     {
         public int licenseID { set; get; }
-        public int applicationID { set; get; }
-        public int driverID { set; get; }
-        public int licenseClass { set; get; }
 
-   
+        public int applicationID { set; get; }
+        public Applications ApplicationInfo;
+
+        public int driverID { set; get; }
+        public Driver DriverInfo;
+
+
+        public int licenseClassID { set; get; }
+        public LicenseClass LicenseClassInfo;
+
+
         public DateTime issueDate { set; get; }
         public DateTime expirationDate { set; get; }
 
@@ -23,6 +30,8 @@ namespace DVLD_BusinessLayer
         public bool isActive { set; get; }
 
         public int createdByUserID { set; get; }
+        public User UserInfo { set; get; } 
+
 
         public double PaidFees { set; get; }
 
@@ -39,7 +48,7 @@ namespace DVLD_BusinessLayer
             this.licenseID = -1;
             this.applicationID = -1;
             this.driverID = -1;
-            this.licenseClass = -1;
+            this.licenseClassID = -1;
             this.issueDate = DateTime.Now;
             this.expirationDate = DateTime.Now.AddYears(5);
             this.notes = null;
@@ -51,14 +60,17 @@ namespace DVLD_BusinessLayer
             this.mode = enMode.enAddNew;
         }
 
-        private Licenses(int licenseID, int applicationID, int driverID, int licenseClass,
+        private Licenses(int licenseID, int applicationID, int driverID, int licenseClassID,
             DateTime issueDate, DateTime expirationDate, string notes, double paidFees,
             bool isActive, enIssueReason issueReason, int createdByUserID)
         {
             this.licenseID = licenseID;
             this.applicationID = applicationID;
+            this.ApplicationInfo = Applications.Find(applicationID);
             this.driverID = driverID;
-            this.licenseClass = licenseClass;
+            this.DriverInfo = Driver.Find(driverID);
+            this.licenseClassID = licenseClassID;
+            this.LicenseClassInfo = LicenseClass.Find(licenseClassID);
             this.issueDate = issueDate;
             this.expirationDate = expirationDate;
             this.notes = notes;
@@ -66,6 +78,7 @@ namespace DVLD_BusinessLayer
             this.isActive = isActive;
             this.issueReason = issueReason;
             this.createdByUserID = createdByUserID;
+            this.UserInfo = User.Find(createdByUserID);
             this.PaidFees = paidFees;
             this.issueReason = issueReason;
             this.mode = enMode.enUpdate;
@@ -111,7 +124,7 @@ namespace DVLD_BusinessLayer
             this.paidFees = 10;
             this.issueDate = DateTime.Now;
 
-            this.licenseID = LicensesDataAccess.addLicense(this.applicationID,this.driverID,this.licenseClass,this.issueDate,this.expirationDate,this.notes,this.paidFees,this.isActive,Convert.ToInt32(this.issueReason),this.createdByUserID);
+            this.licenseID = LicensesDataAccess.addLicense(this.applicationID,this.driverID,this.licenseClassID,this.issueDate,this.expirationDate,this.notes,this.paidFees,this.isActive,Convert.ToInt32(this.issueReason),this.createdByUserID);
             return (this.applicationID != -1);
 
         }
@@ -119,7 +132,7 @@ namespace DVLD_BusinessLayer
         private bool _updateLicense()
         {
 
-            return LicensesDataAccess.updateLicenseInfo(this.licenseID,this.driverID,this.licenseClass,this.expirationDate,this.notes    ,this.paidFees,this.isActive,Convert.ToInt32( this.issueReason));
+            return LicensesDataAccess.updateLicenseInfo(this.licenseID,this.driverID,this.licenseClassID,this.expirationDate,this.notes    ,this.paidFees,this.isActive,Convert.ToInt32( this.issueReason));
         }
 
 

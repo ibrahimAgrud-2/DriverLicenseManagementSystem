@@ -9,6 +9,7 @@ namespace DVLD_BusinessLayer
     {
         public int driverID { set; get; }
         public int personID { set; get; }
+        public People personInfo { set; get; }
         public int createdByUserID { set; get; }
         public DateTime createdDate { set; get; }
 
@@ -43,7 +44,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public static Driver findDriver(int driverID)
+        public static Driver Find(int driverID)
         {
             int personID = -1;
             int createdByUserID = -1;

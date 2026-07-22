@@ -40,7 +40,7 @@ namespace DVLD.Test.Test_Types
 
         private void _RefreshList()
         {
-            _TestList =clsTestType.getAllRecords();
+            _TestList =TestType.getAllRecords();
             dgvTestList.DataSource = _TestList;
             lblRecord.Text = dgvTestList.RowCount.ToString();
 
@@ -57,7 +57,7 @@ namespace DVLD.Test.Test_Types
         {
             if (int.TryParse(dgvTestList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
             {
-                frmEditTestTypes frm = new frmEditTestTypes((clsTestType.enTestTypes)selectedPersonID);
+                frmEditTestTypes frm = new frmEditTestTypes((TestType.enTestTypes)selectedPersonID);
                 frm.ShowDialog();
                 _RefreshList();
             }

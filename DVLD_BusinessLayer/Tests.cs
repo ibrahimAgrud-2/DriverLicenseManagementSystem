@@ -8,6 +8,7 @@ namespace DVLD_BusinessLayer
     {
         public int testID { get; set; }
         public int testAppointmentID { get; set; }
+        public TestAppointments testAppointmentInfo { get; set; }
         public int testResult { get; set; }
         public string notes { get; set; }
         public int createdByUserID { get; private set; }

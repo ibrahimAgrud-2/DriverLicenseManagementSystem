@@ -31,7 +31,7 @@ namespace DVLD_BusinessLayer
         {
             this.ID = id;
             this.applicationID = applicationID;
-            this.ApplicationInfo = ApplicationDb.FindApplication(applicationID);
+            this.ApplicationInfo = ApplicationDb.Find(applicationID);
 
             this.licenseClassID = licenseClassID;
             this.LicenseClassInfo = LicenseClass.Find(applicationID);

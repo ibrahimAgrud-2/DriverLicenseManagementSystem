@@ -1,16 +1,16 @@
 ﻿using System.Data;
 using System.Threading;
 
-public class clsTestType
+public class TestType
 {
    public enum enTestTypes {VisionTest=1,WrittenTest=2,StreetTest=3 };
 
-    public clsTestType.enTestTypes ID { get; set; }
+    public TestType.enTestTypes ID { get; set; }
     public string TestTypeTitle { get; set; }
     public string TestTypeDescription { get; set; }
     public double TestTypeFees { get; set; }
 
-    public clsTestType()
+    public TestType()
     {
         ID = enTestTypes.VisionTest;
         TestTypeTitle = string.Empty;
@@ -18,7 +18,7 @@ public class clsTestType
         TestTypeFees = 0.0;
     }
 
-    private clsTestType(enTestTypes testTypeID, string testTypeTitle, string testTypeDescription, double testTypeFees)
+    private TestType(enTestTypes testTypeID, string testTypeTitle, string testTypeDescription, double testTypeFees)
     {
         ID = testTypeID;
         TestTypeTitle = testTypeTitle;
@@ -26,7 +26,7 @@ public class clsTestType
         TestTypeFees = testTypeFees;
     }
 
-    public static clsTestType Find(enTestTypes testTypeID)
+    public static TestType Find(enTestTypes testTypeID)
     {
         string title = string.Empty;
         string description = string.Empty;
@@ -34,7 +34,7 @@ public class clsTestType
 
         if (TestTypesDataAccess.findTestType((int)testTypeID, ref title, ref description, ref fees))
         {
-            return new clsTestType(testTypeID, title, description, fees);
+            return new TestType(testTypeID, title, description, fees);
         }
 
         return null;
