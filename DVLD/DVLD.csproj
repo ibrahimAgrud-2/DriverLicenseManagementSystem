@@ -61,11 +61,11 @@
     <Compile Include="Applications\Application Types\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Controls\frmApplicationInfo.cs">
+    <Compile Include="Applications\Controls\ctrlApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Controls\frmApplicationInfo.Designer.cs">
-      <DependentUpon>frmApplicationInfo.cs</DependentUpon>
+    <Compile Include="Applications\Controls\ctrlApplicationInfo.Designer.cs">
+      <DependentUpon>ctrlApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\New Local Driving License Application\Controls\ctrlLocalDrivinglicenseApplicationInfo.cs">
       <SubType>UserControl</SubType>
@@ -172,6 +172,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Test\frmTestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\frmTestAppointments.Designer.cs">
+      <DependentUpon>frmTestAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\Test Types\frmEditTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,8 +227,8 @@
     <EmbeddedResource Include="Applications\Application Types\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Controls\frmApplicationInfo.resx">
-      <DependentUpon>frmApplicationInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Controls\ctrlApplicationInfo.resx">
+      <DependentUpon>ctrlApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\New Local Driving License Application\Controls\ctrlLocalDrivinglicenseApplicationInfo.resx">
       <DependentUpon>ctrlLocalDrivinglicenseApplicationInfo.cs</DependentUpon>
@@ -276,6 +282,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\frmTestAppointments.resx">
+      <DependentUpon>frmTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\Test Types\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>

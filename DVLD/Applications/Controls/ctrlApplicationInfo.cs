@@ -12,11 +12,12 @@ using clsApplications = DVLD_BusinessLayer.Applications;
 
 namespace DVLD.Applications.Controls
 {
-    public partial class frmApplicationInfo : UserControl
+    public partial class ctrlApplicationInfo : UserControl
     {
-        public frmApplicationInfo()
+        public ctrlApplicationInfo()
         {
             InitializeComponent();
+            
         }
 
         private int _ApplicationID = -1;

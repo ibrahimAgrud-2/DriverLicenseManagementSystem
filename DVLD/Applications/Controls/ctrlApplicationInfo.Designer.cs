@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications.Controls
 {
-    partial class frmApplicationInfo
+    partial class ctrlApplicationInfo
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApplicationInfo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlApplicationInfo));
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblFees = new System.Windows.Forms.Label();
