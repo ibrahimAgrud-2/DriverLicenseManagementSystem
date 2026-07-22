@@ -228,5 +228,43 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+
+        //Eğer bir *kişi*, *Aynı license türünden* *New veya completed* başvurusu varsa true döner. BU sayde kişini bir sınıf türüne sadece bir adet  başvurus olabilir. Tabi eğer geçmiş başvurusu cancelled ise tekrar başvuru yapabilir.
+        public static bool isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(int personID, int AppForLicenseClassID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            bool isFound = false;
+
+            string query = @"select * from LocalDrivingLicenseApplications join Applications on Applications.ApplicationID=LocalDrivingLicenseApplications.ApplicationID
+where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and ApplicationStatus in (1,3);";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@personID", personID);
+            cmd.Parameters.AddWithValue("@AppForLicenseClassID", AppForLicenseClassID);
+
+
+
+            try
+            {
+                connection.Open();
+
+                object result = cmd.ExecuteScalar();
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+           
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+
     }
 }

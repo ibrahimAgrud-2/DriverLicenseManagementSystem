@@ -146,6 +146,11 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 MessageBox.Show("Fill requireds properly");
                 return;
             }
+            //if (ApplicationsDb.isApplicationExistByPersonID(ctrlPersonCardWithFilter1.personID, 1) && this._Mode == enMode.enAddNew)
+            //{
+            //    MessageBox.Show("The person has the same kind of active application");
+            //    return;
+            //}
 
             if (_LDLA.Save())
             {
@@ -170,15 +175,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 e.Cancel = true;
                 return;
             }
-            if (ApplicationsDb.isApplicationExistByPersonID(ctrlPersonCardWithFilter1.personID,1)&& this._Mode == enMode.enAddNew)
-            {
-                MessageBox.Show("The person has the same kind of active application");
-
-                e.Cancel = true;
-                return;
-            }
-
-
+          
             btnSave.Enabled = true;
             tpAppllicationInfo.Enabled = true;
         }
