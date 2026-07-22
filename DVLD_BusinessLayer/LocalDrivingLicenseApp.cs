@@ -112,5 +112,11 @@ namespace DVLD_BusinessLayer
                     return false;
             }
         }
+
+        public static bool isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(int personID,int AppForLicenseClassID)
+        {
+            return clsLocalDrivingLicenseAppDataAccess.isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(personID,AppForLicenseClassID);
+        }
+
     }
 }
