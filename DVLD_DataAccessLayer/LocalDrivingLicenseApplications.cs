@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace DVLD_DataAccessLayer
@@ -265,6 +266,44 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
             return isFound;
         }
 
+        public static int GetPassedTestCount(int LocalDrivingLicenseApplication)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
+                        string query = @"select COUNT(*)  from TestAppointments join LocalDrivingLicenseApplications on
+            TestAppointments.LocalDrivingLicenseApplicationID =LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+            join Tests on TestAppointments.TestAppointmentID=Tests.TestAppointmentID
+            where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplication and Tests.TestResult=1 ";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            
+
+            try
+            {
+                connection.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int count))
+                {
+                    return count;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (Exception)
+            {
+
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
     }
 }
