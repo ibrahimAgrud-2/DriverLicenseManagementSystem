@@ -127,8 +127,8 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             App.ApplicationStatus = ApplicationsDb.enApplicationStatus.New;
             App.LastStatusDate = DateTime.Now;
             App.PaidFees = ApplicationTypes.Find(App.ApplicationTypeID).applicationFee;
-            // App.CreatedByUserID = loginSettings.currentUser.userID;
-            App.CreatedByUserID = 1;
+            App.CreatedByUserID = Global.currentUser.userID;
+        
 
 
             return App.save(); ;
@@ -136,7 +136,13 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(!_AddNewApplication())
+            if (LocalDrivingLicenseApp.isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(this.ctrlPersonCardWithFilter1.personID,LicenseClass.Find(cbLicenseClasses.Text).ID))     
+            {
+                MessageBox.Show("The person has the same kind of active application");
+                return;
+            }
+
+            if (!_AddNewApplication())
             {
                 MessageBox.Show("Could not save new App");
                 return;
@@ -146,12 +152,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 MessageBox.Show("Fill requireds properly");
                 return;
             }
-            //if (ApplicationsDb.isApplicationExistByPersonID(ctrlPersonCardWithFilter1.personID, 1) && this._Mode == enMode.enAddNew)
-            //{
-            //    MessageBox.Show("The person has the same kind of active application");
-            //    return;
-            //}
-
+ 
             if (_LDLA.Save())
             {
                 MessageBox.Show("Saved successfully");

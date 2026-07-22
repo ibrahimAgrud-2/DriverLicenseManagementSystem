@@ -73,10 +73,10 @@ namespace DVLD
                         Global.RememberUsernameAndPassword("", "");
                     }
 
-                    frmMain frm = new frmMain(this);
-                    this.Hide();
-                    frm.ShowDialog();
-                    return;
+                    //frmMain frm = new frmMain(this);
+                    //this.Hide();
+                    //frm.ShowDialog();
+                    //return;
                 }
 
 

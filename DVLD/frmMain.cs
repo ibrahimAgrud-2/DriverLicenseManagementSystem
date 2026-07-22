@@ -20,10 +20,10 @@ namespace DVLD
     {
 
         private frmLogin _FrmLogin;
-        public frmMain(frmLogin frm)
+        public frmMain()
         {
             InitializeComponent();
-            _FrmLogin = frm;
+            //_FrmLogin = frm;
         }
 
         private void tsmDrivers_Click(object sender, EventArgs e)
