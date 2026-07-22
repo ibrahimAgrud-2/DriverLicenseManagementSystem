@@ -274,6 +274,7 @@ namespace DVLD.Applications
                 
 
                 frmTestAppointments frm = new frmTestAppointments(selectedLDLAID,(frmTestAppointments.enTestType)(passedTestCount));
+                
                 frm.ShowDialog();
                 _RefreshLocalLicenseApplicationList();
             }

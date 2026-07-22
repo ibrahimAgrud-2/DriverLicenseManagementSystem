@@ -23,6 +23,7 @@ namespace DVLD.Test
         public int LocalLicenseAppID { get { return _LDLAID; } }
         public LocalDrivingLicenseApp SelectedLocalLicenseApp { get { return _LDLA; } }
 
+        public DateTime getDate { get { return dtpApplicationDate.Value ; } }
         private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
         {
             

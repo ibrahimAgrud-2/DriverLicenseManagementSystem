@@ -20,11 +20,11 @@ namespace DVLD.Test
             InitializeComponent();
             this._Mode = enMode.enAddNew;
         }
-        public frmAddUpdateTestAppointment(int LDLAID)
+        public frmAddUpdateTestAppointment(int testAppointment)
         {
             InitializeComponent();
             this._Mode = enMode.enUpdate;
-            _LDLAID = LDLAID;
+            _TestAppointmentID = testAppointment;
         }
 
 
@@ -35,23 +35,15 @@ namespace DVLD.Test
         public enTestType testType;
 
         private int _LDLAID = -1;
+
+        //contructor ile testAppID verirken bu property ile de LDLAID'i alıyorum ki formdaki usercontrol'e atabileyim.
+        public int LDLAID { set { _LDLAID = value; } get { return _LDLAID; } }
         private LocalDrivingLicenseApp _LDLA;
 
         private TestAppointments _TestAppointment;
-        private void fillObjectDataToField()
-        {
-            if (_LDLA == null)
-                return;
-          
-            this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(_LDLA.ID);
-         
-            //if(_LDLA.GetFailedTestCount()>0)
-            //{
-            //    groupBox1.Enabled = true;
-            //}
+        private int _TestAppointmentID = -1;
 
-        }
-
+  
 
 
 
@@ -65,27 +57,41 @@ namespace DVLD.Test
         {
             return (TestType.enTestTypes)(_LDLA.GetPassedTestCount()+1);
         }
+
+
+        //Incase mode add
         private bool _FillDataToObject()
         {
             _TestAppointment.createdByUserID = Global.currentUser.userID;
             _TestAppointment.appointmentDate = DateTime.Now;
             _TestAppointment.isLocked = false;
             _TestAppointment.paidFees = TestType.Find(_GetTestType()).TestTypeFees;
-          //AddUpdate test appointment'teyim
+            _TestAppointment.testTypeID = (int)_GetTestType();
+            _TestAppointment.localDrivingLicenseApplicationID = _LDLAID;
+           
+            //İlk başarısız sınavın retake id'si her türlü boş olacak. Ancak ondan sonra her o tür sınav randevusu için app tablosunda bir record oluşturup retake ID'e eklicek.
+            if(_LDLA.GetFailedTestCount()>1)
+            {
+                MessageBox.Show("Now retake record added");
+            }
+           
                 return false ;
 
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-
-            if (!_FillDataToObject())
+            if(this._Mode==enMode.enAddNew)
             {
-                MessageBox.Show("Fill requireds properly");
-                return;
+                _TestAppointment = new TestAppointments();
+                _FillDataToObject();
+               
+            }
+            else
+            {
+                _TestAppointment.appointmentDate = this.ctrlLDLAsTestAppointmentsInfo1.getDate;
             }
 
-            if (_LDLA.Save())
+            if (_TestAppointment.save())
             {
                 MessageBox.Show("Saved successfully");
                 this._Mode = enMode.enUpdate;
@@ -98,23 +104,9 @@ namespace DVLD.Test
 
         private void frmAddUpdateTestAppointment_Load(object sender, EventArgs e)
         {
-            if (this._Mode == enMode.enUpdate)
-            {
-                _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
+            this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(LDLAID);
+            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
 
-                if (_LDLA == null)
-                {
-                    MessageBox.Show("No LDLA with ID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    this.Close();
-                }
-                  fillObjectDataToField();
-
-            }
-            else
-            {
-                gbMain.Text = "Add New Test";
-             
-            }
         }
     }
 }

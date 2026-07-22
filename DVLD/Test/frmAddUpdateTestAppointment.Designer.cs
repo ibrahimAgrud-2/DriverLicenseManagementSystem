@@ -33,11 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.s = new System.Windows.Forms.Label();
-            this.lblRetakeTestFees = new System.Windows.Forms.Label();
             this.lblApplicationIDForRetakeTest = new System.Windows.Forms.Label();
+            this.lblRetakeTestFees = new System.Windows.Forms.Label();
+            this.s = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
             this.ctrlLDLAsTestAppointmentsInfo1 = new DVLD.Test.ctrlLDLAsTestAppointmentsInfo();
@@ -48,7 +48,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(608, 868);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(10, 11);
             this.button1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(245, 646);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(127, 54);
             this.btnClose.TabIndex = 1;
@@ -105,41 +105,17 @@
             this.label2.TabIndex = 97;
             this.label2.Text = "Retake Test Fee";
             // 
-            // label5
+            // lblApplicationIDForRetakeTest
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(17, 100);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 25);
-            this.label5.TabIndex = 98;
-            this.label5.Text = "Retake App ID";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(321, 49);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 25);
-            this.label7.TabIndex = 99;
-            this.label7.Text = "Total Fees";
-            // 
-            // s
-            // 
-            this.s.AutoSize = true;
-            this.s.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.s.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.s.Location = new System.Drawing.Point(436, 49);
-            this.s.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(23, 25);
-            this.s.TabIndex = 99;
-            this.s.Text = "0";
+            this.lblApplicationIDForRetakeTest.AutoSize = true;
+            this.lblApplicationIDForRetakeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblApplicationIDForRetakeTest.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblApplicationIDForRetakeTest.Location = new System.Drawing.Point(179, 100);
+            this.lblApplicationIDForRetakeTest.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblApplicationIDForRetakeTest.Name = "lblApplicationIDForRetakeTest";
+            this.lblApplicationIDForRetakeTest.Size = new System.Drawing.Size(46, 25);
+            this.lblApplicationIDForRetakeTest.TabIndex = 99;
+            this.lblApplicationIDForRetakeTest.Text = "N/A";
             // 
             // lblRetakeTestFees
             // 
@@ -153,21 +129,44 @@
             this.lblRetakeTestFees.TabIndex = 99;
             this.lblRetakeTestFees.Text = "0";
             // 
-            // lblApplicationIDForRetakeTest
+            // s
             // 
-            this.lblApplicationIDForRetakeTest.AutoSize = true;
-            this.lblApplicationIDForRetakeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblApplicationIDForRetakeTest.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblApplicationIDForRetakeTest.Location = new System.Drawing.Point(179, 100);
-            this.lblApplicationIDForRetakeTest.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblApplicationIDForRetakeTest.Name = "lblApplicationIDForRetakeTest";
-            this.lblApplicationIDForRetakeTest.Size = new System.Drawing.Size(46, 25);
-            this.lblApplicationIDForRetakeTest.TabIndex = 99;
-            this.lblApplicationIDForRetakeTest.Text = "N/A";
+            this.s.AutoSize = true;
+            this.s.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.s.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.s.Location = new System.Drawing.Point(436, 49);
+            this.s.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.s.Name = "s";
+            this.s.Size = new System.Drawing.Size(23, 25);
+            this.s.TabIndex = 99;
+            this.s.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.Location = new System.Drawing.Point(321, 49);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 25);
+            this.label7.TabIndex = 99;
+            this.label7.Text = "Total Fees";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.Location = new System.Drawing.Point(17, 100);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 25);
+            this.label5.TabIndex = 98;
+            this.label5.Text = "Retake App ID";
             // 
             // btnSave
             // 
-            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(451, 520);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
@@ -209,7 +208,7 @@
             this.Controls.Add(this.gbMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddUpdateTestAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdateTestAppointment";

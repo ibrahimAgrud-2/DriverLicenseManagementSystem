@@ -78,32 +78,7 @@ namespace DVLD_BusinessLayer
         {
             return TestAppointmentsDataAccess.isTestAppointmentExist(testAppointmentID);
         }
-        public static bool isSameActiveTestAppointmentExistsForLocalLicenseApp(int LocalLicenseApplication,int testType)
-        {
-            return TestAppointmentsDataAccess.isSameActiveTestAppointmentExistsForLocalLicenseApp(LocalLicenseApplication, testType);
-        }
-
-        public bool save()
-        {
-            switch (this.mode)
-            {
-                case enMode.enAddNew:
-                    if (_addNewTestAppointment())
-                    {
-                        this.mode = enMode.enAddNew;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                case enMode.enUpdate:
-                    return _updateTestAppointment();
-                default:
-                    return false;
-            }
-        }
-
+   
         private bool _addNewTestAppointment()
         {
             this.testAppointmentID = TestAppointmentsDataAccess.addTestAppointment(
@@ -134,6 +109,32 @@ namespace DVLD_BusinessLayer
         public static bool deleteTestAppointment(int testAppointmentID)
         {
             return TestAppointmentsDataAccess.deleteTestAppointment(testAppointmentID);
+        }
+
+        public static bool isSameActiveTestAppointmentExistsForLocalLicenseApp(int LocalLicenseApplication, int testType)
+        {
+            return TestAppointmentsDataAccess.isSameActiveTestAppointmentExistsForLocalLicenseApp(LocalLicenseApplication, testType);
+        }
+
+        public bool save()
+        {
+            switch (this.mode)
+            {
+                case enMode.enAddNew:
+                    if (_addNewTestAppointment())
+                    {
+                        this.mode = enMode.enAddNew;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case enMode.enUpdate:
+                    return _updateTestAppointment();
+                default:
+                    return false;
+            }
         }
 
     }
