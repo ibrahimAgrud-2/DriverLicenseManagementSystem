@@ -10,9 +10,9 @@ namespace DVLD_BusinessLayer
 
         public int testAppointmentID { get; set; }
         public TestAppointments testAppointmentInfo { get; set; }
-        public int testResult { get; set; }
+        public bool testResult { get; set; }
         public string notes { get; set; }
-        public int createdByUserID { get; private set; }
+        public int createdByUserID { get;  set; }
         public User createdByUserInfo { get; set; }
 
 
@@ -22,13 +22,13 @@ namespace DVLD_BusinessLayer
         {
             this.testID = -1;
             this.testAppointmentID = -1;
-            this.testResult = 0;
+            this.testResult = false;
             this.notes = null;
             this.createdByUserID = -1;
             this.mode = enMode.enAddNew;
         }
 
-        private Tests(int testID, int testAppointmentID, int testResult, string notes, int createdByUserID)
+        private Tests(int testID, int testAppointmentID, bool testResult, string notes, int createdByUserID)
         {
             this.testID = testID;
             this.testAppointmentID = testAppointmentID;
@@ -48,7 +48,7 @@ namespace DVLD_BusinessLayer
         public static Tests findTest(int testID)
         {
             int testAppointmentID = -1;
-            int testResult = 0;
+            bool testResult = false;
             string notes = null;
             int createdByUserID = -1;
 
@@ -87,7 +87,7 @@ namespace DVLD_BusinessLayer
 
         private bool _addNewTest()
         {
-            this.createdByUserID = 1;
+        
 
             this.testID = clsTestDataAccess.addTest(
                 this.testAppointmentID,

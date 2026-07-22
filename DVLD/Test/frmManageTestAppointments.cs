@@ -78,12 +78,20 @@ namespace DVLD.Test
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment(_LDLAID);
+            frm.ShowDialog();
+            _RefreshAppointmentList();
 
         }
 
         private void takeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (int.TryParse(dgvAppointmentList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
+            {
+                frmTakeTest frm = new frmTakeTest(selectedID);
+                frm.ShowDialog();
+                _RefreshAppointmentList();
+            }
         }
     }
 }

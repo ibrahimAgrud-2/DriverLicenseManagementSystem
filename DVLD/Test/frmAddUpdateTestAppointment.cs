@@ -36,7 +36,8 @@ namespace DVLD.Applications
                 return;
 
             this.ctrlTestAppointmentInfo1.LoadData(_LDLAID);
-                
+            TestType = (enTestType)LocalDrivingLicenseApp.GetTotalCompletedTests(_LDLA.ApplicationInfo.ApplicantPerson.nationalNo)+1;
+
             //fill the group box incase new retake test app added.
 
 

@@ -142,19 +142,19 @@
             this.editToolStripMenuItem,
             this.takeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 79);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 52);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // takeToolStripMenuItem
             // 
             this.takeToolStripMenuItem.Name = "takeToolStripMenuItem";
-            this.takeToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.takeToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.takeToolStripMenuItem.Text = "Take";
             this.takeToolStripMenuItem.Click += new System.EventHandler(this.takeToolStripMenuItem_Click);
             // 
@@ -195,8 +195,6 @@
         }
 
         #endregion
-
-        private Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo ctrlLDLAInfo1;
         private System.Windows.Forms.Label lblMode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblRecords;
@@ -207,5 +205,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem takeToolStripMenuItem;
+        private Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo ctrlLDLAInfo1;
     }
 }

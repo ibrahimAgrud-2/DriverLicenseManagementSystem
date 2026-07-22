@@ -39,7 +39,7 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
-        public static bool findTest(int testID, ref int testAppointmentID, ref int testResult,
+        public static bool findTest(int testID, ref int testAppointmentID, ref bool testResult,
             ref string notes, ref int createdByUserID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
@@ -57,7 +57,7 @@ namespace DVLD_DataAccessLayer
                 if (read.Read())
                 {
                     testAppointmentID = read["TestAppointmentID"] != DBNull.Value ? Convert.ToInt32(read["TestAppointmentID"]) : 0;
-                    testResult = read["TestResult"] != DBNull.Value ? Convert.ToInt32(read["TestResult"]) : 0;
+                    testResult = read["TestResult"] != DBNull.Value ? Convert.ToBoolean(read["TestResult"]) : false;
                     notes = read["Notes"] != DBNull.Value ? read["Notes"].ToString() : null;
                     createdByUserID = read["CreatedByUserID"] != DBNull.Value ? Convert.ToInt32(read["CreatedByUserID"]) : 0;
 
@@ -106,7 +106,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static int addTest(int testAppointmentID, int testResult, string notes, int createdByUserID)
+        public static int addTest(int testAppointmentID, bool testResult, string notes, int createdByUserID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
@@ -149,7 +149,7 @@ namespace DVLD_DataAccessLayer
             }
         }
 
-        public static bool updateTest(int testID, int testAppointmentID, int testResult, string notes)
+        public static bool updateTest(int testID, int testAppointmentID, bool testResult, string notes)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
