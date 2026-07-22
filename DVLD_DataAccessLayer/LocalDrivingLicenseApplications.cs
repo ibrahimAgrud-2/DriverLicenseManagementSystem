@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using static System.Net.Mime.MediaTypeNames;
@@ -305,5 +306,46 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
             }
 
         }
+
+        public static int GetAllFailedTestCount(int LocalDrivingLicenseApplication)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = @"select COUNT(*)  from TestAppointments join LocalDrivingLicenseApplications on
+            TestAppointments.LocalDrivingLicenseApplicationID =LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+            join Tests on TestAppointments.TestAppointmentID=Tests.TestAppointmentID
+            where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplication and Tests.TestResult=0 ";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+
+
+            try
+            {
+                connection.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int count))
+                {
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
     }
 }
