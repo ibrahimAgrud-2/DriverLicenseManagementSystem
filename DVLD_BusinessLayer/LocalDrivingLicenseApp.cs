@@ -121,6 +121,10 @@ namespace DVLD_BusinessLayer
         {
             return clsLocalDrivingLicenseAppDataAccess.GetPassedTestCount(this.ID);
         }
+        public int GetFailedTestCount()
+        {
+            return clsLocalDrivingLicenseAppDataAccess.GetFailedTestCount(this.ID);
+        }
 
     }
 }
