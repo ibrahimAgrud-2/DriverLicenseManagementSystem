@@ -98,6 +98,13 @@ namespace DVLD.Test
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
+            
+            if(TestAppointments.isSameActiveTestAppointmentExistsForLocalLicenseApp(_LDLAID, (int)this.TestType + 1))
+            {
+                MessageBox.Show("The person Already has the same kind of test Appointment");
+                return;
+            }
+
             frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment();
             frm.ShowDialog();
             _RefreshAppointmentList();
