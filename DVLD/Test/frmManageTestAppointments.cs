@@ -75,5 +75,15 @@ namespace DVLD.Test
             frm.ShowDialog();
             _RefreshAppointmentList();
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void takeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

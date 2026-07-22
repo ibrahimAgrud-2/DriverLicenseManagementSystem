@@ -38,10 +38,10 @@
             this.btnAddApplication = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
-            this.ctrlLDLAInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.takeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlLDLAInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLDLAInfo();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -135,6 +135,29 @@
             this.dgvAppointmentList.Size = new System.Drawing.Size(1047, 168);
             this.dgvAppointmentList.TabIndex = 32;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.takeToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 79);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // takeToolStripMenuItem
+            // 
+            this.takeToolStripMenuItem.Name = "takeToolStripMenuItem";
+            this.takeToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.takeToolStripMenuItem.Text = "Take";
+            this.takeToolStripMenuItem.Click += new System.EventHandler(this.takeToolStripMenuItem_Click);
+            // 
             // ctrlLDLAInfo1
             // 
             this.ctrlLDLAInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,27 +166,6 @@
             this.ctrlLDLAInfo1.Name = "ctrlLDLAInfo1";
             this.ctrlLDLAInfo1.Size = new System.Drawing.Size(1068, 441);
             this.ctrlLDLAInfo1.TabIndex = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem,
-            this.takeToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 52);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // takeToolStripMenuItem
-            // 
-            this.takeToolStripMenuItem.Name = "takeToolStripMenuItem";
-            this.takeToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
-            this.takeToolStripMenuItem.Text = "Take";
             // 
             // frmManageTestAppointments
             // 

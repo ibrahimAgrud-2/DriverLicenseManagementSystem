@@ -67,6 +67,12 @@
     <Compile Include="Applications\Control\ctrlApplicationBasicInfo.Designer.cs">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\Controls\ctrlTestAppointmentInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Test\Controls\ctrlTestAppointmentInfo.Designer.cs">
+      <DependentUpon>ctrlTestAppointmentInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\frmAddUpdateTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,12 @@
     <Compile Include="Test\frmManageTestAppointments.Designer.cs">
       <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\frmTakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\frmTakeTest.Designer.cs">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\Test Types\frmEditTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Control\ctrlApplicationBasicInfo.resx">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\Controls\ctrlTestAppointmentInfo.resx">
+      <DependentUpon>ctrlTestAppointmentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\frmAddUpdateTestAppointment.resx">
       <DependentUpon>frmAddUpdateTestAppointment.cs</DependentUpon>
@@ -304,6 +319,9 @@
     <EmbeddedResource Include="Test\frmManageTestAppointments.resx">
       <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Test\frmTakeTest.resx">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test\Test Types\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,7 +364,6 @@
     <Folder Include="Licenses\Controls\" />
     <Folder Include="Licenses\International Licenses\Controls\" />
     <Folder Include="Licenses\Local Licenses\" />
-    <Folder Include="Test\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Login\UserRememberMeJustID.txt" />

@@ -25,13 +25,9 @@ namespace DVLD.Applications
         enum enTestType { Vision = 1, Written = 2, Street = 3 }
         enTestType TestType = enTestType.Vision;
 
-        private void GetTestType()
-        {
-
-            TestType = (enTestType)LocalDrivingLicenseApp.GetTotalCompletedTests(_LDLA.ApplicationInfo.ApplicantPerson.nationalNo);
-        }
 
 
+       
 
         private void fillObjectDataToField()
         {
@@ -39,13 +35,8 @@ namespace DVLD.Applications
             if (_LDLA == null)
                 return;
 
-            lblLDLAID.Text = _LDLA.ID.ToString();
-            lblApplicationFee.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
-            lblPersonFullName.Text = _LDLA.ApplicationInfo.ApplicantPerson.fullName;
-            lblTrail.Text = TestAppointments.GetTestAppointmentCount(_LDLA.ID, (int)TestType).ToString();
-            lblClass.Text = _LDLA.LicenseClassInfo.className;
-            dtpApplicationDate.Value = _LDLA.ApplicationInfo.ApplicationDate;
-            
+            this.ctrlTestAppointmentInfo1.LoadData(_LDLAID);
+                
             //fill the group box incase new retake test app added.
 
 

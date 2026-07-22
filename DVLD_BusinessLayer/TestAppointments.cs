@@ -55,7 +55,7 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static TestAppointments findTestAppointment(int testAppointmentID)
+        public static TestAppointments Find(int testAppointmentID)
         {
             int testTypeID = -1;
             int localDrivingLicenseApplicationID = -1;
