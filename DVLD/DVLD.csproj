@@ -172,6 +172,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Test\Controls\ctrlTestInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Test\Controls\ctrlTestInfo.Designer.cs">
+      <DependentUpon>ctrlTestInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\frmAddUpdateTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\Controls\ctrlTestInfo.resx">
+      <DependentUpon>ctrlTestInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\frmAddUpdateTestAppointment.resx">
       <DependentUpon>frmAddUpdateTestAppointment.cs</DependentUpon>
