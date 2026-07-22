@@ -204,8 +204,8 @@
             // 
             // tpPersonInfo
             // 
-            this.tpPersonInfo.Controls.Add(this.btnNext);
             this.tpPersonInfo.Controls.Add(this.ctrlPersonCardWithFilter1);
+            this.tpPersonInfo.Controls.Add(this.btnNext);
             this.tpPersonInfo.Location = new System.Drawing.Point(4, 29);
             this.tpPersonInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpPersonInfo.Name = "tpPersonInfo";

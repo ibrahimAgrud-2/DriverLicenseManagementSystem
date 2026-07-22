@@ -93,7 +93,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public static Licenses findLicense(int licenseID)
+        public static Licenses Find(int licenseID)
         {
             int applicationID = -1, driverID = -1, licenseClass = -1, createdByUserID = -1;
             DateTime issueDate = DateTime.Now, expirationDate = DateTime.Now;

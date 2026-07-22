@@ -2,15 +2,11 @@
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
+using clsLicense = DVLD_BusinessLayer.Licenses;
 
 namespace DVLD.Applications
 {
@@ -41,6 +37,7 @@ namespace DVLD.Applications
             }
 
         }
+
         private void _RefreshPeopleList()
         {
             _DtAppList = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
@@ -50,11 +47,19 @@ namespace DVLD.Applications
 
         }
 
+
         private void frmManageLDLA_Load(object sender, EventArgs e)
         {
             _RefreshPeopleList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
+
+            //----------------------- Temporary
+            _DtAppList.DefaultView.RowFilter = $"NationalNo Like 'mhmt%'";
+            dgvAppList.DataSource = _DtAppList;
+            //-----------------------
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -211,6 +216,51 @@ namespace DVLD.Applications
                 
             dgvAppList.DataSource = _DtAppList;
             lblRecords.Text = dgvAppList.RowCount.ToString();
+        }
+    
+        private void _handleCSMScheduleTestOptions()
+        {
+            string status = dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
+            int completedTestCount = Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[5].Value);
+
+
+            if (status !="New"&& completedTestCount!=3)
+            {
+                ScheduleTestsMenue.Enabled = false;
+                return;
+            }
+            else
+            {
+                ScheduleTestsMenue.Enabled = true;
+                for (int i = 0; i < 3; i++)
+                {
+
+                    ScheduleTestsMenue.DropDownItems[i].Enabled = false;
+                    if (i == completedTestCount)
+                    {
+                        ScheduleTestsMenue.DropDownItems[i].Enabled = true;
+                    }
+                }
+            }
+        }
+        private void _HandleEnablingCsmOptions()
+        {
+            string status=dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
+            //enable all when new
+
+            editToolStripMenuItem.Enabled= (status == "New");
+            DeleteApplicationToolStripMenuItem.Enabled= (status == "New");
+            CancelApplicaitonToolStripMenuItem.Enabled= (status == "New");
+            _handleCSMScheduleTestOptions();
+            //issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (status == "Completed");
+            showLicenseToolStripMenuItem.Enabled = (status == "Completed");
+
+
+        }
+
+        private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _HandleEnablingCsmOptions();
         }
     }
 }
