@@ -172,11 +172,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test\Controls\ctrlTestInfo.cs">
+    <Compile Include="Test\Controls\ctrlLDLAsTestAppointmentsInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Test\Controls\ctrlTestInfo.Designer.cs">
-      <DependentUpon>ctrlTestInfo.cs</DependentUpon>
+    <Compile Include="Test\Controls\ctrlLDLAsTestAppointmentsInfo.Designer.cs">
+      <DependentUpon>ctrlLDLAsTestAppointmentsInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\frmAddUpdateTestAppointment.cs">
       <SubType>Form</SubType>
@@ -295,8 +295,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\Controls\ctrlTestInfo.resx">
-      <DependentUpon>ctrlTestInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Test\Controls\ctrlLDLAsTestAppointmentsInfo.resx">
+      <DependentUpon>ctrlLDLAsTestAppointmentsInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\frmAddUpdateTestAppointment.resx">
       <DependentUpon>frmAddUpdateTestAppointment.cs</DependentUpon>

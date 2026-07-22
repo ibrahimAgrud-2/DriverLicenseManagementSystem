@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Test
 {
-    partial class ctrlTestInfo
+    partial class ctrlLDLAsTestAppointmentsInfo
     {
         /// <summary> 
         /// Required designer variable.
@@ -156,7 +156,6 @@
             this.label4.Size = new System.Drawing.Size(61, 25);
             this.label4.TabIndex = 87;
             this.label4.Text = "Trail: ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label6
             // 
@@ -169,7 +168,6 @@
             this.label6.Size = new System.Drawing.Size(67, 25);
             this.label6.TabIndex = 87;
             this.label6.Text = "Fees: ";
-            this.label6.Click += new System.EventHandler(this.label4_Click);
             // 
             // dtpApplicationDate
             // 
@@ -180,7 +178,7 @@
             this.dtpApplicationDate.Size = new System.Drawing.Size(129, 30);
             this.dtpApplicationDate.TabIndex = 93;
             // 
-            // ctrlTestInfo
+            // ctrlLDLAsTestAppointmentsInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,8 +195,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "ctrlTestInfo";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "ctrlLDLAsTestAppointmentsInfo";
             this.Size = new System.Drawing.Size(565, 308);
             this.ResumeLayout(false);
             this.PerformLayout();

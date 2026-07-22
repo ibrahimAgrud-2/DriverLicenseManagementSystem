@@ -55,3 +55,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Controls.ctrlA
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLocalDrivinglicenseApplicationInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTestAppointments.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmAddUpdateTestAppointment.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.ctrlLDLAsTestAppointmentsInfo.resources

@@ -9,52 +9,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
+namespace DVLD.Test
 {
-    public partial class ctrlLocalDrivinglicenseApplicationInfo : UserControl
+    public partial class ctrlLDLAsTestAppointmentsInfo : UserControl
     {
-        public ctrlLocalDrivinglicenseApplicationInfo()
+        public ctrlLDLAsTestAppointmentsInfo()
         {
             InitializeComponent();
         }
 
-
         private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA = null;
         public int LocalLicenseAppID { get { return _LDLAID; } }
-
         public LocalDrivingLicenseApp SelectedLocalLicenseApp { get { return _LDLA; } }
-
 
         private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
         {
-            this.ctrlApplicationInfo1.LoadAppInfo(LDLA.applicationID);
+            
 
-            lblLDLAID.Text = LDLA.ID.ToString() ;
-            lblAppliedForLicense.Text = LDLA.LicenseClassInfo.className;
-            lblPassedTestCount.Text = LDLA.GetPassedTestCount().ToString();
+            lblLDLAID.Text = LDLA.ID.ToString();
+            lblAppForClass.Text = LDLA.LicenseClassInfo.className;
+            lblApplicantName.Text = LDLA.ApplicationInfo.ApplicantPerson.fullName;
+            dtpApplicationDate.Value = LDLA.ApplicationInfo.ApplicationDate;
+            lblFees.Text = LDLA.ApplicationInfo.PaidFees.ToString();
+            lblTrail.Text = LDLA.GetFailedTestCount().ToString();
         }
-
-
 
         private void _Load()
         {
             _LDLAID = _LDLA.ID;
             fillObjectDataToField(_LDLA);
-            lnklblEditPersonInfo.Enabled = true;
-
-        }
-
-        public void ResetForm()
-        {
-            //Yükleme başarılı olup olmadığını ID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
-            //formu temizlerken ID'i de -1 yapıyoruz.
-
-
-            lblLDLAID.Text = "???";
-            lblAppliedForLicense.Text = "???";
-    
-
         }
         public void LoadAppInfo(int LocalLicenseAppID)
         {
@@ -62,7 +46,6 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
             if (_LDLA == null)
             {
                 _LDLAID = -1;
-                ResetForm();
                 MessageBox.Show("No Person with PersonID = " + LocalLicenseAppID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

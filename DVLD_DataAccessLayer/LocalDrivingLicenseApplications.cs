@@ -307,7 +307,7 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
 
         }
 
-        public static int GetAllFailedTestCount(int LocalDrivingLicenseApplication)
+        public static int GetFailedTestCount(int LocalDrivingLicenseApplication)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
