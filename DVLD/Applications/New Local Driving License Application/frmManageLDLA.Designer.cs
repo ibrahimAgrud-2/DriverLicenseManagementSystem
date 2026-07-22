@@ -170,7 +170,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAppList.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAppList.Location = new System.Drawing.Point(13, 242);
+            this.dgvAppList.Location = new System.Drawing.Point(13, 241);
             this.dgvAppList.MultiSelect = false;
             this.dgvAppList.Name = "dgvAppList";
             this.dgvAppList.ReadOnly = true;
@@ -201,7 +201,7 @@
             this.toolStripSeparator6,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(309, 371);
+            this.cmsApplications.Size = new System.Drawing.Size(309, 344);
             // 
             // showDetailsToolStripMenuItem
             // 
