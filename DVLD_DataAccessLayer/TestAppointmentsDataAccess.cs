@@ -110,6 +110,38 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+
+        //bir LDLA başvuru sınavı için sistemde aynı türken sınav var mı. Mesela 36 numaralı LDLA vision test alacak. önce sistemde aktif vision test var mı kontrol etmek için.
+        public static bool isSameActiveTestAppointmentExistsForLocalLicenseApp(int LocalDrivingLicenseApplicationID,int TestTypeID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            bool isFound = false;
+
+            string query = "select * from TestAppointments where LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID and TestTypeID=@TestTypeID and isLocked=0";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound = read.HasRows;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
         public static int addTestAppointment(int testTypeID, int localDrivingLicenseApplicationID,
             DateTime appointmentDate, double paidFees, int createdByUserID,
             bool isLocked, int retakeTestApplicationID)
