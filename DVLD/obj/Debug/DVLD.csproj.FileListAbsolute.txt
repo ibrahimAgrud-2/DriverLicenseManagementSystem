@@ -58,3 +58,5 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmAddUpdateTestAppoin
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.ctrlLDLAsTestAppointmentsInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTakeTest.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmIssueDriverLicenseFirstTime.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Controls.ctrlShowLicenseInfo.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmShowDrivingLicenseInfo.resources

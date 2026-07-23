@@ -203,6 +203,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
             this.cmsApplications.Size = new System.Drawing.Size(309, 371);
+            this.cmsApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApplications_Opening);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -319,6 +320,7 @@
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(308, 38);
             this.showLicenseToolStripMenuItem.Text = "Show &License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 

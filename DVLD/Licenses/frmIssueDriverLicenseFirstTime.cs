@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using clsApplication = DVLD_BusinessLayer.Applications;
 using clsLicense = DVLD_BusinessLayer.Licenses;
 using System.Windows.Forms;
 
@@ -73,7 +73,10 @@ namespace DVLD.Licenses
             clsLicense newL = _LoadInfo();
             if (newL.save())
             {
-                MessageBox.Show("Saved successfully");
+                _LDLA.ApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+                _LDLA.ApplicationInfo.save();
+
+                MessageBox.Show($"Saved successfully with license {newL.licenseID}");
 
             }
             else

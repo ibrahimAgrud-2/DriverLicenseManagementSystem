@@ -1,5 +1,6 @@
 ﻿using DVLD.Applications.New_Local_Driving_License_Application;
 using DVLD.Licenses;
+using DVLD.Licenses.International_Licenses;
 using DVLD.Test;
 using DVLD_BusinessLayer;
 using System;
@@ -224,7 +225,7 @@ namespace DVLD.Applications
             int completedTestCount = Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[5].Value);
 
 
-            if (status !="New"&& completedTestCount!=3)
+            if (status !="New")
             {
                 ScheduleTestsMenue.Enabled = false;
                 return;
@@ -317,6 +318,24 @@ namespace DVLD.Applications
                 
             }
            
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
+            {
+              
+               
+                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(selectedID);
+                frm.ShowDialog();
+                _RefreshLocalLicenseApplicationList();
+
+            }
+        }
+
+        private void cmsApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }

@@ -130,5 +130,10 @@ namespace DVLD
             frm.ShowDialog();
             LoadPersonInfo(PersonID);
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

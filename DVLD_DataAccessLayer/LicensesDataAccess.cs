@@ -94,6 +94,58 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+        public static bool findLicenseByApplicationID(ref int licenseID,  int applicationID, ref int driverID, ref int licenseClassID, ref DateTime ıssueDate, ref DateTime LastStatusDate, ref
+   string notes, ref double paidFees, ref bool isActive, ref int issueReason, ref int createdByUserID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = "select * from Licenses where applicationID=@applicationID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@applicationID", applicationID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader read = cmd.ExecuteReader();
+
+                if (read.Read())
+                {
+
+                    applicationID = read["ApplicationID"] != DBNull.Value ? Convert.ToInt32(read["ApplicationID"]) : 0;
+                    driverID = read["DriverID"] != DBNull.Value ? Convert.ToInt32(read["DriverID"]) : 0;
+                    licenseClassID = read["LicenseClass"] != DBNull.Value ? Convert.ToInt32(read["LicenseClass"]) : 0;
+                    ıssueDate = read["IssueDate"] != DBNull.Value ? Convert.ToDateTime(read["IssueDate"]) : DateTime.MinValue;
+                    LastStatusDate = read["ExpirationDate"] != DBNull.Value ? Convert.ToDateTime(read["ExpirationDate"]) : DateTime.MinValue;
+                    notes = read["Notes"] != DBNull.Value ? read["Notes"].ToString() : null;
+                    paidFees = read["PaidFees"] != DBNull.Value ? Convert.ToDouble(read["PaidFees"]) : 0;
+                    isActive = read["IsActive"] != DBNull.Value ? Convert.ToBoolean(read["IsActive"]) : false;
+                    issueReason = read["IssueReason"] != DBNull.Value ? Convert.ToInt32(read["IssueReason"]) : 0;
+                    createdByUserID = read["CreatedByUserID"] != DBNull.Value ? Convert.ToInt32(read["CreatedByUserID"]) : 0;
+
+                    return true;
+
+
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return false;
+        }
+
+
         public static bool isLicenseExist(int licenseID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
@@ -269,6 +321,8 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
+
 
     }
 }
