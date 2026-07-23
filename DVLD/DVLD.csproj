@@ -92,6 +92,12 @@
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\Validation.cs" />
+    <Compile Include="Licenses\Controls\ctrlListLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Licenses\Controls\ctrlListLicenses.Designer.cs">
+      <DependentUpon>ctrlListLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\Controls\ctrlShowLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Controls\ctrlListLicenses.resx">
+      <DependentUpon>ctrlListLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Controls\ctrlShowLicenseInfo.resx">
       <DependentUpon>ctrlShowLicenseInfo.cs</DependentUpon>
