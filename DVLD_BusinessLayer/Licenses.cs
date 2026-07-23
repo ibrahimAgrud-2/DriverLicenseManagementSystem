@@ -112,6 +112,25 @@ namespace DVLD_BusinessLayer
             return null;
         }
 
+        public static Licenses FindByApplicationID(int applicationID)
+        {
+            int licenseID = -1, driverID = -1, licenseClass = -1, createdByUserID = -1;
+            DateTime issueDate = DateTime.Now, expirationDate = DateTime.Now;
+            string notes = "";
+            double paidFees = 0;
+            bool isActive = false;
+            int issueReasonInt = 1;
+
+            if (LicensesDataAccess.findLicenseByApplicationID(ref licenseID,  applicationID, ref driverID, ref licenseClass,
+                ref issueDate, ref expirationDate, ref notes, ref paidFees, ref isActive, ref issueReasonInt, ref createdByUserID))
+            {
+                return new Licenses(licenseID, applicationID, driverID, licenseClass,
+                    issueDate, expirationDate, notes, paidFees, isActive, (enIssueReason)issueReasonInt, createdByUserID);
+            }
+
+            return null;
+        }
+
 
         private bool _addNewLicense()
         {

@@ -94,6 +94,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+     
         public static bool findLicenseByApplicationID(ref int licenseID,  int applicationID, ref int driverID, ref int licenseClassID, ref DateTime ıssueDate, ref DateTime LastStatusDate, ref
    string notes, ref double paidFees, ref bool isActive, ref int issueReason, ref int createdByUserID)
         {
@@ -113,7 +114,7 @@ namespace DVLD_DataAccessLayer
                 if (read.Read())
                 {
 
-                    applicationID = read["ApplicationID"] != DBNull.Value ? Convert.ToInt32(read["ApplicationID"]) : 0;
+                    licenseID = read["LicenseID"] != DBNull.Value ? Convert.ToInt32(read["LicenseID"]) : 0;
                     driverID = read["DriverID"] != DBNull.Value ? Convert.ToInt32(read["DriverID"]) : 0;
                     licenseClassID = read["LicenseClass"] != DBNull.Value ? Convert.ToInt32(read["LicenseClass"]) : 0;
                     ıssueDate = read["IssueDate"] != DBNull.Value ? Convert.ToDateTime(read["IssueDate"]) : DateTime.MinValue;

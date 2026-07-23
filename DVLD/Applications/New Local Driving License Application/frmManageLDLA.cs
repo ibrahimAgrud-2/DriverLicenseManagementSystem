@@ -296,16 +296,8 @@ namespace DVLD.Applications
          
         }
 
-        private void dgvAppList_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void dgvAppList_MouseClick(object sender, MouseEventArgs e)
-        {
-            _HandleEnablingCsmOptions();
-            
-        }
+
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -324,16 +316,27 @@ namespace DVLD.Applications
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
-              
-               
-                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(selectedID);
+
+
+                int licenseID = clsLicense.FindByApplicationID(LocalDrivingLicenseApp.Find(selectedID).applicationID).licenseID;
+
+                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(licenseID);
                 frm.ShowDialog();
                 _RefreshLocalLicenseApplicationList();
-
             }
         }
 
         private void cmsApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _HandleEnablingCsmOptions();
+        }
+
+        private void dgvAppList_MouseClick_1(object sender, MouseEventArgs e)
         {
 
         }
