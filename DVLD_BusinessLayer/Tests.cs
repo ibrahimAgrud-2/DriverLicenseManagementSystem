@@ -11,7 +11,7 @@ namespace DVLD_BusinessLayer
         public TestAppointments testAppointmentInfo { get; set; }
         public int testResult { get; set; }
         public string notes { get; set; }
-        public int createdByUserID { get; private set; }
+        public int createdByUserID { get;  set; }
 
         enum enMode {enAddNew=1,enUpdate=2 };
         enMode mode = enMode.enAddNew;

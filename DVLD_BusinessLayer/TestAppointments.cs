@@ -32,6 +32,7 @@ namespace DVLD_BusinessLayer
             this.createdByUserID = -1;
             this.isLocked = false;
             this.retakeTestApplicationID = 0;
+            this.mode = enMode.enAddNew;
         }
 
         private TestAppointments(int testAppointmentID, int testTypeID, int localDrivingLicenseApplicationID,
@@ -45,6 +46,7 @@ namespace DVLD_BusinessLayer
             this.createdByUserID = createdByUserID;
             this.isLocked = isLocked;
             this.retakeTestApplicationID = retakeTestApplicationID;
+            this.mode = enMode.enUpdate;
         }
 
         public static DataTable getTestAppointmentsRecords()
@@ -54,7 +56,7 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static TestAppointments findTestAppointment(int testAppointmentID)
+        public static TestAppointments Find(int testAppointmentID)
         {
             int testTypeID = -1;
             int localDrivingLicenseApplicationID = -1;

@@ -84,6 +84,7 @@ namespace DVLD.Test
 
         private void frmTestAppointments_Load(object sender, EventArgs e)
         {
+            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
             _RefreshAppointmentList();
             _SetColumnNames();
             _LoadData();
@@ -98,10 +99,16 @@ namespace DVLD.Test
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            
+
             if(TestAppointments.isSameActiveTestAppointmentExistsForLocalLicenseApp(_LDLAID, (int)this.TestType + 1))
             {
                 MessageBox.Show("The person Already has the same kind of test Appointment");
+                return;
+            }
+           
+            if(_LDLA.GetPassedTestCount()==((int)this.TestType+1))
+            {
+                MessageBox.Show("Person Already passed the test.");
                 return;
             }
 
@@ -111,5 +118,23 @@ namespace DVLD.Test
             _RefreshAppointmentList();
         }
 
+
+
+        private void takeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (int.TryParse(dgvAppointmentList.SelectedRows[0].Cells[0].Value.ToString(),out int SelectedTestAppointmentID))
+            {
+               if(Convert.ToBoolean(dgvAppointmentList.SelectedRows[0].Cells[3].Value))
+                {
+                    MessageBox.Show("Cant take/edit this appoinment because its locked");
+                    return;
+
+                }
+                frmTakeTest frm = new frmTakeTest(SelectedTestAppointmentID);
+                frm.ShowDialog();
+                _RefreshAppointmentList();
+            }
+        }
     }
 }

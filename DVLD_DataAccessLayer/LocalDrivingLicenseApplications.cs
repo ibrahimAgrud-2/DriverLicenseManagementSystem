@@ -278,7 +278,7 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
-            
+            cmd.Parameters.AddWithValue(@"LocalDrivingLicenseApplication", LocalDrivingLicenseApplication);
 
             try
             {
@@ -318,7 +318,47 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
+            cmd.Parameters.AddWithValue(@"LocalDrivingLicenseApplication", LocalDrivingLicenseApplication);
 
+            try
+            {
+                connection.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int count))
+                {
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        public static int GetFailedTestCount(int LocalDrivingLicenseApplication,int TestTypeID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = @"select COUNT(*)  from TestAppointments join LocalDrivingLicenseApplications on
+            TestAppointments.LocalDrivingLicenseApplicationID =LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+            join Tests on TestAppointments.TestAppointmentID=Tests.TestAppointmentID
+            where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplication and Tests.TestResult=0 and TestTypeID=@TestTypeID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue(@"LocalDrivingLicenseApplication", LocalDrivingLicenseApplication);
+            cmd.Parameters.AddWithValue(@"TestTypeID", TestTypeID);
 
             try
             {

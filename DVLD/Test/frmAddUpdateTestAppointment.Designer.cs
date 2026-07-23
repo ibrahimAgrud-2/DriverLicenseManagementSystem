@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblApplicationIDForRetakeTest = new System.Windows.Forms.Label();
             this.lblRetakeTestFees = new System.Windows.Forms.Label();
-            this.s = new System.Windows.Forms.Label();
+            this.lblTotalFee = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -82,7 +82,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblApplicationIDForRetakeTest);
             this.groupBox1.Controls.Add(this.lblRetakeTestFees);
-            this.groupBox1.Controls.Add(this.s);
+            this.groupBox1.Controls.Add(this.lblTotalFee);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Enabled = false;
@@ -129,17 +129,17 @@
             this.lblRetakeTestFees.TabIndex = 99;
             this.lblRetakeTestFees.Text = "0";
             // 
-            // s
+            // lblTotalFee
             // 
-            this.s.AutoSize = true;
-            this.s.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.s.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.s.Location = new System.Drawing.Point(436, 49);
-            this.s.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(23, 25);
-            this.s.TabIndex = 99;
-            this.s.Text = "0";
+            this.lblTotalFee.AutoSize = true;
+            this.lblTotalFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTotalFee.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotalFee.Location = new System.Drawing.Point(436, 49);
+            this.lblTotalFee.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblTotalFee.Name = "lblTotalFee";
+            this.lblTotalFee.Size = new System.Drawing.Size(23, 25);
+            this.lblTotalFee.TabIndex = 99;
+            this.lblTotalFee.Text = "0";
             // 
             // label7
             // 
@@ -232,7 +232,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblRetakeTestFees;
-        private System.Windows.Forms.Label s;
+        private System.Windows.Forms.Label lblTotalFee;
         private System.Windows.Forms.Label lblApplicationIDForRetakeTest;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox gbMain;

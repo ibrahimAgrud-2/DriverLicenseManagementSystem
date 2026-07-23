@@ -54,13 +54,6 @@ namespace DVLD.Applications
             _RefreshLocalLicenseApplicationList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
-
-            //----------------------- Temporary
-            _DtAppList.DefaultView.RowFilter = $"NationalNo Like 'mhmt%'";
-            dgvAppList.DataSource = _DtAppList;
-            //-----------------------
-
-
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -63,10 +63,10 @@
             this.ctrlPersonInformation1.Size = new System.Drawing.Size(992, 395);
             this.ctrlPersonInformation1.TabIndex = 2;
             // 
-            // textBox1
+            // txtNotes
             // 
             this.textBox1.Location = new System.Drawing.Point(672, 493);
-            this.textBox1.Name = "textBox1";
+            this.textBox1.Name = "txtNotes";
             this.textBox1.Size = new System.Drawing.Size(279, 22);
             this.textBox1.TabIndex = 3;
             // 

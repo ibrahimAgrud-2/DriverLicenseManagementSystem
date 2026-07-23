@@ -8,7 +8,7 @@ using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using clsApplication = DVLD_BusinessLayer.Applications;
 using System.Windows.Forms;
 
 namespace DVLD.Test
@@ -59,6 +59,26 @@ namespace DVLD.Test
         }
 
 
+
+        private int _AddApplication()
+        {
+            clsApplication app = new clsApplication();
+            app.ApplicationStatus = clsApplication.enApplicationStatus.New;
+            app.ApplicantPersonID = this.ctrlLDLAsTestAppointmentsInfo1.SelectedLocalLicenseApp.ApplicationInfo.ApplicantPersonID;
+            app.ApplicationDate = DateTime.Now;
+            app.ApplicationTypeID = 7;
+            app.CreatedByUserID = Global.currentUser.userID;
+            app.PaidFees = ApplicationTypes.Find(7).applicationFee;
+            app.LastStatusDate = DateTime.Now;
+            if(!app.save())
+            {
+                MessageBox.Show("Could not saved app for retake");
+                return -1;
+
+            }
+            return app.ID;
+
+        }
         //Incase mode add
         private bool _FillDataToObject()
         {
@@ -69,10 +89,12 @@ namespace DVLD.Test
             _TestAppointment.testTypeID = (int)_GetTestType();
             _TestAppointment.localDrivingLicenseApplicationID = _LDLAID;
            
-            //İlk başarısız sınavın retake id'si her türlü boş olacak. Ancak ondan sonra her o tür sınav randevusu için app tablosunda bir record oluşturup retake ID'e eklicek.
-            if(_LDLA.GetFailedTestCount()>1)
+
+            if(_LDLA.GetFailedTestCount((int)_GetTestType())>=1)
             {
-                MessageBox.Show("Now retake record added");
+              
+               _TestAppointment.retakeTestApplicationID= _AddApplication();
+                lblApplicationIDForRetakeTest.Text = _TestAppointment.retakeTestApplicationID.ToString();
             }
            
                 return false ;
@@ -82,6 +104,7 @@ namespace DVLD.Test
         {
             if(this._Mode==enMode.enAddNew)
             {
+
                 _TestAppointment = new TestAppointments();
                 _FillDataToObject();
                
@@ -106,7 +129,15 @@ namespace DVLD.Test
         {
             this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(LDLAID);
             _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
+            if (_LDLA.GetFailedTestCount((int)_GetTestType()) >= 1)
+            {
+                groupBox1.Enabled = true;
+                lblRetakeTestFees.Text = ApplicationTypes.Find(7).applicationFee.ToString();
+               
 
+                lblTotalFee.Text = LicenseClass.Find(_LDLA.licenseClassID).classFee+ ApplicationTypes.Find(7).applicationFee+".";
+              
+            }
         }
     }
 }
