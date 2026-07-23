@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
+using clsApplication = DVLD_BusinessLayer.Applications;
 using clsLicense = DVLD_BusinessLayer.Licenses;
 
 namespace DVLD.Applications
@@ -339,6 +339,40 @@ namespace DVLD.Applications
         private void dgvAppList_MouseClick_1(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
+            {
+
+
+                int licenseID = clsLicense.FindByApplicationID(LocalDrivingLicenseApp.Find(selectedID).applicationID).licenseID;
+
+                LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
+
+                frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLA.ApplicationInfo.ApplicantPersonID);
+                frm.ShowDialog();
+            }
+        }
+
+        private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
+            {
+
+                if (MessageBox.Show("Are you sure you want to cancel [" + selectedID + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
+                    LDLA.ApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Canceled;
+                    if (LDLA.ApplicationInfo.save())
+                    {
+                        MessageBox.Show("Cancelled successfully");
+                        _RefreshLocalLicenseApplicationList();
+                    }
+                }
+
+            }
         }
     }
 }

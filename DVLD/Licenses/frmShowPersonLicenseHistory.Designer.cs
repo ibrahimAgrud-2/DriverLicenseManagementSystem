@@ -28,20 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
+            this.ctrlListLicenses1 = new DVLD.Licenses.Controls.ctrlListLicenses();
             this.SuspendLayout();
-            // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(-3, 54);
-            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.ShowAddPersonButton = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1083, 416);
-            this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
             // label1
             // 
@@ -53,19 +43,39 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "License History";
             // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(-3, 54);
+            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(2);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPersonButton = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1083, 416);
+            this.ctrlPersonCardWithFilter1.TabIndex = 0;
+            // 
+            // ctrlListLicenses1
+            // 
+            this.ctrlListLicenses1.Location = new System.Drawing.Point(12, 492);
+            this.ctrlListLicenses1.Name = "ctrlListLicenses1";
+            this.ctrlListLicenses1.Size = new System.Drawing.Size(938, 300);
+            this.ctrlListLicenses1.TabIndex = 2;
+            // 
             // frmShowPersonLicenseHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 820);
+            this.Controls.Add(this.ctrlListLicenses1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmShowPersonLicenseHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmShowPersonLicenseHistory";
+            this.Load += new System.EventHandler(this.frmShowPersonLicenseHistory_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,5 +85,6 @@
 
         private People.Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
         private System.Windows.Forms.Label label1;
+        private Controls.ctrlListLicenses ctrlListLicenses1;
     }
 }

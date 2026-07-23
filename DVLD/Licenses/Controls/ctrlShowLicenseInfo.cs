@@ -48,16 +48,16 @@ namespace DVLD.Licenses.Controls
         {
             lblFullName.Text = licenses.ApplicationInfo.ApplicantPerson.fullName;
             lblClass.Text = licenses.LicenseClassInfo.className;
-            lblDateOfBirth.Text = licenses.ApplicationInfo.ApplicantPerson.dateOfBirth.ToString();
+            lblDateOfBirth.Text = licenses.ApplicationInfo.ApplicantPerson.dateOfBirth.ToString("yyyy/MM/dd");
             lblDriverID.Text = licenses.driverID.ToString();
-            lblExpirationDate.Text = licenses.expirationDate.ToString();
+            lblExpirationDate.Text = licenses.expirationDate.ToString("yyyy/MM/dd");
             lblGendor.Text = licenses.ApplicationInfo.ApplicantPerson.gender == 0 ? "Male" : "Female";
             lblIsActive.Text = licenses.isActive.ToString();
             lblLicenseID.Text = licenses.licenseID.ToString();
             lblNationalNo.Text = licenses.ApplicationInfo.ApplicantPerson.nationalNo;
 
             //lblIsDetained.Text = DetainedLicense.findDetainedLicense();
-            lblIssueDate.Text = licenses.issueDate.ToString();
+            lblIssueDate.Text = licenses.issueDate.ToString("yyyy/MM/dd");
             lblIssueReason.Text = licenses.issueReason.ToString();
 
             //composition
