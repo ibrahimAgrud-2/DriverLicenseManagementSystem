@@ -116,13 +116,7 @@ namespace DVLD_BusinessLayer
         private bool _addNewLicense()
         {
 
-            //Yeni veri eklerekn,bazı kısımların kontrol edilmesi lazım
-            //User'in girmemesi gerek şeyleri buradan biz sistemden alıyoruz. mesela userID, paidFee for application gibi
 
-            //şu anlık 1 ama login screen olduğunda bu değişiek.
-            this.createdByUserID = 1;
-            this.paidFees = 10;
-            this.issueDate = DateTime.Now;
 
             this.licenseID = LicensesDataAccess.addLicense(this.applicationID,this.driverID,this.licenseClassID,this.issueDate,this.expirationDate,this.notes,this.paidFees,this.isActive,Convert.ToInt32(this.issueReason),this.createdByUserID);
             return (this.applicationID != -1);

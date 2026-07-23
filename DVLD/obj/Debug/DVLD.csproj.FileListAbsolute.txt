@@ -57,3 +57,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTestAppointments.re
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmAddUpdateTestAppointment.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.ctrlLDLAsTestAppointmentsInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTakeTest.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmIssueDriverLicenseFirstTime.resources

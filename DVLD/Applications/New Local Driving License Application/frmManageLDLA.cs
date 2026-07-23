@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.New_Local_Driving_License_Application;
+using DVLD.Licenses;
 using DVLD.Test;
 using DVLD_BusinessLayer;
 using System;
@@ -303,6 +304,19 @@ namespace DVLD.Applications
         {
             _HandleEnablingCsmOptions();
             
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
+            {
+
+                frmIssueDriverLicenseFirstTime frm = new frmIssueDriverLicenseFirstTime(selectedID);
+                frm.ShowDialog();
+                _RefreshLocalLicenseApplicationList();
+                
+            }
+           
         }
     }
 }
