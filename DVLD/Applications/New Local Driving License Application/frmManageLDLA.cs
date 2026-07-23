@@ -43,8 +43,10 @@ namespace DVLD.Applications
         {
             _DtAppList = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
 
+          
             dgvAppList.DataSource = _DtAppList;
             lblRecords.Text = dgvAppList.RowCount.ToString();
+           
 
         }
 
@@ -54,6 +56,9 @@ namespace DVLD.Applications
             _RefreshLocalLicenseApplicationList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
+            dgvAppList.ClearSelection();
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -237,6 +242,22 @@ namespace DVLD.Applications
                 }
             }
         }
+        private void _handleCSMIssueLicenseFirstTime()
+        {
+            string status = dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
+            int completedTestCount = Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[5].Value);
+
+
+            if (status == "New" && completedTestCount == 3)
+            {
+                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+                return;
+            }
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+
+
+        }
+
         private void _HandleEnablingCsmOptions()
         {
             string status=dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
@@ -246,16 +267,13 @@ namespace DVLD.Applications
             DeleteApplicationToolStripMenuItem.Enabled= (status == "New");
             CancelApplicaitonToolStripMenuItem.Enabled= (status == "New");
             _handleCSMScheduleTestOptions();
-            //issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (status == "Completed");
+            _handleCSMIssueLicenseFirstTime();
             showLicenseToolStripMenuItem.Enabled = (status == "Completed");
 
 
         }
 
-        private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _HandleEnablingCsmOptions();
-        }
+
 
         private void ScheduleTest_Click(object sender, EventArgs e)
         {
@@ -274,6 +292,17 @@ namespace DVLD.Applications
 
 
          
+        }
+
+        private void dgvAppList_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvAppList_MouseClick(object sender, MouseEventArgs e)
+        {
+            _HandleEnablingCsmOptions();
+            
         }
     }
 }
