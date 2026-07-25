@@ -136,11 +136,11 @@
             // lblCountry
             // 
             this.lblCountry.AutoSize = true;
-            this.lblCountry.Location = new System.Drawing.Point(609, 154);
+            this.lblCountry.Location = new System.Drawing.Point(517, 154);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(60, 24);
+            this.lblCountry.Size = new System.Drawing.Size(156, 24);
             this.lblCountry.TabIndex = 85;
-            this.lblCountry.Text = "?????";
+            this.lblCountry.Text = "Created By User: ";
             // 
             // label7
             // 
@@ -189,7 +189,7 @@
             // lblAppLastStatusDate
             // 
             this.lblAppLastStatusDate.AutoSize = true;
-            this.lblAppLastStatusDate.Location = new System.Drawing.Point(609, 91);
+            this.lblAppLastStatusDate.Location = new System.Drawing.Point(722, 97);
             this.lblAppLastStatusDate.Name = "lblAppLastStatusDate";
             this.lblAppLastStatusDate.Size = new System.Drawing.Size(60, 24);
             this.lblAppLastStatusDate.TabIndex = 84;
@@ -197,19 +197,19 @@
             // 
             // lblCreatedByUserID
             // 
-            this.lblCreatedByUserID.Image = ((System.Drawing.Image)(resources.GetObject("lblCreatedByUserID.Image")));
+            this.lblCreatedByUserID.AutoSize = true;
             this.lblCreatedByUserID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblCreatedByUserID.Location = new System.Drawing.Point(423, 154);
+            this.lblCreatedByUserID.Location = new System.Drawing.Point(722, 162);
             this.lblCreatedByUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreatedByUserID.Name = "lblCreatedByUserID";
-            this.lblCreatedByUserID.Size = new System.Drawing.Size(142, 26);
+            this.lblCreatedByUserID.Size = new System.Drawing.Size(40, 24);
             this.lblCreatedByUserID.TabIndex = 73;
-            this.lblCreatedByUserID.Text = "Created By: ";
+            this.lblCreatedByUserID.Text = "???";
             // 
             // lblAppDate
             // 
             this.lblAppDate.AutoSize = true;
-            this.lblAppDate.Location = new System.Drawing.Point(609, 34);
+            this.lblAppDate.Location = new System.Drawing.Point(722, 40);
             this.lblAppDate.Name = "lblAppDate";
             this.lblAppDate.Size = new System.Drawing.Size(60, 24);
             this.lblAppDate.TabIndex = 83;
@@ -219,7 +219,7 @@
             // 
             this.label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
             this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Location = new System.Drawing.Point(423, 91);
+            this.label11.Location = new System.Drawing.Point(536, 97);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(142, 26);
@@ -239,7 +239,7 @@
             // 
             this.label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label13.Location = new System.Drawing.Point(415, 34);
+            this.label13.Location = new System.Drawing.Point(528, 40);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(150, 26);
