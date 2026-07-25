@@ -88,20 +88,22 @@ namespace DVLD.Applications
 
         private void DeleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int SelectedLDLAID))
             {
-                if (LocalDrivingLicenseApp.IsLocalDriverLicenseExist(selectedPersonID))
+                LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(SelectedLDLAID);
+                if (LDLA!=null)
                 {
-                    if (MessageBox.Show("Are you sure you want to delete Person [" + selectedPersonID + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (MessageBox.Show("Are you sure you want to delete App [" + SelectedLDLAID + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        if (LocalDrivingLicenseApp.deleteLocalDrivingLicenseApp(selectedPersonID))
+                        if (LocalDrivingLicenseApp.deleteLocalDrivingLicenseApp(SelectedLDLAID)&& clsApplication.deleteApplication(LDLA.applicationID))
                         {
-                            MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+                            MessageBox.Show("Application Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _RefreshLocalLicenseApplicationList();
                         }
                         else
                         {
-                            MessageBox.Show("Person was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("An error occurred while deleting process.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
