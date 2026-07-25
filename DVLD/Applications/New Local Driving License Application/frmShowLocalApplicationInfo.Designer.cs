@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications
 {
-    partial class frmShowApplicationInfo
+    partial class frmShowLocalApplicationInfo
     {
         /// <summary>
         /// Required designer variable.

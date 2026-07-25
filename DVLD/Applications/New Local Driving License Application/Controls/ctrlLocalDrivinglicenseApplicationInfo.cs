@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Licenses;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using clsLicenses = DVLD_BusinessLayer.Licenses;
 using System.Windows.Forms;
 
 namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
@@ -41,11 +42,15 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
         {
             _LDLAID = _LDLA.ID;
             fillObjectDataToField(_LDLA);
-            lnklblEditPersonInfo.Enabled = true;
+            if(_LDLA.ApplicationInfo.ApplicationStatus==DVLD_BusinessLayer.Applications.enApplicationStatus.Completed)
+            {
+                lnklblEditPersonInfo.Enabled = true;
+            }
+          
 
         }
 
-        public void ResetForm()
+        private void ResetForm()
         {
             //Yükleme başarılı olup olmadığını ID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
             //formu temizlerken ID'i de -1 yapıyoruz.
@@ -69,5 +74,19 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
             _Load();
         }
 
+        private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            clsLicenses L1 = clsLicenses.FindByApplicationID(_LDLA.applicationID);
+            if(L1!=null)
+            {
+                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(L1.licenseID);
+                frm.ShowDialog();    
+            }
+            else
+            {
+                MessageBox.Show("License Could not found");
+            }
+        }
     }
 }

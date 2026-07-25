@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DVLD.Applications
 {
-    public partial class frmShowApplicationInfo : Form
+    public partial class frmShowLocalApplicationInfo : Form
     {
-        public frmShowApplicationInfo(int LDLAID)
+        public frmShowLocalApplicationInfo(int LDLAID)
         {
             InitializeComponent();
             _LDLAID = LDLAID;

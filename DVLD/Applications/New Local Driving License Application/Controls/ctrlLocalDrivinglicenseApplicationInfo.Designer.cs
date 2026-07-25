@@ -68,6 +68,7 @@
             this.lnklblEditPersonInfo.TabIndex = 87;
             this.lnklblEditPersonInfo.TabStop = true;
             this.lnklblEditPersonInfo.Text = "Show License Info";
+            this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // lblPassedTestCount
             // 

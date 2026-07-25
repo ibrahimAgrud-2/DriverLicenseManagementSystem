@@ -379,7 +379,7 @@ namespace DVLD.Applications
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
-                frmShowApplicationInfo frm = new frmShowApplicationInfo(selectedID);
+                frmShowLocalApplicationInfo frm = new frmShowLocalApplicationInfo(selectedID);
                 frm.ShowDialog();
             }
         }
