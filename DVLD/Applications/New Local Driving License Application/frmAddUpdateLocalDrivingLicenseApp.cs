@@ -50,12 +50,12 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         {
             if (_LDLA == null&&_LDLA.ApplicationInfo==null)
                 return;
-
+            cbLicenseClasses.SelectedIndex = cbLicenseClasses.FindString(_LDLA.LicenseClassInfo.className);
             lblID.Text = _LDLA.ID.ToString();
             lblAppDate.Text = _LDLA.ApplicationInfo.ApplicationDate.ToString("yyyy/mm/dd");
             lblAppFees.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
             lblCreatedByUserID.Text = _LDLA.ApplicationInfo.CreatedByUserID.ToString();
-            cbLicenseClasses.SelectedIndex = _LDLA.licenseClassID;
+
 
             this.ctrlPersonCardWithFilter1.LoadData(_LDLA.ApplicationInfo.ApplicantPersonID);
         }
@@ -79,6 +79,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                     MessageBox.Show("No Application with ID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
+              
                 lblMode.Text = "Update User";
                 this.Text = "Update User";
                 tpAppllicationInfo.Enabled = true;
