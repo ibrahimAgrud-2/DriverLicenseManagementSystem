@@ -1,4 +1,4 @@
-﻿using DVLD_DataAccessLayer;
+﻿    using DVLD_DataAccessLayer;
 using System;
 using System.Data;
 
@@ -84,8 +84,6 @@ namespace DVLD_BusinessLayer
 
         private bool _addNewTest()
         {
-            this.createdByUserID = 1;
-
             this.testID = clsTestDataAccess.addTest(
                 this.testAppointmentID,
                 this.testResult,

@@ -367,6 +367,7 @@ namespace DVLD.Applications
                 {
                     LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
                     LDLA.ApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Canceled;
+                    LDLA.ApplicationInfo.LastStatusDate = DateTime.Now;
                     if (LDLA.ApplicationInfo.save())
                     {
                         MessageBox.Show("Cancelled successfully");

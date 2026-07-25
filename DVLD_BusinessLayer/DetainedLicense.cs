@@ -79,15 +79,7 @@ namespace DVLD_BusinessLayer
         private bool _addNewDetainedLicense()
         {
 
-            //bunlar şimdilik böyle ama gerekli ayarlamalar yapıldıktan sonra (arayüz, admin/user sistemi) sistem otomatik belirleyecek
-            this.CreatedByUserID = 1;
-            this._detainDate = DateTime.Now;
-            this.releasedByUserID = 1;
-
-       
-
             this.detainID = DetainedLicensesDataAccess.addDetainedLicense(this.licenseID, this._detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
-
 
             return (this.detainID != -1);
 

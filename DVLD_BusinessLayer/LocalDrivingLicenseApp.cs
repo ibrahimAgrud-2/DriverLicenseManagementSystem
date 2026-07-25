@@ -113,7 +113,7 @@ namespace DVLD_BusinessLayer
             }
         }
 
-        public static bool isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(int personID,int AppForLicenseClassID)
+        public static bool HasPendingOrCompletedApplication(int personID,int AppForLicenseClassID)
         {
             return clsLocalDrivingLicenseAppDataAccess.HasPendingOrCompletedApplication(personID,AppForLicenseClassID);
         }

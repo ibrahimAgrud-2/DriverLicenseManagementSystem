@@ -119,7 +119,7 @@ namespace DVLD_BusinessLayer
         //Update yaparken lastStatus güncellenmeli.
         private bool _UpdateApplication()
         {
-            this.LastStatusDate = DateTime.Now;
+
             return ApplicationsDataAccess.updateApplicationInfo(this.ID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID, Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 

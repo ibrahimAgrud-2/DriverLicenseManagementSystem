@@ -81,12 +81,6 @@ namespace DVLD_BusinessLayer
         {
    
 
-            this.CreatedByUserID = 1;
-            this.IssueDate = DateTime.Now;
-            this.ExpirationDate = DateTime.Now;
-           
-
-
             this.InternationalLicenseID = InternationalLicenseDataAccess.addInternationalLicense(this.ApplicationID,this.DriverID,this.IssuedUsingLocalLicenseID,this.IssueDate,this.ExpirationDate,this.IsActive,this.CreatedByUserID);
             return (this.InternationalLicenseID != -1);
 
