@@ -348,9 +348,6 @@ namespace DVLD.Applications
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
 
-
-                int licenseID = clsLicense.FindByApplicationID(LocalDrivingLicenseApp.Find(selectedID).applicationID).licenseID;
-
                 LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
 
                 frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLA.ApplicationInfo.ApplicantPersonID);

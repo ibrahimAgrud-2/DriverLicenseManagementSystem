@@ -361,47 +361,7 @@ namespace DVLD_DataAccessLayer
 
             return dt;
         }
-        public static DataTable getAllInternationalLicenseByPersonID(int PersonID)
-        {
-            DataTable dt = new DataTable();
-
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = @"select * from InternationalLicenses join Drivers on Drivers.DriverID = InternationalLicenses.DriverID where PersonID=@PersonID";
-
-            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
-
-            cmd.Parameters.AddWithValue(@"PersonID", PersonID);
-
-
-
-            try
-            {
-                connection.Open();
-                SqlDataReader read = cmd.ExecuteReader();
-
-                if (read.HasRows)
-                {
-                    dt.Load(read);
-                }
-
-                read.Close();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-
-
-            return dt;
-        }
-
-
+  
 
     }
 }

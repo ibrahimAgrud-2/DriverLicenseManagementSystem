@@ -31,7 +31,7 @@ namespace DVLD.Licenses.Controls
             {
               { "InternationalLicenseID", "Int.L.ID" },
               { "ApplicationID", "App.ID" },
-              { "ClassName", "Class" },
+              { "IssuedUsingLocalLicenseID", "L.LicenseID" },
               { "IssueDate", "Issue Date" },
               { "ExpirationDate", "Expiration Date" },
               { "IsActive", "Is Active" }
@@ -45,9 +45,9 @@ namespace DVLD.Licenses.Controls
         }
         private void _SetInternationalLicensesColumnNames()
         {
-            foreach (KeyValuePair<string, string> dict in _LocalListColumnNames)
+            foreach (KeyValuePair<string, string> dict in _InternationalListColumnNames)
             {
-                dgvLocalLicenseList.Columns[dict.Key].HeaderText = dict.Value;
+                dgvInternationalLicenseList.Columns[dict.Key].HeaderText = dict.Value;
             }
         }
 
@@ -56,7 +56,7 @@ namespace DVLD.Licenses.Controls
         private void _RefreshLists(int personID)
         {
             _DtLocalLicenses = clsLicenses.getAllLocalLicenseByPersonID(personID);
-            _DtInternationalLicenses = clsLicenses.getAllInternationalLicenseByPersonID(personID);
+            _DtInternationalLicenses = InternationalLicense.getAllInternationalLicenseByPersonID(personID);
 
 
       
@@ -69,7 +69,9 @@ namespace DVLD.Licenses.Controls
 
             if (_DtInternationalLicenses.Rows.Count > 0)
             {
-                dgvInternationalLicenseList.DataSource = _DtInternationalLicenses.DefaultView.ToTable("InternationalLicenses", false, "InternationalLicenseID", "ApplicationID", "ClassName", "IssueDate", "ExpirationDate", "IsActive");
+ 
+
+                dgvInternationalLicenseList.DataSource = _DtInternationalLicenses.DefaultView.ToTable("InternationalLicenses", false, "InternationalLicenseID", "ApplicationID", "IssuedUsingLocalLicenseID", "IssueDate", "ExpirationDate", "IsActive");
                 _SetInternationalLicensesColumnNames();
             }
           
@@ -83,10 +85,7 @@ namespace DVLD.Licenses.Controls
 
         }
 
-        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
-        {
 
-        }
 
         private void tbMain_SelectedIndexChanged(object sender, EventArgs e)
         {

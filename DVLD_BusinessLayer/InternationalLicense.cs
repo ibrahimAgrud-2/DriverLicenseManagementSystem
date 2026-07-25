@@ -58,6 +58,13 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
+        public static DataTable getAllInternationalLicenseByPersonID(int personID)
+        {
+            DataTable dt = new DataTable();
+
+            dt = InternationalLicenseDataAccess.getAllInternationalLicenseByPersonID(personID);
+            return dt;
+        }
 
 
         public static InternationalLicense findInternationalLicenses(int InternationalLicenseID)
