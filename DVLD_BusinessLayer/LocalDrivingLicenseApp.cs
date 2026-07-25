@@ -115,7 +115,7 @@ namespace DVLD_BusinessLayer
 
         public static bool isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(int personID,int AppForLicenseClassID)
         {
-            return clsLocalDrivingLicenseAppDataAccess.isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(personID,AppForLicenseClassID);
+            return clsLocalDrivingLicenseAppDataAccess.HasPendingOrCompletedApplication(personID,AppForLicenseClassID);
         }
         public  int GetPassedTestCount()
         {

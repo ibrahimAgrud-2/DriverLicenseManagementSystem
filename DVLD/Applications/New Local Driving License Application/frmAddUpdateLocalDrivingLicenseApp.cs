@@ -35,8 +35,54 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             InitializeComponent();
             _LDLAID = LocalApplicationID;
             this._Mode = enMode.enUpdate;
-        }     
-        
+        }
+
+        private void frmAddUpdateLocalDrivingLicenseApp_Load(object sender, EventArgs e)
+        {
+            _Load();
+        }
+        private void _Load()
+        {
+            _FillLicenseClassToComboBox();
+            //when mode is update;
+            if (this._Mode == enMode.enUpdate)
+            {
+                _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
+
+                if (_LDLA == null)
+                {
+                    MessageBox.Show("No LDLA with ID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                }
+                App = ApplicationsDb.Find(_LDLA.applicationID);
+                if (App == null)
+                {
+                    MessageBox.Show("No Application with ID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                }
+
+                lblMode.Text = "Update Local Driving License Application";
+                this.Text = "Update Local Driving License Application";
+                tpAppllicationInfo.Enabled = true;
+                ctrlPersonCardWithFilter1.FilterEnabled = false;
+                fillObjectDataToField();
+
+            }
+            else
+            {
+                lblMode.Text = "Add New Local Driving License Application";
+                this.Text = "Add New Local Driving License Application";
+                tpAppllicationInfo.Enabled = false;
+                lblAppFees.Text = ApplicationTypes.Find(1).applicationFee.ToString();
+                lblCreatedByUserID.Text = Global.currentUser.userID.ToString();
+                lblAppDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
+                cbLicenseClasses.SelectedIndex = 3;
+                _LDLA = new LocalDrivingLicenseApp();
+                App = new ApplicationsDb();
+
+            }
+
+        }
         private void _FillLicenseClassToComboBox()
         {
             DataTable dt = LicenseClass.getAllRecords();
@@ -59,48 +105,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
 
             this.ctrlPersonCardWithFilter1.LoadData(_LDLA.ApplicationInfo.ApplicantPersonID);
         }
- 
-        private void frmAddUpdateLocalDrivingLicenseApp_Load(object sender, EventArgs e)
-        {
-            _FillLicenseClassToComboBox();
-            //when mode is update;
-            if (this._Mode == enMode.enUpdate)
-            {
-                _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
-                
-                if (_LDLA == null)
-                {
-                    MessageBox.Show("No LDLA with ID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    this.Close();
-                }
-                App = ApplicationsDb.Find(_LDLA.applicationID);
-                if (App == null)
-                {
-                    MessageBox.Show("No Application with ID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    this.Close();
-                }
-              
-                lblMode.Text = "Update User";
-                this.Text = "Update User";
-                tpAppllicationInfo.Enabled = true;
-                ctrlPersonCardWithFilter1.FilterEnabled = false;
-                fillObjectDataToField();
 
-            }
-            else
-            {
-                lblMode.Text = "Add New User";
-                tpAppllicationInfo.Enabled = false;
-                lblAppFees.Text = ApplicationTypes.Find(1).applicationFee.ToString();
-                lblCreatedByUserID.Text = "1";
-                lblAppDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
-                cbLicenseClasses.SelectedIndex = 3;
-                _LDLA = new LocalDrivingLicenseApp();
-                 App = new ApplicationsDb();
-
-            }
-
-        }
         private bool _FillDataToObject()
         {
 

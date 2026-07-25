@@ -232,7 +232,7 @@ namespace DVLD_DataAccessLayer
 
 
         //Eğer bir *kişi*, *Aynı license türünden* *New veya completed* başvurusu varsa true döner. BU sayde kişini bir sınıf türüne sadece bir adet  başvurus olabilir. Tabi eğer geçmiş başvurusu cancelled ise tekrar başvuru yapabilir.
-        public static bool isSameLocalDrivingLicenseAppExistByPersonIDAndTestType(int personID, int AppForLicenseClassID)
+        public static bool HasPendingOrCompletedApplication(int personID, int AppForLicenseClassID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
             bool isFound = false;
