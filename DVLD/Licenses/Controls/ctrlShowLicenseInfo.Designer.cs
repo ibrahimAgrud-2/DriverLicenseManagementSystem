@@ -318,9 +318,9 @@
             this.lblNotes.Location = new System.Drawing.Point(209, 286);
             this.lblNotes.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(68, 25);
+            this.lblNotes.Size = new System.Drawing.Size(93, 25);
             this.lblNotes.TabIndex = 134;
-            this.lblNotes.Text = "[????]";
+            this.lblNotes.Text = "No Notes";
             // 
             // lblIssueDate
             // 

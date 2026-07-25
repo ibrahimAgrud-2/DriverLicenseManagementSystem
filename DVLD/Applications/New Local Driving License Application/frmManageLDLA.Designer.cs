@@ -58,7 +58,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.btnAddPerson = new System.Windows.Forms.Button();
+            this.btnAddApplication = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppList)).BeginInit();
             this.cmsApplications.SuspendLayout();
             this.SuspendLayout();
@@ -160,7 +160,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAppList.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAppList.Location = new System.Drawing.Point(13, 241);
+            this.dgvAppList.Location = new System.Drawing.Point(12, 252);
             this.dgvAppList.MultiSelect = false;
             this.dgvAppList.Name = "dgvAppList";
             this.dgvAppList.ReadOnly = true;
@@ -170,8 +170,6 @@
             this.dgvAppList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAppList.Size = new System.Drawing.Size(1426, 328);
             this.dgvAppList.TabIndex = 31;
-            this.dgvAppList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAppList_CellClick);
-            this.dgvAppList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAppList_MouseClick_1);
             // 
             // cmsApplications
             // 
@@ -193,7 +191,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
             this.cmsApplications.Size = new System.Drawing.Size(309, 371);
-            this.cmsApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApplications_Opening);
+            this.cmsApplications.Opened += new System.EventHandler(this.cmsApplications_Opened);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -345,15 +343,15 @@
             this.cbStatus.Visible = false;
             this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // btnAddPerson
+            // btnAddApplication
             // 
-            this.btnAddPerson.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPerson.Image")));
-            this.btnAddPerson.Location = new System.Drawing.Point(1343, 151);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(96, 80);
-            this.btnAddPerson.TabIndex = 36;
-            this.btnAddPerson.UseVisualStyleBackColor = true;
-            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
+            this.btnAddApplication.Image = ((System.Drawing.Image)(resources.GetObject("btnAddApplication.Image")));
+            this.btnAddApplication.Location = new System.Drawing.Point(1343, 151);
+            this.btnAddApplication.Name = "btnAddApplication";
+            this.btnAddApplication.Size = new System.Drawing.Size(96, 80);
+            this.btnAddApplication.TabIndex = 36;
+            this.btnAddApplication.UseVisualStyleBackColor = true;
+            this.btnAddApplication.Click += new System.EventHandler(this.btnAddApplication_Click);
             // 
             // frmManageLDLA
             // 
@@ -367,7 +365,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbFilterBy);
-            this.Controls.Add(this.btnAddPerson);
+            this.Controls.Add(this.btnAddApplication);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvAppList);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -391,7 +389,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbFilterBy;
-        private System.Windows.Forms.Button btnAddPerson;
+        private System.Windows.Forms.Button btnAddApplication;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.DataGridView dgvAppList;

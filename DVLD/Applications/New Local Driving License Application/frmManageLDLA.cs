@@ -53,22 +53,13 @@ namespace DVLD.Applications
         }
 
 
-        private void frmManageLDLA_Load(object sender, EventArgs e)
-        {
-            _RefreshLocalLicenseApplicationList();
-            _SetColumnNames();
-            cbFilterBy.SelectedIndex = 0;
-            dgvAppList.ClearSelection();
-
-
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnAddPerson_Click(object sender, EventArgs e)
+        private void btnAddApplication_Click(object sender, EventArgs e)
         {
             frmAddUpdateLocalDrivingLicenseApp frm = new frmAddUpdateLocalDrivingLicenseApp();
             frm.ShowDialog();
@@ -116,6 +107,9 @@ namespace DVLD.Applications
 
             }
         }
+
+
+        //------filtering
 
         private void txtFilet_TextChanged(object sender, EventArgs e)
         {
@@ -200,27 +194,30 @@ namespace DVLD.Applications
             if (cbStatus.SelectedIndex == 1)
             {
                 _DtAppList.DefaultView.RowFilter = $"Status = 'New'";
-                
+
             }
             else if (cbStatus.SelectedIndex == 2)
             {
                 _DtAppList.DefaultView.RowFilter = $"Status = 'Completed'";
-                
+
             }
-            else if(cbStatus.SelectedIndex == 3)
+            else if (cbStatus.SelectedIndex == 3)
             {
                 _DtAppList.DefaultView.RowFilter = $"Status = 'Canceled'";
-              
+
             }
             else
             {
                 _DtAppList.DefaultView.RowFilter = null;
             }
-                
+
             dgvAppList.DataSource = _DtAppList;
             lblRecords.Text = dgvAppList.RowCount.ToString();
         }
-    
+
+        //------filtering
+
+
         private void _handleCSMScheduleTestOptions()
         {
             string status = dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
@@ -278,7 +275,6 @@ namespace DVLD.Applications
         }
 
 
-
         private void ScheduleTest_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedLDLAID))
@@ -297,9 +293,6 @@ namespace DVLD.Applications
 
          
         }
-
-
-
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -327,22 +320,6 @@ namespace DVLD.Applications
                 _RefreshLocalLicenseApplicationList();
             }
         }
-
-        private void cmsApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
-
-        private void dgvAppList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _HandleEnablingCsmOptions();
-        }
-
-        private void dgvAppList_MouseClick_1(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
@@ -382,6 +359,40 @@ namespace DVLD.Applications
                 frmShowLocalApplicationInfo frm = new frmShowLocalApplicationInfo(selectedID);
                 frm.ShowDialog();
             }
+        }
+
+
+
+        
+        private void frmManageLDLA_Load(object sender, EventArgs e)
+        {
+            _RefreshLocalLicenseApplicationList();
+            _SetColumnNames();
+            cbFilterBy.SelectedIndex = 0;
+            //dgvAppList.ClearSelection();
+          
+
+        }
+
+
+
+        private void dgvAppList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                MessageBox.Show("Sağ tuşa basıldı.");
+            }
+        }
+
+        private void dgvAppList_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            
+        }
+
+        private void cmsApplications_Opened(object sender, EventArgs e)
+        {
+            _HandleEnablingCsmOptions();
         }
     }
 }
