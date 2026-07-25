@@ -57,6 +57,18 @@ namespace DVLD_BusinessLayer
             return null;
         }
 
+        public static Driver FindByPersonID(int PersonID)
+        {
+            int driverID = -1;
+            int createdByUserID = -1;
+            DateTime createdDate = DateTime.MinValue;
+
+            if (clsDriverDataAccess.findDriverByPersonID(ref driverID, PersonID, ref createdByUserID, ref createdDate))
+            {
+                return new Driver(driverID, PersonID, createdByUserID, createdDate);
+            }
+            return null;
+        }
 
         private bool _addNewDriver()
         {
