@@ -48,7 +48,7 @@ namespace DVLD_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
-            string query = "select * from users where DriverID=@DriverID";
+            string query = "select * from drivers where DriverID=@DriverID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
@@ -86,7 +86,7 @@ namespace DVLD_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 
-            string query = "select * from users where personID=@personID";
+            string query = "select * from drivers where personID=@personID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 

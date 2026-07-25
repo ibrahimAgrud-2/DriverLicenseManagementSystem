@@ -36,24 +36,33 @@ namespace DVLD.Licenses
         }
         private int _AddDriver()
         {
-          //  Driver drv = Driver.Find();
-            Driver drv = new Driver();
-            drv.personID = _LDLA.ApplicationInfo.ApplicantPersonID;
-            drv.createdDate = DateTime.Today;
-            drv.createdByUserID = Global.currentUser.userID;
+    
+            Driver newDrv = new Driver();
+            newDrv.personID = _LDLA.ApplicationInfo.ApplicantPersonID;
+            newDrv.createdDate = DateTime.Today;
+            newDrv.createdByUserID = Global.currentUser.userID;
             
-            if(!drv.save())
+            if(!newDrv.save())
             {
                 MessageBox.Show("Could not saved driver for this license");
             }
-            return drv.driverID;
+            return newDrv.driverID;
     
         }
         private clsLicense _LoadInfo()
         {
   
             clsLicense newLicense = new clsLicense();
-            newLicense.driverID = _AddDriver();
+            Driver drv = Driver.FindByPersonID(_LDLA.ApplicationInfo.ApplicantPersonID);
+            if (drv != null)
+            {
+                newLicense.driverID = drv.driverID;
+            }
+            else
+            {
+                newLicense.driverID = _AddDriver();
+            }
+                
             newLicense.notes = txtNotes.Text;
             newLicense.applicationID = _LDLA.applicationID;
             newLicense.paidFees = LicenseClass.Find(_LDLA.licenseClassID).classFee;
