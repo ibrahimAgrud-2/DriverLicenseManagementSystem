@@ -20,19 +20,32 @@ namespace DVLD.Test
             InitializeComponent();
             this._Mode = enMode.enAddNew;
         }
-        public frmAddUpdateTestAppointment(int testAppointment)
+        public frmAddUpdateTestAppointment(int testAppointmentID)
         {
             InitializeComponent();
             this._Mode = enMode.enUpdate;
-            _TestAppointmentID = testAppointment;
+            _TestAppointmentID = testAppointmentID;
         }
 
-
+        private void frmAddUpdateTestAppointment_Load(object sender, EventArgs e)
+        {
+            this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(LDLAID);
+            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
+            TestTypef = (TestTypes.enTestTypes)_LDLA.GetFailedTestCount()+1;
+            if (_LDLA.GetFailedTestCount((int)TestTypef) >= 1)
+            {
+                groupBox1.Enabled = true;
+                lblRetakeTestFees.Text = ApplicationTypes.Find(7).applicationFee.ToString();
+                lblTotalFee.Text = LicenseClass.Find(_LDLA.licenseClassID).classFee + ApplicationTypes.Find(7).applicationFee.ToString();
+            }
+        }
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
 
         public enum enTestType { Vision = 0, Written = 1, Street = 2 };
         public enTestType testType;
+
+        private TestTypes.enTestTypes TestTypef;
 
         private int _LDLAID = -1;
 
@@ -53,9 +66,9 @@ namespace DVLD.Test
             this.Close();
         }
 
-        private TestType.enTestTypes _GetTestType()
+        private TestTypes.enTestTypes _GetTestType()
         {
-            return (TestType.enTestTypes)(_LDLA.GetPassedTestCount()+1);
+            return (TestTypes.enTestTypes)(_LDLA.GetPassedTestCount()+1);
         }
 
 
@@ -85,7 +98,7 @@ namespace DVLD.Test
             _TestAppointment.createdByUserID = Global.currentUser.userID;
             _TestAppointment.appointmentDate = DateTime.Now;
             _TestAppointment.isLocked = false;
-            _TestAppointment.paidFees = TestType.Find(_GetTestType()).TestTypeFees;
+            _TestAppointment.paidFees = TestTypes.Find(_GetTestType()).TestTypeFees;
             _TestAppointment.testTypeID = (int)_GetTestType();
             _TestAppointment.localDrivingLicenseApplicationID = _LDLAID;
            
@@ -125,19 +138,6 @@ namespace DVLD.Test
             }
         }
 
-        private void frmAddUpdateTestAppointment_Load(object sender, EventArgs e)
-        {
-            this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(LDLAID);
-            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
-            if (_LDLA.GetFailedTestCount((int)_GetTestType()) >= 1)
-            {
-                groupBox1.Enabled = true;
-                lblRetakeTestFees.Text = ApplicationTypes.Find(7).applicationFee.ToString();
-               
-
-                lblTotalFee.Text = LicenseClass.Find(_LDLA.licenseClassID).classFee+ ApplicationTypes.Find(7).applicationFee+".";
-              
-            }
-        }
+   
     }
 }

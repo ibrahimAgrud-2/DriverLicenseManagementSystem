@@ -9,7 +9,7 @@ namespace DVLD_BusinessLayer
     {
         public int testAppointmentID { get; set; }
         public int testTypeID { get; set; }
-        public TestType TestTypeInfo { get; set; }
+        public TestTypes TestTypeInfo { get; set; }
 
         public int localDrivingLicenseApplicationID { get; set; }
         public LocalDrivingLicenseApp LDLAInfo { get; set; }

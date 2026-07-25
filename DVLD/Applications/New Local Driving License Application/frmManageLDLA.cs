@@ -280,13 +280,7 @@ namespace DVLD.Applications
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedLDLAID))
             {
-
-                int passedTestCount = (int)dgvAppList.SelectedRows[0].Cells[5].Value;
-
-                
-
-                frmTestAppointments frm = new frmTestAppointments(selectedLDLAID,(frmTestAppointments.enTestType)(passedTestCount));
-                
+                frmTestAppointments frm = new frmTestAppointments(selectedLDLAID);
                 frm.ShowDialog();
                 _RefreshLocalLicenseApplicationList();
             }

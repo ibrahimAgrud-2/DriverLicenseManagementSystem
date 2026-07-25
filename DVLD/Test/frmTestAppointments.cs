@@ -6,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace DVLD.Test
@@ -15,22 +15,38 @@ namespace DVLD.Test
     {
 
         //id yanında testType'da göndermejk istedim çünkü fonksyin yazmaktan daha kolay.Ve güvenli.
-        public frmTestAppointments(int LocalLicenseApplicationID, enTestType testType)
+        public frmTestAppointments(int LocalLicenseApplicationID)
         {
             InitializeComponent();
             _LDLAID = LocalLicenseApplicationID;
-            this.TestType = testType;
+
+        }
+        private void frmTestAppointments_Load(object sender, EventArgs e)
+        {
+            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
+            /*
+             Eğer passedTestCount 0 ise vision test olması gerekiyor demektir. Yani enum listesinde indexi bir olan vision olmalı. Enum listesinde 0'ın karşılığı yok bu yüzden +1 yapmamız gerekiyr. Ve bu her zaman doğrudur. Yani passedTest 2 ise bu demek oluyor ki 3.sıradaki writin test'i alması gerek 2+1=3.sıradaki enum ifadesi olur. 
+             */
+            if(_LDLA==null)
+            {
+                MessageBox.Show("Valid Local Driving License Application not found");
+                return;
+            }
+            TestType = (TestTypes.enTestTypes)_LDLA.GetPassedTestCount()+1;
+            _RefreshAppointmentList();
+            _SetColumnNames();
+            _LoadData();
         }
 
         private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA;
+        private TestTypes.enTestTypes TestType;
+
+      
 
 
 
 
-
-        public enum enTestType { Vision=0,Written=1,Street=2};
-        public enTestType TestType;
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
@@ -46,13 +62,13 @@ namespace DVLD.Test
             {
                 dgvAppointmentList.Columns[dict.Key].HeaderText = dict.Value;
             }
-
+      
         }
 
         private void _RefreshAppointmentList()
         {
             DataTable dt = TestAppointments.getTestAppointmentsRecords();
-            dt.DefaultView.RowFilter = $"TestTypeID={(int)this.TestType+1} and LocalDrivingLicenseApplicationID={_LDLAID}";
+            dt.DefaultView.RowFilter = $"TestTypeID={(int)this.TestType} and LocalDrivingLicenseApplicationID={_LDLAID}";
         
             DataTable filteredTable= dt.DefaultView.ToTable("Appointments", false, "TestAppointmentID", "AppointmentDate", "PaidFees", "IsLocked");
            
@@ -71,13 +87,13 @@ namespace DVLD.Test
         {
             switch(TestType)
             {
-                case enTestType.Vision:
+                case TestTypes.enTestTypes.VisionTest:
                     this.Text = "Vision Test Appointments";
                     break;
-                case enTestType.Written:
+                case TestTypes.enTestTypes.WrittenTest:
                     this.Text = "Written Test Appointments";
                     break;
-                case enTestType.Street:
+                case TestTypes.enTestTypes.StreetTest:
                     this.Text = "Street Test Appointments";
                     break;
             }
@@ -85,13 +101,6 @@ namespace DVLD.Test
             _RefreshAppointmentList();
         }
 
-        private void frmTestAppointments_Load(object sender, EventArgs e)
-        {
-            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
-            _RefreshAppointmentList();
-            _SetColumnNames();
-            _LoadData();
-        }
 
 
 
@@ -104,14 +113,14 @@ namespace DVLD.Test
         {
             //Burada sadece kişinin/başvurunun aynı aktif (sonucu belirlenmemiş) sınav türüne sahip mi onu kontrol ediyoruz.
 
-            if(TestAppointments.HasActiveTestAppointment(_LDLAID, (int)this.TestType + 1))
+            if(TestAppointments.HasActiveTestAppointment(_LDLAID, (int)this.TestType))
             {
                 MessageBox.Show("The person Already has the same kind of test Appointment");
                 return;
             }
            
             //Burada ise o sınav türünü geçmiş mi kontrol ediyoruz. Bu iki kontrol sayesinde kullanıcıya daha net bildirimler verebiliyoruz.
-            if(_LDLA.GetPassedTestCount()==((int)this.TestType+1))
+            if(_LDLA.GetPassedTestCount()==((int)this.TestType))
             {
                 MessageBox.Show("Person Already passed the test.");
                 return;
