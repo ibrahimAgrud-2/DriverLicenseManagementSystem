@@ -26,6 +26,9 @@ namespace DVLD.Test
         private LocalDrivingLicenseApp _LDLA;
 
 
+
+
+
         public enum enTestType { Vision=0,Written=1,Street=2};
         public enTestType TestType;
 
