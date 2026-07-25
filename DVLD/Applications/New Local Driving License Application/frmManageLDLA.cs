@@ -374,5 +374,14 @@ namespace DVLD.Applications
 
             }
         }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
+            {
+                frmShowApplicationInfo frm = new frmShowApplicationInfo(selectedID);
+                frm.ShowDialog();
+            }
+        }
     }
 }
