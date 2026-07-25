@@ -211,7 +211,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddUpdateTestAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddUpdateTestAppointment";
+            this.Text = "Schedule Test";
             this.Load += new System.EventHandler(this.frmAddUpdateTestAppointment_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

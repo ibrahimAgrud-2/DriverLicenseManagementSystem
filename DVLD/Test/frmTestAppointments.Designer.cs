@@ -61,18 +61,19 @@
             this.editToolStripMenuItem,
             this.takeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 79);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // takeToolStripMenuItem
             // 
             this.takeToolStripMenuItem.Name = "takeToolStripMenuItem";
-            this.takeToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.takeToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
             this.takeToolStripMenuItem.Text = "Take";
             this.takeToolStripMenuItem.Click += new System.EventHandler(this.takeToolStripMenuItem_Click);
             // 

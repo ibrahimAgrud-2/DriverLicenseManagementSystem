@@ -87,13 +87,13 @@ namespace DVLD.Test
         {
             switch(TestType)
             {
-                case TestTypes.enTestTypes.VisionTest:
+                case TestTypes.enTestTypes.Vision:
                     this.Text = "Vision Test Appointments";
                     break;
-                case TestTypes.enTestTypes.WrittenTest:
+                case TestTypes.enTestTypes.Written:
                     this.Text = "Written Test Appointments";
                     break;
-                case TestTypes.enTestTypes.StreetTest:
+                case TestTypes.enTestTypes.Street:
                     this.Text = "Street Test Appointments";
                     break;
             }
@@ -149,6 +149,23 @@ namespace DVLD.Test
                 frm.ShowDialog();
                 _RefreshAppointmentList();
             }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvAppointmentList.SelectedRows[0].Cells[0].Value.ToString(), out int SelectedTestAppointmentID))
+            {
+                if (Convert.ToBoolean(dgvAppointmentList.SelectedRows[0].Cells[3].Value))
+                {
+                    MessageBox.Show("Cant edit this appoinment because its locked");
+                    return;
+
+                }
+                frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment(SelectedTestAppointmentID);
+                frm.ShowDialog();
+                _RefreshAppointmentList();
+            }
+
         }
     }
 }

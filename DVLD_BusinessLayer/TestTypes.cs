@@ -3,7 +3,7 @@ using System.Threading;
 
 public class TestTypes
 {
-   public enum enTestTypes {VisionTest=1,WrittenTest=2,StreetTest=3 };
+   public enum enTestTypes {Vision=1,Written=2,Street=3 };
 
     public TestTypes.enTestTypes ID { get; set; }
     public string TestTypeTitle { get; set; }
@@ -12,7 +12,7 @@ public class TestTypes
 
     public TestTypes()
     {
-        ID = enTestTypes.VisionTest;
+        ID = enTestTypes.Vision;
         TestTypeTitle = string.Empty;
         TestTypeDescription = string.Empty;
         TestTypeFees = 0.0;

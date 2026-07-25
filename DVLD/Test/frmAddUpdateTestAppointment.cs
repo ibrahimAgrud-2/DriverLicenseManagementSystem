@@ -29,9 +29,15 @@ namespace DVLD.Test
 
         private void frmAddUpdateTestAppointment_Load(object sender, EventArgs e)
         {
+            if(this._Mode==enMode.enUpdate)
+            {
+                _TestAppointment = TestAppointments.Find(_TestAppointmentID);
+                _LDLA = LocalDrivingLicenseApp.Find(_TestAppointment.localDrivingLicenseApplicationID);
+                _LDLAID = _LDLA.ID;
+            }
             this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(LDLAID);
-            _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
             _TestType = (TestTypes.enTestTypes)_LDLA.GetPassedTestCount()+1;
+            gbMain.Text = _TestType.ToString()+" Test";
 
             if (_LDLA.GetFailedTestCount((int)_TestType) >= 1)
             {
