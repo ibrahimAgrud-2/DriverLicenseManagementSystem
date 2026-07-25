@@ -55,7 +55,7 @@ namespace DVLD.Licenses.Controls
             lblIsActive.Text = licenses.isActive.ToString();
             lblLicenseID.Text = licenses.licenseID.ToString();
             lblNationalNo.Text = licenses.ApplicationInfo.ApplicantPerson.nationalNo;
-
+            
             //lblIsDetained.Text = DetainedLicense.findDetainedLicense();
             lblIssueDate.Text = licenses.issueDate.ToString("yyyy/MM/dd");
             lblIssueReason.Text = licenses.issueReason.ToString();
