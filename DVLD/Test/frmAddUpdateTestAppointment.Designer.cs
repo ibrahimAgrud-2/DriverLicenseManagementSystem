@@ -41,6 +41,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
             this.ctrlLDLAsTestAppointmentsInfo1 = new DVLD.Test.ctrlLDLAsTestAppointmentsInfo();
+            this.lblWarn = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbMain.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +58,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(245, 646);
+            this.btnClose.Location = new System.Drawing.Point(241, 690);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(127, 54);
@@ -181,7 +182,7 @@
             this.gbMain.Controls.Add(this.groupBox1);
             this.gbMain.Controls.Add(this.ctrlLDLAsTestAppointmentsInfo1);
             this.gbMain.Controls.Add(this.btnSave);
-            this.gbMain.Location = new System.Drawing.Point(39, 58);
+            this.gbMain.Location = new System.Drawing.Point(35, 102);
             this.gbMain.Name = "gbMain";
             this.gbMain.Size = new System.Drawing.Size(580, 581);
             this.gbMain.TabIndex = 5;
@@ -197,11 +198,26 @@
             this.ctrlLDLAsTestAppointmentsInfo1.Size = new System.Drawing.Size(580, 308);
             this.ctrlLDLAsTestAppointmentsInfo1.TabIndex = 2;
             // 
+            // lblWarn
+            // 
+            this.lblWarn.AutoSize = true;
+            this.lblWarn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblWarn.ForeColor = System.Drawing.Color.Red;
+            this.lblWarn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblWarn.Location = new System.Drawing.Point(134, 56);
+            this.lblWarn.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblWarn.Name = "lblWarn";
+            this.lblWarn.Size = new System.Drawing.Size(335, 25);
+            this.lblWarn.TabIndex = 98;
+            this.lblWarn.Text = "Person Already Sat for Test, cant edit";
+            this.lblWarn.Visible = false;
+            // 
             // frmAddUpdateTestAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 702);
+            this.ClientSize = new System.Drawing.Size(650, 750);
+            this.Controls.Add(this.lblWarn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.button1);
@@ -236,5 +252,6 @@
         private System.Windows.Forms.Label lblApplicationIDForRetakeTest;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox gbMain;
+        private System.Windows.Forms.Label lblWarn;
     }
 }

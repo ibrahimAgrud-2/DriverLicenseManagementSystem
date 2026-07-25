@@ -155,12 +155,6 @@ namespace DVLD.Test
         {
             if (int.TryParse(dgvAppointmentList.SelectedRows[0].Cells[0].Value.ToString(), out int SelectedTestAppointmentID))
             {
-                if (Convert.ToBoolean(dgvAppointmentList.SelectedRows[0].Cells[3].Value))
-                {
-                    MessageBox.Show("Cant edit this appoinment because its locked");
-                    return;
-
-                }
                 frmAddUpdateTestAppointment frm = new frmAddUpdateTestAppointment(SelectedTestAppointmentID);
                 frm.ShowDialog();
                 _RefreshAppointmentList();

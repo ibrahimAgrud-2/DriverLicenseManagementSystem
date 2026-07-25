@@ -225,7 +225,7 @@ namespace DVLD.Applications
 
 
 
-            if (status !="New")
+            if (status !="New"|| completedTestCount==3)
             {
                 ScheduleTestsMenue.Enabled = false;
                 return;

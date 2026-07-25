@@ -173,7 +173,7 @@
             // 
             this.dtpApplicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dtpApplicationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpApplicationDate.Location = new System.Drawing.Point(203, 209);
+            this.dtpApplicationDate.Location = new System.Drawing.Point(202, 209);
             this.dtpApplicationDate.Name = "dtpApplicationDate";
             this.dtpApplicationDate.Size = new System.Drawing.Size(129, 30);
             this.dtpApplicationDate.TabIndex = 93;

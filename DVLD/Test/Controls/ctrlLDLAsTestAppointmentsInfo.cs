@@ -25,6 +25,17 @@ namespace DVLD.Test
 
         public DateTime getDate { get { return dtpApplicationDate.Value ; } }
 
+        public bool DateTimePickerEnabled
+        {
+            get
+            {
+                return dtpApplicationDate.Enabled;
+            }
+            set
+            {
+                dtpApplicationDate.Enabled = value;
+            }
+        }
         private TestTypes.enTestTypes TestType;
         private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
         {

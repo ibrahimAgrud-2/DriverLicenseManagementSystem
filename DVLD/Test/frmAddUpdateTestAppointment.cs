@@ -31,11 +31,28 @@ namespace DVLD.Test
         {
             if(this._Mode==enMode.enUpdate)
             {
+               
                 _TestAppointment = TestAppointments.Find(_TestAppointmentID);
                 _LDLA = LocalDrivingLicenseApp.Find(_TestAppointment.localDrivingLicenseApplicationID);
                 _LDLAID = _LDLA.ID;
+                lblApplicationIDForRetakeTest.Text = _TestAppointment.retakeTestApplicationID.ToString();
             }
+            else
+            {
+                _LDLA = LocalDrivingLicenseApp.Find(LDLAID);
+                _LDLAID = _LDLA.ID;
+                _TestAppointment = new TestAppointments();
+
+            }
+
             this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(LDLAID);
+            if (_TestAppointment.isLocked)
+            {
+                lblWarn.Visible = true;
+                btnSave.Enabled = false;
+                this.ctrlLDLAsTestAppointmentsInfo1.DateTimePickerEnabled = false;
+                return;
+            }
             _TestType = (TestTypes.enTestTypes)_LDLA.GetPassedTestCount()+1;
             gbMain.Text = _TestType.ToString()+" Test";
 
@@ -116,7 +133,6 @@ namespace DVLD.Test
             if(this._Mode==enMode.enAddNew)
             {
 
-                _TestAppointment = new TestAppointments();
                 _FillDataToObject();
                
             }
