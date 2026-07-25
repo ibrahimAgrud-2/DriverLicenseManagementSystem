@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
             this.ctrlListLicenses1 = new DVLD.Licenses.Controls.ctrlListLicenses();
+            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
             this.SuspendLayout();
             // 
             // label1
@@ -43,6 +43,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "License History";
             // 
+            // ctrlListLicenses1
+            // 
+            this.ctrlListLicenses1.Location = new System.Drawing.Point(12, 492);
+            this.ctrlListLicenses1.Name = "ctrlListLicenses1";
+            this.ctrlListLicenses1.Size = new System.Drawing.Size(1104, 300);
+            this.ctrlListLicenses1.TabIndex = 2;
+            // 
             // ctrlPersonCardWithFilter1
             // 
             this.ctrlPersonCardWithFilter1.FilterEnabled = true;
@@ -54,18 +61,11 @@
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1083, 416);
             this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
-            // ctrlListLicenses1
-            // 
-            this.ctrlListLicenses1.Location = new System.Drawing.Point(12, 492);
-            this.ctrlListLicenses1.Name = "ctrlListLicenses1";
-            this.ctrlListLicenses1.Size = new System.Drawing.Size(938, 300);
-            this.ctrlListLicenses1.TabIndex = 2;
-            // 
             // frmShowPersonLicenseHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 820);
+            this.ClientSize = new System.Drawing.Size(1108, 820);
             this.Controls.Add(this.ctrlListLicenses1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);

@@ -24,7 +24,7 @@ namespace DVLD.Licenses
             this.ctrlPersonCardWithFilter1.LoadData(_personID);
             this.ctrlPersonCardWithFilter1.FilterEnabled = false;
 
-            this.ctrlListLicenses1.LoadLicenses();
+            this.ctrlListLicenses1.LoadLicenses(_personID);
         }
     }
 }

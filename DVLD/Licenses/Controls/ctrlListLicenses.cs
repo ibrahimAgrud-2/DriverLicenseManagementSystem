@@ -6,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using clsLicenses = DVLD_BusinessLayer.Licenses;
 using System.Windows.Forms;
 
 namespace DVLD.Licenses.Controls
@@ -18,13 +18,69 @@ namespace DVLD.Licenses.Controls
             InitializeComponent();
         }
 
-        private DataTable _DtLocalLicenseList = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
-        private DataTable _InternationalLicensesList = InternationalLicense.getInternationalLicenseRecords();
-
-        public void LoadLicenses()
+        private Dictionary<string, string> _LocalListColumnNames = new Dictionary<string, string>
+            {
+              { "LicenseID", "L.ID" },
+              { "ApplicationID", "App.ID" },
+              { "ClassName", "Class" },
+              { "IssueDate", "Issue Date" },
+              { "ExpirationDate", "Expiration Date" },
+              { "IsActive", "Is Active" }
+            };
+        private Dictionary<string, string> _InternationalListColumnNames = new Dictionary<string, string>
+            {
+              { "InternationalLicenseID", "Int.L.ID" },
+              { "ApplicationID", "App.ID" },
+              { "ClassName", "Class" },
+              { "IssueDate", "Issue Date" },
+              { "ExpirationDate", "Expiration Date" },
+              { "IsActive", "Is Active" }
+            };
+        private void _SetLocalLicensesColumnNames()
         {
-            dgvLocalLicenseList.DataSource = _DtLocalLicenseList;
-            dgvInternationalLicenseList.DataSource = _InternationalLicensesList;
+            foreach (KeyValuePair<string, string> dict in _LocalListColumnNames)
+            {
+                dgvLocalLicenseList.Columns[dict.Key].HeaderText = dict.Value;
+            }
+        }
+        private void _SetInternationalLicensesColumnNames()
+        {
+            foreach (KeyValuePair<string, string> dict in _LocalListColumnNames)
+            {
+                dgvLocalLicenseList.Columns[dict.Key].HeaderText = dict.Value;
+            }
+        }
+
+        DataTable _DtLocalLicenses;
+        DataTable _DtInternationalLicenses;
+        private void _RefreshLists(int personID)
+        {
+            _DtLocalLicenses = clsLicenses.getAllLocalLicenseByPersonID(personID);
+            _DtInternationalLicenses = clsLicenses.getAllInternationalLicenseByPersonID(personID);
+
+
+      
+
+            if (_DtLocalLicenses.Rows.Count > 0)
+            {
+                dgvLocalLicenseList.DataSource = _DtLocalLicenses.DefaultView.ToTable("LocalLicenses", false, "LicenseID", "ApplicationID", "ClassName", "IssueDate", "ExpirationDate", "IsActive");
+                _SetLocalLicensesColumnNames();
+            }
+
+            if (_DtInternationalLicenses.Rows.Count > 0)
+            {
+                dgvInternationalLicenseList.DataSource = _DtInternationalLicenses.DefaultView.ToTable("InternationalLicenses", false, "InternationalLicenseID", "ApplicationID", "ClassName", "IssueDate", "ExpirationDate", "IsActive");
+                _SetInternationalLicensesColumnNames();
+            }
+          
+
+        }
+
+
+        public void LoadLicenses(int personID)
+        {
+            _RefreshLists(personID);
+
         }
 
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
