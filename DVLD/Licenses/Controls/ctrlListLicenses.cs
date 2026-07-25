@@ -19,8 +19,7 @@ namespace DVLD.Licenses.Controls
         }
 
         private DataTable _DtLocalLicenseList = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
-        private DataTable _InternationalLicensesList = InternationalLicense.getInternationalLicenseRecords()
-            ;
+        private DataTable _InternationalLicensesList = InternationalLicense.getInternationalLicenseRecords();
 
         public void LoadLicenses()
         {
