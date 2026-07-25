@@ -89,5 +89,15 @@ namespace DVLD
             frm.ShowDialog();
 
         }
+
+        private void servicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

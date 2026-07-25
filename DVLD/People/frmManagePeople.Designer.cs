@@ -129,7 +129,7 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "# Records: ";
             // 
-            // dgvPeopleList
+            // dgvInternationalLicensesList
             // 
             this.dgvPeopleList.AllowUserToAddRows = false;
             this.dgvPeopleList.AllowUserToDeleteRows = false;
@@ -156,7 +156,7 @@
             this.dgvPeopleList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPeopleList.Location = new System.Drawing.Point(9, 401);
             this.dgvPeopleList.MultiSelect = false;
-            this.dgvPeopleList.Name = "dgvPeopleList";
+            this.dgvPeopleList.Name = "dgvInternationalLicensesList";
             this.dgvPeopleList.ReadOnly = true;
             this.dgvPeopleList.RowHeadersVisible = false;
             this.dgvPeopleList.RowHeadersWidth = 51;
