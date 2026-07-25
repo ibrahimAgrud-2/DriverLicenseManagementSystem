@@ -31,8 +31,9 @@ namespace DVLD.Test
         {
             this.ctrlLDLAsTestAppointmentsInfo1.LoadAppInfo(LDLAID);
             _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
-            TestTypef = (TestTypes.enTestTypes)_LDLA.GetFailedTestCount()+1;
-            if (_LDLA.GetFailedTestCount((int)TestTypef) >= 1)
+            _TestType = (TestTypes.enTestTypes)_LDLA.GetPassedTestCount()+1;
+
+            if (_LDLA.GetFailedTestCount((int)_TestType) >= 1)
             {
                 groupBox1.Enabled = true;
                 lblRetakeTestFees.Text = ApplicationTypes.Find(7).applicationFee.ToString();
@@ -42,10 +43,7 @@ namespace DVLD.Test
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
 
-        public enum enTestType { Vision = 0, Written = 1, Street = 2 };
-        public enTestType testType;
-
-        private TestTypes.enTestTypes TestTypef;
+        private TestTypes.enTestTypes _TestType;
 
         private int _LDLAID = -1;
 
@@ -65,12 +63,6 @@ namespace DVLD.Test
         {
             this.Close();
         }
-
-        private TestTypes.enTestTypes _GetTestType()
-        {
-            return (TestTypes.enTestTypes)(_LDLA.GetPassedTestCount()+1);
-        }
-
 
 
         private int _AddApplication()
@@ -93,24 +85,24 @@ namespace DVLD.Test
 
         }
         //Incase mode add
-        private bool _FillDataToObject()
+        private void _FillDataToObject()
         {
             _TestAppointment.createdByUserID = Global.currentUser.userID;
             _TestAppointment.appointmentDate = DateTime.Now;
             _TestAppointment.isLocked = false;
-            _TestAppointment.paidFees = TestTypes.Find(_GetTestType()).TestTypeFees;
-            _TestAppointment.testTypeID = (int)_GetTestType();
+            _TestAppointment.paidFees = TestTypes.Find(_TestType).TestTypeFees;
+            _TestAppointment.testTypeID = (int)_TestType;
             _TestAppointment.localDrivingLicenseApplicationID = _LDLAID;
            
 
-            if(_LDLA.GetFailedTestCount((int)_GetTestType())>=1)
+            if(_LDLA.GetFailedTestCount((int)_TestType)>=1)
             {
               
                _TestAppointment.retakeTestApplicationID= _AddApplication();
                 lblApplicationIDForRetakeTest.Text = _TestAppointment.retakeTestApplicationID.ToString();
             }
            
-                return false ;
+               
 
         }
         private void btnSave_Click(object sender, EventArgs e)

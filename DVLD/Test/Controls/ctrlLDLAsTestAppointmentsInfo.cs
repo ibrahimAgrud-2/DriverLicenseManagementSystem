@@ -24,16 +24,19 @@ namespace DVLD.Test
         public LocalDrivingLicenseApp SelectedLocalLicenseApp { get { return _LDLA; } }
 
         public DateTime getDate { get { return dtpApplicationDate.Value ; } }
+
+        private TestTypes.enTestTypes TestType;
         private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
         {
-            
-
             lblLDLAID.Text = LDLA.ID.ToString();
             lblAppForClass.Text = LDLA.LicenseClassInfo.className;
             lblApplicantName.Text = LDLA.ApplicationInfo.ApplicantPerson.fullName;
             dtpApplicationDate.Value = LDLA.ApplicationInfo.ApplicationDate;
             lblFees.Text = LDLA.ApplicationInfo.PaidFees.ToString();
-            lblTrail.Text = LDLA.GetFailedTestCount().ToString();
+            TestType = (TestTypes.enTestTypes)_LDLA.GetPassedTestCount() + 1;
+
+            TestAppointments _testAppointment = TestAppointments.FindByLocalDrivingLicenseID(_LDLAID);
+            lblTrail.Text = LDLA.GetFailedTestCount((int)TestType).ToString();
         }
 
         private void _Load()

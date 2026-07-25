@@ -66,8 +66,27 @@ namespace DVLD_BusinessLayer
             bool isLocked = false;
             int retakeTestApplicationID = 0;
 
-            if (TestAppointmentsDataAccess.findTestAppointment(testAppointmentID, ref testTypeID,
+            if (TestAppointmentsDataAccess.Find(testAppointmentID, ref testTypeID,
                 ref localDrivingLicenseApplicationID, ref appointmentDate, ref paidFees,
+                ref createdByUserID, ref isLocked, ref retakeTestApplicationID))
+            {
+                return new TestAppointments(testAppointmentID, testTypeID, localDrivingLicenseApplicationID,
+                    appointmentDate, paidFees, createdByUserID, isLocked, retakeTestApplicationID);
+            }
+            return null;
+        }
+        public static TestAppointments FindByLocalDrivingLicenseID(int localDrivingLicenseApplicationID)
+        {
+            int testTypeID = -1;
+            int testAppointmentID = -1;
+            DateTime appointmentDate = DateTime.Now;
+            double paidFees = 0.0;
+            int createdByUserID = -1;
+            bool isLocked = false;
+            int retakeTestApplicationID = 0;
+
+            if (TestAppointmentsDataAccess.findByLocalDrivingLicenseID(ref testAppointmentID, ref testTypeID,
+                 localDrivingLicenseApplicationID, ref appointmentDate, ref paidFees,
                 ref createdByUserID, ref isLocked, ref retakeTestApplicationID))
             {
                 return new TestAppointments(testAppointmentID, testTypeID, localDrivingLicenseApplicationID,

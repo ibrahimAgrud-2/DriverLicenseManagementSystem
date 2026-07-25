@@ -39,7 +39,7 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
-        public static bool findTestAppointment(int testAppointmentID, ref int testTypeID, ref int localDrivingLicenseApplicationID,
+        public static bool Find(int testAppointmentID, ref int testTypeID, ref int localDrivingLicenseApplicationID,
             ref DateTime appointmentDate, ref double paidFees, ref int createdByUserID,
             ref bool isLocked, ref int retakeTestApplicationID)
         {
@@ -79,6 +79,48 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
+        public static bool findByLocalDrivingLicenseID(ref int testAppointmentID, ref int testTypeID,  int localDrivingLicenseApplicationID,
+    ref DateTime appointmentDate, ref double paidFees, ref int createdByUserID,
+    ref bool isLocked, ref int retakeTestApplicationID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = "select * from TestAppointments where localDrivingLicenseApplicationID = @localDrivingLicenseApplicationID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@localDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader read = cmd.ExecuteReader();
+
+                if (read.Read())
+                {
+                    testTypeID = read["TestTypeID"] != DBNull.Value ? Convert.ToInt32(read["TestTypeID"]) : 0;
+                    localDrivingLicenseApplicationID = read["testAppointmentID"] != DBNull.Value ? Convert.ToInt32(read["testAppointmentID"]) : 0;
+                    appointmentDate = read["AppointmentDate"] != DBNull.Value ? Convert.ToDateTime(read["AppointmentDate"]) : DateTime.MinValue;
+                    paidFees = read["PaidFees"] != DBNull.Value ? Convert.ToDouble(read["PaidFees"]) : 0;
+                    createdByUserID = read["CreatedByUserID"] != DBNull.Value ? Convert.ToInt32(read["CreatedByUserID"]) : 0;
+                    isLocked = read["IsLocked"] != DBNull.Value ? Convert.ToBoolean(read["IsLocked"]) : false;
+                    retakeTestApplicationID = read["RetakeTestApplicationID"] != DBNull.Value ? Convert.ToInt32(read["RetakeTestApplicationID"]) : 0;
+
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
+
 
         public static bool isTestAppointmentExist(int testAppointmentID)
         {
