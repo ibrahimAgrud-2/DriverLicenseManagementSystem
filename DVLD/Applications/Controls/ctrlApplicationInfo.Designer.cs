@@ -58,7 +58,7 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // groupBox1
+            // gbMain
             // 
             this.groupBox1.Controls.Add(this.lblApplicantPersonFullName);
             this.groupBox1.Controls.Add(this.lblAppType);
@@ -79,7 +79,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbMain";
             this.groupBox1.Size = new System.Drawing.Size(944, 252);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;

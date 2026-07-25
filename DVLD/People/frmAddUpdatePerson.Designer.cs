@@ -81,7 +81,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // groupBox1
+            // gbMain
             // 
             this.groupBox1.Controls.Add(this.pbPersonImage);
             this.groupBox1.Controls.Add(this.mskSecondName);
@@ -116,7 +116,7 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 43);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbMain";
             this.groupBox1.Size = new System.Drawing.Size(1092, 555);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;

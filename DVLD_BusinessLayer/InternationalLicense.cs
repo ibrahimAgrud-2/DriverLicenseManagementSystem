@@ -99,15 +99,20 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public static bool isDriverExistInternationalLicense(int id)
+        public static bool isInternationalLicenseExist(int id)
         {
             return InternationalLicenseDataAccess.isInternationalLicenseExist(id);
         }
-   
+
+        public static bool isDriverHasInternationalLicense(int driverID)
+        {
+            return InternationalLicenseDataAccess.isInternationalLicenseExist(driverID);
+        }
+
 
         public static bool deleteInternationalLicense(int id)
         {
-            if (isDriverExistInternationalLicense(id))
+            if (isInternationalLicenseExist(id))
             {
                 return InternationalLicenseDataAccess.deleteInternationalLicense(id);
             }

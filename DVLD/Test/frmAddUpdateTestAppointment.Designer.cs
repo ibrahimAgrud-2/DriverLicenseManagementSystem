@@ -78,7 +78,7 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Schedule Test";
             // 
-            // groupBox1
+            // gbMain
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblApplicationIDForRetakeTest);
@@ -88,7 +88,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(12, 328);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbMain";
             this.groupBox1.Size = new System.Drawing.Size(562, 185);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;

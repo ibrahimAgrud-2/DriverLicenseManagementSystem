@@ -99,7 +99,7 @@
             this.lblIsActive.TabIndex = 0;
             this.lblIsActive.Text = "label1";
             // 
-            // groupBox1
+            // gbMain
             // 
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblIsActive);
@@ -109,7 +109,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(4, 386);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbMain";
             this.groupBox1.Size = new System.Drawing.Size(1026, 109);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;

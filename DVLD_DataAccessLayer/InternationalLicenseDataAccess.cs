@@ -162,6 +162,39 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+        public static bool DriverHasInternationalLicenseExist(int DriverID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = "select found =1 from InternationalLicenses where InternationalLicenseID=@DriverID   ";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@DriverID", DriverID);
+
+
+            try
+            {
+                connection.Open();
+
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int value))
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
+
 
 
         public static int addInternationalLicense(int applicationID,  int driverID, int issuedUsingLocalLicenseID,  DateTime issueDate,  DateTime expirationDate, bool isActive, int createdByUserID)

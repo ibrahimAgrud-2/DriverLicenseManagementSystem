@@ -32,7 +32,7 @@ namespace DVLD.Applications.International_License_Applications
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "InternationalLicenseID", "Int.L.ID" },
+              { "InternationalLicenseID", "_InternationalLicense.L.ID" },
               { "ApplicationID", "App.ID" },
               { "IssuedUsingLocalLicenseID", "L.LicenseID" },
               { "IssueDate", "Issue Date" },
@@ -48,7 +48,7 @@ namespace DVLD.Applications.International_License_Applications
 
         }
 
-        private void _RefreshPeopleList()
+        private void _RefreshList()
         {
             _DtInternationalLicenses = InternationalLicense.getInternationalLicenseRecords();
 
@@ -60,7 +60,7 @@ namespace DVLD.Applications.International_License_Applications
 
         private void frmManageApplication_Load(object sender, EventArgs e)
         {
-            _RefreshPeopleList();
+            _RefreshList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
         }
@@ -175,5 +175,11 @@ Is Active
             }
         }
 
+        private void btnAddNewInternationaLicense_Click(object sender, EventArgs e)
+        {
+            frmAddInternationalNewLicense frm = new frmAddInternationalNewLicense();
+            frm.ShowDialog();
+            _RefreshList();
+        }
     }
 }

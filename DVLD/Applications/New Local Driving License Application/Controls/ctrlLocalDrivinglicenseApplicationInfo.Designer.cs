@@ -41,7 +41,7 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbMain
             // 
             this.groupBox1.Controls.Add(this.lnklblEditPersonInfo);
             this.groupBox1.Controls.Add(this.lblPassedTestCount);
@@ -52,7 +52,7 @@
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 3);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbMain";
             this.groupBox1.Size = new System.Drawing.Size(949, 157);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;

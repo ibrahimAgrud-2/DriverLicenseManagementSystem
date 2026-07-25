@@ -29,7 +29,7 @@ namespace DVLD.Licenses.Controls
             };
         private Dictionary<string, string> _InternationalListColumnNames = new Dictionary<string, string>
             {
-              { "InternationalLicenseID", "Int.L.ID" },
+              { "InternationalLicenseID", "_InternationalLicense.L.ID" },
               { "ApplicationID", "App.ID" },
               { "IssuedUsingLocalLicenseID", "L.LicenseID" },
               { "IssueDate", "Issue Date" },
