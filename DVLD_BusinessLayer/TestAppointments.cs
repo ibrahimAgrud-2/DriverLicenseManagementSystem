@@ -113,9 +113,9 @@ namespace DVLD_BusinessLayer
             return TestAppointmentsDataAccess.deleteTestAppointment(testAppointmentID);
         }
 
-        public static bool isSameActiveTestAppointmentExistsForLocalLicenseApp(int LocalLicenseApplication, int testType)
+        public static bool HasActiveTestAppointment(int LocalLicenseApplication, int testType)
         {
-            return TestAppointmentsDataAccess.isSameActiveTestAppointmentExistsForLocalLicenseApp(LocalLicenseApplication, testType);
+            return TestAppointmentsDataAccess.HasActiveTestAppointment(LocalLicenseApplication, testType);
         }
 
         public bool save()

@@ -224,6 +224,7 @@ namespace DVLD.Applications
             int completedTestCount = Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[5].Value);
 
 
+
             if (status !="New")
             {
                 ScheduleTestsMenue.Enabled = false;

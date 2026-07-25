@@ -112,7 +112,7 @@ namespace DVLD_DataAccessLayer
 
 
         //bir LDLA başvuru sınavı için sistemde aynı türken sınav var mı. Mesela 36 numaralı LDLA vision test alacak. önce sistemde aktif vision test var mı kontrol etmek için.
-        public static bool isSameActiveTestAppointmentExistsForLocalLicenseApp(int LocalDrivingLicenseApplicationID,int TestTypeID)
+        public static bool HasActiveTestAppointment(int LocalDrivingLicenseApplicationID,int TestTypeID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
 

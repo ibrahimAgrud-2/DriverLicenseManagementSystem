@@ -99,13 +99,15 @@ namespace DVLD.Test
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
+            //Burada sadece kişinin/başvurunun aynı aktif (sonucu belirlenmemiş) sınav türüne sahip mi onu kontrol ediyoruz.
 
-            if(TestAppointments.isSameActiveTestAppointmentExistsForLocalLicenseApp(_LDLAID, (int)this.TestType + 1))
+            if(TestAppointments.HasActiveTestAppointment(_LDLAID, (int)this.TestType + 1))
             {
                 MessageBox.Show("The person Already has the same kind of test Appointment");
                 return;
             }
            
+            //Burada ise o sınav türünü geçmiş mi kontrol ediyoruz. Bu iki kontrol sayesinde kullanıcıya daha net bildirimler verebiliyoruz.
             if(_LDLA.GetPassedTestCount()==((int)this.TestType+1))
             {
                 MessageBox.Show("Person Already passed the test.");
