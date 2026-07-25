@@ -81,9 +81,11 @@ namespace DVLD.Licenses
         private void btnSave_Click(object sender, EventArgs e)
         {
             clsLicense newL = _LoadInfo();
+
             if (newL.save())
             {
                 _LDLA.ApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+                _LDLA.ApplicationInfo.LastStatusDate = DateTime.Now;
                 _LDLA.ApplicationInfo.save();
 
                 MessageBox.Show($"Saved successfully with license {newL.licenseID}");
