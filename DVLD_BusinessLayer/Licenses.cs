@@ -91,11 +91,19 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static DataTable getLicenseRecords()
+        public static DataTable getAllLocalLicenseByPersonID(int personID)
         {
             DataTable dt = new DataTable();
 
-            dt = LicensesDataAccess.();
+            dt = LicensesDataAccess.getAllLocalLicenseByPersonID(personID);
+            return dt;
+        }
+
+        public static DataTable getAllInternationalLicenseByPersonID(int personID)
+        {
+            DataTable dt = new DataTable();
+
+            dt = LicensesDataAccess.getAllInternationalLicenseByPersonID(personID);
             return dt;
         }
 
