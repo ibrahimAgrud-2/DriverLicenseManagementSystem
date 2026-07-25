@@ -36,6 +36,7 @@ namespace DVLD.Licenses
         }
         private int _AddDriver()
         {
+          //  Driver drv = Driver.Find();
             Driver drv = new Driver();
             drv.personID = _LDLA.ApplicationInfo.ApplicantPersonID;
             drv.createdDate = DateTime.Today;
