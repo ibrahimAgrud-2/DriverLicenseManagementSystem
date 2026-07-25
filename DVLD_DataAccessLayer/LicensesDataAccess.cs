@@ -327,7 +327,7 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string sqlQuery = @"select * from Licenses join Drivers on Drivers.DriverID = Licenses.DriverID where PersonID=@PersonID";
+            string sqlQuery = @"select * from Licenses join Drivers on Drivers.DriverID = Licenses.DriverID join LicenseClasses on LicenseClasses.LicenseClassID = Licenses.LicenseClass where PersonID=@PersonID";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 
