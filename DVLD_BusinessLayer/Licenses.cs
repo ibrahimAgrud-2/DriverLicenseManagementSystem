@@ -91,6 +91,13 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
+        public static DataTable getLicenseRecords()
+        {
+            DataTable dt = new DataTable();
+
+            dt = LicensesDataAccess.();
+            return dt;
+        }
 
 
         public static Licenses Find(int licenseID)
@@ -185,5 +192,6 @@ namespace DVLD_BusinessLayer
             }
         }
 
+        
     }
 }
