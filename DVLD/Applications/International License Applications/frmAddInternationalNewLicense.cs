@@ -93,8 +93,7 @@ namespace DVLD.Applications.International_License_Applications
 
         private void ctrlLicenseInfoWithFilter1_OnLicenseLoaded(int obj)
         {
-            _licenseID = obj;
-            _License = clsLicenses.Find(obj);
+
         }
 
         private void ctrlLicenseInfoWithFilter1_Load(object sender, EventArgs e)

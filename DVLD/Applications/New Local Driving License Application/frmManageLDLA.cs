@@ -364,25 +364,9 @@ namespace DVLD.Applications
             _RefreshLocalLicenseApplicationList();
             _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
-            //dgvAppList.ClearSelection();
+          
           
 
-        }
-
-
-
-        private void dgvAppList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                MessageBox.Show("Sağ tuşa basıldı.");
-            }
-        }
-
-        private void dgvAppList_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-           
-            
         }
 
         private void cmsApplications_Opened(object sender, EventArgs e)

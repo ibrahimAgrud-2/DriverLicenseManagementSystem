@@ -17,6 +17,7 @@ namespace DVLD_BusinessLayer
 
         public DateTime ApplicationDate { set; get; }
 
+  
         public int ApplicationTypeID { set; get; }
         public ApplicationTypes ApplicationTypeInfo { set; get; }
 
@@ -33,7 +34,12 @@ namespace DVLD_BusinessLayer
 
         public enum enMode { enAddNew = 1, enUpdate = 2};
         public enMode Mode;
-
+        public enum enApplicationType
+        {
+            NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,
+            ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicense = 5, NewInternationalLicense = 6, RetakeTest = 7
+        };
+ 
 
 
 
@@ -165,5 +171,9 @@ namespace DVLD_BusinessLayer
         }
 
 
+        public void cancel()
+        {
+
+        }
     }
 }
