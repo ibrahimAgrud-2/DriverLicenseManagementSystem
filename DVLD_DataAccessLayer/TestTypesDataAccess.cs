@@ -9,7 +9,7 @@ public class TestTypesDataAccess
     {
         DataTable dt = new DataTable();
 
-        SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+        SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
         string sqlQuery = "select * from TestTypes order by testTypeID";
 
         SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -40,7 +40,7 @@ public class TestTypesDataAccess
 
     public static bool findTestType(int testTypeID, ref string testTypeTitle, ref string testTypeDescription, ref double testTypeFees)
     {
-        SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+        SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
         string query = "select * from TestTypes where TestTypeID = @testTypeID";
 
@@ -76,7 +76,7 @@ public class TestTypesDataAccess
 
     public static bool isTestTypeExistByID(int testTypeID)
     {
-        SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+        SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
         bool isFound = false;
         string query = "select found = 1 from TestTypes where TestTypeID = @testTypeID";
         SqlCommand cmd = new SqlCommand(query, connection);
@@ -103,7 +103,7 @@ public class TestTypesDataAccess
     public static bool UpdateApplicationType(int TestTypeID, string TestTypeTitle, string description, double TestTypeFee)
     {
 
-        SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+        SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
         string query = @"Update  TestTypes  
                             set TestTypeTitle = @applicationTypeTitle,

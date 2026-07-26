@@ -11,7 +11,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "select * from Countries";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -44,7 +44,7 @@ namespace DVLD_DataAccessLayer
         }
         public static bool findCountry(int countryID, ref string countryName)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from countries where countryID=@countryID";
 
@@ -80,7 +80,7 @@ namespace DVLD_DataAccessLayer
         }
         public static bool findCountry(ref int countryID,  string countryName)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from countries where countryName=@countryName";
 
@@ -117,7 +117,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isCountryExist(int countryID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select found =1 from countries where countryID=@countryID";
             SqlCommand cmd = new SqlCommand(query, connection);

@@ -12,7 +12,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "select * from LicenseClasses";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -49,7 +49,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool findLicenseClassByID(int licenseClassID, ref string className, ref string classDescription, ref int minimumAge, ref int defaultValidityLength, ref double classFee)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from LicenseClasses where LicenseClassID=@LicenseClassID";
 
@@ -94,7 +94,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool findLicenseClassByClassName(ref int licenseClassID, string className, ref string classDescription, ref int minimumAge, ref int defaultValidityLength, ref double classFee)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from LicenseClasses where className=@className";
 
@@ -140,7 +140,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isLicenseClassExit(int licenseClassID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select found =1 from LicenseClasses where licenseClassID=@licenseClassID";
             SqlCommand cmd = new SqlCommand(query, connection);

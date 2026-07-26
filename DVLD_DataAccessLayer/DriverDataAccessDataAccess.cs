@@ -12,7 +12,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "Select * from Drivers_View";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -46,7 +46,7 @@ namespace DVLD_DataAccessLayer
        
         public static bool findDriver(int driverID, ref int personID, ref int createdByUserID, ref DateTime createdDate)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from drivers where DriverID=@DriverID";
 
@@ -84,7 +84,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool findDriverByPersonID(ref int driverID,  int personID, ref int createdByUserID, ref DateTime createdDate)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from drivers where personID=@personID";
 
@@ -122,7 +122,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isDriverExistByDriverID(int driverID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select found =1 from Drivers where driverID=@driverID";
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -155,7 +155,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isDriverExistByPersonID(int personID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select found =1 from Drivers where personID=@personID";
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -190,7 +190,7 @@ namespace DVLD_DataAccessLayer
         public static int addDriver(int personID,  int createdByUserID,  DateTime createdDate)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "insert into drivers values(@personID,@createdByUserID,@createdDate) Select Scope_Identity();";
 
@@ -231,7 +231,7 @@ namespace DVLD_DataAccessLayer
         public static bool updateDriverInfo(int driverID, int personID, int createdByUserID, DateTime createdDate)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "update drivers set personID=@personID,createdByUserID=@createdByUserID,createdDate= @createdDate where driverID =@driverID";
 
@@ -271,7 +271,7 @@ namespace DVLD_DataAccessLayer
         {
 
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "delete drivers where driverID=@driverID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@driverID", driverID);

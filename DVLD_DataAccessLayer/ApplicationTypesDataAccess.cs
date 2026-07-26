@@ -15,7 +15,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "select * from applicationTypes";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -49,7 +49,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool findApplicationType(int applicationTypeID, ref string applicationTypeTitle, ref double ApplicationFees)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from applicationTypes where applicationTypeID=@applicationTypeID";
 
@@ -89,7 +89,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isApplicationTypeExists(string applicationTypeTitle)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             bool isFound = false;
 
             string query = "select found =1 from applicationTypes where applicationTypeTitle=@applicationTypeTitle";
@@ -121,7 +121,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isApplicationTypeExists(int applicationTypeID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             bool isFound = false;
 
             string query = "select found =1 from applicationTypes where applicationTypeID=@applicationTypeID";
@@ -155,7 +155,7 @@ namespace DVLD_DataAccessLayer
         public static bool UpdateApplicationType(int applicationTypeID,  string applicationTypeTitle,  double ApplicationFees)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"Update  applicationTypes  
                             set applicationTypeTitle = @applicationTypeTitle,

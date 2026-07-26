@@ -10,7 +10,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "select * from TestAppointments";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -43,7 +43,7 @@ namespace DVLD_DataAccessLayer
             ref DateTime appointmentDate, ref double paidFees, ref int createdByUserID,
             ref bool isLocked, ref int retakeTestApplicationID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from TestAppointments where TestAppointmentID = @testAppointmentID";
 
@@ -84,7 +84,7 @@ namespace DVLD_DataAccessLayer
     ref DateTime appointmentDate, ref double paidFees, ref int createdByUserID,
     ref bool isLocked, ref int retakeTestApplicationID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from TestAppointments where localDrivingLicenseApplicationID = @localDrivingLicenseApplicationID";
 
@@ -124,7 +124,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isTestAppointmentExist(int testAppointmentID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select found = 1 from TestAppointments where TestAppointmentID = @testAppointmentID";
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -156,7 +156,7 @@ namespace DVLD_DataAccessLayer
         //bir LDLA başvuru sınavı için sistemde aynı türken sınav var mı. Mesela 36 numaralı LDLA vision test alacak. önce sistemde aktif vision test var mı kontrol etmek için.
         public static bool HasActiveTestAppointment(int LocalDrivingLicenseApplicationID,int TestTypeID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             bool isFound = false;
 
@@ -188,7 +188,7 @@ namespace DVLD_DataAccessLayer
             DateTime appointmentDate, double paidFees, int createdByUserID,
             bool isLocked, int retakeTestApplicationID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"INSERT INTO TestAppointments (TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, 
                     PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID) 
@@ -237,7 +237,7 @@ namespace DVLD_DataAccessLayer
         public static bool updateTestAppointment(int testAppointmentID, int testTypeID,
             DateTime appointmentDate, double paidFees, bool isLocked, int retakeTestApplicationID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"UPDATE TestAppointments 
                      SET TestTypeID = @testTypeID,
@@ -278,7 +278,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool deleteTestAppointment(int testAppointmentID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "delete TestAppointments where TestAppointmentID = @testAppointmentID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@testAppointmentID", testAppointmentID);

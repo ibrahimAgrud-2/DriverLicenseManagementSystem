@@ -11,7 +11,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = @"select userID,
                                         People.PersonID,
                                         userName,
@@ -53,7 +53,7 @@ namespace DVLD_DataAccessLayer
         public static bool findUserByID(int userID, ref int personID, ref string userName, ref string password, ref
            bool isActive)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from users where userID=@userID";
 
@@ -94,7 +94,7 @@ namespace DVLD_DataAccessLayer
         public static bool findUserByUserName(ref int userID, ref int personID, string userName, ref string password, ref
      bool isActive)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from users where userName=@userName";
 
@@ -135,7 +135,7 @@ namespace DVLD_DataAccessLayer
      
         public static bool isUserExist(int userID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             bool isFound = false;
 
             string query = "select found =1 from users where userID=@userID";
@@ -165,7 +165,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isUserExist(string UserName)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             bool isFound = false;
 
             string query = "select found =1 from users where UserName=@UserName";
@@ -195,7 +195,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isUserExistByPersonID(int PersonID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             bool isFound = false;
 
             string query = "select found =1 from users where PersonID=@PersonID";
@@ -228,7 +228,7 @@ namespace DVLD_DataAccessLayer
            bool isActive)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "insert into users values(@personID,@userName,@password,@isActive) Select Scope_Identity();";
 
@@ -272,7 +272,7 @@ namespace DVLD_DataAccessLayer
            bool isActive)
         { 
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"Update  Users  
                             set PersonID = @PersonID,
@@ -318,7 +318,7 @@ namespace DVLD_DataAccessLayer
         {
 
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "delete users where userID=@userID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@userID", userID);

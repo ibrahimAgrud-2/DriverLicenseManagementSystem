@@ -13,7 +13,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "select * from InternationalLicenses";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -49,7 +49,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = @"select * from InternationalLicenses join Drivers on Drivers.DriverID=InternationalLicenses.DriverID where PersonID=@PersonID";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -88,7 +88,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool findInternationalLicenses(int InternationalLicenseID, ref int applicationID, ref int driverID, ref int issuedUsingLocalLicenseID, ref DateTime issueDate, ref DateTime expirationDate,ref bool isActive,ref int createdByUserID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from InternationalLicenses where InternationalLicenseID=@InternationalLicenseID";
 
@@ -131,7 +131,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isInternationalLicenseExist(int InternationalLicenseID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select found =1 from InternationalLicenses where InternationalLicenseID=@InternationalLicenseID   ";
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -164,7 +164,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool DriverHasInternationalLicenseExist(int DriverID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select found =1 from InternationalLicenses where InternationalLicenseID=@DriverID   ";
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -200,7 +200,7 @@ namespace DVLD_DataAccessLayer
         public static int addInternationalLicense(int applicationID,  int driverID, int issuedUsingLocalLicenseID,  DateTime issueDate,  DateTime expirationDate, bool isActive, int createdByUserID)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "insert into InternationalLicenses values(@applicationID,@driverID,@issuedUsingLocalLicenseID,@issueDate,@expirationDate,@isActive,@createdByUserID) Select Scope_Identity();";
 
@@ -245,7 +245,7 @@ namespace DVLD_DataAccessLayer
         public static bool updateInternationalLicenseInfo(int InternationalLicenseID, int applicationID, int driverID, int issuedUsingLocalLicenseID, DateTime issueDate, DateTime expirationDate, bool isActive, int createdByUserID)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "update InternationalLicenses set applicationID=@applicationID,driverID=@driverID,issuedUsingLocalLicenseID= @issuedUsingLocalLicenseID ,issueDate=@issueDate,expirationDate=@expirationDate,isActive=@isActive,createdByUserID=@createdByUserID  where InternationalLicenseID =@InternationalLicenseID";
 
@@ -291,7 +291,7 @@ namespace DVLD_DataAccessLayer
         {
 
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "delete InternationalLicenses where InternationalLicenseID=@InternationalLicenseID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);

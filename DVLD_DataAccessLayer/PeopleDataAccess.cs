@@ -13,7 +13,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             
             //Query'deki field sırası önemli. Çünkü bu sırayla dgv'de gözükecek.
             string sqlQuery = @"select PersonID,NationalNo,FirstName,SecondName,ThirdName,LastName,DateOfBirth,
@@ -57,7 +57,7 @@ namespace DVLD_DataAccessLayer
            int gender, ref string address, ref string email, ref string phone, ref
            int countryID, ref string imagePath)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from People where PersonID=@personID";
 
@@ -137,7 +137,7 @@ namespace DVLD_DataAccessLayer
        int gender, ref string address, ref string email, ref string phone, ref
        int countryID, ref string imagePath)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from People where NationalNo=@nationalNo";
 
@@ -216,7 +216,7 @@ namespace DVLD_DataAccessLayer
         public static bool IsPersonExist(int personID)
         {
             bool isFound = false;
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
 
@@ -251,7 +251,7 @@ namespace DVLD_DataAccessLayer
         public static bool IsPersonExist(string NationalNo)
         {
             bool isFound = false;
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
 
@@ -292,7 +292,7 @@ namespace DVLD_DataAccessLayer
                    int countryID, string imagePath)
         {
           
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"IF not exists (select personID from people where NationalNo=@nationalNo) begin insert into people values (@nationalNo,@firstName,@secondName,@thirdName,@lastName,@dateOfBirth,@gender,@address,@phone,@email,@nationalityCountryID,@imagePath) Select Scope_Identity() end;";
 
@@ -374,7 +374,7 @@ namespace DVLD_DataAccessLayer
           int countryID, string imagePath)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"Update  People  
                             set FirstName = @FirstName,
@@ -462,7 +462,7 @@ namespace DVLD_DataAccessLayer
         {
             
             
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "delete people where PersonID=@personID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@personID", personID);

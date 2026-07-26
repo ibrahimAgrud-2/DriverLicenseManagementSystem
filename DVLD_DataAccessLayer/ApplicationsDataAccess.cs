@@ -12,7 +12,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "select * from applications";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -48,7 +48,7 @@ namespace DVLD_DataAccessLayer
         public static bool findApplication(int applicationID, ref int applicantPersonID, ref DateTime ApplicationDate, ref int applicationTypeID, ref
            byte applicationStatus, ref DateTime LastStatusDate,ref double paidFee,ref int createdByUserID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from applications where ApplicationID=@applicationID";
 
@@ -92,7 +92,7 @@ namespace DVLD_DataAccessLayer
     
         public static bool isApplicationExistByID(int applicationID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
 
@@ -132,7 +132,7 @@ namespace DVLD_DataAccessLayer
            byte applicationStatus,  DateTime LastStatusDate,  double paidFee,  int createdByUserID)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "insert into applications values (@applicantPersonID,@ApplicationDate,@applicationTypeID,@applicationStatus,@LastStatusDate,@paidFee,@createdByUserID) Select Scope_Identity()";
 
@@ -182,7 +182,7 @@ namespace DVLD_DataAccessLayer
            byte applicationStatus, DateTime LastStatusDate, double paidFees, int createdByUserID)
         {
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "update applications set applicantPersonID=@applicantPersonID,ApplicationDate=@ApplicationDate,applicationTypeID=@applicationTypeID,applicationStatus= @applicationStatus,LastStatusDate=@LastStatusDate,paidFees=@paidFees,createdByUserID=@createdByUserID where applicationID=@applicationID";
 
@@ -227,7 +227,7 @@ namespace DVLD_DataAccessLayer
         {
 
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "delete applications where applicationID=@applicationID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@applicationID", applicationID);
@@ -265,7 +265,7 @@ namespace DVLD_DataAccessLayer
 
             int ActiveApplicationID = -1;
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"SELECT ActiveApplicationID=Applications.ApplicationID  
                             From
@@ -306,7 +306,7 @@ namespace DVLD_DataAccessLayer
         }
         public static bool updateStatus(int applicationID, short status)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "update  applications set ApplicationStatus=@status where ApplicationID=@applicationID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@applicationID", applicationID);

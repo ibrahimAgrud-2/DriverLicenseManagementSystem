@@ -10,7 +10,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = "select * from Licenses";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
@@ -46,7 +46,7 @@ namespace DVLD_DataAccessLayer
         public static bool findLicense(int licenseID,ref int applicationID, ref int driverID, ref int licenseClassID, ref DateTime ıssueDate, ref DateTime LastStatusDate, ref
            string notes,  ref double paidFees, ref bool isActive,ref int issueReason, ref int createdByUserID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from Licenses where LicenseID=@licenseID";
 
@@ -98,7 +98,7 @@ namespace DVLD_DataAccessLayer
         public static bool findLicenseByApplicationID(ref int licenseID,  int applicationID, ref int driverID, ref int licenseClassID, ref DateTime ıssueDate, ref DateTime LastStatusDate, ref
    string notes, ref double paidFees, ref bool isActive, ref int issueReason, ref int createdByUserID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "select * from Licenses where applicationID=@applicationID";
 
@@ -149,7 +149,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool isLicenseExist(int licenseID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             //bu sorgunun soncu: eğer kayıt varsa bir sütun oluşur adı found ve sütun tek satırlı olur (çünkü her ID bir adet olduğu için) satırda 1 yazar. Bu demek oluyor ki bu ID var.
 
@@ -188,7 +188,7 @@ namespace DVLD_DataAccessLayer
       DateTime issueDate, DateTime expirationDate, string notes, double paidFees,
       bool isActive, int issueReason, int createdByUserID)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"INSERT INTO Licenses (ApplicationID, DriverID, LicenseClass, IssueDate, 
                     ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID) 
@@ -245,7 +245,7 @@ namespace DVLD_DataAccessLayer
         public static bool updateLicenseInfo(int licenseID, int driverID, int licenseClass,
     DateTime expirationDate, string notes,double paidFees, bool isActive, int issueReason)
         {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"UPDATE Licenses 
                      SET DriverID = @driverID,
@@ -292,7 +292,7 @@ namespace DVLD_DataAccessLayer
         {
 
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string query = "delete licenses where licenseID=@licenseID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@licenseID", licenseID);
@@ -326,7 +326,7 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
             string sqlQuery = @"select * from Licenses join Drivers on Drivers.DriverID = Licenses.DriverID join LicenseClasses on LicenseClasses.LicenseClassID = Licenses.LicenseClass where PersonID=@PersonID";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
