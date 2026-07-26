@@ -67,8 +67,8 @@
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
-            "Driver ID",
-            "Person ID",
+            "Driver LocalDrivingLicenseApplicationID",
+            "Person LocalDrivingLicenseApplicationID",
             "National No",
             "Full Name"});
             this.cbFilterBy.Location = new System.Drawing.Point(110, 105);

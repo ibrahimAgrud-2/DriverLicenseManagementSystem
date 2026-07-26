@@ -148,6 +148,16 @@ namespace DVLD_BusinessLayer
 
         }
 
+        public bool deleteApplication()
+        {
+            if (isApplicationExist(this.ID))
+            {
+                return ApplicationsDataAccess.deleteApplication(this.ID);
+            }
+            return false;
+
+        }
+
         public bool save()
         {
             switch (this.Mode)

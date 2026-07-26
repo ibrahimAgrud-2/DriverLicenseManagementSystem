@@ -80,7 +80,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 24);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Test ID: ";
+            this.label1.Text = "Test LocalDrivingLicenseApplicationID: ";
             // 
             // label2
             // 

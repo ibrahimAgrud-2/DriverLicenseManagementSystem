@@ -29,7 +29,7 @@ namespace DVLD.Test
             _TestAppointment = TestAppointments.Find(_TestAppointmentID);
             if(_TestAppointment==null)
             {
-                MessageBox.Show($"There is no Test appointment with ID {_TestAppointmentID}");
+                MessageBox.Show($"There is no Test appointment with LocalDrivingLicenseApplicationID {_TestAppointmentID}");
                 this.Close();
                 return;
                 

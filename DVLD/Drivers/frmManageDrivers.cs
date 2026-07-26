@@ -25,8 +25,8 @@ namespace DVLD.Drivers
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "DriverID", "Driver ID" },
-              { "PersonID", "Person ID" },
+              { "DriverID", "Driver LocalDrivingLicenseApplicationID" },
+              { "PersonID", "Person LocalDrivingLicenseApplicationID" },
               { "nationalNo", "National No" },
               { "FullName", "Full Name" },
               { "CreatedDate", "Created Date" },
@@ -92,10 +92,10 @@ namespace DVLD.Drivers
 
             switch (cbFilterBy.Text)
             {
-                case "Driver ID":
+                case "Driver LocalDrivingLicenseApplicationID":
                     FilterColumn = "DriverID";
                     break;
-                case "Person ID":
+                case "Person LocalDrivingLicenseApplicationID":
                     FilterColumn = "PersonID";
                     break;
 
@@ -112,7 +112,7 @@ namespace DVLD.Drivers
                     return;
             }
 
-            if (cbFilterBy.Text == "Person ID")
+            if (cbFilterBy.Text == "Person LocalDrivingLicenseApplicationID")
             {
                 _DtDrivers.DefaultView.RowFilter = $"{FilterColumn} = {txtFilet.Text} ";
             }
@@ -125,7 +125,7 @@ namespace DVLD.Drivers
 
         }
 
-        //ID'de sadece numara girilmesi lazım.
+        //LocalDrivingLicenseApplicationID'de sadece numara girilmesi lazım.
         private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbFilterBy.SelectedIndex == 1)

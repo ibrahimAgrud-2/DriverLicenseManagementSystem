@@ -50,7 +50,7 @@ namespace DVLD.Test
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "TestAppointmentID", "Appointment ID" },
+              { "TestAppointmentID", "Appointment LocalDrivingLicenseApplicationID" },
               { "AppointmentDate", "Appointment Date" },
               { "PaidFees", "Paid Fees" },
               { "IsLocked", "Is Locked" }

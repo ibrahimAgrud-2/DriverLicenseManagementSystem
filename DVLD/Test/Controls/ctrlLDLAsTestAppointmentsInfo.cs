@@ -39,7 +39,7 @@ namespace DVLD.Test
         private TestTypes.enTestTypes TestType;
         private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
         {
-            lblLDLAID.Text = LDLA.ID.ToString();
+            lblLDLAID.Text = LDLA.LocalDrivingLicenseApplicationID.ToString();
             lblAppForClass.Text = LDLA.LicenseClassInfo.className;
             lblApplicantName.Text = LDLA.ApplicationInfo.ApplicantPerson.fullName;
             dtpApplicationDate.Value = LDLA.ApplicationInfo.ApplicationDate;
@@ -52,7 +52,7 @@ namespace DVLD.Test
 
         private void _Load()
         {
-            _LDLAID = _LDLA.ID;
+            _LDLAID = _LDLA.LocalDrivingLicenseApplicationID;
             fillObjectDataToField(_LDLA);
         }
         public void LoadAppInfo(int LocalLicenseAppID)

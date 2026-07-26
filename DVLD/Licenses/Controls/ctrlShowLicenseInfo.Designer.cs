@@ -363,7 +363,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(127, 25);
             this.label22.TabIndex = 113;
-            this.label22.Text = "License ID :";
+            this.label22.Text = "License LocalDrivingLicenseApplicationID :";
             // 
             // label5
             // 
@@ -479,7 +479,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 25);
             this.label4.TabIndex = 117;
-            this.label4.Text = "Driver ID:";
+            this.label4.Text = "Driver LocalDrivingLicenseApplicationID:";
             // 
             // label3
             // 

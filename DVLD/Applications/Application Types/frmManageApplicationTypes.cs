@@ -17,7 +17,7 @@ namespace DVLD.Applications.Application_Types
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "applicationTypeID", "Application Type ID" },
+              { "applicationTypeID", "Application Type LocalDrivingLicenseApplicationID" },
               { "applicationTypeTitle", "Application Type Title" },
               { "ApplicationFees", "Application Fees" }
             };

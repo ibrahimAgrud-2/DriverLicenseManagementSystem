@@ -22,8 +22,8 @@ namespace DVLD.Users
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "UserID", "User ID" },     
-              { "PersonID", "Person ID" },
+              { "UserID", "User LocalDrivingLicenseApplicationID" },     
+              { "PersonID", "Person LocalDrivingLicenseApplicationID" },
               { "UserName", "User Name" },
               { "IsActive", "Is Active" },
               { "FullName", "Full Name" },
@@ -132,7 +132,7 @@ namespace DVLD.Users
 
         private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(cbFilterBy.Text=="User ID")
+            if(cbFilterBy.Text=="User LocalDrivingLicenseApplicationID")
             {
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }

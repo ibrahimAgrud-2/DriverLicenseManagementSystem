@@ -254,7 +254,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 32);
             this.label5.TabIndex = 79;
-            this.label5.Text = "ID: ";
+            this.label5.Text = "LocalDrivingLicenseApplicationID: ";
             // 
             // ctrlApplicationInfo
             // 

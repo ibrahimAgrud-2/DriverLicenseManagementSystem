@@ -215,7 +215,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 24);
             this.label5.TabIndex = 2;
-            this.label5.Text = "User ID";
+            this.label5.Text = "User LocalDrivingLicenseApplicationID";
             // 
             // label2
             // 

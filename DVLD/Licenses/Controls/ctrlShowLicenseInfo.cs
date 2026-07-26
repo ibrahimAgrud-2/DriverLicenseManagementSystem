@@ -92,7 +92,7 @@ namespace DVLD.Licenses.Controls
             _License = clsLicenses.Find(licenseID);
             if(_License==null)
             {
-                MessageBox.Show($"There is no license with ID {licenseID}");
+                MessageBox.Show($"There is no license with LocalDrivingLicenseApplicationID {licenseID}");
                 ResetForm();
                 return;
             }

@@ -21,7 +21,7 @@ namespace DVLD
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "PersonID", "People ID" },
+              { "PersonID", "People LocalDrivingLicenseApplicationID" },
               { "FirstName", "First Name" },
               { "LastName", "Last Name" },
               { "SecondName", "Second Name" },
@@ -176,7 +176,7 @@ namespace DVLD
 
             switch (cbFilterBy.Text)
             {
-                case "Person ID":
+                case "Person LocalDrivingLicenseApplicationID":
                     FilterColumn = "PersonID";
                     break;
 
@@ -221,7 +221,7 @@ namespace DVLD
                     break;
             }
 
-            if(cbFilterBy.Text == "Person ID")
+            if(cbFilterBy.Text == "Person LocalDrivingLicenseApplicationID")
             {
                _DtPeople.DefaultView.RowFilter = $"{FilterColumn} = {txtFilet.Text} ";
             }
@@ -234,7 +234,7 @@ namespace DVLD
 
         }
 
-        //ID'de sadece numara girilmesi lazım.
+        //LocalDrivingLicenseApplicationID'de sadece numara girilmesi lazım.
         private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbFilterBy.SelectedIndex==1)

@@ -58,7 +58,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 25);
             this.label1.TabIndex = 22;
-            this.label1.Text = "License ID: ";
+            this.label1.Text = "License LocalDrivingLicenseApplicationID: ";
             // 
             // btnFind
             // 

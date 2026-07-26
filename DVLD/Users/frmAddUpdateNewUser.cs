@@ -49,14 +49,14 @@ namespace DVLD.Users
         private void frmAddNewUser_Load(object sender, EventArgs e)
         {
 
-            //when mode is update;
+            //when Mode is update;
             if (this._Mode==enMode.enUpdate)
             {
                 _User = User.Find(_UserID);
 
                 if (_User == null)
                 {
-                    MessageBox.Show("No User with ID = " + _UserID, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No User with LocalDrivingLicenseApplicationID = " + _UserID, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
 

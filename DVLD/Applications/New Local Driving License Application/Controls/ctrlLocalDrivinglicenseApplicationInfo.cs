@@ -31,7 +31,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
         {
             this.ctrlApplicationInfo1.LoadAppInfo(LDLA.applicationID);
 
-            lblLDLAID.Text = LDLA.ID.ToString() ;
+            lblLDLAID.Text = LDLA.LocalDrivingLicenseApplicationID.ToString() ;
             lblAppliedForLicense.Text = LDLA.LicenseClassInfo.className;
             lblPassedTestCount.Text = LDLA.GetPassedTestCount().ToString();
         }
@@ -40,7 +40,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
 
         private void _Load()
         {
-            _LDLAID = _LDLA.ID;
+            _LDLAID = _LDLA.LocalDrivingLicenseApplicationID;
             fillObjectDataToField(_LDLA);
             if(_LDLA.ApplicationInfo.ApplicationStatus==DVLD_BusinessLayer.Applications.enApplicationStatus.Completed)
             {
@@ -52,8 +52,8 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
 
         private void ResetForm()
         {
-            //Yükleme başarılı olup olmadığını ID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
-            //formu temizlerken ID'i de -1 yapıyoruz.
+            //Yükleme başarılı olup olmadığını LocalDrivingLicenseApplicationID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
+            //formu temizlerken LocalDrivingLicenseApplicationID'i de -1 yapıyoruz.
 
 
             lblLDLAID.Text = "???";

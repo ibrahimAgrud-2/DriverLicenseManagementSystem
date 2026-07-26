@@ -81,7 +81,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 32);
             this.label5.TabIndex = 48;
-            this.label5.Text = "People ID: ";
+            this.label5.Text = "People LocalDrivingLicenseApplicationID: ";
             // 
             // label4
             // 

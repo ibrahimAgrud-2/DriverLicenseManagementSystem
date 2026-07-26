@@ -161,7 +161,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(192, 25);
             this.label4.TabIndex = 143;
-            this.label4.Text = "D.L.Application ID:";
+            this.label4.Text = "D.L.Application LocalDrivingLicenseApplicationID:";
             // 
             // lblAppDate
             // 

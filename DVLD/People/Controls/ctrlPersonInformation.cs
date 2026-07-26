@@ -14,8 +14,8 @@ namespace DVLD
         }
 
 
-        //bu formun mantığı çok kolay. Eğer yükleme başarılı olursa _PersonID yüklenen kişinin ID si olur 
-        // yani -1 olmaz bu sayde yükleme tamamlanmıştır. Yok eğer yükleme başarısız olursa ID -1 kalır ve
+        //bu formun mantığı çok kolay. Eğer yükleme başarılı olursa _PersonID yüklenen kişinin LocalDrivingLicenseApplicationID si olur 
+        // yani -1 olmaz bu sayde yükleme tamamlanmıştır. Yok eğer yükleme başarısız olursa LocalDrivingLicenseApplicationID -1 kalır ve
         //yükleme başarısız olmuştur.
 
         private int _PersonID = -1;
@@ -66,8 +66,8 @@ namespace DVLD
 
         public void ResetForm()
         {
-            //Yükleme başarılı olup olmadığını ID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
-            //formu temizlerken ID'i de -1 yapıyoruz.
+            //Yükleme başarılı olup olmadığını LocalDrivingLicenseApplicationID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
+            //formu temizlerken LocalDrivingLicenseApplicationID'i de -1 yapıyoruz.
             _PersonID = -1;
             lblName.Text = "????";
             lblPersonID.Text = "????";

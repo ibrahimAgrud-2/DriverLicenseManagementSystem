@@ -126,7 +126,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 32);
             this.label12.TabIndex = 83;
-            this.label12.Text = "LDLA ID: ";
+            this.label12.Text = "LDLA LocalDrivingLicenseApplicationID: ";
             // 
             // ctrlApplicationInfo1
             // 

@@ -32,8 +32,8 @@ namespace DVLD.Applications.International_License_Applications
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "InternationalLicenseID", "_InternationalLicense.L.ID" },
-              { "ApplicationID", "App.ID" },
+              { "InternationalLicenseID", "_InternationalLicense.L.LocalDrivingLicenseApplicationID" },
+              { "ApplicationID", "App.LocalDrivingLicenseApplicationID" },
               { "IssuedUsingLocalLicenseID", "L.LicenseID" },
               { "IssueDate", "Issue Date" },
               { "ExpirationDate", "Expiration Date" },
@@ -126,28 +126,28 @@ namespace DVLD.Applications.International_License_Applications
 
             /*
              
-             International License ID
-Application ID
-Driver ID
-Local License ID
+             International License LocalDrivingLicenseApplicationID
+Application LocalDrivingLicenseApplicationID
+Driver LocalDrivingLicenseApplicationID
+Local License LocalDrivingLicenseApplicationID
 Is Active
              
              */
             switch(cbFilterBy.Text)
             {
-                case "International License ID":
+                case "International License LocalDrivingLicenseApplicationID":
                     FilterColumn = "InternationalLicenseID";
                     break;
 
-                case "Application ID":
+                case "Application LocalDrivingLicenseApplicationID":
                     FilterColumn = "ApplicationID";
                     break;
 
-                case "Driver ID":
+                case "Driver LocalDrivingLicenseApplicationID":
                     FilterColumn = "DriverID";
                     break;
 
-                case "Local License ID":
+                case "Local License LocalDrivingLicenseApplicationID":
                     FilterColumn = "IssuedUsingLocalLicenseID";
                     break;
                 default:
@@ -161,7 +161,7 @@ Is Active
 
         }
 
-        //ID'de sadece numara girilmesi lazım.
+        //LocalDrivingLicenseApplicationID'de sadece numara girilmesi lazım.
         private void txtFilet_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbFilterBy.SelectedIndex == 1)

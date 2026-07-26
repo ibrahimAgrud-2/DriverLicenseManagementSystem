@@ -115,7 +115,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 29);
             this.label3.TabIndex = 37;
-            this.label3.Text = "Type ID: ";
+            this.label3.Text = "Type LocalDrivingLicenseApplicationID: ";
             // 
             // label6
             // 

@@ -47,7 +47,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "User ID: ";
+            this.label1.Text = "User LocalDrivingLicenseApplicationID: ";
             // 
             // lblUserID
             // 

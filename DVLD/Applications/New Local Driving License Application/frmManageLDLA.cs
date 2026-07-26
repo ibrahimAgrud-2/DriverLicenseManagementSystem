@@ -24,7 +24,7 @@ namespace DVLD.Applications
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "LocalDrivingLicenseApplicationID", "ID" },
+              { "LocalDrivingLicenseApplicationID", "LocalDrivingLicenseApplicationID" },
               { "ClassName", "Class Name" },
               { "NationalNo", "National No" },
               { "FullName", "Full Name" },

@@ -65,10 +65,10 @@
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
-            "International License ID",
-            "Application ID",
-            "Driver ID",
-            "Local License ID"});
+            "International License LocalDrivingLicenseApplicationID",
+            "Application LocalDrivingLicenseApplicationID",
+            "Driver LocalDrivingLicenseApplicationID",
+            "Local License LocalDrivingLicenseApplicationID"});
             this.cbFilterBy.Location = new System.Drawing.Point(113, 139);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(193, 33);

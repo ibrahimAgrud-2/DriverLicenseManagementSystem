@@ -46,8 +46,8 @@ namespace DVLD_BusinessLayer
 
 
         //[TR]
-        //Bu const'ı private yaptık ki dışardan erişilmesin. Çünkü bu constractır bir objenin ID dahil
-        //tüm bilgilerini ister, dolaysıyla dışardan hiç bir şekilde ID'e direk erişim olmadığı için
+        //Bu const'ı private yaptık ki dışardan erişilmesin. Çünkü bu constractır bir objenin LocalDrivingLicenseApplicationID dahil
+        //tüm bilgilerini ister, dolaysıyla dışardan hiç bir şekilde LocalDrivingLicenseApplicationID'e direk erişim olmadığı için
         //bu const ile dışarda obje oluşturamayız. * Bu const ile sadece DB'de var olan contact'ı/objeyi sistemde
         //kullanmak istediğimiz zaman bu const ile oluştururuz.
         //Mesela bunu Find fonksiyonunda kullandık. Çünkü bir contact DB de bulunursa sistemde
@@ -86,10 +86,10 @@ namespace DVLD_BusinessLayer
         {
 
             //[TR]
-            //ID otomatik olarak verildiği için database ID veremeyiz;çünkü ID identicle yani DB tradında ototmatik veriliyor.
-            // executeScaler'de kullanrak eklenen satırın ID'sini alıyoruz ve bunu ID'siz olan objecte ekliyoruz.
-            //burada göderdiğimiz objeler ekleme yapılmadan önce ID'si olmuyor biz kullanıcıdan ID istemiyoruz ID database atıyor. 
-            //burda eğer this.ID= demeseydik ilgili objenin ID'sı DB'de olursa ama burada henüz gelmemiş olurdu bizde eğer direk o objeyi sistemde kullanmaya kalkarsak ID'den hata alırız.
+            //LocalDrivingLicenseApplicationID otomatik olarak verildiği için database LocalDrivingLicenseApplicationID veremeyiz;çünkü LocalDrivingLicenseApplicationID identicle yani DB tradında ototmatik veriliyor.
+            // executeScaler'de kullanrak eklenen satırın LocalDrivingLicenseApplicationID'sini alıyoruz ve bunu LocalDrivingLicenseApplicationID'siz olan objecte ekliyoruz.
+            //burada göderdiğimiz objeler ekleme yapılmadan önce LocalDrivingLicenseApplicationID'si olmuyor biz kullanıcıdan LocalDrivingLicenseApplicationID istemiyoruz LocalDrivingLicenseApplicationID database atıyor. 
+            //burda eğer this.LocalDrivingLicenseApplicationID= demeseydik ilgili objenin LocalDrivingLicenseApplicationID'sı DB'de olursa ama burada henüz gelmemiş olurdu bizde eğer direk o objeyi sistemde kullanmaya kalkarsak LocalDrivingLicenseApplicationID'den hata alırız.
 
             this.personID = PeopleDataAccess.AddNewPerson(this.nationalNo, this.firstName, this.secondName, this.thirdName, this.lastName, this.dateOfBirth, this.gender, this.address, this.email, this.phone, this.countryID, this.imagePath);
 
@@ -100,7 +100,7 @@ namespace DVLD_BusinessLayer
 
 
         
-        //[TR] Sadece parametresiz const public. Ayrıca parametresiniz const ile oluşturacağımız objenin mode add;
+        //[TR] Sadece parametresiz const public. Ayrıca parametresiniz const ile oluşturacağımız objenin Mode add;
         //çünkü sistemde henüz yok, eğer olmayan obje için Save fonksiyonu çağırılırsa add yapılsın yani sisteme eklensin diye.
         public  People()
         {
@@ -163,7 +163,7 @@ namespace DVLD_BusinessLayer
             return PeopleDataAccess.UpdatePersonInfo(this.personID, this.nationalNo, this.firstName, this.secondName, this.thirdName, this.lastName, this.dateOfBirth, this.gender, this.address, this.email, this.phone, this.countryID, this.imagePath);
         }
 
-        //ID vermelisin çünkü bu fonk obje olmadan çağıralacak.
+        //LocalDrivingLicenseApplicationID vermelisin çünkü bu fonk obje olmadan çağıralacak.
         public static bool isPersonExist(int personID)
         {
             return PeopleDataAccess.IsPersonExist(personID);
@@ -176,7 +176,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        //bir objeyi silmek için onu ayrıyeten DB'den programam yüklemem gerek yok bu yüzden static yapıp sadece ID alarak silmek istedim. static olmayadabilirdi. Bu durumda fonk public olur ve obje.delete diyeceğimiz için ID'İ parametre olarak bu fonksyion'a vermemiz gerekmezdi, this kullanarak ID alırdık (çünkü program o anki obje üzerin olurdu)
+        //bir objeyi silmek için onu ayrıyeten DB'den programam yüklemem gerek yok bu yüzden static yapıp sadece LocalDrivingLicenseApplicationID alarak silmek istedim. static olmayadabilirdi. Bu durumda fonk public olur ve obje.delete diyeceğimiz için LocalDrivingLicenseApplicationID'İ parametre olarak bu fonksyion'a vermemiz gerekmezdi, this kullanarak LocalDrivingLicenseApplicationID alırdık (çünkü program o anki obje üzerin olurdu)
         public static bool delete(int personID)
         {
             if (isPersonExist(personID))

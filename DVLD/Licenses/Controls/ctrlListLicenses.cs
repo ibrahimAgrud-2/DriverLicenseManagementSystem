@@ -20,8 +20,8 @@ namespace DVLD.Licenses.Controls
 
         private Dictionary<string, string> _LocalListColumnNames = new Dictionary<string, string>
             {
-              { "LicenseID", "L.ID" },
-              { "ApplicationID", "App.ID" },
+              { "LicenseID", "L.LocalDrivingLicenseApplicationID" },
+              { "ApplicationID", "App.LocalDrivingLicenseApplicationID" },
               { "ClassName", "Class" },
               { "IssueDate", "Issue Date" },
               { "ExpirationDate", "Expiration Date" },
@@ -29,8 +29,8 @@ namespace DVLD.Licenses.Controls
             };
         private Dictionary<string, string> _InternationalListColumnNames = new Dictionary<string, string>
             {
-              { "InternationalLicenseID", "_InternationalLicense.L.ID" },
-              { "ApplicationID", "App.ID" },
+              { "InternationalLicenseID", "_InternationalLicense.L.LocalDrivingLicenseApplicationID" },
+              { "ApplicationID", "App.LocalDrivingLicenseApplicationID" },
               { "IssuedUsingLocalLicenseID", "L.LicenseID" },
               { "IssueDate", "Issue Date" },
               { "ExpirationDate", "Expiration Date" },

@@ -95,7 +95,7 @@ namespace DVLD.People.Controls
                 case "National No":
                     this.ctrlPersonInformation1.LoadPersonInfo(txtFilter.Text);
                     break;
-                case "Person ID":
+                case "Person LocalDrivingLicenseApplicationID":
                     this.ctrlPersonInformation1.LoadPersonInfo(Convert.ToInt32(txtFilter.Text));
                     break;
             }
@@ -142,7 +142,7 @@ namespace DVLD.People.Controls
             
         private void AddCompleted(object sender,int personID)
         {
-            //Ekleme yapıldıktan sonra ID'i txtFilter'e ekle ve cbFilter'i ID yap. Daha iyi durur.
+            //Ekleme yapıldıktan sonra LocalDrivingLicenseApplicationID'i txtFilter'e ekle ve cbFilter'i LocalDrivingLicenseApplicationID yap. Daha iyi durur.
             cbFilterBy.SelectedIndex = 0;
             txtFilter.Text = personID.ToString();
             this.ctrlPersonInformation1.LoadPersonInfo(personID);

@@ -44,20 +44,20 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         private void _Load()
         {
             _FillLicenseClassToComboBox();
-            //when mode is update;
+            //when Mode is update;
             if (this._Mode == enMode.enUpdate)
             {
                 _LDLA = LocalDrivingLicenseApp.Find(_LDLAID);
 
                 if (_LDLA == null)
                 {
-                    MessageBox.Show("No LDLA with ID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No LDLA with LocalDrivingLicenseApplicationID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
                 App = ApplicationsDb.Find(_LDLA.applicationID);
                 if (App == null)
                 {
-                    MessageBox.Show("No Application with ID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No Application with LocalDrivingLicenseApplicationID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
 
@@ -97,7 +97,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             if (_LDLA == null&&_LDLA.ApplicationInfo==null)
                 return;
             cbLicenseClasses.SelectedIndex = cbLicenseClasses.FindString(_LDLA.LicenseClassInfo.className);
-            lblID.Text = _LDLA.ID.ToString();
+            lblID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
             lblAppDate.Text = _LDLA.ApplicationInfo.ApplicationDate.ToString("yyyy/mm/dd");
             lblAppFees.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
             lblCreatedByUserID.Text = _LDLA.ApplicationInfo.CreatedByUserID.ToString();
@@ -163,7 +163,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 this._Mode = enMode.enUpdate;
                 lblMode.Text = "Update User";
                 this.Text = "Update User";
-                lblID.Text = _LDLA.ID.ToString();
+                lblID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
 
             }
             else

@@ -215,7 +215,7 @@
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
-            "User ID",
+            "User LocalDrivingLicenseApplicationID",
             "User Name",
             "Full Name",
             "Is Active"});

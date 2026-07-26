@@ -34,13 +34,13 @@ namespace DVLD.Test
                
                 _TestAppointment = TestAppointments.Find(_TestAppointmentID);
                 _LDLA = LocalDrivingLicenseApp.Find(_TestAppointment.localDrivingLicenseApplicationID);
-                _LDLAID = _LDLA.ID;
+                _LDLAID = _LDLA.LocalDrivingLicenseApplicationID;
                 lblApplicationIDForRetakeTest.Text = _TestAppointment.retakeTestApplicationID.ToString();
             }
             else
             {
                 _LDLA = LocalDrivingLicenseApp.Find(LDLAID);
-                _LDLAID = _LDLA.ID;
+                _LDLAID = _LDLA.LocalDrivingLicenseApplicationID;
                 _TestAppointment = new TestAppointments();
 
             }
@@ -107,7 +107,7 @@ namespace DVLD.Test
             return app.ID;
 
         }
-        //Incase mode add
+        //Incase Mode add
         private void _FillDataToObject()
         {
             _TestAppointment.createdByUserID = Global.currentUser.userID;
