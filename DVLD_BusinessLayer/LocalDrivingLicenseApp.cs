@@ -220,8 +220,12 @@ namespace DVLD_BusinessLayer
             return clsLocalDrivingLicenseAppDataAccess.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
     
-    
-        
-    
+        public Tests FindLastTestPerPersonAndLicenseClass ()
+        {
+            return clsTestDataAccess.GetLastTestByPersonAndTestTypeAndLicenseClass();
+        }
+
+
+
     }
 }

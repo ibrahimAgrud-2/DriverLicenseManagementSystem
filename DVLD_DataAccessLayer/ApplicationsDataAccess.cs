@@ -1,4 +1,6 @@
-﻿using System;
+﻿//2.Kod
+using System;
+
 using System.Data;
 using System.Data.SqlClient;
 
@@ -128,51 +130,63 @@ namespace DVLD_DataAccessLayer
 
 
 
-        public static int addApplication( int applicantPersonID,   int applicationTypeID, 
-           byte applicationStatus,  DateTime LastStatusDate,  double paidFee,  int createdByUserID)
+        public static int addApplication(int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
+                 byte ApplicationStatus, DateTime LastStatusDate,
+                 float PaidFees, int CreatedByUserID)
         {
+
+            //this function will return the new person id if succeeded and -1 if not.
+            int ApplicationID = -1;
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = "insert into applications values (@applicantPersonID,@ApplicationDate,@applicationTypeID,@applicationStatus,@LastStatusDate,@paidFee,@createdByUserID) Select Scope_Identity()";
+            string query = @"INSERT INTO Applications ( 
+                                ApplicantPersonID,ApplicationDate,ApplicationTypeID,
+                                ApplicationStatus,LastStatusDate,
+                                PaidFees,CreatedByUserID)
+                                 VALUES (@ApplicantPersonID,@ApplicationDate,@ApplicationTypeID,
+                                          @ApplicationStatus,@LastStatusDate,
+                                          @PaidFees,   @CreatedByUserID);
+                                 SELECT SCOPE_IDENTITY();";
 
-            SqlCommand cmd = new SqlCommand(query, connection);
-            DateTime ApplicationDate = DateTime.Now;
+            SqlCommand command = new SqlCommand(query, connection);
 
-           cmd.Parameters.AddWithValue("@applicantPersonID", applicantPersonID);
-            cmd.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
-            cmd.Parameters.AddWithValue("@applicationTypeID", applicationTypeID);
-            cmd.Parameters.AddWithValue("@applicationStatus", applicationStatus);
-            cmd.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            cmd.Parameters.AddWithValue("@paidFee", paidFee);
-            cmd.Parameters.AddWithValue("@createdByUserID", createdByUserID);
+            command.Parameters.AddWithValue("ApplicantPersonID", @ApplicantPersonID);
+            command.Parameters.AddWithValue("ApplicationDate", @ApplicationDate);
+            command.Parameters.AddWithValue("ApplicationTypeID", @ApplicationTypeID);
+            command.Parameters.AddWithValue("ApplicationStatus", @ApplicationStatus);
+            command.Parameters.AddWithValue("LastStatusDate", @LastStatusDate);
+            command.Parameters.AddWithValue("PaidFees", @PaidFees);
+            command.Parameters.AddWithValue("CreatedByUserID", @CreatedByUserID);
+
+
 
 
             try
             {
                 connection.Open();
 
-                //Sql içinde sorgu burada çalışır.
-                object result = cmd.ExecuteScalar();
+                object result = command.ExecuteScalar();
 
-                if (result != null && int.TryParse(result.ToString(), out int inserted))
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
                 {
-                    return inserted;
-                }
-                else
-                {
-                    return -1;
+                    ApplicationID = insertedID;
                 }
             }
-            catch (Exception)
+
+            catch (Exception ex)
             {
+                //Console.WriteLine("Error: " + ex.Message);
 
-                return -1;
             }
+
             finally
             {
                 connection.Close();
             }
+
+
+            return ApplicationID;
 
         }
        

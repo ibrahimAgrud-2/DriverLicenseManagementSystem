@@ -42,17 +42,6 @@ namespace DVLD_BusinessLayer
             ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicense = 5, NewInternationalLicense = 6, RetakeTest = 7
         };
  
-
-
-
-
-
-
-
-
-
-
-
         public Applications()
         {
             this.ID = -1;
@@ -183,11 +172,21 @@ namespace DVLD_BusinessLayer
 
         public bool cancel()
         {
-            return ApplicationsDataAccess.updateStatus(this.ID,2);
+            bool canceledSuccessfully= ApplicationsDataAccess.updateStatus(this.ID, 2);
+            if(canceledSuccessfully)
+            {
+                this.ApplicationStatus = enApplicationStatus.Canceled;
+            }
+            return canceledSuccessfully;
         }
         public bool setComplete()
         {
-            return ApplicationsDataAccess.updateStatus(this.ID,3);
+            bool canceledSuccessfully = ApplicationsDataAccess.updateStatus(this.ID, 3);
+            if (canceledSuccessfully)
+            {
+                this.ApplicationStatus = enApplicationStatus.Canceled;
+            }
+            return canceledSuccessfully;
         }
         
 
