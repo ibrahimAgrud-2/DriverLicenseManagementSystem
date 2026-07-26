@@ -6,6 +6,9 @@ namespace DVLD_BusinessLayer
 {
     public class Tests
     {
+
+        enum enMode { enAddNew = 1, enUpdate = 2 };
+        enMode mode = enMode.enAddNew;
         public int testID { get; set; }
         public int testAppointmentID { get; set; }
         public TestAppointments testAppointmentInfo { get; set; }
@@ -13,8 +16,10 @@ namespace DVLD_BusinessLayer
         public string notes { get; set; }
         public int createdByUserID { get;  set; }
 
-        enum enMode {enAddNew=1,enUpdate=2 };
-        enMode mode = enMode.enAddNew;
+   
+
+
+
         public Tests()
         {
             this.testID = -1;
@@ -49,7 +54,7 @@ namespace DVLD_BusinessLayer
             string notes = null;
             int createdByUserID = -1;
 
-            if (clsTestDataAccess.findTest(testID, ref testAppointmentID, ref testResult, ref notes, ref createdByUserID))
+            if (clsTestDataAccess.findTestByID(testID, ref testAppointmentID, ref testResult, ref notes, ref createdByUserID))
             {
                 return new Tests(testID, testAppointmentID, testResult, notes, createdByUserID);
             }
@@ -104,9 +109,16 @@ namespace DVLD_BusinessLayer
             );
         }
 
-        public static bool deleteTest(int testID)
+        public static int GetPassedTestCount(int LDLAID)
         {
-            return clsTestDataAccess.deleteTest(testID);
+            return clsTestDataAccess.GetPassedTestCount(LDLAID);
         }
+
+        public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
+        {
+            //if total passed test less than 3 it will return false otherwise will return true
+            return GetPassedTestCount(LocalDrivingLicenseApplicationID) == 3;
+        }
+
     }
 }
