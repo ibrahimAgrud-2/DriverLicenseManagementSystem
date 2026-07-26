@@ -171,9 +171,6 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public void cancel()
-        {
-
-        }
+  
     }
 }

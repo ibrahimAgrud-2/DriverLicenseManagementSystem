@@ -261,5 +261,37 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+
+
+        public static bool cancel(int applicationID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            string query = "update  applications set ApplicationStatus=2 where ApplicationID=@applicationID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@applicationID", applicationID);
+
+
+            try
+            {
+                connection.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
     }
 }
