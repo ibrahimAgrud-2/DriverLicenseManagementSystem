@@ -171,6 +171,9 @@ namespace DVLD_BusinessLayer
         }
 
 
-  
+        public bool cancel()
+        {
+            return ApplicationsDataAccess.cancel(this.ID);
+        }
     }
 }
