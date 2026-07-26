@@ -34,6 +34,8 @@ namespace DVLD_BusinessLayer
 
         public enum enMode { enAddNew = 1, enUpdate = 2};
         public enMode Mode;
+      
+      //Application type'i elle yazmak yerine enum ile verebilirsin.
         public enum enApplicationType
         {
             NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,
@@ -122,7 +124,6 @@ namespace DVLD_BusinessLayer
 
         }
 
-        //Update yaparken lastStatus güncellenmeli.
         private bool _UpdateApplication()
         {
 
@@ -136,7 +137,6 @@ namespace DVLD_BusinessLayer
             return ApplicationsDataAccess.isApplicationExistByID(applicationID);
         }
 
-        //Kişinin o başvuru türünden atif bir başvurusu var mı?
     
         public static bool deleteApplication(int applicationID)
         {
@@ -173,7 +173,18 @@ namespace DVLD_BusinessLayer
 
         public bool cancel()
         {
-            return ApplicationsDataAccess.cancel(this.ID);
+            return ApplicationsDataAccess.updateStatus(this.ID,2);
         }
+        public bool setComplete()
+        {
+            return ApplicationsDataAccess.updateStatus(this.ID,3);
+        }
+        
+
+        public static int GetActiveApplicationIDForLicenseClass(int PersonID, Applications.enApplicationType ApplicationTypeID, int LicenseClassID)
+        {
+            return ApplicationsDataAccess.GetActiveApplicationIDForLicenseClass(PersonID,(int) ApplicationTypeID, LicenseClassID);
+        }
+
     }
 }

@@ -332,10 +332,10 @@ namespace DVLD.Applications
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
 
-                if (MessageBox.Show("Are you sure you want to cancel [" + selectedID + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure you want to cancel [" + selectedID + "]", "Confirm cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
-                    LDLA.ApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Canceled;
+                    LDLA.ApplicationInfo.cancel();
                     LDLA.ApplicationInfo.LastStatusDate = DateTime.Now;
                     if (LDLA.ApplicationInfo.save())
                     {

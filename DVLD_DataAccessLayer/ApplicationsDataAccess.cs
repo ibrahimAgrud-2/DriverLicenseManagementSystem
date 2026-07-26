@@ -128,9 +128,6 @@ namespace DVLD_DataAccessLayer
 
 
 
-        //Yeni bir app eklediğimde ben ona tüm bilgieleri paramtere olarak vermem daha doğru olur gibi. Yani UserID'i sistemde
-        //aktif kullanıcıdan almasını bu aşamada değil de business layer'da yapmayı uygun gördüm.
-        //Zaten userID elle girilen bir şey olmayacağı için o anki kullanıcı IDsi sistemde otomatik çekilir
         public static int addApplication( int applicantPersonID,   int applicationTypeID, 
            byte applicationStatus,  DateTime LastStatusDate,  double paidFee,  int createdByUserID)
         {
@@ -178,7 +175,7 @@ namespace DVLD_DataAccessLayer
             }
 
         }
-        //====Above is checked they are crystal clear===
+       
 
 
         public static bool updateApplicationInfo(int applicationID,int applicantPersonID, DateTime ApplicationDate, int applicationTypeID,
@@ -263,12 +260,57 @@ namespace DVLD_DataAccessLayer
 
 
 
-        public static bool cancel(int applicationID)
+        public static int GetActiveApplicationIDForLicenseClass(int ApplicantPersonID, int LicenseClassID, int ApplicationTypeID)
+        {
+
+            int ActiveApplicationID = -1;
+
+            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+
+            string query = @"SELECT ActiveApplicationID=Applications.ApplicationID  
+                            From
+                            Applications INNER JOIN
+                            LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                            WHERE ApplicantPersonID = @ApplicantPersonID 
+                            and ApplicationTypeID=@ApplicationTypeID 
+							and LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
+                            and ApplicationStatus=1";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+
+                if (result != null && int.TryParse(result.ToString(), out int AppID))
+                {
+                    ActiveApplicationID = AppID;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return ActiveApplicationID;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return ActiveApplicationID;
+        }
+        public static bool updateStatus(int applicationID, short status)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
-            string query = "update  applications set ApplicationStatus=2 where ApplicationID=@applicationID";
+            string query = "update  applications set ApplicationStatus=@status where ApplicationID=@applicationID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@applicationID", applicationID);
+            cmd.Parameters.AddWithValue("@status", status);
 
 
             try
@@ -293,5 +335,7 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
     }
+
 }
