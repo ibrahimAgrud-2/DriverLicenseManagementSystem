@@ -7,16 +7,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using clsLicenses = DVLD_BusinessLayer.Licenses;
 using System.Windows.Forms;
 
 namespace DVLD.Applications.International_License_Applications
 {
-    public partial class frmListInternationalLicesnseApplications : Form
+    public partial class frmManageInternationalLicesnseApplications : Form
     {
 
 
-        public frmListInternationalLicesnseApplications()
+        public frmManageInternationalLicesnseApplications()
         {
             InitializeComponent();
         }
@@ -32,7 +32,7 @@ namespace DVLD.Applications.International_License_Applications
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "InternationalLicenseID", "_InternationalLicense.L.LocalDrivingLicenseApplicationID" },
+              { "InternationalLicenseID", "International LicenseID" },
               { "ApplicationID", "App.LocalDrivingLicenseApplicationID" },
               { "IssuedUsingLocalLicenseID", "L.LicenseID" },
               { "IssueDate", "Issue Date" },
@@ -52,6 +52,7 @@ namespace DVLD.Applications.International_License_Applications
         {
             _DtInternationalLicenses = InternationalLicense.getInternationalLicenseRecords();
 
+
             dgvInternationalLicensesList.DataSource = _DtInternationalLicenses.DefaultView.ToTable("InternationalLicenses", false, "InternationalLicenseID", "ApplicationID", "IssuedUsingLocalLicenseID", "IssueDate", "ExpirationDate", "IsActive");
             lblRecords.Text = dgvInternationalLicensesList.RowCount.ToString();
 
@@ -67,15 +68,16 @@ namespace DVLD.Applications.International_License_Applications
 
         private void showPersonDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedPersonID))
+            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
-                frmPersonDetail frm = new frmPersonDetail(selectedPersonID);
+                InternationalLicense L1 = InternationalLicense.findInternationalLicenses(selectedID);
+                frmPersonDetail frm = new frmPersonDetail(L1.ApplicationInfo.ApplicantPersonID);
                 frm.ShowDialog();
        }    }
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[3].Value.ToString(), out int selectedLicenseID))
+            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[2].Value.ToString(), out int selectedLicenseID))
             {
                 frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(selectedLicenseID);
                 frm.ShowDialog();
@@ -85,10 +87,10 @@ namespace DVLD.Applications.International_License_Applications
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[3].Value.ToString(), out int selectedLicenseID))
+            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[2].Value.ToString(), out int selectedLicenseID))
             {
-                int driverID = (int)dgvInternationalLicensesList.SelectedRows[0].Cells[2].Value;
-                int personID = Driver.Find(driverID).personID;
+                int LicenseID = (int)dgvInternationalLicensesList.SelectedRows[0].Cells[2].Value;
+                int personID = clsLicenses.Find(LicenseID).ApplicationInfo.ApplicantPersonID;
                 frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(personID);
                 frm.ShowDialog();
             }
@@ -177,7 +179,7 @@ Is Active
 
         private void btnAddNewInternationaLicense_Click(object sender, EventArgs e)
         {
-            frmAddInternationalNewLicense frm = new frmAddInternationalNewLicense();
+            frmAddNewInternationalLicense frm = new frmAddNewInternationalLicense();
             frm.ShowDialog();
             _RefreshList();
         }

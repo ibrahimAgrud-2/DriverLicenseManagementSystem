@@ -60,19 +60,7 @@ namespace DVLD_BusinessLayer
             }
             return null;
         }
-        public static Tests FindLastTestPerPersonAndLicenseClass(int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
-        {
-            int testAppointmentID = -1;
-            int testResult = 0;
-            string notes = null;
-            int createdByUserID = -1;
 
-            if (clsTestDataAccess.findTestByID(testID, ref testAppointmentID, ref testResult, ref notes, ref createdByUserID))
-            {
-                return new Tests(testID, testAppointmentID, testResult, notes, createdByUserID);
-            }
-            return null;
-        }
         public static bool isTestExist(int testID)
         {
             return clsTestDataAccess.isTestExist(testID);

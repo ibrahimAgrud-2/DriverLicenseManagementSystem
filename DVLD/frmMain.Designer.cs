@@ -244,6 +244,7 @@
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Name = "ManageInternationaDrivingLicenseToolStripMenuItem1";
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(372, 38);
             this.ManageInternationaDrivingLicenseToolStripMenuItem1.Text = "International License Application";
+            this.ManageInternationaDrivingLicenseToolStripMenuItem1.Click += new System.EventHandler(this.ManageInternationaDrivingLicenseToolStripMenuItem1_Click);
             // 
             // toolStripSeparator5
             // 

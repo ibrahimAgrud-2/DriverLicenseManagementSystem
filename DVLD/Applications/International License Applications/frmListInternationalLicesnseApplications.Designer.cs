@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications.International_License_Applications
 {
-    partial class frmListInternationalLicesnseApplications
+    partial class frmManageInternationalLicesnseApplications
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListInternationalLicesnseApplications));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageInternationalLicesnseApplications));
             this.txtFilet = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -184,7 +184,7 @@
             this.btnAddNewInternationaLicense.UseVisualStyleBackColor = true;
             this.btnAddNewInternationaLicense.Click += new System.EventHandler(this.btnAddNewInternationaLicense_Click);
             // 
-            // frmListInternationalLicesnseApplications
+            // frmManageInternationalLicesnseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -200,9 +200,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmListInternationalLicesnseApplications";
+            this.Name = "frmManageInternationalLicesnseApplications";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListInternationalLicesnseApplications";
+            this.Text = "frmManageInternationalLicesnseApplications";
             this.Load += new System.EventHandler(this.frmManageApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicensesList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

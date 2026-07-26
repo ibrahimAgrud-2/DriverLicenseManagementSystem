@@ -47,6 +47,7 @@ namespace DVLD_BusinessLayer
             this.ExpirationDate = expirationDate;
             this.IsActive = isActive;
             this.CreatedByUserID = createdByUserID;
+            this.ApplicationInfo = Applications.Find(applicationID);
             this.mode = enMode.enUpdate;
         }
 
@@ -99,25 +100,9 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public static bool isInternationalLicenseExist(int id)
+        public static bool isInternationalLicenseExistByLicenseID(int LicenseID)
         {
-            return InternationalLicenseDataAccess.isInternationalLicenseExist(id);
-        }
-
-        public static bool isDriverHasInternationalLicense(int driverID)
-        {
-            return InternationalLicenseDataAccess.isInternationalLicenseExist(driverID);
-        }
-
-
-        public static bool deleteInternationalLicense(int id)
-        {
-            if (isInternationalLicenseExist(id))
-            {
-                return InternationalLicenseDataAccess.deleteInternationalLicense(id);
-            }
-            return false;
-
+            return InternationalLicenseDataAccess.isInternationalLicenseExist(LicenseID);
         }
 
         public bool save()

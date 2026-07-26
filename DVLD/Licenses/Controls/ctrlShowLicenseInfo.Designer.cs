@@ -363,7 +363,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(127, 25);
             this.label22.TabIndex = 113;
-            this.label22.Text = "License LocalDrivingLicenseApplicationID :";
+            this.label22.Text = "License ID :";
             // 
             // label5
             // 
@@ -479,7 +479,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 25);
             this.label4.TabIndex = 117;
-            this.label4.Text = "Driver LocalDrivingLicenseApplicationID:";
+            this.label4.Text = "Driver ID:";
             // 
             // label3
             // 
@@ -517,7 +517,7 @@
             this.pbPersonImage.TabIndex = 112;
             this.pbPersonImage.TabStop = false;
             // 
-            // gbMain
+            // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblIsDetained);
             this.groupBox1.Controls.Add(this.pictureBox12);
@@ -562,7 +562,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 7);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.groupBox1.Name = "gbMain";
+            this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.groupBox1.Size = new System.Drawing.Size(875, 326);
             this.groupBox1.TabIndex = 20;

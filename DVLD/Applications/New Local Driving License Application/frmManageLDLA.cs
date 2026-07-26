@@ -86,7 +86,9 @@ namespace DVLD.Applications
                 {
                     if (MessageBox.Show("Are you sure you want to delete App [" + SelectedLDLAID + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        if (LocalDrivingLicenseApp.deleteLocalDrivingLicenseApp(SelectedLDLAID)&& clsApplication.Delete(LDLA.applicationID))
+             
+
+                        if (LDLA.deleteLocalDrivingLicenseApp())
                         {
                             
                             MessageBox.Show("Application Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -96,8 +98,10 @@ namespace DVLD.Applications
                         {
                             MessageBox.Show("An error occurred while deleting process.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
+                    
 
+
+                    }
 
                 }
                 else

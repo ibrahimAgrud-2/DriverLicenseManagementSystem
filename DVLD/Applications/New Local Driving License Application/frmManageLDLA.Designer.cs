@@ -373,7 +373,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmManageLDLA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListInternationalLicesnseApplications";
+            this.Text = "frmManageInternationalLicesnseApplications";
             this.Load += new System.EventHandler(this.frmManageLDLA_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppList)).EndInit();
             this.cmsApplications.ResumeLayout(false);

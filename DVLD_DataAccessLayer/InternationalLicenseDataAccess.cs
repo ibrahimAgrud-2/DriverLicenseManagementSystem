@@ -129,13 +129,13 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static bool isInternationalLicenseExist(int InternationalLicenseID)
+        public static bool isInternationalLicenseExist(int LicenseID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = "select found =1 from InternationalLicenses where InternationalLicenseID=@InternationalLicenseID   ";
+            string query = "select found =1 from InternationalLicenses where IssuedUsingLocalLicenseID=@LicenseID";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
+            cmd.Parameters.AddWithValue("@LicenseID", LicenseID);
 
 
             try

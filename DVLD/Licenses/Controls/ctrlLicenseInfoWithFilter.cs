@@ -67,7 +67,7 @@ namespace DVLD.Licenses.Controls
                 this.ctrlShowLicenseInfo1.LoadLicenseInfo(Convert.ToInt32(txtFilter.Text));
                 if (OnLicenseLoaded != null && FilterEnabled)
                 {
-                    OnLicenseLoaded(-1);
+                    OnLicenseLoaded(Convert.ToInt32(txtFilter.Text));
 
 
                 }

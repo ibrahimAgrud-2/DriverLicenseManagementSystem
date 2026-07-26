@@ -56,9 +56,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(27, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 25);
+            this.label1.Size = new System.Drawing.Size(121, 25);
             this.label1.TabIndex = 22;
-            this.label1.Text = "License LocalDrivingLicenseApplicationID: ";
+            this.label1.Text = "License ID:";
             // 
             // btnFind
             // 
