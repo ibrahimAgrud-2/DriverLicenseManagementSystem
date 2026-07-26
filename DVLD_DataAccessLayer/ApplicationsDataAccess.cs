@@ -321,10 +321,15 @@ namespace DVLD_DataAccessLayer
         public static bool updateStatus(int applicationID, short status)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "update  applications set ApplicationStatus=@status where ApplicationID=@applicationID";
+            string query = @"Update  Applications  
+                                set 
+                                    ApplicationStatus = @NewStatus, 
+                                    LastStatusDate = @LastStatusDate
+                                where ApplicationID=@ApplicationID;";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@applicationID", applicationID);
             cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@LastStatusDate", DateTime.Now);
 
 
             try
