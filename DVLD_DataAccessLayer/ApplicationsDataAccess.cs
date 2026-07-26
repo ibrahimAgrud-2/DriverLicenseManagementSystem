@@ -132,7 +132,7 @@ namespace DVLD_DataAccessLayer
 
         public static int addApplication(int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
                  byte ApplicationStatus, DateTime LastStatusDate,
-                 float PaidFees, int CreatedByUserID)
+                 double PaidFees, int CreatedByUserID)
         {
 
             //this function will return the new person id if succeeded and -1 if not.

@@ -8,40 +8,31 @@ namespace DVLD_BusinessLayer
 {
     public class Applications
     {
-
-
-        public int ID { set; get; }
-
-        public int ApplicantPersonID { set; get; }
-        public People ApplicantPerson { set; get; }
-
-        public DateTime ApplicationDate { set; get; }
-
-  
-        public int ApplicationTypeID { set; get; }
-        public ApplicationTypes ApplicationTypeInfo { set; get; }
-
-        public enum enApplicationStatus {New=1,Canceled=2,Completed=3 };
-        public enApplicationStatus ApplicationStatus;
-
-        public  DateTime LastStatusDate{ set; get; }
-
-        public double PaidFees { set; get; }
-
-
-        public int CreatedByUserID { set; get; }
-
-
-        public enum enMode { enAddNew = 1, enUpdate = 2};
-        public enMode Mode;
-      
-      //Application type'i elle yazmak yerine enum ile verebilirsin.
+        public enum enApplicationStatus { New = 1, Canceled = 2, Completed = 3 };
+        //Application type'i elle yazmak yerine enum ile verebilirsin.
         public enum enApplicationType
         {
             NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,
             ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicense = 5, NewInternationalLicense = 6, RetakeTest = 7
         };
- 
+
+
+
+        public int ID { set; get; }
+        public int ApplicationTypeID { set; get; }
+        public ApplicationTypes ApplicationTypeInfo { set; get; }
+        public int ApplicantPersonID { set; get; }
+        public People ApplicantPerson { set; get; }
+        public DateTime ApplicationDate { set; get; }
+        public enApplicationStatus ApplicationStatus;
+        public DateTime LastStatusDate { set; get; }
+        public double PaidFees { set; get; }
+        public int CreatedByUserID { set; get; }
+        public User CreatedByUserInfo { set; get; }
+        public enum enMode { enAddNew = 1, enUpdate = 2};
+        public enMode Mode;
+      
+
         public Applications()
         {
             this.ID = -1;
@@ -69,6 +60,7 @@ namespace DVLD_BusinessLayer
             this.ApplicationTypeInfo = ApplicationTypes.Find(applicationTypeID);
             this.ApplicantPerson = People.Find(applicantPersonID);
             this.CreatedByUserID = createdByUserID;
+            this.CreatedByUserInfo = User.Find(CreatedByUserID);
             this.Mode = enMode.enUpdate;
 
         }
@@ -81,34 +73,10 @@ namespace DVLD_BusinessLayer
             dt = ApplicationsDataAccess.getApplicationsRecord();
             return dt;
         }
-
-
-
-        public static Applications Find(int applicationID)
-        {
-
-            int applicantPersonID = -1, createdByUserID=-1, applicationTypeID=-1;
-            DateTime applicationDate = DateTime.Now, lastStatusDate=DateTime.Now;
-            byte applicationStatus = 0;
-            double paidFee = 0.0;
-
-
-
-            if (ApplicationsDataAccess.findApplication( applicationID, ref  applicantPersonID, ref  applicationDate, ref  applicationTypeID, ref
-            applicationStatus, ref lastStatusDate, ref  paidFee, ref  createdByUserID))
-            {
-                return new Applications(applicationID,  applicantPersonID,  applicationDate, applicationTypeID, 
-            (enApplicationStatus)applicationStatus,  lastStatusDate,  paidFee,  createdByUserID);
-
-            }
-            return null;
-        }
-
-
         private bool _AddNewApplication()
         {
 
-            this.ID = ApplicationsDataAccess.addApplication(ApplicantPersonID,ApplicationTypeID,Convert.ToByte(ApplicationStatus),LastStatusDate,PaidFees,CreatedByUserID);
+            this.ID = ApplicationsDataAccess.addApplication(this.ApplicantPersonID,this.ApplicationDate,this.ApplicationTypeID,(byte)this.ApplicationStatus,this.LastStatusDate,this.PaidFees,this.CreatedByUserID);
             return (this.ID != -1);
 
         }
@@ -119,15 +87,7 @@ namespace DVLD_BusinessLayer
             return ApplicationsDataAccess.updateApplicationInfo(this.ID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID, Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
-
-
-        public static bool isApplicationExist(int applicationID)
-        {
-            return ApplicationsDataAccess.isApplicationExistByID(applicationID);
-        }
-
-    
-        public static bool deleteApplication(int applicationID)
+        public static bool Delete(int applicationID)
         {
             if (isApplicationExist(applicationID))
             {
@@ -136,8 +96,7 @@ namespace DVLD_BusinessLayer
             return false;
 
         }
-
-        public bool deleteApplication()
+        public bool Delete  ()
         {
             if (isApplicationExist(this.ID))
             {
@@ -146,6 +105,33 @@ namespace DVLD_BusinessLayer
             return false;
 
         }
+     
+        public static bool isApplicationExist(int applicationID)
+        {
+            return ApplicationsDataAccess.isApplicationExistByID(applicationID);
+        }
+
+        public static Applications Find(int applicationID)
+        {
+
+            int applicantPersonID = -1, createdByUserID = -1, applicationTypeID = -1;
+            DateTime applicationDate = DateTime.Now, lastStatusDate = DateTime.Now;
+            byte applicationStatus = 0;
+            double paidFee = 0.0;
+
+
+
+            if (ApplicationsDataAccess.findApplication(applicationID, ref applicantPersonID, ref applicationDate, ref applicationTypeID, ref
+            applicationStatus, ref lastStatusDate, ref paidFee, ref createdByUserID))
+            {
+                return new Applications(applicationID, applicantPersonID, applicationDate, applicationTypeID,
+            (enApplicationStatus)applicationStatus, lastStatusDate, paidFee, createdByUserID);
+
+            }
+            return null;
+        }
+
+
 
         public bool save()
         {
@@ -184,7 +170,7 @@ namespace DVLD_BusinessLayer
             bool canceledSuccessfully = ApplicationsDataAccess.updateStatus(this.ID, 3);
             if (canceledSuccessfully)
             {
-                this.ApplicationStatus = enApplicationStatus.Canceled;
+                this.ApplicationStatus = enApplicationStatus.Completed;
             }
             return canceledSuccessfully;
         }

@@ -112,13 +112,13 @@ namespace DVLD_BusinessLayer
             bool isBaseApplicationDeleted = false;
             bool isLocalApplicationDeleted = false;
 
-            isLocalApplicationDeleted = LocalDrivingLicenseApp.deleteApplication(this.LocalDrivingLicenseApplicationID);
+            isLocalApplicationDeleted = LocalDrivingLicenseApp.Delete(this.LocalDrivingLicenseApplicationID);
 
             if (!isLocalApplicationDeleted)
                 return false;
 
 
-            isBaseApplicationDeleted = base.deleteApplication();
+            isBaseApplicationDeleted = base.Delete();
             return isBaseApplicationDeleted;
 
         }

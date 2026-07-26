@@ -86,7 +86,7 @@ namespace DVLD.Applications
                 {
                     if (MessageBox.Show("Are you sure you want to delete App [" + SelectedLDLAID + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        if (LocalDrivingLicenseApp.deleteLocalDrivingLicenseApp(SelectedLDLAID)&& clsApplication.deleteApplication(LDLA.applicationID))
+                        if (LocalDrivingLicenseApp.deleteLocalDrivingLicenseApp(SelectedLDLAID)&& clsApplication.Delete(LDLA.applicationID))
                         {
                             
                             MessageBox.Show("Application Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
