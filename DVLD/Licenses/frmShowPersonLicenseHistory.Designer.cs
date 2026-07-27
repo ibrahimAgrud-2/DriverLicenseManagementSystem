@@ -49,6 +49,7 @@
             this.ctrlListLicenses1.Name = "ctrlListLicenses1";
             this.ctrlListLicenses1.Size = new System.Drawing.Size(1104, 300);
             this.ctrlListLicenses1.TabIndex = 2;
+            this.ctrlListLicenses1.Load += new System.EventHandler(this.ctrlListLicenses1_Load);
             // 
             // ctrlPersonCardWithFilter1
             // 

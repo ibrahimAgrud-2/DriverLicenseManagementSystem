@@ -108,13 +108,13 @@
             this.lblAppDate.TabIndex = 83;
             this.lblAppDate.Text = "?????";
             // 
-            // lblCreatedByUserID
+            // lblCreatedByUser
             // 
             this.lblCreatedByUserID.AutoSize = true;
             this.lblCreatedByUserID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCreatedByUserID.Location = new System.Drawing.Point(722, 162);
             this.lblCreatedByUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCreatedByUserID.Name = "lblCreatedByUserID";
+            this.lblCreatedByUserID.Name = "lblCreatedByUser";
             this.lblCreatedByUserID.Size = new System.Drawing.Size(40, 24);
             this.lblCreatedByUserID.TabIndex = 73;
             this.lblCreatedByUserID.Text = "???";

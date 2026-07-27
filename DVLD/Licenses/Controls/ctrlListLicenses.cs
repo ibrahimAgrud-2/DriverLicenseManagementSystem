@@ -18,6 +18,9 @@ namespace DVLD.Licenses.Controls
             InitializeComponent();
         }
 
+
+
+
         private Dictionary<string, string> _LocalListColumnNames = new Dictionary<string, string>
             {
               { "LicenseID", "L.LocalDrivingLicenseApplicationID" },
@@ -98,6 +101,14 @@ namespace DVLD.Licenses.Controls
                 lblRecord.Text = dgvInternationalLicenseList.Rows.Count.ToString();
 
             }
+        }
+
+        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int licenseID = Convert.ToInt32(dgvLocalLicenseList.SelectedRows[0].Cells[0].Value);
+            frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(licenseID);
+            frm.ShowDialog();
         }
     }
 }

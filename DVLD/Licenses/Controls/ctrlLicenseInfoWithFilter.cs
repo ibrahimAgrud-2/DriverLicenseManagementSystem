@@ -59,8 +59,7 @@ namespace DVLD.Licenses.Controls
         public void ResetForm()
         {
             this.ctrlShowLicenseInfo1.ResetForm();
-            txtFilter.Text = "";
-            txtFilter.Focus();
+           
         }
         private void _FindLicense()
         {
@@ -81,8 +80,12 @@ namespace DVLD.Licenses.Controls
             }
             else
             {
-                MessageBox.Show("Could Not find License");
-              
+                ResetForm();
+                MessageBox.Show($"Could Not find License with ID {txtFilter.Text}");
+                txtFilter.Text = "";
+                txtFilter.Focus();
+
+
             }
             
 

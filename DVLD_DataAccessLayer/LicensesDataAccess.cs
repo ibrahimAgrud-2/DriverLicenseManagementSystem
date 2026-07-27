@@ -267,8 +267,20 @@ namespace DVLD_DataAccessLayer
             cmd.Parameters.AddWithValue("@expirationDate", expirationDate);
             cmd.Parameters.AddWithValue("@isActive", isActive);
             cmd.Parameters.AddWithValue("@paidFees", paidFees);
-            cmd.Parameters.AddWithValue("@notes", notes);
             cmd.Parameters.AddWithValue("@issueReason", issueReason);
+
+
+
+            if (string.IsNullOrEmpty(notes))
+            {
+                cmd.Parameters.AddWithValue("@notes", System.DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@notes", notes);
+
+            }
+
 
 
             try

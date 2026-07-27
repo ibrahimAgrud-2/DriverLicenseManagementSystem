@@ -141,13 +141,13 @@
             this.label8.TabIndex = 91;
             this.label8.Text = "Created By User ID: ";
             // 
-            // lblCreatedByUserID
+            // lblCreatedByUser
             // 
             this.lblCreatedByUserID.AutoSize = true;
             this.lblCreatedByUserID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCreatedByUserID.Location = new System.Drawing.Point(675, 145);
             this.lblCreatedByUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCreatedByUserID.Name = "lblCreatedByUserID";
+            this.lblCreatedByUserID.Name = "lblCreatedByUser";
             this.lblCreatedByUserID.Size = new System.Drawing.Size(40, 24);
             this.lblCreatedByUserID.TabIndex = 90;
             this.lblCreatedByUserID.Text = "???";

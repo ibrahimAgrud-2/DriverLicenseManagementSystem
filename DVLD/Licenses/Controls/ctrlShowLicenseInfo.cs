@@ -58,8 +58,8 @@ namespace DVLD.Licenses.Controls
             
             //lblIsDetained.Text = DetainedLicense.findDetainedLicense();
             lblIssueDate.Text = licenses.issueDate.ToString("yyyy/MM/dd");
-            lblIssueReason.Text = licenses.issueReason.ToString();
 
+            lblIssueReason.Text = licenses.issueReason.ToString();
             if (licenses.ApplicationInfo.ApplicantPerson.imagePath != "")
             {
                 if (File.Exists(licenses.ApplicationInfo.ApplicantPerson.imagePath))

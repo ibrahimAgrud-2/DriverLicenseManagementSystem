@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Licenses.International_Licenses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,12 @@ namespace DVLD.Licenses
             this.ctrlPersonCardWithFilter1.FilterEnabled = false;
 
             this.ctrlListLicenses1.LoadLicenses(_personID);
+        }
+
+
+        private void ctrlListLicenses1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

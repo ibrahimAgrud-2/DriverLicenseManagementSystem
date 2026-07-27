@@ -83,6 +83,23 @@ namespace DVLD_BusinessLayer
             this.issueReason = issueReason;
             this.mode = enMode.enUpdate;
         }
+        public Licenses(Licenses oldLicense)
+        {
+            this.licenseID = oldLicense.licenseID;
+            this.applicationID = oldLicense.applicationID;
+            this.driverID = oldLicense.driverID;
+            this.licenseClassID = oldLicense.licenseClassID;
+            this.issueDate = oldLicense.issueDate;
+            this.expirationDate = oldLicense.expirationDate;
+            this.notes = oldLicense.notes;
+            this.paidFees = oldLicense.paidFees;
+            this.isActive = oldLicense.isActive;
+            this.issueReason = oldLicense.issueReason;
+            this.createdByUserID = oldLicense.createdByUserID;
+            this.PaidFees = oldLicense.paidFees;
+            this.issueReason = oldLicense.issueReason;
+            this.mode = enMode.enAddNew;
+        }
         public static DataTable getLicenseRecords()
         {
             DataTable dt = new DataTable();
@@ -108,7 +125,7 @@ namespace DVLD_BusinessLayer
             string notes = "";
             double paidFees = 0;
             bool isActive = false;
-            int issueReasonInt = 1;
+            int issueReasonInt = -1;
 
             if (LicensesDataAccess.findLicense(licenseID, ref applicationID, ref driverID, ref licenseClass,
                 ref issueDate, ref expirationDate, ref notes, ref paidFees, ref isActive, ref issueReasonInt, ref createdByUserID))
@@ -192,7 +209,10 @@ namespace DVLD_BusinessLayer
                     return false;
             }
         }
-
+        public bool IsLicenseExpired()
+        {
+            return this.expirationDate < DateTime.Now;
+        }
         
     }
 }

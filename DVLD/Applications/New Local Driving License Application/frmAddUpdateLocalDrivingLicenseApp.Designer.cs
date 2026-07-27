@@ -172,11 +172,11 @@
             this.lblAppDate.TabIndex = 2;
             this.lblAppDate.Text = "[??/??/????]";
             // 
-            // lblCreatedByUserID
+            // lblCreatedByUser
             // 
             this.lblCreatedByUserID.AutoSize = true;
             this.lblCreatedByUserID.Location = new System.Drawing.Point(300, 349);
-            this.lblCreatedByUserID.Name = "lblCreatedByUserID";
+            this.lblCreatedByUserID.Name = "lblCreatedByUser";
             this.lblCreatedByUserID.Size = new System.Drawing.Size(37, 20);
             this.lblCreatedByUserID.TabIndex = 2;
             this.lblCreatedByUserID.Text = "N/A";
