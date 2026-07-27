@@ -128,11 +128,11 @@
     <Compile Include="Licenses\Controls\ctrlShowLicenseInfo.Designer.cs">
       <DependentUpon>ctrlShowLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\frmDetainLicense.cs">
+    <Compile Include="Applications\Renew license Application\frmRenewLocalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\frmDetainLicense.Designer.cs">
-      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    <Compile Include="Applications\Renew license Application\frmRenewLocalLicense.Designer.cs">
+      <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\frmIssueDriverLicenseFirstTime.cs">
       <SubType>Form</SubType>
@@ -326,8 +326,8 @@
     <EmbeddedResource Include="Licenses\Controls\ctrlShowLicenseInfo.resx">
       <DependentUpon>ctrlShowLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\Detained Licenses\frmDetainLicense.resx">
-      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Renew license Application\frmRenewLocalLicense.resx">
+      <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\frmIssueDriverLicenseFirstTime.resx">
       <DependentUpon>frmIssueDriverLicenseFirstTime.cs</DependentUpon>
@@ -425,6 +425,7 @@
   <ItemGroup>
     <Folder Include="Applications\International License Applications\Controls\" />
     <Folder Include="Drivers\Controls\" />
+    <Folder Include="Licenses\Detained Licenses\" />
     <Folder Include="Licenses\International Licenses\Controls\" />
     <Folder Include="Licenses\Local Licenses\" />
   </ItemGroup>

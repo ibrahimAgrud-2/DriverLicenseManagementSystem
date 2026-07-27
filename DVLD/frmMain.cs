@@ -3,6 +3,7 @@ using DVLD.Applications.Application_Types;
 using DVLD.Applications.International_License_Applications;
 using DVLD.Applications.New_Local_Driving_License_Application;
 using DVLD.Drivers;
+using DVLD.Licenses.Detained_Licenses;
 using DVLD.Users;
 using DVLD_BusinessLayer;
 using System;
@@ -105,6 +106,12 @@ namespace DVLD
         private void ManageInternationaDrivingLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmManageInternationalLicesnseApplications frm = new frmManageInternationalLicesnseApplications();
+            frm.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalLicense frm = new frmRenewLocalLicense();
             frm.ShowDialog();
         }
     }

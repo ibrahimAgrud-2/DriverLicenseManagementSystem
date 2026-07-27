@@ -42,7 +42,6 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Users.frmUserDetails.resour
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.Controls.ctrlPersonCardWithFilter.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.frmFindPerson.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmShowPersonLicenseHistory.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.frmDetainLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.International_Licenses.frmShowInternationalLicenseInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.People.frmTest.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmEditApplicationType.resources
@@ -65,3 +64,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.frmShowLocalAp
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Controls.ctrlLicenseInfoWithFilter.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.International_License_Applications.frmAddNewInternationalLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.International_License_Applications.frmManageInternationalLicesnseApplications.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.frmRenewLocalLicense.resources

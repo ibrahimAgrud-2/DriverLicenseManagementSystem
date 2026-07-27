@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.International_License_Applications;
+using DVLD.Licenses.Detained_Licenses;
 using System;
 
 
@@ -15,7 +16,7 @@ namespace DVLD
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new frmAddUpdatePerson());
-            System.Windows.Forms.Application.Run(new frmManageInternationalLicesnseApplications());
+            System.Windows.Forms.Application.Run(new frmRenewLocalLicense());
 
         }
     }

@@ -202,11 +202,11 @@
             this.label3.TabIndex = 87;
             this.label3.Text = "I.L. Application ID: ";
             // 
-            // lblUssueDate
+            // lblIUssueDate
             // 
             this.lblUssueDate.AutoSize = true;
             this.lblUssueDate.Location = new System.Drawing.Point(215, 116);
-            this.lblUssueDate.Name = "lblUssueDate";
+            this.lblUssueDate.Name = "lblIUssueDate";
             this.lblUssueDate.Size = new System.Drawing.Size(60, 24);
             this.lblUssueDate.TabIndex = 80;
             this.lblUssueDate.Text = "?????";
