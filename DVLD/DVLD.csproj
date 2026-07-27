@@ -103,6 +103,12 @@
     <Compile Include="Applications\New Local Driving License Application\frmAddUpdateLocalDrivingLicenseApp.Designer.cs">
       <DependentUpon>frmAddUpdateLocalDrivingLicenseApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Release Detain License Application\frmReleaseDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Release Detain License Application\frmReleaseDetainedLicense.Designer.cs">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\Replace for damage or lost\frmReplacementForDamageLostLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +332,9 @@
     <EmbeddedResource Include="Applications\New Local Driving License Application\frmAddUpdateLocalDrivingLicenseApp.resx">
       <DependentUpon>frmAddUpdateLocalDrivingLicenseApp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Release Detain License Application\frmReleaseDetainedLicense.resx">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\Replace for damage or lost\frmReplacementForDamageLostLicense.resx">
       <DependentUpon>frmReplacementForDamageLostLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -442,7 +451,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\International License Applications\Controls\" />
-    <Folder Include="Applications\Release Detain License Application\" />
     <Folder Include="Drivers\Controls\" />
     <Folder Include="Licenses\International Licenses\Controls\" />
     <Folder Include="Licenses\Local Licenses\" />

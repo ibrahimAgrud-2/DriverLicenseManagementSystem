@@ -91,14 +91,14 @@
             this.llShowLicenseHistory.Text = "Show Licenses History";
             this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
             // 
-            // btnRenewLicense
+            // btnRelease
             // 
             this.btnIssueLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIssueLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIssueLicense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIssueLicense.Location = new System.Drawing.Point(701, 764);
             this.btnIssueLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnIssueLicense.Name = "btnRenewLicense";
+            this.btnIssueLicense.Name = "btnRelease";
             this.btnIssueLicense.Size = new System.Drawing.Size(113, 30);
             this.btnIssueLicense.TabIndex = 191;
             this.btnIssueLicense.Text = "Issue";

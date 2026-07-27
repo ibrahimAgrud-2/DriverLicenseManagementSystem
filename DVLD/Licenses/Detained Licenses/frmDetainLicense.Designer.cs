@@ -28,33 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlLicenseInfoWithFilter1 = new DVLD.Licenses.Controls.ctrlLicenseInfoWithFilter();
+            this.components = new System.ComponentModel.Container();
             this.btnClose = new System.Windows.Forms.Button();
             this.llShowLicenseHistory = new System.Windows.Forms.LinkLabel();
-            this.btnRenewLicense = new System.Windows.Forms.Button();
+            this.btnDetain = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblApplicationDate = new System.Windows.Forms.Label();
+            this.txtFineFee = new System.Windows.Forms.TextBox();
+            this.lblDetainedDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblApplicationFees = new System.Windows.Forms.Label();
-            this.lblReplacedLicenseID = new System.Windows.Forms.Label();
-            this.lblReplacedApplicationID = new System.Windows.Forms.Label();
+            this.lblLicenseID = new System.Windows.Forms.Label();
+            this.lblDetainID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.llShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.ctrlLicenseInfoWithFilter1 = new DVLD.Licenses.Controls.ctrlLicenseInfoWithFilter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ctrlLicenseInfoWithFilter1
-            // 
-            this.ctrlLicenseInfoWithFilter1.FilterEnabled = true;
-            this.ctrlLicenseInfoWithFilter1.Location = new System.Drawing.Point(2, 55);
-            this.ctrlLicenseInfoWithFilter1.Name = "ctrlLicenseInfoWithFilter1";
-            this.ctrlLicenseInfoWithFilter1.Size = new System.Drawing.Size(1114, 477);
-            this.ctrlLicenseInfoWithFilter1.TabIndex = 0;
             // 
             // btnClose
             // 
@@ -69,6 +64,7 @@
             this.btnClose.TabIndex = 206;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // llShowLicenseHistory
             // 
@@ -81,32 +77,34 @@
             this.llShowLicenseHistory.TabIndex = 204;
             this.llShowLicenseHistory.TabStop = true;
             this.llShowLicenseHistory.Text = "Show Licenses History";
+            this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
             // 
-            // btnRenewLicense
+            // btnRelease
             // 
-            this.btnRenewLicense.Enabled = false;
-            this.btnRenewLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRenewLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRenewLicense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRenewLicense.Location = new System.Drawing.Point(831, 678);
-            this.btnRenewLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRenewLicense.Name = "btnRenewLicense";
-            this.btnRenewLicense.Size = new System.Drawing.Size(113, 30);
-            this.btnRenewLicense.TabIndex = 207;
-            this.btnRenewLicense.Text = "Issue";
-            this.btnRenewLicense.UseVisualStyleBackColor = true;
+            this.btnDetain.Enabled = false;
+            this.btnDetain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetain.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDetain.Location = new System.Drawing.Point(862, 736);
+            this.btnDetain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDetain.Name = "btnRelease";
+            this.btnDetain.Size = new System.Drawing.Size(113, 30);
+            this.btnDetain.TabIndex = 207;
+            this.btnDetain.Text = "Issue";
+            this.btnDetain.UseVisualStyleBackColor = true;
+            this.btnDetain.Click += new System.EventHandler(this.btnDetain_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblApplicationDate);
+            this.groupBox1.Controls.Add(this.txtFineFee);
+            this.groupBox1.Controls.Add(this.lblDetainedDate);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lblCreatedByUser);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblApplicationFees);
-            this.groupBox1.Controls.Add(this.lblReplacedLicenseID);
-            this.groupBox1.Controls.Add(this.lblReplacedApplicationID);
+            this.groupBox1.Controls.Add(this.lblLicenseID);
+            this.groupBox1.Controls.Add(this.lblDetainID);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(112, 538);
@@ -116,14 +114,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Application Info";
             // 
-            // lblApplicationDate
+            // txtFineFee
             // 
-            this.lblApplicationDate.AutoSize = true;
-            this.lblApplicationDate.Location = new System.Drawing.Point(256, 97);
-            this.lblApplicationDate.Name = "lblApplicationDate";
-            this.lblApplicationDate.Size = new System.Drawing.Size(60, 24);
-            this.lblApplicationDate.TabIndex = 99;
-            this.lblApplicationDate.Text = "?????";
+            this.txtFineFee.Location = new System.Drawing.Point(260, 142);
+            this.txtFineFee.Name = "txtFineFee";
+            this.txtFineFee.Size = new System.Drawing.Size(163, 28);
+            this.txtFineFee.TabIndex = 100;
+            this.txtFineFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFineFee_KeyPress);
+            this.txtFineFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFineFee_Validating);
+            // 
+            // lblDetainedDate
+            // 
+            this.lblDetainedDate.AutoSize = true;
+            this.lblDetainedDate.Location = new System.Drawing.Point(256, 97);
+            this.lblDetainedDate.Name = "lblDetainedDate";
+            this.lblDetainedDate.Size = new System.Drawing.Size(60, 24);
+            this.lblDetainedDate.TabIndex = 99;
+            this.lblDetainedDate.Text = "?????";
             // 
             // label5
             // 
@@ -180,32 +187,23 @@
             this.label3.TabIndex = 87;
             this.label3.Text = "Detain ID: ";
             // 
-            // lblApplicationFees
+            // lblLicenseID
             // 
-            this.lblApplicationFees.AutoSize = true;
-            this.lblApplicationFees.Location = new System.Drawing.Point(256, 145);
-            this.lblApplicationFees.Name = "lblApplicationFees";
-            this.lblApplicationFees.Size = new System.Drawing.Size(60, 24);
-            this.lblApplicationFees.TabIndex = 80;
-            this.lblApplicationFees.Text = "?????";
+            this.lblLicenseID.AutoSize = true;
+            this.lblLicenseID.Location = new System.Drawing.Point(702, 45);
+            this.lblLicenseID.Name = "lblLicenseID";
+            this.lblLicenseID.Size = new System.Drawing.Size(60, 24);
+            this.lblLicenseID.TabIndex = 83;
+            this.lblLicenseID.Text = "?????";
             // 
-            // lblReplacedLicenseID
+            // lblDetainID
             // 
-            this.lblReplacedLicenseID.AutoSize = true;
-            this.lblReplacedLicenseID.Location = new System.Drawing.Point(702, 45);
-            this.lblReplacedLicenseID.Name = "lblReplacedLicenseID";
-            this.lblReplacedLicenseID.Size = new System.Drawing.Size(60, 24);
-            this.lblReplacedLicenseID.TabIndex = 83;
-            this.lblReplacedLicenseID.Text = "?????";
-            // 
-            // lblReplacedApplicationID
-            // 
-            this.lblReplacedApplicationID.AutoSize = true;
-            this.lblReplacedApplicationID.Location = new System.Drawing.Point(256, 45);
-            this.lblReplacedApplicationID.Name = "lblReplacedApplicationID";
-            this.lblReplacedApplicationID.Size = new System.Drawing.Size(60, 24);
-            this.lblReplacedApplicationID.TabIndex = 82;
-            this.lblReplacedApplicationID.Text = "?????";
+            this.lblDetainID.AutoSize = true;
+            this.lblDetainID.Location = new System.Drawing.Point(256, 45);
+            this.lblDetainID.Name = "lblDetainID";
+            this.lblDetainID.Size = new System.Drawing.Size(60, 24);
+            this.lblDetainID.TabIndex = 82;
+            this.lblDetainID.Text = "?????";
             // 
             // label1
             // 
@@ -229,6 +227,7 @@
             this.llShowLicenseInfo.TabIndex = 205;
             this.llShowLicenseInfo.TabStop = true;
             this.llShowLicenseInfo.Text = "Show New Licenses Info";
+            this.llShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseInfo_LinkClicked);
             // 
             // label2
             // 
@@ -243,15 +242,29 @@
             this.label2.TabIndex = 100;
             this.label2.Text = "Detain License";
             // 
+            // ctrlLicenseInfoWithFilter1
+            // 
+            this.ctrlLicenseInfoWithFilter1.FilterEnabled = true;
+            this.ctrlLicenseInfoWithFilter1.Location = new System.Drawing.Point(2, 55);
+            this.ctrlLicenseInfoWithFilter1.Name = "ctrlLicenseInfoWithFilter1";
+            this.ctrlLicenseInfoWithFilter1.Size = new System.Drawing.Size(1114, 477);
+            this.ctrlLicenseInfoWithFilter1.TabIndex = 0;
+            this.ctrlLicenseInfoWithFilter1.OnLicenseLoaded += new System.Action<int>(this.ctrlLicenseInfoWithFilter1_OnLicenseLoaded);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmDetainLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1098, 777);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.llShowLicenseHistory);
-            this.Controls.Add(this.btnRenewLicense);
+            this.Controls.Add(this.btnDetain);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.llShowLicenseInfo);
             this.Controls.Add(this.ctrlLicenseInfoWithFilter1);
@@ -259,8 +272,10 @@
             this.Name = "frmDetainLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetainLicense";
+            this.Load += new System.EventHandler(this.frmDetainLicense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,19 +286,20 @@
         private Controls.ctrlLicenseInfoWithFilter ctrlLicenseInfoWithFilter1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.LinkLabel llShowLicenseHistory;
-        private System.Windows.Forms.Button btnRenewLicense;
+        private System.Windows.Forms.Button btnDetain;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblApplicationDate;
+        private System.Windows.Forms.Label lblDetainedDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblCreatedByUser;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblApplicationFees;
-        private System.Windows.Forms.Label lblReplacedLicenseID;
-        private System.Windows.Forms.Label lblReplacedApplicationID;
+        private System.Windows.Forms.Label lblLicenseID;
+        private System.Windows.Forms.Label lblDetainID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel llShowLicenseInfo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFineFee;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -8,16 +8,16 @@ namespace DVLD_BusinessLayer
 {
     public class DetainedLicense
     {
-         int detainID { set; get; }
+         public int detainID { set; get; }
        public int licenseID { set; get; }
         public Licenses LicenseInfo { set; get; }
 
-            public  DateTime _detainDate { set; get; }
+            public  DateTime detainDate { set; get; }
            public   double fineFees { set; get; }
         public int CreatedByUserID { set; get; }
       
            public  bool isReleased { set; get; }
-            DateTime releaseDate { set; get; }
+          public  DateTime releaseDate { set; get; }
 
         public int releasedByUserID { set; get; }
           public  int releaseApplicationID { set; get; }
@@ -30,7 +30,7 @@ namespace DVLD_BusinessLayer
         {
             this.licenseID = -1;
             this.licenseID = -1;
-            this._detainDate = DateTime.Now;
+            this.detainDate = DateTime.Now;
             this.fineFees = 0.0;
             this.CreatedByUserID = -1;
             this.isReleased = false;
@@ -43,7 +43,7 @@ namespace DVLD_BusinessLayer
         {
             this.detainID = detainID;
             this.licenseID = licensedID;
-            this._detainDate = detainDate;
+            this.detainDate = detainDate;
             this.fineFees = fineFees;
             this.CreatedByUserID = createdByUserID;
             this.isReleased = isReleased;
@@ -58,7 +58,7 @@ namespace DVLD_BusinessLayer
             return DetainedLicensesDataAccess.getDetainedLicenseRecords();
         }
           
-       public static DetainedLicense findDetainedLicense(int detainID)
+       public static DetainedLicense Find(int detainID)
         {
           int licenseID = -1, releaseApplicationID=-1, releasedByUserID=-1, createdByUserID=-1;
               DateTime detainDate = DateTime.Now, releaseDate = DateTime.Now;
@@ -74,12 +74,29 @@ namespace DVLD_BusinessLayer
 
 
         }
+        public static DetainedLicense FindByLicenseID(int licenseID)
+        {
+            int detainedID = -1, releaseApplicationID = -1, releasedByUserID = -1, createdByUserID = -1;
+            DateTime detainDate = DateTime.Now, releaseDate = DateTime.Now;
+            double fineFees = 0.0;
+            bool isReleased = false;
+
+            if (DetainedLicensesDataAccess.findDetainedLicenseByLicenseID(ref detainedID,  licenseID, ref detainDate, ref fineFees, ref createdByUserID, ref isReleased, ref releaseDate, ref releasedByUserID, ref releaseApplicationID))
+            {
+                return new DetainedLicense(detainedID, licenseID, detainDate, fineFees, createdByUserID, isReleased, releaseDate, releasedByUserID, releaseApplicationID);
+            }
+            return null;
+
+
+
+        }
+
 
 
         private bool _addNewDetainedLicense()
         {
 
-            this.detainID = DetainedLicensesDataAccess.addDetainedLicense(this.licenseID, this._detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
+            this.detainID = DetainedLicensesDataAccess.addDetainedLicense(this.licenseID, this.detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
 
             return (this.detainID != -1);
 
@@ -90,11 +107,11 @@ namespace DVLD_BusinessLayer
             this.CreatedByUserID = 1;
             this.releasedByUserID = 1;
             this.fineFees = 12;
-            this._detainDate = DateTime.Now;
+            this.detainDate = DateTime.Now;
             this.releaseDate = DateTime.Now;
             
 
-            return DetainedLicensesDataAccess.updateDetainedLicense(this.detainID,this.licenseID, this._detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
+            return DetainedLicensesDataAccess.updateDetainedLicense(this.detainID,this.licenseID, this.detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
         }
         public static bool isDetainedLicenseExist(int detainID)
         {
@@ -125,6 +142,38 @@ namespace DVLD_BusinessLayer
                 default:
                     return false;
             }
+        }
+
+
+        public bool Release(int PersonID,int releasedByUserID)
+        {
+            Applications newApplication = new Applications();
+            newApplication.ApplicantPersonID = PersonID;
+            newApplication.ApplicationDate = DateTime.Now;
+            newApplication.ApplicationTypeID = (int)Applications.enApplicationType.ReleaseDetainedDrivingLicense;
+            newApplication.ApplicationStatus = Applications.enApplicationStatus.Completed;
+            newApplication.LastStatusDate = DateTime.Now;
+            newApplication.PaidFees = ApplicationTypes.Find((int)Applications.enApplicationType.ReleaseDetainedDrivingLicense).applicationFee;
+            newApplication.CreatedByUserID = releasedByUserID;
+            
+
+            if(!newApplication.save())
+            {
+                return false;
+            }
+
+            this.releaseApplicationID = newApplication.ID;
+            this.isReleased = true;
+            this.releasedByUserID = releasedByUserID;
+            this.releaseDate = DateTime.Now;
+            if(!this.save())
+            {
+                return false;
+            }
+
+            return true;
+       
+
         }
     }
 }

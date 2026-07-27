@@ -125,7 +125,7 @@
             this.label4.TabIndex = 88;
             this.label4.Text = "Replaced.License ID: ";
             // 
-            // btnRenewLicense
+            // btnRelease
             // 
             this.btnRenewLicense.Enabled = false;
             this.btnRenewLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -133,7 +133,7 @@
             this.btnRenewLicense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRenewLicense.Location = new System.Drawing.Point(730, 738);
             this.btnRenewLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRenewLicense.Name = "btnRenewLicense";
+            this.btnRenewLicense.Name = "btnRelease";
             this.btnRenewLicense.Size = new System.Drawing.Size(113, 30);
             this.btnRenewLicense.TabIndex = 202;
             this.btnRenewLicense.Text = "Issue";

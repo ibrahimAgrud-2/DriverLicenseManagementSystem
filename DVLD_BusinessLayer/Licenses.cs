@@ -334,5 +334,30 @@ namespace DVLD_BusinessLayer
 
             return newLicense;
         }
+
+        public DetainedLicense Detain(double fineFee,int detainedByUserID)
+        {
+            DetainedLicense detainedLicense = new DetainedLicense();
+
+            detainedLicense.licenseID = this.licenseID;
+            detainedLicense.isReleased = false;
+            detainedLicense.fineFees = fineFee;
+            detainedLicense.detainDate = DateTime.Now;
+            detainedLicense.CreatedByUserID = detainedByUserID;
+            detainedLicense.releaseDate = DateTime.MinValue;
+            detainedLicense.releasedByUserID = -1;
+            detainedLicense.releaseApplicationID = -1;
+           
+
+           if(!detainedLicense.save())
+            {
+                return detainedLicense;
+            }
+            else
+            {
+                return detainedLicense;
+            }
+  
+        }
     }
 }

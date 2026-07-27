@@ -83,6 +83,46 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+        public static bool findDetainedLicenseByLicenseID(ref int detainID,  int licenseID, ref DateTime detainDate, ref double fineFees, ref int createdByUserID, ref bool isReleased, ref DateTime releaseDate, ref int releasedByUserID, ref int releaseApplicationID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = "select * from DetainedLicenses where licenseID=@licenseID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@licenseID", licenseID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader read = cmd.ExecuteReader();
+
+                if (read.Read())
+                {
+                    detainID = read["detainID"] != DBNull.Value ? Convert.ToInt32(read["detainID"]) : 0;
+                    detainDate = read["DetainDate"] != DBNull.Value ? Convert.ToDateTime(read["DetainDate"]) : DateTime.MinValue;
+                    fineFees = read["FineFees"] != DBNull.Value ? Convert.ToDouble(read["FineFees"]) : 0;
+                    createdByUserID = read["CreatedByUserID"] != DBNull.Value ? Convert.ToInt32(read["CreatedByUserID"]) : 0;
+                    isReleased = read["IsReleased"] != DBNull.Value ? Convert.ToBoolean(read["IsReleased"]) : false;
+                    releaseDate = read["ReleaseDate"] != DBNull.Value ? Convert.ToDateTime(read["ReleaseDate"]) : DateTime.MinValue;
+                    releasedByUserID = read["ReleasedByUserID"] != DBNull.Value ? Convert.ToInt32(read["ReleasedByUserID"]) : 0;
+                    releaseApplicationID = read["ReleaseApplicationID"] != DBNull.Value ? Convert.ToInt32(read["ReleaseApplicationID"]) : 0;
+
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
 
         public static bool isDetainedLicenseExist(int detainID)
         {
@@ -170,9 +210,35 @@ namespace DVLD_DataAccessLayer
             cmd.Parameters.AddWithValue("@fineFees", fineFees);
             cmd.Parameters.AddWithValue("@createdByUserID", createdByUserID);
             cmd.Parameters.AddWithValue("@isReleased", isReleased);
-            cmd.Parameters.AddWithValue("@releaseDate", releaseDate);
-            cmd.Parameters.AddWithValue("@releasedByUserID", releasedByUserID); 
-            cmd.Parameters.AddWithValue("@releaseApplicationID", releaseApplicationID);
+
+
+            if(releasedByUserID==-1)
+            {
+                cmd.Parameters.AddWithValue("@releasedByUserID", DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@releasedByUserID", releasedByUserID);
+
+            }
+            if (releaseDate ==DateTime.MinValue)
+            {
+                cmd.Parameters.AddWithValue("@releaseDate", DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@releaseDate", releaseDate);
+
+            }
+            if (releaseApplicationID == -1)
+            {
+                cmd.Parameters.AddWithValue("@releaseApplicationID", DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@releaseApplicationID", releaseApplicationID);
+
+            }
 
 
 
