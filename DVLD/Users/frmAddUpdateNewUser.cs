@@ -36,7 +36,7 @@ namespace DVLD.Users
             if (user == null)
                 return;
 
-            txtUserName.Text = user.userName;
+            txtUserName.Text = user.UserName;
             mskPassword.Text = user.password;
             mskConfirmPassword.Text = user.password;
             lblID.Text = user.userID.ToString();
@@ -88,7 +88,7 @@ namespace DVLD.Users
 
             if (this.ValidateChildren())
             {
-                _User.userName = txtUserName.Text;
+                _User.UserName = txtUserName.Text;
                 _User.password = mskPassword.Text;
                 _User.isActive = cbIsActive.Checked;
                 _User.personID = this.ctrlPersonCardWithFilter1.personID;
@@ -191,7 +191,7 @@ namespace DVLD.Users
 
             if (PeopleBL.isPersonExist(txtUserName.Text))
             {
-                if (_User.userName == txtUserName.Text)
+                if (_User.UserName == txtUserName.Text)
                 {
                     errorProvider1.SetError(txtUserName, null);
                 }

@@ -95,7 +95,7 @@ namespace DVLD.Test
             app.ApplicantPersonID = this.ctrlLDLAsTestAppointmentsInfo1.SelectedLocalLicenseApp.ApplicationInfo.ApplicantPersonID;
             app.ApplicationDate = DateTime.Now;
             app.ApplicationTypeID = 7;
-            app.CreatedByUserID = Global.currentUser.userID;
+            app.CreatedByUserID = Global.CurrentUser.userID;
             app.PaidFees = ApplicationTypes.Find(7).applicationFee;
             app.LastStatusDate = DateTime.Now;
             if(!app.save())
@@ -110,7 +110,7 @@ namespace DVLD.Test
         //Incase Mode add
         private void _FillDataToObject()
         {
-            _TestAppointment.createdByUserID = Global.currentUser.userID;
+            _TestAppointment.createdByUserID = Global.CurrentUser.userID;
             _TestAppointment.appointmentDate = DateTime.Now;
             _TestAppointment.isLocked = false;
             _TestAppointment.paidFees = TestTypes.Find(_TestType).TestTypeFees;

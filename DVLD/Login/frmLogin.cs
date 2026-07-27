@@ -59,7 +59,7 @@ namespace DVLD
                         MessageBox.Show("User is not active. Contact to you admin.");
                         return;
                     }
-                    Global.currentUser = u1;
+                    Global.CurrentUser = u1;
 
 
                     if (cbRemeberMe.Checked)

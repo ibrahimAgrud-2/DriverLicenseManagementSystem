@@ -49,7 +49,7 @@ namespace DVLD.Test
             newTest.testResult = (rbPass.Checked?1:0);
             newTest.testAppointmentID = _TestAppointmentID;
             newTest.notes = txtNotes.Text;
-            newTest.createdByUserID = Global.currentUser.userID;
+            newTest.createdByUserID = Global.CurrentUser.userID;
 
             _TestAppointment.isLocked = true;
             _TestAppointment.save();

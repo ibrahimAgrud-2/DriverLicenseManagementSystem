@@ -9,7 +9,7 @@ namespace DVLD_BusinessLayer
     public class User
     {
         public int userID { set; get; }
-        public string userName { set; get; }
+        public string UserName { set; get; }
         public string password { set; get; }
         public bool isActive { set; get; }
 
@@ -28,7 +28,7 @@ namespace DVLD_BusinessLayer
 
         public User()
         {
-            this.userName = "";
+            this.UserName = "";
             this.personID = -1;
             this.userID = -1;
             this.password = "";
@@ -41,7 +41,7 @@ namespace DVLD_BusinessLayer
 
             this.personID = personID;
             this.userID = userID;
-            this.userName = userName;
+            this.UserName = userName;
             this.password = password;
             this.isActive = isActive;
             this.Person = People.Find(personID);
@@ -88,14 +88,14 @@ namespace DVLD_BusinessLayer
 
         private bool _addNewUser()
         {
-            this.userID = UserDataAccess.AddUser(this.personID, this.userName, this.password, this.isActive);
+            this.userID = UserDataAccess.AddUser(this.personID, this.UserName, this.password, this.isActive);
             return (this.userID != -1);
 
         }
         private bool _updateUserInfo()
         {
 
-            return UserDataAccess.UpdateUserInfo(this.userID, this.personID, this.userName, this.password, this.isActive);
+            return UserDataAccess.UpdateUserInfo(this.userID, this.personID, this.UserName, this.password, this.isActive);
         }
 
 

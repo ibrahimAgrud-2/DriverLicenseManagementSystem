@@ -33,7 +33,7 @@ namespace DVLD.Applications.Controls
             lblAppDate.Text = App.ApplicationDate.ToString() ;
             lblFees.Text = App.PaidFees.ToString();
             lblAppLastStatusDate.Text = App.LastStatusDate.ToString();
-            lblCreatedByUserID.Text = User.Find(App.CreatedByUserID).userName;
+            lblCreatedByUserID.Text = User.Find(App.CreatedByUserID).UserName;
             lblApplicantPersonFullName.Text = App.ApplicantPerson.fullName;
             lblAppType.Text = App.ApplicationTypeInfo.applicantTypeTitle;
             lbID.Text = App.ID.ToString();

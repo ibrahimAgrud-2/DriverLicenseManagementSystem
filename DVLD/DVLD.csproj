@@ -432,6 +432,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Applications\Detain License Application\" />
     <Folder Include="Applications\International License Applications\Controls\" />
     <Folder Include="Drivers\Controls\" />
     <Folder Include="Licenses\Detained Licenses\" />

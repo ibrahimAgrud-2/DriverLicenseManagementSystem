@@ -34,7 +34,7 @@
             this.lblCreatedByUser = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnIssueLicense = new System.Windows.Forms.Button();
+            this.btnRenewLicense = new System.Windows.Forms.Button();
             this.lblApplicationFees = new System.Windows.Forms.Label();
             this.lblOldLicenseID = new System.Windows.Forms.Label();
             this.lblReplacedLicenseID = new System.Windows.Forms.Label();
@@ -46,8 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.llShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbLostLicense = new System.Windows.Forms.RadioButton();
+            this.rbDamagedLicense = new System.Windows.Forms.RadioButton();
             this.ctrlLicenseInfoWithFilter1 = new DVLD.Licenses.Controls.ctrlLicenseInfoWithFilter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -79,6 +79,7 @@
             this.llShowLicenseHistory.TabIndex = 199;
             this.llShowLicenseHistory.TabStop = true;
             this.llShowLicenseHistory.Text = "Show Licenses History";
+            this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
             // 
             // label8
             // 
@@ -124,19 +125,20 @@
             this.label4.TabIndex = 88;
             this.label4.Text = "Replaced.License ID: ";
             // 
-            // btnIssueLicense
+            // btnRenewLicense
             // 
-            this.btnIssueLicense.Enabled = false;
-            this.btnIssueLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIssueLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssueLicense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIssueLicense.Location = new System.Drawing.Point(730, 738);
-            this.btnIssueLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnIssueLicense.Name = "btnIssueLicense";
-            this.btnIssueLicense.Size = new System.Drawing.Size(113, 30);
-            this.btnIssueLicense.TabIndex = 202;
-            this.btnIssueLicense.Text = "Issue";
-            this.btnIssueLicense.UseVisualStyleBackColor = true;
+            this.btnRenewLicense.Enabled = false;
+            this.btnRenewLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRenewLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRenewLicense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRenewLicense.Location = new System.Drawing.Point(730, 738);
+            this.btnRenewLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRenewLicense.Name = "btnRenewLicense";
+            this.btnRenewLicense.Size = new System.Drawing.Size(113, 30);
+            this.btnRenewLicense.TabIndex = 202;
+            this.btnRenewLicense.Text = "Issue";
+            this.btnRenewLicense.UseVisualStyleBackColor = true;
+            this.btnRenewLicense.Click += new System.EventHandler(this.btnIssueLicense_Click);
             // 
             // lblApplicationFees
             // 
@@ -200,7 +202,7 @@
             this.groupBox1.Controls.Add(this.lblReplacedApplicationID);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(31, 520);
+            this.groupBox1.Location = new System.Drawing.Point(31, 496);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(863, 192);
             this.groupBox1.TabIndex = 203;
@@ -249,42 +251,45 @@
             this.llShowLicenseInfo.TabIndex = 200;
             this.llShowLicenseInfo.TabStop = true;
             this.llShowLicenseInfo.Text = "Show New Licenses Info";
+            this.llShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseInfo_LinkClicked);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rbLostLicense);
+            this.groupBox2.Controls.Add(this.rbDamagedLicense);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(752, 96);
+            this.groupBox2.Location = new System.Drawing.Point(552, 96);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(203, 126);
+            this.groupBox2.Size = new System.Drawing.Size(297, 92);
             this.groupBox2.TabIndex = 204;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Replace for :";
             // 
-            // radioButton2
+            // rbLostLicense
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(22, 80);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(124, 24);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.Text = "Lost License";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbLostLicense.AutoSize = true;
+            this.rbLostLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbLostLicense.Location = new System.Drawing.Point(17, 62);
+            this.rbLostLicense.Name = "rbLostLicense";
+            this.rbLostLicense.Size = new System.Drawing.Size(124, 24);
+            this.rbLostLicense.TabIndex = 0;
+            this.rbLostLicense.Text = "Lost License";
+            this.rbLostLicense.UseVisualStyleBackColor = true;
+            this.rbLostLicense.CheckedChanged += new System.EventHandler(this.rbLostLicense_CheckedChanged);
             // 
-            // radioButton1
+            // rbDamagedLicense
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(20, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(163, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Damaged License";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbDamagedLicense.AutoSize = true;
+            this.rbDamagedLicense.Checked = true;
+            this.rbDamagedLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDamagedLicense.Location = new System.Drawing.Point(17, 32);
+            this.rbDamagedLicense.Name = "rbDamagedLicense";
+            this.rbDamagedLicense.Size = new System.Drawing.Size(163, 24);
+            this.rbDamagedLicense.TabIndex = 0;
+            this.rbDamagedLicense.TabStop = true;
+            this.rbDamagedLicense.Text = "Damaged License";
+            this.rbDamagedLicense.UseVisualStyleBackColor = true;
+            this.rbDamagedLicense.CheckedChanged += new System.EventHandler(this.rbDamagedLicense_CheckedChanged);
             // 
             // ctrlLicenseInfoWithFilter1
             // 
@@ -305,7 +310,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.llShowLicenseHistory);
-            this.Controls.Add(this.btnIssueLicense);
+            this.Controls.Add(this.btnRenewLicense);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.llShowLicenseInfo);
             this.Controls.Add(this.ctrlLicenseInfoWithFilter1);
@@ -314,6 +319,7 @@
             this.Name = "frmReplacementForDamageLostLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReplacementForDamageLostLicense";
+            this.Load += new System.EventHandler(this.frmReplacementForDamageLostLicense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -331,7 +337,7 @@
         private System.Windows.Forms.Label lblCreatedByUser;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnIssueLicense;
+        private System.Windows.Forms.Button btnRenewLicense;
         private System.Windows.Forms.Label lblApplicationFees;
         private System.Windows.Forms.Label lblOldLicenseID;
         private System.Windows.Forms.Label lblReplacedLicenseID;
@@ -344,7 +350,7 @@
         private System.Windows.Forms.Label lblApplicationDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbLostLicense;
+        private System.Windows.Forms.RadioButton rbDamagedLicense;
     }
 }

@@ -59,7 +59,7 @@ namespace DVLD.Applications.International_License_Applications
             {
                 _InternationalLicense = new InternationalLicense();
               _InternationalLicense.ApplicationID = _License.applicationID;
-              _InternationalLicense.CreatedByUserID = Global.currentUser.userID;
+              _InternationalLicense.CreatedByUserID = Global.CurrentUser.userID;
               _InternationalLicense.DriverID = _License.driverID;
               _InternationalLicense.IsActive = true;
               _InternationalLicense.IssuedUsingLocalLicenseID = _licenseID;
@@ -127,7 +127,7 @@ namespace DVLD.Applications.International_License_Applications
             lblUssueDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
             lblFees.Text = ApplicationTypes.Find((int)clsApplication.enApplicationType.NewInternationalLicense).applicationFee.ToString();
             lblExpirationDate.Text = DateTime.Now.AddYears(1).ToString();
-            lblCreatedByUserID.Text = Global.currentUser.userID.ToString();
+            lblCreatedByUserID.Text = Global.CurrentUser.userID.ToString();
         }
     }
 }

@@ -74,7 +74,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 this.Text = "Add New Local Driving License Application";
                 tpAppllicationInfo.Enabled = false;
                 lblAppFees.Text = ApplicationTypes.Find(1).applicationFee.ToString();
-                lblCreatedByUserID.Text = Global.currentUser.userID.ToString();
+                lblCreatedByUserID.Text = Global.CurrentUser.userID.ToString();
                 lblAppDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
                 cbLicenseClasses.SelectedIndex = 3;
                 _LDLA = new LocalDrivingLicenseApp();
@@ -137,7 +137,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             App.ApplicationStatus = ApplicationsDb.enApplicationStatus.New;
             App.LastStatusDate = DateTime.Now;
             App.PaidFees = ApplicationTypes.Find(App.ApplicationTypeID).applicationFee;
-            App.CreatedByUserID = Global.currentUser.userID;
+            App.CreatedByUserID = Global.CurrentUser.userID;
         
 
             return App.save(); ;

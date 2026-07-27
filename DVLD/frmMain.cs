@@ -2,8 +2,10 @@
 using DVLD.Applications.Application_Types;
 using DVLD.Applications.International_License_Applications;
 using DVLD.Applications.New_Local_Driving_License_Application;
+using DVLD.Applications.Replace_for_damage_or_lost;
 using DVLD.Drivers;
 using DVLD.Licenses.Detained_Licenses;
+using DVLD.Test.Test_Types;
 using DVLD.Users;
 using DVLD_BusinessLayer;
 using System;
@@ -53,7 +55,7 @@ namespace DVLD
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Global.currentUser = null;
+            Global.CurrentUser = null;
             _FrmLogin.Show();
             this.Close();
         }
@@ -61,14 +63,14 @@ namespace DVLD
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            frmUserDetails frm = new frmUserDetails(Global.currentUser.userID);
+            frmUserDetails frm = new frmUserDetails(Global.CurrentUser.userID);
             frm.ShowDialog();
 
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(Global.currentUser.userID);
+            frmChangePassword frm = new frmChangePassword(Global.CurrentUser.userID);
             frm.ShowDialog();
         }
 
@@ -112,6 +114,18 @@ namespace DVLD
         private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRenewLocalLicense frm = new frmRenewLocalLicense();
+            frm.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void ReplacementLostOrDamagedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplacementForDamageLostLicense frm = new frmReplacementForDamageLostLicense();
             frm.ShowDialog();
         }
     }

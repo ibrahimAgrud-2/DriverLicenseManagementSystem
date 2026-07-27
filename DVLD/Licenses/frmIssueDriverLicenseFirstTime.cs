@@ -40,7 +40,7 @@ namespace DVLD.Licenses
             Driver newDrv = new Driver();
             newDrv.personID = _LDLA.ApplicationInfo.ApplicantPersonID;
             newDrv.createdDate = DateTime.Today;
-            newDrv.createdByUserID = Global.currentUser.userID;
+            newDrv.createdByUserID = Global.CurrentUser.userID;
             
             if(!newDrv.save())
             {
@@ -69,7 +69,7 @@ namespace DVLD.Licenses
             newLicense.isActive = true;
             newLicense.expirationDate = DateTime.Now.AddYears(LicenseClass.Find(_LDLA.licenseClassID).defaultValidityLength);
             newLicense.issueDate = DateTime.Now;
-            newLicense.createdByUserID = Global.currentUser.userID;
+            newLicense.createdByUserID = Global.CurrentUser.userID;
             newLicense.licenseClassID = _LDLA.licenseClassID;
 
             
