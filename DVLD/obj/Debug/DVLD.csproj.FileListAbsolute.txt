@@ -65,3 +65,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Controls.ctrlLicen
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.International_License_Applications.frmAddNewInternationalLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.International_License_Applications.frmManageInternationalLicesnseApplications.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.frmRenewLocalLicense.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Replace_for_damage_or_lost.frmReplacementForDamageLostLicense.resources
