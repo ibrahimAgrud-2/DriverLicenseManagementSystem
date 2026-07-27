@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblRecords = new System.Windows.Forms.Label();
@@ -81,15 +80,6 @@
             this.cbFilterBy.TabIndex = 26;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-124, 228);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 16);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Filter By";
-            // 
             // btnAddPerson
             // 
             this.btnAddPerson.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPerson.Image")));
@@ -129,7 +119,7 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "# Records: ";
             // 
-            // dgvInternationalLicensesList
+            // dgvPeopleList
             // 
             this.dgvPeopleList.AllowUserToAddRows = false;
             this.dgvPeopleList.AllowUserToDeleteRows = false;
@@ -156,7 +146,7 @@
             this.dgvPeopleList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPeopleList.Location = new System.Drawing.Point(9, 401);
             this.dgvPeopleList.MultiSelect = false;
-            this.dgvPeopleList.Name = "dgvInternationalLicensesList";
+            this.dgvPeopleList.Name = "dgvPeopleList";
             this.dgvPeopleList.ReadOnly = true;
             this.dgvPeopleList.RowHeadersVisible = false;
             this.dgvPeopleList.RowHeadersWidth = 51;
@@ -285,7 +275,6 @@
             this.Controls.Add(this.txtFilet);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
@@ -311,7 +300,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cbFilterBy;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAddPerson;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblRecords;

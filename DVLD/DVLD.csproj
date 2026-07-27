@@ -103,6 +103,12 @@
     <Compile Include="Applications\New Local Driving License Application\frmAddUpdateLocalDrivingLicenseApp.Designer.cs">
       <DependentUpon>frmAddUpdateLocalDrivingLicenseApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Release Detain License Application\frmManageDetainedLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Release Detain License Application\frmManageDetainedLicenses.Designer.cs">
+      <DependentUpon>frmManageDetainedLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\Release Detain License Application\frmReleaseDetainedLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\New Local Driving License Application\frmAddUpdateLocalDrivingLicenseApp.resx">
       <DependentUpon>frmAddUpdateLocalDrivingLicenseApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Release Detain License Application\frmManageDetainedLicenses.resx">
+      <DependentUpon>frmManageDetainedLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Release Detain License Application\frmReleaseDetainedLicense.resx">
       <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>

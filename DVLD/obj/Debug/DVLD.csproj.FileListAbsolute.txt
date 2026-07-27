@@ -68,3 +68,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Replace_for_damage_or_lost.frmReplacementForDamageLostLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.frmDetainLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Release_Detain_License_Application.frmReleaseDetainedLicense.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Release_Detain_License_Application.frmManageDetainedLicenses.resources

@@ -36,13 +36,15 @@ namespace DVLD_DataAccessLayer
             {
                 connection.Close();
             }
+            DataRow dtrow = dt.Rows[0];
 
-
+            Console.WriteLine(dtrow["LicenseId"]);
 
             return dt;
+
         }
 
- 
+
         public static bool findDetainedLicense(int detainID, ref int licenseID, ref DateTime detainDate, ref double fineFees, ref int createdByUserID, ref bool isReleased, ref DateTime releaseDate, ref int releasedByUserID, ref int releaseApplicationID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
