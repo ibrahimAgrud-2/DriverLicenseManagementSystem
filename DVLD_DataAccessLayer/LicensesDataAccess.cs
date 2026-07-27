@@ -411,15 +411,12 @@ namespace DVLD_DataAccessLayer
         }
 
 
-        public static bool DiActivateLicense(int licenseID)
+        public static bool DeactivateCurrentLicense(int licenseID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"UPDATE Licenses 
-                     SET isActive = 0,
-                       
-
-
+                     SET isActive = 0
                      WHERE LicenseID = @licenseID";
 
             SqlCommand cmd = new SqlCommand(query, connection);

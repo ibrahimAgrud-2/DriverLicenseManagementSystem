@@ -265,7 +265,7 @@ namespace DVLD_BusinessLayer
 
         bool DeactivateCurrentLicense()
         {
-            return LicensesDataAccess.DiActivateLicense(this.licenseID);
+            return LicensesDataAccess.DeactivateCurrentLicense(this.licenseID);
         }
     }
 }

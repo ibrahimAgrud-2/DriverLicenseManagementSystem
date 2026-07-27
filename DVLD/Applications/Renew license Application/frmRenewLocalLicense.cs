@@ -21,12 +21,12 @@ namespace DVLD.Licenses.Detained_Licenses
             InitializeComponent();
         }
 
-        clsLicense _OldLicense;
-        clsLicense _NewLicense;
+        clsLicense _License;
+ 
 
         ApplicationTypes _AppType = ApplicationTypes.Find((int)clsApplication.enApplicationType.RenewDrivingLicense);
 
-        void _ResetForm()
+        void _ResetToDefaultFieldValues()
         {
             lblApplicationDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
             lblIUssueDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
@@ -36,95 +36,58 @@ namespace DVLD.Licenses.Detained_Licenses
             llShowLicenseInfo.Enabled = false;
             this.ctrlLicenseInfoWithFilter1.ResetForm();
         }
+     
         private void frmDetainLicense_Load(object sender, EventArgs e)
         {
-            _ResetForm();
+            _ResetToDefaultFieldValues();
         }
+    
         private void FillDefaultValuesToField()
         {
-            lblApplicationFees.Text = _AppType.applicationFee.ToString();
-            lblLicenseFee.Text = LicenseClass.Find(_OldLicense.licenseClassID).classFee.ToString();
+          
+            lblLicenseFee.Text = this.ctrlLicenseInfoWithFilter1.selectedLicense.LicenseClassInfo.classFee.ToString();
             lblTotalFees.Text = (Convert.ToInt32(lblLicenseFee.Text) + Convert.ToInt32(lblApplicationFees.Text)).ToString();
-            lblCreatedByUser.Text = Global.currentUser.userName;
-            lblExpirationDate.Text = DateTime.Now.AddYears(LicenseClass.Find(_OldLicense.licenseClassID).defaultValidityLength).ToString();
-            lblOldLicenseID.Text = _OldLicense.licenseID.ToString();
+            lblExpirationDate.Text = DateTime.Now.AddYears(LicenseClass.Find(_License.licenseClassID).defaultValidityLength).ToString();
+            lblOldLicenseID.Text = _License.licenseID.ToString();
         }
         private void ctrlLicenseInfoWithFilter1_OnLicenseLoaded(int obj)
         {
-            _OldLicense = clsLicense.Find(obj);
+            _License = clsLicense.Find(obj);
             FillDefaultValuesToField();
-            if (!_OldLicense.IsLicenseExpired())
+            if (!_License.IsLicenseExpired())
             {
-                MessageBox.Show($"License not expired yet. Expiration date is {_OldLicense.expirationDate}");
+                MessageBox.Show($"License not expired yet. Expiration date is {_License.expirationDate}");
                 return;
             }
-            else if (!_OldLicense.isActive)
+            else if (!_License.isActive)
             {
                 MessageBox.Show($"License not Active");
                 return;
             }
             btnIssueLicense.Enabled = true;
             llShowLicenseHistory.Enabled=true;
-         
-
-
         }
-
-
-        private bool _AddNewApplication(ref int applicationID)
-        {
-            clsApplication newApp = _OldLicense.ApplicationInfo;
-            newApp.ApplicationDate = DateTime.Now;
-            newApp.ApplicationTypeID = _AppType.applicationTypeID;
-            newApp.CreatedByUserID = Global.currentUser.userID;
-            newApp.PaidFees = _AppType.applicationFee;
-            newApp.Mode = clsApplication.enMode.enAddNew;
-
-          
-             newApp.save();
-            applicationID = newApp.ID;
-            return (applicationID != -1);
-        }
-   
         private void btnIssueLicense_Click(object sender, EventArgs e)
         {
-
-            int applicationID = -1;
-            if (!_AddNewApplication(ref applicationID))
+            if (MessageBox.Show("Are you sure you want to Renew the license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                MessageBox.Show("Failed to add new application");
-                return ;
-            }
-
-            _NewLicense = new clsLicense(_OldLicense);
-            _NewLicense.expirationDate = DateTime.Now.AddYears(LicenseClass.Find(_NewLicense.licenseClassID).defaultValidityLength);
-            _NewLicense.issueReason = clsLicense.enIssueReason.Renew;
-            _NewLicense.issueDate = DateTime.Now;
-            _NewLicense.mode = clsLicense.enMode.enAddNew;
-            _NewLicense.applicationID = applicationID;
-            _NewLicense.isActive = true;
-
-            _OldLicense.isActive = false;
-            if(!_OldLicense.save())
-            {
-                MessageBox.Show("Old license could not updated");
                 return;
             }
-            
-            if(_NewLicense.save())
-            {
-                MessageBox.Show("Saved Successfully");
-                lblRenewApplicationID.Text = _NewLicense.licenseID.ToString();
-                lblRenewApplicationID.Text = applicationID.ToString();
-                llShowLicenseInfo.Enabled = true;
-               
 
-            }
-            else
+            _License = ctrlLicenseInfoWithFilter1.selectedLicense.RenewLicense(textBox1.Text.Trim(), Global.currentUser.userID);
+
+            if (_License==null)
             {
-                MessageBox.Show("Could not Saved");
+                MessageBox.Show("Failed to renew license");
+                return;
             }
-           
+
+            lblRenewApplicationID.Text = _License.applicationID.ToString();
+            lblRenewedLicenseID.Text = _License.licenseID.ToString();
+            MessageBox.Show("Licensed Renewed Successfully with ID=" + lblRenewedLicenseID.Text, "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnIssueLicense.Enabled = false;
+            this.ctrlLicenseInfoWithFilter1.FilterEnabled = false;
+            llShowLicenseInfo.Enabled = true;
         }
 
 
@@ -141,14 +104,14 @@ namespace DVLD.Licenses.Detained_Licenses
         private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 ;
-            frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(_NewLicense.licenseID);
+            frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(_License.licenseID);
             frm.ShowDialog();
         }
 
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
-            int personID = _OldLicense.ApplicationInfo.ApplicantPersonID;
+            int personID = _License.ApplicationInfo.ApplicantPersonID;
             frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(personID);
             frm.ShowDialog();
         }
