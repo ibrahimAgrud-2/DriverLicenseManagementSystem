@@ -1,6 +1,8 @@
 ﻿using DVLD_DataAccessLayer;
 using System;
+using System.ComponentModel;
 using System.Data;
+using clsApplication = DVLD_BusinessLayer.Applications;
 
 namespace DVLD_BusinessLayer
 {
@@ -213,6 +215,57 @@ namespace DVLD_BusinessLayer
         {
             return this.expirationDate < DateTime.Now;
         }
+
+        public Licenses RenewLicense(string notes, int createdByUserID)
+        {
+
+            Applications newApp = new Applications();
+
+            newApp.ApplicationDate = DateTime.Now;
+            newApp.ApplicationTypeID = (int)Applications.enApplicationType.RenewDrivingLicense;
+            newApp.CreatedByUserID = createdByUserID;
+            newApp.PaidFees = ApplicationTypes.Find((int)Applications.enApplicationType.RenewDrivingLicense).applicationFee;
+            newApp.ApplicantPersonID = this.ApplicationInfo.ApplicantPersonID;
+            newApp.ApplicationStatus = Applications.enApplicationStatus.Completed;
+            newApp.LastStatusDate = DateTime.Now;
+            
+            if(!newApp.save())
+            {
+                return null;
+            }
+
+            Licenses newLicense = new Licenses();
+
+            newLicense.applicationID = newApp.ID;
+            newLicense.driverID = this.driverID;
+            newLicense.licenseClassID = this.licenseClassID;
+            newLicense.issueDate = DateTime.Now;
+
+            int defaultValidityLength = this.LicenseClassInfo.defaultValidityLength;
+            newLicense.expirationDate = DateTime.Now.AddYears(defaultValidityLength);
+            newLicense.notes = notes;
+            newLicense.paidFees = this.LicenseClassInfo.classFee;
+            newLicense.isActive = true;
+            newLicense.issueReason = enIssueReason.Renew;
+            newLicense.createdByUserID = createdByUserID;
+
+            if(!newLicense.save())
+            {
+                return null;
+            }
+
+            if (!DeactivateCurrentLicense())
+            {
+                return null;
+            }
+      
+            return newLicense;
+        }
         
+
+        bool DeactivateCurrentLicense()
+        {
+            return LicensesDataAccess.DiActivateLicense(this.licenseID);
+        }
     }
 }
