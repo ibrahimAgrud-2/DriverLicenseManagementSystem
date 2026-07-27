@@ -38,7 +38,7 @@ namespace DVLD.Licenses.Controls
             lblIsActive.Text = "????";
             lblLicenseID.Text = "????";
             lblNationalNo.Text = "????";
-            lblNotes.Image = Resources.Male_512;
+            lblNotes.Text = "No Notes";
             lblIsDetained.Text= "????";
             lblIssueDate.Text= "????";
             lblIssueReason.Text= "????";

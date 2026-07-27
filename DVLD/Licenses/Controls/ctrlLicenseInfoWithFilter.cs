@@ -55,6 +55,13 @@ namespace DVLD.Licenses.Controls
         {
             get { return this.ctrlShowLicenseInfo1.SelectedLicense; }
         }
+
+        public void ResetForm()
+        {
+            this.ctrlShowLicenseInfo1.ResetForm();
+            txtFilter.Text = "";
+            txtFilter.Focus();
+        }
         private void _FindLicense()
         {
             if (string.IsNullOrEmpty(txtFilter.Text))

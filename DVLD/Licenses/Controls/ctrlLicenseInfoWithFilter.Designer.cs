@@ -45,7 +45,7 @@
             this.gbMain.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMain.Location = new System.Drawing.Point(3, 3);
             this.gbMain.Name = "gbMain";
-            this.gbMain.Size = new System.Drawing.Size(879, 174);
+            this.gbMain.Size = new System.Drawing.Size(1100, 174);
             this.gbMain.TabIndex = 183;
             this.gbMain.TabStop = false;
             this.gbMain.Text = "Find License";
@@ -54,7 +54,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 92);
+            this.label1.Location = new System.Drawing.Point(75, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 25);
             this.label1.TabIndex = 22;
@@ -64,7 +64,7 @@
             // 
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
-            this.btnFind.Location = new System.Drawing.Point(784, 92);
+            this.btnFind.Location = new System.Drawing.Point(897, 92);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(44, 37);
             this.btnFind.TabIndex = 21;
@@ -74,7 +74,7 @@
             // txtFilter
             // 
             this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFilter.Location = new System.Drawing.Point(161, 92);
+            this.txtFilter.Location = new System.Drawing.Point(274, 92);
             this.txtFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(600, 33);
@@ -85,7 +85,7 @@
             // 
             this.ctrlShowLicenseInfo1.Location = new System.Drawing.Point(3, 183);
             this.ctrlShowLicenseInfo1.Name = "ctrlShowLicenseInfo1";
-            this.ctrlShowLicenseInfo1.Size = new System.Drawing.Size(888, 336);
+            this.ctrlShowLicenseInfo1.Size = new System.Drawing.Size(1100, 336);
             this.ctrlShowLicenseInfo1.TabIndex = 182;
             // 
             // ctrlLicenseInfoWithFilter
@@ -95,7 +95,7 @@
             this.Controls.Add(this.gbMain);
             this.Controls.Add(this.ctrlShowLicenseInfo1);
             this.Name = "ctrlLicenseInfoWithFilter";
-            this.Size = new System.Drawing.Size(902, 573);
+            this.Size = new System.Drawing.Size(1114, 528);
             this.gbMain.ResumeLayout(false);
             this.gbMain.PerformLayout();
             this.ResumeLayout(false);
