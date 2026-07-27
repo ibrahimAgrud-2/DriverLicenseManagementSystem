@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace DVLD.Applications.Replace_for_damage_or_lost
 {
     public partial class frmReplacementForDamageLostLicense : Form
@@ -15,6 +17,21 @@ namespace DVLD.Applications.Replace_for_damage_or_lost
         public frmReplacementForDamageLostLicense()
         {
             InitializeComponent();
+        }
+ 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void FillDefaultValuesToField()
+        {
+            lblCreatedByUser.Text = Global.currentUser.userName;
+
+        }
+
+        private void ctrlLicenseInfoWithFilter1_OnLicenseLoaded(int obj)
+        {
+
         }
     }
 }

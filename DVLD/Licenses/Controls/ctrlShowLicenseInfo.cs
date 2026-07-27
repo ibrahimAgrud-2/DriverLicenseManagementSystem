@@ -55,10 +55,10 @@ namespace DVLD.Licenses.Controls
             lblIsActive.Text = licenses.isActive.ToString();
             lblLicenseID.Text = licenses.licenseID.ToString();
             lblNationalNo.Text = licenses.ApplicationInfo.ApplicantPerson.nationalNo;
-            
-            //lblIsDetained.Text = DetainedLicense.findDetainedLicense();
-            lblIssueDate.Text = licenses.issueDate.ToString("yyyy/MM/dd");
 
+            lblIsDetained.Text = licenses.isLicenseDetained?"Yes":"No";
+            lblIssueDate.Text = licenses.issueDate.ToString("yyyy/MM/dd");
+            lblNotes.Text = licenses.notes == "" ? "No Notes" : licenses.notes;
             lblIssueReason.Text = licenses.issueReason.ToString();
             if (licenses.ApplicationInfo.ApplicantPerson.imagePath != "")
             {
@@ -92,7 +92,7 @@ namespace DVLD.Licenses.Controls
             _License = clsLicenses.Find(licenseID);
             if(_License==null)
             {
-                MessageBox.Show($"There is no license with LocalDrivingLicenseApplicationID {licenseID}");
+                MessageBox.Show($"There is no license with ID {licenseID}");
                 ResetForm();
                 return;
             }

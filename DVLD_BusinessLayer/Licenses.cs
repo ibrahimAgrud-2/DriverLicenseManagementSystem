@@ -30,8 +30,8 @@ namespace DVLD_BusinessLayer
         public bool isActive { set; get; }
 
         public int createdByUserID { set; get; }
-        public User UserInfo { set; get; } 
-
+        public User UserInfo { set; get; }
+        public bool isLicenseDetained { get { return DetainedLicense.isLicenseDetained(licenseID); } }
 
         public double PaidFees { set; get; }
 

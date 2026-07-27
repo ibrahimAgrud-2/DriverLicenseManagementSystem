@@ -118,7 +118,40 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+        public static bool isLicenseDetained(int LicenseID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
+
+
+            string query = "select found =1 from DetainedLicenses where LicenseID=@LicenseID and isReleased=0 ";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@LicenseID  ", LicenseID);
+
+
+            try
+            {
+                connection.Open();
+
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int value))
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
 
         public static int addDetainedLicense(int licenseID,  DateTime detainDate,  double fineFees,  int createdByUserID,  bool isReleased,  DateTime releaseDate,  int releasedByUserID,  int releaseApplicationID)
         {

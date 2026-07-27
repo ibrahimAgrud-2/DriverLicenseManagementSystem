@@ -56,10 +56,19 @@ namespace DVLD.Licenses.Controls
             get { return this.ctrlShowLicenseInfo1.SelectedLicense; }
         }
 
+
+
         public void ResetForm()
         {
             this.ctrlShowLicenseInfo1.ResetForm();
            
+        }
+
+        public void LoadLicenseIndo(int licenseID)
+        {
+            txtFilter.Text = licenseID.ToString();
+            this.ctrlShowLicenseInfo1.LoadLicenseInfo(licenseID);
+            btnFind.PerformClick();
         }
         private void _FindLicense()
         {

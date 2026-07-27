@@ -96,10 +96,15 @@ namespace DVLD_BusinessLayer
 
             return DetainedLicensesDataAccess.updateDetainedLicense(this.detainID,this.licenseID, this._detainDate, this.fineFees, this.CreatedByUserID, this.isReleased, this.releaseDate, this.releasedByUserID, this.releaseApplicationID);
         }
-         public  static bool isDetainedLicenseExist(int detainID)
+        public static bool isDetainedLicenseExist(int detainID)
         {
             return DetainedLicensesDataAccess.isDetainedLicenseExist(detainID);
         }
+        public static bool isLicenseDetained(int licenseID)
+        {
+            return DetainedLicensesDataAccess.isLicenseDetained(licenseID);
+        }
+
 
         public bool save()
         {
