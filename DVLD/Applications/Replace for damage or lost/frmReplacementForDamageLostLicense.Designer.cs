@@ -90,7 +90,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(178, 24);
             this.label8.TabIndex = 91;
-            this.label8.Text = "Created By User ID: ";
+            this.label8.Text = "Created By User ApplicationID: ";
             // 
             // lblCreatedByUser
             // 
@@ -112,7 +112,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(143, 24);
             this.label6.TabIndex = 89;
-            this.label6.Text = "Old License ID: ";
+            this.label6.Text = "Old License ApplicationID: ";
             // 
             // label4
             // 
@@ -123,7 +123,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(194, 24);
             this.label4.TabIndex = 88;
-            this.label4.Text = "Replaced.License ID: ";
+            this.label4.Text = "Replaced.License ApplicationID: ";
             // 
             // btnRelease
             // 
@@ -238,7 +238,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 24);
             this.label3.TabIndex = 87;
-            this.label3.Text = "L.R. Application ID: ";
+            this.label3.Text = "L.R. Application ApplicationID: ";
             // 
             // llShowLicenseInfo
             // 

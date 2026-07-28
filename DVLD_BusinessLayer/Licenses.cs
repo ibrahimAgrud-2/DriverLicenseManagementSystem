@@ -242,14 +242,14 @@ namespace DVLD_BusinessLayer
             newApp.ApplicationStatus = Applications.enApplicationStatus.Completed;
             newApp.LastStatusDate = DateTime.Now;
             
-            if(!newApp.save())
+            if(!newApp.Save())
             {
                 return null;
             }
 
             Licenses newLicense = new Licenses();
 
-            newLicense.applicationID = newApp.ID;
+            newLicense.applicationID = newApp.ApplicationID;
             newLicense.driverID = this.driverID;
             newLicense.licenseClassID = this.licenseClassID;
             newLicense.issueDate = DateTime.Now;
@@ -295,14 +295,14 @@ namespace DVLD_BusinessLayer
             newApp.ApplicationStatus = Applications.enApplicationStatus.Completed;
             newApp.LastStatusDate = DateTime.Now;
 
-            if (!newApp.save())
+            if (!newApp.Save())
             {
                 return null;
             }
 
             Licenses newLicense = new Licenses();
 
-            newLicense.applicationID = newApp.ID;
+            newLicense.applicationID = newApp.ApplicationID;
             newLicense.driverID = this.driverID;
             newLicense.licenseClassID = this.licenseClassID;
             newLicense.issueDate = DateTime.Now;

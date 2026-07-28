@@ -18,7 +18,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public int ID { set; get; }
+        public int ApplicationID { set; get; }
         public int ApplicationTypeID { set; get; }
         public ApplicationTypes ApplicationTypeInfo { set; get; }
         public int ApplicantPersonID { set; get; }
@@ -35,7 +35,7 @@ namespace DVLD_BusinessLayer
 
         public Applications()
         {
-            this.ID = -1;
+            this.ApplicationID = -1;
             this.ApplicantPersonID = -1;
             this.CreatedByUserID = -1;
             this.ApplicationDate=DateTime.Now;
@@ -50,7 +50,7 @@ namespace DVLD_BusinessLayer
            enApplicationStatus applicationStatus, DateTime LastStatusDate, double paidFee, int createdByUserID)
         {
 
-            this.ID = applicationID;
+            this.ApplicationID = applicationID;
             this.ApplicantPersonID = applicantPersonID;
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = applicationTypeID;
@@ -76,15 +76,15 @@ namespace DVLD_BusinessLayer
         private bool _AddNewApplication()
         {
 
-            this.ID = ApplicationsDataAccess.addApplication(this.ApplicantPersonID,this.ApplicationDate,this.ApplicationTypeID,(byte)this.ApplicationStatus,this.LastStatusDate,this.PaidFees,this.CreatedByUserID);
-            return (this.ID != -1);
+            this.ApplicationID = ApplicationsDataAccess.addApplication(this.ApplicantPersonID,this.ApplicationDate,this.ApplicationTypeID,(byte)this.ApplicationStatus,this.LastStatusDate,this.PaidFees,this.CreatedByUserID);
+            return (this.ApplicationID != -1);
 
         }
 
         private bool _UpdateApplication()
         {
 
-            return ApplicationsDataAccess.updateApplicationInfo(this.ID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID, Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
+            return ApplicationsDataAccess.updateApplicationInfo(this.ApplicationID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID, Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
         public static bool Delete(int applicationID)
@@ -98,9 +98,9 @@ namespace DVLD_BusinessLayer
         }
         public bool Delete  ()
         {
-            if (isApplicationExist(this.ID))
+            if (isApplicationExist(this.ApplicationID))
             {
-                return ApplicationsDataAccess.deleteApplication(this.ID);
+                return ApplicationsDataAccess.deleteApplication(this.ApplicationID);
             }
             return false;
 
@@ -133,7 +133,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public bool save()
+        public bool Save()
         {
             switch (this.Mode)
             {
@@ -158,7 +158,7 @@ namespace DVLD_BusinessLayer
 
         public bool cancel()
         {
-            bool canceledSuccessfully= ApplicationsDataAccess.updateStatus(this.ID, 2);
+            bool canceledSuccessfully= ApplicationsDataAccess.updateStatus(this.ApplicationID, 2);
             if(canceledSuccessfully)
             {
                 this.ApplicationStatus = enApplicationStatus.Canceled;
@@ -167,7 +167,7 @@ namespace DVLD_BusinessLayer
         }
         public bool setComplete()
         {
-            bool canceledSuccessfully = ApplicationsDataAccess.updateStatus(this.ID, 3);
+            bool canceledSuccessfully = ApplicationsDataAccess.updateStatus(this.ApplicationID, 3);
             if (canceledSuccessfully)
             {
                 this.ApplicationStatus = enApplicationStatus.Completed;

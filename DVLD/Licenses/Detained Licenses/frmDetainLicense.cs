@@ -75,7 +75,7 @@ namespace DVLD.Licenses.Detained_Licenses
                 return;
             }
             _DetainLicenseID = detainedLicense.detainID;
-            MessageBox.Show("Licensed Detained Successfully with ID=" + _DetainLicenseID, "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Licensed Detained Successfully with ApplicationID=" + _DetainLicenseID, "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
             lblDetainID.Text = detainedLicense.detainID.ToString();
 
 

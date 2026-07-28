@@ -104,7 +104,7 @@ namespace DVLD.Applications.International_License_Applications.Controls
             {
                 _IntLicenseID = -1;
                 ResetForm();
-                MessageBox.Show("No License  with  ID = " + InternationalLicenseID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No License  with  ApplicationID = " + InternationalLicenseID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _Load();

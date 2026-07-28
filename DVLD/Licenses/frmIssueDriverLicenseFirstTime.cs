@@ -86,7 +86,7 @@ namespace DVLD.Licenses
             {
                 _LDLA.ApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
                 _LDLA.ApplicationInfo.LastStatusDate = DateTime.Now;
-                _LDLA.ApplicationInfo.save();
+                _LDLA.ApplicationInfo.Save();
 
                 MessageBox.Show($"Saved successfully with license {newL.licenseID}");
 

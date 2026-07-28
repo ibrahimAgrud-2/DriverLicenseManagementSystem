@@ -106,11 +106,11 @@
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
-            "Detain ID",
+            "Detain ApplicationID",
             "Is Released",
             "National No",
             "Full Name",
-            "Release Application ID"});
+            "Release Application ApplicationID"});
             this.cbFilterBy.Location = new System.Drawing.Point(118, 223);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(193, 33);

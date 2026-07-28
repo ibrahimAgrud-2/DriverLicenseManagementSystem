@@ -84,7 +84,7 @@ namespace DVLD.Licenses.Detained_Licenses
 
             lblRenewApplicationID.Text = _License.applicationID.ToString();
             lblRenewedLicenseID.Text = _License.licenseID.ToString();
-            MessageBox.Show("Licensed Renewed Successfully with ID=" + lblRenewedLicenseID.Text, "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Licensed Renewed Successfully with ApplicationID=" + lblRenewedLicenseID.Text, "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnIssueLicense.Enabled = false;
             this.ctrlLicenseInfoWithFilter1.FilterEnabled = false;
             llShowLicenseInfo.Enabled = true;

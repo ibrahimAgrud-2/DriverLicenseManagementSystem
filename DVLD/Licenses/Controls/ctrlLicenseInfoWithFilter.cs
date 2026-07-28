@@ -90,7 +90,7 @@ namespace DVLD.Licenses.Controls
             else
             {
                 ResetForm();
-                MessageBox.Show($"Could Not find License with ID {txtFilter.Text}");
+                MessageBox.Show($"Could Not find License with ApplicationID {txtFilter.Text}");
                 txtFilter.Text = "";
                 txtFilter.Focus();
 

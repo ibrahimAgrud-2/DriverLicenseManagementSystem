@@ -110,13 +110,13 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         {
             if (this._Mode==enMode.enAddNew&&!_AddNewApplication())
             {
-                MessageBox.Show("Could not save new App");
+                MessageBox.Show("Could not Save new App");
                 return false;
             }
             if (this.ValidateChildren())
             {
                 _LDLA.licenseClassID = LicenseClass.Find(cbLicenseClasses.Text).ID;
-                _LDLA.applicationID = App.ID;
+                _LDLA.applicationID = App.ApplicationID;
                 return true;
             }
             else
@@ -140,7 +140,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
             App.CreatedByUserID = Global.CurrentUser.userID;
         
 
-            return App.save(); ;
+            return App.Save(); ;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

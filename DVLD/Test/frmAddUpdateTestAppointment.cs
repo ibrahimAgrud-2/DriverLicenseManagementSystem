@@ -98,13 +98,13 @@ namespace DVLD.Test
             app.CreatedByUserID = Global.CurrentUser.userID;
             app.PaidFees = ApplicationTypes.Find(7).applicationFee;
             app.LastStatusDate = DateTime.Now;
-            if(!app.save())
+            if(!app.Save())
             {
                 MessageBox.Show("Could not saved app for retake");
                 return -1;
 
             }
-            return app.ID;
+            return app.ApplicationID;
 
         }
         //Incase Mode add

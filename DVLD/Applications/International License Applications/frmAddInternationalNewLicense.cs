@@ -82,7 +82,7 @@ namespace DVLD.Applications.International_License_Applications
         private void btnIssueLicense_Click(object sender, System.EventArgs e)
         {
             FillDataToObject();
-            if (_InternationalLicense.save())
+            if (_InternationalLicense.Save())
             {
                 MessageBox.Show("Saved");
                 lblInternationalLicenseID.Text = _InternationalLicense.InternationalLicenseID.ToString();

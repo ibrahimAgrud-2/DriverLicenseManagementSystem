@@ -144,13 +144,13 @@ namespace DVLD_BusinessLayer
         public bool Save(int a)
         {
 
-            //Because of inheritance first we call the save method in the base class,
+            //Because of inheritance first we call the Save method in the base class,
             //it will take care of adding all information to the application table.
             //base.Mode = (ApplicationDb.enMode)Mode;
-            //if (!base.save())
+            //if (!base.Save())
             //    return false;
 
-            //After we save the main application now we save the sub application.
+            //After we Save the main application now we Save the sub application.
             switch (this.Mode)
             {
                 case enMode.enAddNew:

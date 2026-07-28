@@ -28,39 +28,66 @@ namespace DVLD_BusinessLayer
             this.IsActive = false;
             this.CreatedByUserID = -1;
             this.mode = enMode.enAddNew;
+            //International License için eklenen Application'nin Type'ı  NewInternationalLicense olmalı.  
+            this.ApplicationTypeID = (int)Applications.enApplicationType.NewInternationalLicense;
+
         }
 
-        private InternationalLicense(int InternationalLicenseID, int applicationID, int driverID, int issuedUsingLocalLicenseID, DateTime issueDate, DateTime expirationDate, bool isActive, int createdByUserID)
+        private InternationalLicense(int ApplicationID, int ApplicantPersonID,
+            DateTime ApplicationDate,
+             enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
+             double PaidFees, int CreatedByUserID, int InternationalLicenseID, int driverID, int issuedUsingLocalLicenseID, DateTime issueDate, DateTime expirationDate, bool isActive)
         {
+
+            base.ApplicationID = ApplicationID;
+            base.ApplicantPersonID = ApplicantPersonID;
+            base.ApplicationDate = ApplicationDate;
+            base.ApplicationStatus = ApplicationStatus;
+            base.LastStatusDate = LastStatusDate;
+            base.PaidFees = PaidFees;
+            base.CreatedByUserID = CreatedByUserID;
+            base.ApplicationTypeID = (int)Applications.enApplicationType.NewInternationalLicense;
+          
+       
+
             this.InternationalLicenseID = InternationalLicenseID;
-            this.ApplicationID = applicationID;
-            this.DriverID = driverID;
+               this.DriverID = driverID;
             this.IssuedUsingLocalLicenseID = issuedUsingLocalLicenseID;
             this.IssueDate = issueDate;
             this.ExpirationDate = expirationDate;
             this.IsActive = isActive;
-            this.CreatedByUserID = createdByUserID;
-            this.ApplicationInfo = Applications.Find(applicationID);
+            this.CreatedByUserID = CreatedByUserID;
+            this.ApplicationID = ApplicationID;
             this.mode = enMode.enUpdate;
         }
 
+
+        private bool _AddNewInternationalLicenseInfo()
+        {
+
+
+            this.InternationalLicenseID = InternationalLicenseDataAccess.AddInternationalLicense(this.ApplicationID, this.DriverID, this.IssuedUsingLocalLicenseID, this.IssueDate, this.ExpirationDate, this.IsActive, this.CreatedByUserID);
+            return (this.InternationalLicenseID != -1);
+
+        }
+        private bool _UpdateInternationalLicenseInfo()
+        {
+
+            return InternationalLicenseDataAccess.UpdateInternationalLicenseInfo(this.InternationalLicenseID, this.ApplicationID, this.DriverID, this.IssuedUsingLocalLicenseID, this.IssueDate, this.ExpirationDate, this.IsActive, this.CreatedByUserID);
+        }
+
+
         public static DataTable getInternationalLicenseRecords()
         {
-            DataTable dt = new DataTable();
-
-            dt = InternationalLicenseDataAccess.getInternationalLicenseRecords();
-            return dt;
+            return InternationalLicenseDataAccess.getInternationalLicenseRecords(); ;
         }
-
-        public static DataTable getAllInternationalLicenseByPersonID(int personID)
+        //bir driver yani bir *kişini* sistemdeli International eyliyetleri  
+        public static DataTable getAllInternationalLicenseByPersonID(int DriverID)
         {
-            DataTable dt = new DataTable();
-
-            dt = InternationalLicenseDataAccess.getAllInternationalLicenseByPersonID(personID);
-            return dt;
+            return InternationalLicenseDataAccess.getAllInternationalLicenseByPersonID(personID);
         }
 
-
+//Bir license Finde ederken onun Application bilgilerini de üst sınıfa atmamız gerekir. Bu yüzdene Application'i Find edip constructor içinde üst sınıfa gönderiyoprz.
         public static InternationalLicense Find(int InternationalLicenseID)
         {
            int issuedUsingLocalLicenseID = -1,  createdByUserID = -1, ApplicationID=-1, DriverID=-1;
@@ -72,38 +99,28 @@ namespace DVLD_BusinessLayer
 
             if (InternationalLicenseDataAccess.Find(InternationalLicenseID,ref ApplicationID,ref DriverID, ref issuedUsingLocalLicenseID, ref issueDate, ref expirationDate, ref isActive, ref createdByUserID))
             {
-                return new InternationalLicense(InternationalLicenseID,  ApplicationID,  DriverID,  issuedUsingLocalLicenseID,  issueDate,  expirationDate,  isActive,  createdByUserID);
+                //International sınıfın App sınıfından türemiştir. Bu yüzden bu sınıf const ile doldururken önce üst sınıfı yani APP'i  doldurmalı sonra bu sınıf doldurmalısın. 
+                Applications App = Applications.Find(ApplicationID);
+
+                return new InternationalLicense(App.ApplicationID,App.ApplicantPersonID,App.ApplicationDate,App.ApplicationStatus,App.LastStatusDate,App.PaidFees,App.CreatedByUserID,InternationalLicenseID,  DriverID,  issuedUsingLocalLicenseID,  issueDate,  expirationDate,  isActive);
             }
             return null;
         }
 
 
-        private bool _addNewInternationalLicenseInfo()
-        {
-   
-
-            this.InternationalLicenseID = InternationalLicenseDataAccess.AddInternationalLicense(this.ApplicationID,this.DriverID,this.IssuedUsingLocalLicenseID,this.IssueDate,this.ExpirationDate,this.IsActive,this.CreatedByUserID);
-            return (this.InternationalLicenseID != -1);
-
-        }
-        private bool _updateInternationalLicenseInfo()
+     
+        public bool Save()
         {
 
-            return InternationalLicenseDataAccess.UpdateInternationalLicenseInfo(this.InternationalLicenseID,this.ApplicationID, this.DriverID, this.IssuedUsingLocalLicenseID, this.IssueDate, this.ExpirationDate, this.IsActive, this.CreatedByUserID);
-        }
+            //Bu sınıf App'ten inheritance olduğu için save yaptığımızda önce üst sınıf save olmalı sonra bu sınıf. Zaten DB'de de International license tablosında APP ID isteniyor. bu yüzden Önce APP kayıt etmelisin sonra Int.License kayıt etmelisin.
+            base.Mode = (Applications.enMode)mode;
+            if (!base.Save())
+                return false;
 
-
-        public static int GetActiveInternationalLicenseIDByDriverID(int driverID)
-        {
-            return InternationalLicenseDataAccess.GetActiveInternationalLicenseIDByDriverID(driverID);
-        }
-
-        public bool save()
-        {
             switch (this.mode)
             {
                 case enMode.enAddNew:
-                    if (_addNewInternationalLicenseInfo())
+                    if (_AddNewInternationalLicenseInfo())
                     {
                         this.mode = enMode.enUpdate;
                         return true;
@@ -114,10 +131,19 @@ namespace DVLD_BusinessLayer
                     }
 
                 case enMode.enUpdate:
-                    return _updateInternationalLicenseInfo();
+                    return _UpdateInternationalLicenseInfo();
                 default:
                     return false;
             }
         }
+
+
+
+        //Bir driver'İn yani *kişinin* Aktif Int.License varsa ID'sini dönderir.
+        public static int GetActiveInternationalLicenseIDByDriverID(int driverID)
+        {
+            return InternationalLicenseDataAccess.GetActiveInternationalLicenseIDByDriverID(driverID);
+        }
+
     }
 }

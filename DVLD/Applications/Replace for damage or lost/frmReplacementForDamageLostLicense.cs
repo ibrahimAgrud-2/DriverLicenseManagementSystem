@@ -90,7 +90,7 @@ namespace DVLD.Applications.Replace_for_damage_or_lost
                 return;
             }
             _NewLicenseID = newLicense.licenseID;
-            MessageBox.Show("Licensed Renewed Successfully with ID=" + _NewLicenseID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Licensed Renewed Successfully with ApplicationID=" + _NewLicenseID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
             lblReplacedApplicationID.Text = newLicense.applicationID.ToString();
             lblReplacedLicenseID.Text = newLicense.licenseID.ToString();
             

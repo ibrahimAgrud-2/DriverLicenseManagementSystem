@@ -24,15 +24,15 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
         {
-                         { "DetainID", "Detain ID" },
-                         { "LicenseID", "License ID" },
+                         { "DetainID", "Detain ApplicationID" },
+                         { "LicenseID", "License ApplicationID" },
                          { "DetainDate", "Detain Date" },
                          { "IsReleased", "Is Released" },
                          { "FineFees", "Fine Fees" },
                          { "ReleaseDate", "Release Date" },
                          { "NationalNo", "National No" },
                          { "FullName", "Full Name" },
-                         { "ReleaseApplicationID", "Release Application ID" }
+                         { "ReleaseApplicationID", "Release Application ApplicationID" }
         };
         private void _SetColumnNames()
         {
@@ -99,7 +99,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
             switch (cbFilterBy.Text)
             {
-                case "Detain ID":
+                case "Detain ApplicationID":
                     FilterColumn = "DetainID";
                     break;
 
@@ -111,7 +111,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
                     FilterColumn = "FullName";
                     break;
 
-                case "Release Application ID":
+                case "Release Application ApplicationID":
                     FilterColumn = "ReleaseApplicationID";
                     break;
                 default:
@@ -119,7 +119,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
                     break;
             }
 
-            if (cbFilterBy.Text == "Detain ID")
+            if (cbFilterBy.Text == "Detain ApplicationID")
             {
                 _DtDetainedLicenses.DefaultView.RowFilter = $"{FilterColumn} = {txtFilter.Text} ";
             }

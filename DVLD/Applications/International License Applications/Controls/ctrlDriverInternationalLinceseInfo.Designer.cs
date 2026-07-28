@@ -108,7 +108,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(153, 25);
             this.label9.TabIndex = 193;
-            this.label9.Text = "Application ID:";
+            this.label9.Text = "Application ApplicationID:";
             // 
             // lblIsActive
             // 
@@ -225,7 +225,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(151, 25);
             this.label10.TabIndex = 187;
-            this.label10.Text = "Int.License ID:";
+            this.label10.Text = "Int.License ApplicationID:";
             // 
             // lblExpirationDate
             // 
@@ -312,7 +312,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(127, 25);
             this.label22.TabIndex = 113;
-            this.label22.Text = "License ID :";
+            this.label22.Text = "License ApplicationID :";
             // 
             // label5
             // 
@@ -407,7 +407,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 25);
             this.label4.TabIndex = 117;
-            this.label4.Text = "Driver ID:";
+            this.label4.Text = "Driver ApplicationID:";
             // 
             // label3
             // 

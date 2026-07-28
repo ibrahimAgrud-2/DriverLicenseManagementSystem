@@ -45,16 +45,18 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
-        public static DataTable getAllInternationalLicenseByPersonID(int PersonID)
+
+        //bir driver yani bir *kişini* sistemdeli International eyliyetleri. Sorguyu Driver üzeriden yaptık çünkü Int.License tablosında zaten Driver ID tutuluyor. 
+        public static DataTable getAllInternationalLicenseByPersonID(int driverID)
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string sqlQuery = @"select * from InternationalLicenses join Drivers on Drivers.DriverID=InternationalLicenses.DriverID where PersonID=@PersonID";
+            string sqlQuery = @"select * from InternationalLicenses where DriverID=@DriverID";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 
-            cmd.Parameters.AddWithValue(@"PersonID", PersonID);
+            cmd.Parameters.AddWithValue(@"DriverID", driverID);
 
 
 
@@ -129,6 +131,8 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+
+        //Aktif olup olmadığı tarihe göre yapılmalı. Çünkü sistemin başka bir yerinde tarihi geçen Int.License'ler DB'de güncellenmiyor. Bu yüzden tarihe göre aktiflik belirleniyor.
         public static int GetActiveInternationalLicenseIDByDriverID(int driverID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);

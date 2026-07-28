@@ -36,7 +36,7 @@ namespace DVLD.Applications.Controls
             lblCreatedByUserID.Text = User.Find(App.CreatedByUserID).UserName;
             lblApplicantPersonFullName.Text = App.ApplicantPerson.fullName;
             lblAppType.Text = App.ApplicationTypeInfo.applicantTypeTitle;
-            lbID.Text = App.ID.ToString();
+            lbID.Text = App.ApplicationID.ToString();
             lblAppStatus.Text = App.ApplicationStatus.ToString();
 
         }
@@ -44,7 +44,7 @@ namespace DVLD.Applications.Controls
 
         private void _Load()
         {
-            _ApplicationID = _App.ID;
+            _ApplicationID = _App.ApplicationID;
             fillObjectDataToField(_App);
             lnklblEditPersonInfo.Enabled = true;
 

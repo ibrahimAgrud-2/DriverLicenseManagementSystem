@@ -158,12 +158,12 @@ namespace DVLD_BusinessLayer
             newApplication.CreatedByUserID = releasedByUserID;
             
 
-            if(!newApplication.save())
+            if(!newApplication.Save())
             {
                 return false;
             }
 
-            this.releaseApplicationID = newApplication.ID;
+            this.releaseApplicationID = newApplication.ApplicationID;
             this.isReleased = true;
             this.releasedByUserID = releasedByUserID;
             this.releaseDate = DateTime.Now;
