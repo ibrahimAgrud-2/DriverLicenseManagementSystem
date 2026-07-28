@@ -228,11 +228,10 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
         private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(dgvDetainedLicenseList.SelectedRows[0].Cells[1].Value.ToString(), out int selectedPersonID))
+            if (int.TryParse(dgvDetainedLicenseList.SelectedRows[0].Cells[1].Value.ToString(), out int selectedLicenseID))
             {
 
-                frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
-                frm.LoadData(selectedPersonID);
+                frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense(selectedLicenseID);
                 frm.ShowDialog();
                 _RefreshList();
             }
