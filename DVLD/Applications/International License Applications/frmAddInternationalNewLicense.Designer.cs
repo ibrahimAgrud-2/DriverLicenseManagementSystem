@@ -64,7 +64,7 @@
             this.lblTitle.TabIndex = 124;
             this.lblTitle.Text = "International License Application";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
+//            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // llShowLicenseInfo
             // 
@@ -91,14 +91,14 @@
             this.llShowLicenseHistory.Text = "Show Licenses History";
             this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
             // 
-            // btnRelease
+            // btnIssueLicense
             // 
             this.btnIssueLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIssueLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIssueLicense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIssueLicense.Location = new System.Drawing.Point(701, 764);
             this.btnIssueLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnIssueLicense.Name = "btnRelease";
+            this.btnIssueLicense.Name = "btnIssueLicense";
             this.btnIssueLicense.Size = new System.Drawing.Size(113, 30);
             this.btnIssueLicense.TabIndex = 191;
             this.btnIssueLicense.Text = "Issue";
@@ -129,7 +129,6 @@
             this.ctrlLicenseInfoWithFilter1.Size = new System.Drawing.Size(780, 478);
             this.ctrlLicenseInfoWithFilter1.TabIndex = 0;
             this.ctrlLicenseInfoWithFilter1.OnLicenseLoaded += new System.Action<int>(this.ctrlLicenseInfoWithFilter1_OnLicenseLoaded);
-            this.ctrlLicenseInfoWithFilter1.Load += new System.EventHandler(this.ctrlLicenseInfoWithFilter1_Load);
             // 
             // label8
             // 
@@ -141,13 +140,13 @@
             this.label8.TabIndex = 91;
             this.label8.Text = "Created By User ID: ";
             // 
-            // lblCreatedByUser
+            // lblCreatedByUserID
             // 
             this.lblCreatedByUserID.AutoSize = true;
             this.lblCreatedByUserID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCreatedByUserID.Location = new System.Drawing.Point(675, 145);
             this.lblCreatedByUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCreatedByUserID.Name = "lblCreatedByUser";
+            this.lblCreatedByUserID.Name = "lblCreatedByUserID";
             this.lblCreatedByUserID.Size = new System.Drawing.Size(40, 24);
             this.lblCreatedByUserID.TabIndex = 90;
             this.lblCreatedByUserID.Text = "???";
@@ -202,11 +201,11 @@
             this.label3.TabIndex = 87;
             this.label3.Text = "I.L. Application ID: ";
             // 
-            // lblIUssueDate
+            // lblUssueDate
             // 
             this.lblUssueDate.AutoSize = true;
             this.lblUssueDate.Location = new System.Drawing.Point(215, 116);
-            this.lblUssueDate.Name = "lblIUssueDate";
+            this.lblUssueDate.Name = "lblUssueDate";
             this.lblUssueDate.Size = new System.Drawing.Size(60, 24);
             this.lblUssueDate.TabIndex = 80;
             this.lblUssueDate.Text = "?????";
