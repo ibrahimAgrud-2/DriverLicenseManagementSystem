@@ -68,7 +68,7 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public static InternationalLicense findInternationalLicenses(int InternationalLicenseID)
+        public static InternationalLicense Find(int InternationalLicenseID)
         {
            int issuedUsingLocalLicenseID = -1,  createdByUserID = -1, ApplicationID=-1, DriverID=-1;
 

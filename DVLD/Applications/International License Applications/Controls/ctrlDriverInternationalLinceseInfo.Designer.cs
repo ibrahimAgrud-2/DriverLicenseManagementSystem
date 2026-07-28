@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications.International_License_Applications.Controls
 {
-    partial class DriverInternationalLinceseInfo
+    partial class ctrlDriverInternationalLinceseInfo
     {
         /// <summary> 
         /// Required designer variable.

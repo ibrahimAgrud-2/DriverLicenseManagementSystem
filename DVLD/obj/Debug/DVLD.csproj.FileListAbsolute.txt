@@ -69,3 +69,4 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Replace_for_da
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.frmDetainLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Release_Detain_License_Application.frmReleaseDetainedLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Release_Detain_License_Application.frmManageDetainedLicenses.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.International_License_Applications.Controls.ctrlDriverInternationalLinceseInfo.resources

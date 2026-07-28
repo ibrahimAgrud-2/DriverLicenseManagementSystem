@@ -28,21 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ctrlDriverInternationalLinceseInfo1 = new DVLD.Applications.International_License_Applications.Controls.ctrlDriverInternationalLinceseInfo();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // ctrlDriverInternationalLinceseInfo1
+            // 
+            this.ctrlDriverInternationalLinceseInfo1.Location = new System.Drawing.Point(-3, 134);
+            this.ctrlDriverInternationalLinceseInfo1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlDriverInternationalLinceseInfo1.Name = "ctrlDriverInternationalLinceseInfo1";
+            this.ctrlDriverInternationalLinceseInfo1.Size = new System.Drawing.Size(1002, 264);
+            this.ctrlDriverInternationalLinceseInfo1.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTitle.Location = new System.Drawing.Point(202, 40);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(520, 59);
+            this.lblTitle.TabIndex = 139;
+            this.lblTitle.Text = "Driver International License Info";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(861, 399);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(126, 37);
+            this.btnClose.TabIndex = 140;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmShowInternationalLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 609);
+            this.ClientSize = new System.Drawing.Size(990, 445);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.ctrlDriverInternationalLinceseInfo1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowInternationalLicenseInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmShowInternationalLicenseInfo";
+            this.Load += new System.EventHandler(this.frmShowInternationalLicenseInfo_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Applications.International_License_Applications.Controls.ctrlDriverInternationalLinceseInfo ctrlDriverInternationalLinceseInfo1;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnClose;
     }
 }

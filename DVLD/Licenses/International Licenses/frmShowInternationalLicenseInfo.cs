@@ -12,9 +12,21 @@ namespace DVLD.Licenses.International_Licenses
 {
     public partial class frmShowInternationalLicenseInfo : Form
     {
-        public frmShowInternationalLicenseInfo()
+        public frmShowInternationalLicenseInfo(int InternationalLicenseID)
         {
             InitializeComponent();
+            _InternationalLicenseID = InternationalLicenseID;
+        }
+        int _InternationalLicenseID;
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmShowInternationalLicenseInfo_Load(object sender, EventArgs e)
+        {
+            this.ctrlDriverInternationalLinceseInfo1.LoadPersonInfo(_InternationalLicenseID);
+
         }
     }
 }

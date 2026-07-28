@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using clsLicenses = DVLD_BusinessLayer.Licenses;
 using System.Windows.Forms;
+using DVLD.Licenses.International_Licenses;
 
 namespace DVLD.Applications.International_License_Applications
 {
@@ -66,16 +67,16 @@ namespace DVLD.Applications.International_License_Applications
         {
             if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
-                InternationalLicense L1 = InternationalLicense.findInternationalLicenses(selectedID);
+                InternationalLicense L1 = InternationalLicense.Find(selectedID);
                 frmPersonDetail frm = new frmPersonDetail(L1.ApplicationInfo.ApplicantPersonID);
                 frm.ShowDialog();
        }    }
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[2].Value.ToString(), out int selectedLicenseID))
+            if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedLicenseID))
             {
-                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(selectedLicenseID);
+                frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(selectedLicenseID);
                 frm.ShowDialog();
             }
 
