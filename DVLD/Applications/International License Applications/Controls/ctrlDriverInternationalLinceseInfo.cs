@@ -55,10 +55,10 @@ namespace DVLD.Applications.International_License_Applications.Controls
 
 
             lblApplicationID.Text = IntLicense.ApplicationID.ToString();
-            lblDateOfBirth.Text =IntLicense.ApplicationInfo.ApplicantPerson.dateOfBirth.ToString();
-            lblNationalNo.Text = IntLicense.ApplicationInfo.ApplicantPerson.nationalNo;
+            lblDateOfBirth.Text =IntLicense.ApplicantPerson.dateOfBirth.ToString();
+            lblNationalNo.Text = IntLicense.ApplicantPerson.nationalNo;
             lblDriverID.Text = "????";
-            lblFullName.Text = IntLicense.ApplicationInfo.ApplicantPerson.fullName;
+            lblFullName.Text = IntLicense.ApplicantPerson.fullName;
             lblIsActive.Text = (IntLicense.IsActive ? "Yes" : "No");
             lblLocalLicenseID.Text = IntLicense.IssuedUsingLocalLicenseID.ToString();
             lblIssueDate.Text = IntLicense.IssueDate.ToShortDateString();
@@ -67,20 +67,20 @@ namespace DVLD.Applications.International_License_Applications.Controls
             lblDriverID.Text = IntLicense.DriverID.ToString();
 
 
-            lblGendor.Text = IntLicense.ApplicationInfo.ApplicantPerson.gender == 0 ? "Male" : "Female";
+            lblGendor.Text = IntLicense.ApplicantPerson.gender == 0 ? "Male" : "Female";
 
-            if (IntLicense.ApplicationInfo.ApplicantPerson.imagePath != "")
+            if (IntLicense.ApplicantPerson.imagePath != "")
             {
-                if (File.Exists(IntLicense.ApplicationInfo.ApplicantPerson.imagePath))
+                if (File.Exists(IntLicense.ApplicantPerson.imagePath))
                 {
-                    pbPersonImage.ImageLocation = IntLicense.ApplicationInfo.ApplicantPerson.imagePath;
+                    pbPersonImage.ImageLocation = IntLicense.ApplicantPerson.imagePath;
                 }
                 else
                 {
-                    MessageBox.Show("Could not Find this image: = " + IntLicense.ApplicationInfo.ApplicantPerson.imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Could not Find this image: = " + IntLicense.ApplicantPerson.imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (IntLicense.ApplicationInfo.ApplicantPerson.gender == 1)
+            else if (IntLicense.ApplicantPerson.gender == 1)
             {
                 pbPersonImage.Image = Resources.Female_512;
             }

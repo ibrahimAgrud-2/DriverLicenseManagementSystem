@@ -47,6 +47,8 @@ namespace DVLD_BusinessLayer
             base.PaidFees = PaidFees;
             base.CreatedByUserID = CreatedByUserID;
             base.ApplicationTypeID = (int)Applications.enApplicationType.NewInternationalLicense;
+            //base class'ta bulunan person sadece parametreli const içinde find oluyor. O constructor ise burada çağırılmadı için base class'ta person objesi boş kalıyor. Yani Int.Licnse'in base class App dolu ama içinde person boş kalıyor. Bu yüzden person'u burada find yaptık
+            base.ApplicantPerson = People.Find(ApplicantPersonID);
           
        
 
@@ -84,7 +86,7 @@ namespace DVLD_BusinessLayer
         //bir driver yani bir *kişini* sistemdeli International eyliyetleri  
         public static DataTable getAllInternationalLicenseByPersonID(int DriverID)
         {
-            return InternationalLicenseDataAccess.getAllInternationalLicenseByPersonID(personID);
+            return InternationalLicenseDataAccess.getAllInternationalLicenseByPersonID(DriverID);
         }
 
 //Bir license Finde ederken onun Application bilgilerini de üst sınıfa atmamız gerekir. Bu yüzdene Application'i Find edip constructor içinde üst sınıfa gönderiyoprz.
@@ -99,7 +101,8 @@ namespace DVLD_BusinessLayer
 
             if (InternationalLicenseDataAccess.Find(InternationalLicenseID,ref ApplicationID,ref DriverID, ref issuedUsingLocalLicenseID, ref issueDate, ref expirationDate, ref isActive, ref createdByUserID))
             {
-                //International sınıfın App sınıfından türemiştir. Bu yüzden bu sınıf const ile doldururken önce üst sınıfı yani APP'i  doldurmalı sonra bu sınıf doldurmalısın. 
+
+                //Aşağıda Applications.Find() ile elde edilen nesne, InternationalLicense nesnesinin base kısmı değildir. O sadece verileri okumak için kullanılan bağımsız bir Applications nesnesidir. InternationalLicense oluşturulurken bu veriler constructor aracılığıyla o anki international license'in base (Applications) kısmına kopyalanır. 
                 Applications App = Applications.Find(ApplicationID);
 
                 return new InternationalLicense(App.ApplicationID,App.ApplicantPersonID,App.ApplicationDate,App.ApplicationStatus,App.LastStatusDate,App.PaidFees,App.CreatedByUserID,InternationalLicenseID,  DriverID,  issuedUsingLocalLicenseID,  issueDate,  expirationDate,  isActive);

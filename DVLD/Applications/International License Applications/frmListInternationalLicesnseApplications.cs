@@ -68,7 +68,7 @@ namespace DVLD.Applications.International_License_Applications
             if (int.TryParse(dgvInternationalLicensesList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
                 InternationalLicense L1 = InternationalLicense.Find(selectedID);
-                frmPersonDetail frm = new frmPersonDetail(L1.ApplicationInfo.ApplicantPersonID);
+                frmPersonDetail frm = new frmPersonDetail(L1.ApplicantPersonID);
                 frm.ShowDialog();
        }    }
 
