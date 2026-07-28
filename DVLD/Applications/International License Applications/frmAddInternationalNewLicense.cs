@@ -77,7 +77,7 @@ namespace DVLD.Applications.International_License_Applications
             }
            if(_License.licenseClassID!=3)
             {
-                MessageBox.Show("License for issue must mu class-3");
+                MessageBox.Show("License for issue must  class-3");
                 return;
             }
             if (InternationalLicense.isInternationalLicenseExistByLicenseID(_License.licenseID))

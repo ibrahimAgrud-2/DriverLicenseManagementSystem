@@ -1,5 +1,4 @@
-﻿//2.Kod
-using System;
+﻿using System;
 
 using System.Data;
 using System.Data.SqlClient;

@@ -67,6 +67,12 @@
     <Compile Include="Applications\Controls\ctrlApplicationInfo.Designer.cs">
       <DependentUpon>ctrlApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\International License Applications\Controls\DriverInternationalLinceseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\International License Applications\Controls\DriverInternationalLinceseInfo.Designer.cs">
+      <DependentUpon>DriverInternationalLinceseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\International License Applications\frmAddInternationalNewLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     <EmbeddedResource Include="Applications\Controls\ctrlApplicationInfo.resx">
       <DependentUpon>ctrlApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\International License Applications\Controls\DriverInternationalLinceseInfo.resx">
+      <DependentUpon>DriverInternationalLinceseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\International License Applications\frmAddInternationalNewLicense.resx">
       <DependentUpon>frmAddInternationalNewLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -459,7 +468,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\International License Applications\Controls\" />
     <Folder Include="Drivers\Controls\" />
     <Folder Include="Licenses\International Licenses\Controls\" />
     <Folder Include="Licenses\Local Licenses\" />
