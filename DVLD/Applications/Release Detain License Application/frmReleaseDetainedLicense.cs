@@ -23,6 +23,13 @@ namespace DVLD.Applications.Release_Detain_License_Application
         DetainedLicense _DetainedLicense;
 
 
+        public void LoadData(int LicenseID)
+        {
+            this.ctrlLicenseInfoWithFilter1.LoadLicenseIndo(LicenseID);
+            this.ctrlLicenseInfoWithFilter1.FilterEnabled = false;
+
+        }
+
         private void ctrlLicenseInfoWithFilter1_OnLicenseLoaded(int obj)
         {
             int selectedLicenseID = obj;

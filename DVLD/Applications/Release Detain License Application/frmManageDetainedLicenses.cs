@@ -1,4 +1,5 @@
 ﻿using DVLD.Licenses;
+using DVLD.Licenses.Detained_Licenses;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -42,9 +43,10 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
         }
 
-        private void _RefreshPeopleList()
+        private void _RefreshList()
         {
             _DtDetainedLicenses = DetainedLicense.getDetainedLicenseRecords();
+            dgvDetainedLicenseList.DataSource = _DtDetainedLicenses;
             lblRecord.Text =dgvDetainedLicenseList.RowCount.ToString();
             
         }
@@ -56,8 +58,8 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
         private void frmManageDetainedLicenses_Load(object sender, EventArgs e)
         {
-            _RefreshPeopleList();
-           // _SetColumnNames();
+            _RefreshList();
+           _SetColumnNames();
             cbFilterBy.SelectedIndex = 0;
         }
 
@@ -71,7 +73,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
                 txtFilter.Visible = false;
                 _DtDetainedLicenses.DefaultView.RowFilter = null;
             }
-            else if (cbFilterBy.SelectedIndex == 4)
+            else if (cbFilterBy.SelectedIndex == 2)
             {
                 txtFilter.Visible = false;
                 cbActive.Visible = true;
@@ -79,6 +81,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
             else
             {
                 txtFilter.Visible = true;
+                cbActive.Visible = false;
             }
         }
         private void txtFilet_TextChanged(object sender, EventArgs e)
@@ -146,12 +149,12 @@ namespace DVLD.Applications.Release_Detain_License_Application
         {
             if (cbActive.SelectedIndex == 1)
             {
-                _DtDetainedLicenses.DefaultView.RowFilter = $"isActive = 'true'";
+                _DtDetainedLicenses.DefaultView.RowFilter = $"IsReleased = 'true'";
                 return;
             }
             else if (cbActive.SelectedIndex == 2)
             {
-                _DtDetainedLicenses.DefaultView.RowFilter = $"isActive = 'false'";
+                _DtDetainedLicenses.DefaultView.RowFilter = $"IsReleased = 'false'";
                 return;
             }
             _DtDetainedLicenses.DefaultView.RowFilter = null;
@@ -169,7 +172,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
                 frmPersonDetail frm = new frmPersonDetail(selectedPersonID);
                 frm.ShowDialog();
-                _RefreshPeopleList();
+                _RefreshList();
             }
         }
 
@@ -180,7 +183,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
                 frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(selectedPersonID);
                 frm.ShowDialog();
-                _RefreshPeopleList();
+                _RefreshList();
             }
         }
 
@@ -191,9 +194,49 @@ namespace DVLD.Applications.Release_Detain_License_Application
 
                 frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(selectedPersonID);
                 frm.ShowDialog();
-                _RefreshPeopleList();
+                _RefreshList();
             }
         }
+
+        private void btnDetainLicense_Click(object sender, EventArgs e)
+        {
+          
+
+                frmDetainLicense frm = new frmDetainLicense();
+                frm.ShowDialog();
+            _RefreshList();
+
+            
+        }
+
+        private void btnReleaseLicense_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
+            frm.ShowDialog();
+            _RefreshList();
+        }
+
+        private void cmsApplications_Opening(object sender, CancelEventArgs e)
+        {
+            if (Boolean.TryParse(dgvDetainedLicenseList.SelectedRows[0].Cells[3].Value.ToString(), out bool result))
+            {
+                releaseDetainedLicenseToolStripMenuItem.Enabled = !result;
+            }
+     
+
+        }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(dgvDetainedLicenseList.SelectedRows[0].Cells[1].Value.ToString(), out int selectedPersonID))
+            {
+
+                frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
+                frm.LoadData(selectedPersonID);
+                frm.ShowDialog();
+                _RefreshList();
+            }
    
+        }
     }
 }

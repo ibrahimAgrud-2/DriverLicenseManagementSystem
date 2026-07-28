@@ -67,6 +67,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetainedLicenseList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetainedLicenseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetainedLicenseList.ContextMenuStrip = this.cmsApplications;
             this.dgvDetainedLicenseList.Cursor = System.Windows.Forms.Cursors.Default;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -76,7 +77,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDetainedLicenseList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetainedLicenseList.Location = new System.Drawing.Point(-1, 269);
+            this.dgvDetainedLicenseList.Location = new System.Drawing.Point(8, 269);
             this.dgvDetainedLicenseList.MultiSelect = false;
             this.dgvDetainedLicenseList.Name = "dgvDetainedLicenseList";
             this.dgvDetainedLicenseList.ReadOnly = true;
@@ -95,6 +96,8 @@
             this.txtFilter.Size = new System.Drawing.Size(257, 33);
             this.txtFilter.TabIndex = 32;
             this.txtFilter.Visible = false;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilet_TextChanged);
+            this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilet_KeyPress);
             // 
             // cbFilterBy
             // 
@@ -112,6 +115,7 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(193, 33);
             this.cbFilterBy.TabIndex = 30;
+            this.cbFilterBy.SelectionChangeCommitted += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -161,6 +165,7 @@
             this.btnDetainLicense.Size = new System.Drawing.Size(122, 80);
             this.btnDetainLicense.TabIndex = 29;
             this.btnDetainLicense.UseVisualStyleBackColor = true;
+            this.btnDetainLicense.Click += new System.EventHandler(this.btnDetainLicense_Click);
             // 
             // btnReleaseLicense
             // 
@@ -170,6 +175,7 @@
             this.btnReleaseLicense.Size = new System.Drawing.Size(122, 80);
             this.btnReleaseLicense.TabIndex = 29;
             this.btnReleaseLicense.UseVisualStyleBackColor = true;
+            this.btnReleaseLicense.Click += new System.EventHandler(this.btnReleaseLicense_Click);
             // 
             // cmsApplications
             // 
@@ -181,7 +187,8 @@
             this.toolStripMenuItem1,
             this.releaseDetainedLicenseToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(265, 106);
+            this.cmsApplications.Size = new System.Drawing.Size(265, 133);
+            this.cmsApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApplications_Opening);
             // 
             // PesonDetailsToolStripMenuItem
             // 
@@ -218,6 +225,7 @@
             this.releaseDetainedLicenseToolStripMenuItem.Name = "releaseDetainedLicenseToolStripMenuItem";
             this.releaseDetainedLicenseToolStripMenuItem.Size = new System.Drawing.Size(264, 24);
             this.releaseDetainedLicenseToolStripMenuItem.Text = "Release Detained License";
+            this.releaseDetainedLicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedLicenseToolStripMenuItem_Click);
             // 
             // cbActive
             // 
@@ -233,6 +241,7 @@
             this.cbActive.Size = new System.Drawing.Size(134, 33);
             this.cbActive.TabIndex = 42;
             this.cbActive.Visible = false;
+            this.cbActive.SelectionChangeCommitted += new System.EventHandler(this.cbActive_SelectedIndexChanged);
             // 
             // frmManageDetainedLicenses
             // 

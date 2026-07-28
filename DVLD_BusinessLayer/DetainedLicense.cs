@@ -54,9 +54,9 @@ namespace DVLD_BusinessLayer
         }
 
         public static DataTable getDetainedLicenseRecords()
-        {    DataTable dt= DetainedLicensesDataAccess.getDetainedLicenseRecords();
-            Console.WriteLine(dt.Rows[0][0]);
-            return dt;
+        {   
+           
+            return DetainedLicensesDataAccess.getDetainedLicenseRecords(); ;
         }
           
        public static DetainedLicense Find(int detainID)

@@ -11,7 +11,7 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string sqlQuery = "select * from DetainedLicenses";
+            string sqlQuery = "select * from DetainedLicenses_view";
 
             SqlCommand cmd = new SqlCommand(sqlQuery, connection);
 
@@ -36,9 +36,7 @@ namespace DVLD_DataAccessLayer
             {
                 connection.Close();
             }
-            DataRow dtrow = dt.Rows[0];
 
-            Console.WriteLine(dtrow["LicenseId"]);
 
             return dt;
 
@@ -164,9 +162,9 @@ namespace DVLD_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
+            bool isFound = false;
 
-
-            string query = "select found =1 from DetainedLicenses where LicenseID=@LicenseID and isReleased=0 ";
+            string query = "select found=1 from DetainedLicenses where  isReleased=0 and LicenseID=@LicenseID ";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@LicenseID  ", LicenseID);
 
@@ -176,11 +174,8 @@ namespace DVLD_DataAccessLayer
                 connection.Open();
 
 
-                object result = cmd.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int value))
-                {
-                    return true;
-                }
+                SqlDataReader read = cmd.ExecuteReader();
+                isFound= read.HasRows;
             }
             catch (Exception)
             {
@@ -192,7 +187,7 @@ namespace DVLD_DataAccessLayer
                 connection.Close();
             }
 
-            return false;
+            return isFound;
         }
 
         public static int addDetainedLicense(int licenseID,  DateTime detainDate,  double fineFees,  int createdByUserID,  bool isReleased,  DateTime releaseDate,  int releasedByUserID,  int releaseApplicationID)

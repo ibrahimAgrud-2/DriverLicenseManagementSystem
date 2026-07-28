@@ -68,7 +68,7 @@ namespace DVLD.Licenses.Controls
         {
             txtFilter.Text = licenseID.ToString();
             this.ctrlShowLicenseInfo1.LoadLicenseInfo(licenseID);
-            btnFind.PerformClick();
+            _FindLicense();
         }
         private void _FindLicense()
         {

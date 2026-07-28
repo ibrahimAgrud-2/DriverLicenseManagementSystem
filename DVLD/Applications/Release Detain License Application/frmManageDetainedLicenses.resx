@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="cmsApplications.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnDetainLicense.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAA2NJREFUWEe9l01IG0EUgKdq8KfUKpX0oKIUfw4ejAet5lCGHCw0UmiJBVusgYIV
+        DgAACw4BQL7hQQAAA2NJREFUWEe9l01IG0EUgKdq8KfUKpX0oKIUfw4ejAet5lCGHCw0UmiJBVusgYIV
         aUXpQSqlpCCtHiwKIkV6CJUehBRpJbQlWLzoUXPSiKn/KC7iHxFRLK/MZEcnb5O4avDwwcvbt+99mZ0s
         EwIA5LwQQkyEEAchhOJrEVGICRRCJXK1RafABqp0E0JYQtCs5k34nhAUYgeFgIRDWxQFQogTDWYidkLI
         tpy/kU5eq/k03COMiH4JdelZIB4BSNfYZ29P+5V7xUUnMslJ5OBOBenFvTgnImeSYEs9Kg3FEqP/FlPo
@@ -218,7 +221,4 @@
         uX8AAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="cmsApplications.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>
