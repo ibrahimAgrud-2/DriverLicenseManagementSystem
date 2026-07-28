@@ -1,5 +1,6 @@
 ﻿using DVLD_DataAccessLayer;
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Runtime.CompilerServices;
 using ApplicationDb=DVLD_BusinessLayer.Applications;
@@ -218,7 +219,10 @@ namespace DVLD_BusinessLayer
     
 
 
-
+        //public bool IsLicenseIssued()
+        //{
+        //   // return Licenses.GetActiveLicenseIDByPersonID(this.)!=-1;
+        //}
 
     }
 }

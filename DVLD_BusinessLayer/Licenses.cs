@@ -359,5 +359,13 @@ namespace DVLD_BusinessLayer
             }
   
         }
+
+        //✅ Kişinin belli class'tan Aktif License'i varsa onun IDsini dönderir.
+        public static int GetActiveLicenseIDByPersonID(int personID,int licenseClassID)
+        {
+            return LicensesDataAccess.GetActiveLicenseIDByPersonID(personID, licenseClassID);
+        }
+  
+    
     }
 }

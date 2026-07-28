@@ -52,8 +52,6 @@ namespace DVLD.Applications
 
         }
 
-
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -76,6 +74,17 @@ namespace DVLD.Applications
                 _RefreshLocalLicenseApplicationList();
             }
         }
+        private void frmManageLDLA_Load(object sender, EventArgs e)
+        {
+            _RefreshLocalLicenseApplicationList();
+            _SetColumnNames();
+            cbFilterBy.SelectedIndex = 0;
+
+
+
+        }
+
+
 
         private void DeleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -222,6 +231,8 @@ namespace DVLD.Applications
         //------filtering
 
 
+
+
         private void _handleCSMScheduleTestOptions()
         {
             string status = dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
@@ -278,8 +289,13 @@ namespace DVLD.Applications
 
 
         }
+        private void cmsApplications_Opened(object sender, EventArgs e)
+        {
+            _HandleEnablingCsmOptions();
+        }
 
-
+        
+        
         private void ScheduleTest_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedLDLAID))
@@ -306,6 +322,7 @@ namespace DVLD.Applications
            
         }
 
+        //show Licenese detail
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
@@ -351,6 +368,7 @@ namespace DVLD.Applications
             }
         }
 
+        //show LDLA detail
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
@@ -360,22 +378,6 @@ namespace DVLD.Applications
             }
         }
 
-
-
-        
-        private void frmManageLDLA_Load(object sender, EventArgs e)
-        {
-            _RefreshLocalLicenseApplicationList();
-            _SetColumnNames();
-            cbFilterBy.SelectedIndex = 0;
-          
-          
-
-        }
-
-        private void cmsApplications_Opened(object sender, EventArgs e)
-        {
-            _HandleEnablingCsmOptions();
-        }
+  
     }
 }
