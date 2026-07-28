@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using clsApplication = DVLD_BusinessLayer.Applications;
 using clsLicense = DVLD_BusinessLayer.Licenses;
 
@@ -231,71 +232,53 @@ namespace DVLD.Applications
         //------filtering
 
 
-
-
-        private void _handleCSMScheduleTestOptions()
-        {
-            string status = dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
-            int completedTestCount = Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[5].Value);
-
-
-
-            if (status !="New"|| completedTestCount==3)
-            {
-                ScheduleTestsMenue.Enabled = false;
-                return;
-            }
-            else
-            {
-                ScheduleTestsMenue.Enabled = true;
-                for (int i = 0; i < 3; i++)
-                {
-
-                    ScheduleTestsMenue.DropDownItems[i].Enabled = false;
-                    if (i == completedTestCount)
-                    {
-                        ScheduleTestsMenue.DropDownItems[i].Enabled = true;
-                    }
-                }
-            }
-        }
-        private void _handleCSMIssueLicenseFirstTime()
-        {
-            string status = dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
-            int completedTestCount = Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[5].Value);
-
-
-            if (status == "New" && completedTestCount == 3)
-            {
-                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
-                return;
-            }
-            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
-
-
-        }
-
         private void _HandleEnablingCsmOptions()
         {
-            string status=dgvAppList.SelectedRows[0].Cells[6].Value.ToString();
-            //enable all when new
+            int LDLDAID = Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[0].Value);
+            LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(LDLDAID);
 
-            editToolStripMenuItem.Enabled= (status == "New");
-            DeleteApplicationToolStripMenuItem.Enabled= (status == "New");
-            CancelApplicaitonToolStripMenuItem.Enabled= (status == "New");
-            _handleCSMScheduleTestOptions();
-            _handleCSMIssueLicenseFirstTime();
-            showLicenseToolStripMenuItem.Enabled = (status == "Completed");
+            bool IsLicenseIssued = LDLA.IsLicenseIssued();
+            int TotalPassedTests = (int)dgvAppList.CurrentRow.Cells[5].Value;
+
+
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = !IsLicenseIssued&& TotalPassedTests==3;
+
+
+            showLicenseToolStripMenuItem.Enabled = IsLicenseIssued;
+            editToolStripMenuItem.Enabled = LDLA.ApplicationStatus == clsApplication.enApplicationStatus.New;
+
+
+            DeleteApplicationToolStripMenuItem.Enabled = LDLA.ApplicationStatus == clsApplication.enApplicationStatus.New&& !IsLicenseIssued;
+
+            CancelApplicaitonToolStripMenuItem.Enabled = LDLA.ApplicationStatus == clsApplication.enApplicationStatus.New;
+
+
+
+
+            bool isPassedVisionTest = LDLA.DoesPassTestType(TestTypes.enTestTypes.Vision);
+            bool isPassedWrittenTest = LDLA.DoesPassTestType(TestTypes.enTestTypes.Written);
+            bool isPassedStreetTest = LDLA.DoesPassTestType(TestTypes.enTestTypes.Street);
+
+            ScheduleTestsMenue.Enabled = !(isPassedVisionTest && isPassedWrittenTest&& isPassedStreetTest);
+            if (ScheduleTestsMenue.Enabled)
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = !isPassedVisionTest;
+                scheduleWrittenTestToolStripMenuItem.Enabled = !isPassedWrittenTest&&isPassedVisionTest;
+                scheduleStreetTestToolStripMenuItem.Enabled = isPassedVisionTest && isPassedWrittenTest && !isPassedStreetTest;
+
+            }
 
 
         }
-        private void cmsApplications_Opened(object sender, EventArgs e)
+
+
+        private void cmsApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _HandleEnablingCsmOptions();
         }
 
-        
-        
+
+
         private void ScheduleTest_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedLDLAID))
@@ -378,6 +361,6 @@ namespace DVLD.Applications
             }
         }
 
-  
+    
     }
 }

@@ -50,7 +50,7 @@
     <Compile Include="InternationalLicenseDataAccess.cs" />
     <Compile Include="LicenseClassesDataAccess.cs" />
     <Compile Include="LicensesDataAccess.cs" />
-    <Compile Include="LocalDrivingLicenseApplications.cs" />
+    <Compile Include="LocalLicenseApplicationsData.cs" />
     <Compile Include="PeopleDataAccess.cs" />
     <Compile Include="TestAppointmentsDataAccess.cs" />
     <Compile Include="TestDataAccess.cs" />

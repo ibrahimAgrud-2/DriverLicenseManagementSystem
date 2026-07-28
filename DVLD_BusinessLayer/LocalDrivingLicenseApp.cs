@@ -8,7 +8,7 @@ using ApplicationDb=DVLD_BusinessLayer.Applications;
 
 namespace DVLD_BusinessLayer
 {
-    public class LocalDrivingLicenseApp 
+    public class LocalDrivingLicenseApp :ApplicationDb
     {
         public enum enMode { enAddNew = 1, enUpdate = 2 };
         public enMode Mode;
@@ -187,17 +187,7 @@ namespace DVLD_BusinessLayer
         }
 
         //------------------------------------------------------
-        public bool DoesPassTestType(TestTypes.enTestTypes TestTypeID)
 
-        {
-            return clsLocalDrivingLicenseAppDataAccess.DoesPassTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
-        }
-
-        public static bool DoesPassTestType(int LocalDrivingLicenseApplicationID, TestTypes.enTestTypes TestTypeID)
-
-        {
-            return clsLocalDrivingLicenseAppDataAccess.DoesPassTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
-        }
 
         public bool DoesAttendTestType(TestTypes.enTestTypes TestTypeID)
 
@@ -216,13 +206,27 @@ namespace DVLD_BusinessLayer
 
             return clsLocalDrivingLicenseAppDataAccess.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+
+
+
+       //✅ 
+        public  bool IsLicenseIssued()
+        {
+           return Licenses.GetActiveLicenseIDByPersonID(this.ApplicantPersonID,this.licenseClassID)!=-1;
+        }
+        //✅
+        public bool DoesPassTestType(TestTypes.enTestTypes TestTypeID)
+
+        {
+            return clsLocalDrivingLicenseAppDataAccess.DoesPassTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
+        //✅
+        public static bool DoesPassTestType(int LocalDrivingLicenseApplicationID, TestTypes.enTestTypes TestTypeID)
+
+        {
+            return clsLocalDrivingLicenseAppDataAccess.DoesPassTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
+  
     
-
-
-        //public bool IsLicenseIssued()
-        //{
-        //   // return Licenses.GetActiveLicenseIDByPersonID(this.)!=-1;
-        //}
-
     }
 }

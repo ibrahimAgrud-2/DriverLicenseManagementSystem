@@ -440,6 +440,8 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
             return Result;
             
         }
+      
+        
         //DoesPassTestType Fonksyionunda göre Query'deki tek değişiklik Found=1 eklenmesi. Bu sayede eğer varsa sonuç Found=1 olur ve true döner. Ancak DoesPassTestType fonksiyonunda Result sorguluyorduk ve result 0 yani false'de dönebilirdi.
         public static bool DoesAttendTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
 
