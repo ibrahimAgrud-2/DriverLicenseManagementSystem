@@ -62,11 +62,11 @@ namespace DVLD.Licenses.Detained_Licenses
                 MessageBox.Show("Fill required fields");
                 return;
             }
-            if (MessageBox.Show("Are you sure", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Are you sure you want to detain this license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
-  
+
             DetainedLicense detainedLicense = this.ctrlLicenseInfoWithFilter1.selectedLicense.Detain(Convert.ToDouble(txtFineFee.Text),Global.CurrentUser.userID);
 
             if(detainedLicense==null)
