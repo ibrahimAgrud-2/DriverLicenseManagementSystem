@@ -14,9 +14,6 @@ namespace DVLD_BusinessLayer
         public enMode Mode;
 
         public int LocalDrivingLicenseApplicationID { set; get; }
-        public int applicationID { set; get; }
-        public ApplicationDb ApplicationInfo;
-
         public int licenseClassID { set; get; }
         public LicenseClass LicenseClassInfo { set; get; }
      
@@ -25,60 +22,49 @@ namespace DVLD_BusinessLayer
         public LocalDrivingLicenseApp()
         {
             this.LocalDrivingLicenseApplicationID = -1;
-            this.applicationID = -1;
             this.licenseClassID = -1;
             this.Mode = enMode.enAddNew;
         }
 
-        private LocalDrivingLicenseApp(int id, int applicationID, int licenseClassID)
+        private LocalDrivingLicenseApp(int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID, int ApplicantPersonID,
+            DateTime ApplicationDate,
+             enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
+             double PaidFees, int CreatedByUserID)
         {
-            this.LocalDrivingLicenseApplicationID = id;
-            this.applicationID = applicationID;
-            this.ApplicationInfo = ApplicationDb.Find(applicationID);
+            base.ApplicationID = ApplicationID;
+            base.ApplicantPersonID = ApplicantPersonID;
+            base.ApplicationDate = ApplicationDate;
+            base.ApplicationTypeID = (int)ApplicationDb.enApplicationType.NewDrivingLicense;
+            base.ApplicationStatus = ApplicationStatus;
+            base.LastStatusDate = LastStatusDate;
+            base.PaidFees = PaidFees;
+            base.CreatedByUserID = CreatedByUserID;
+            base.ApplicantPerson = Person.Find(ApplicantPersonID);
 
-            this.licenseClassID = licenseClassID;
-            this.LicenseClassInfo = LicenseClass.Find(licenseClassID);
-
+            this.licenseClassID = LicenseClassID;
+            this.LicenseClassInfo = LicenseClass.Find(LicenseClassID);
             this.Mode = enMode.enUpdate;
+            this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID; ;
         }
-        //private LocalDrivingLicenseApp(int LocalDrivingLicenseApplicationID, int ApplicationID, int ApplicantPersonID,
-        //    DateTime ApplicationDate, int ApplicationTypeID,
-        //     enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
-        //     float PaidFees, int CreatedByUserID, int LicenseClassID)
-        //{
-        //    this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
-        //    this.applicationID = applicationID;
-        //    this.ApplicationInfo = ApplicationDb.Find(applicationID);
-        //    this.ApplicantPersonID = ApplicantPersonID;
-        //    this.ApplicationDate = ApplicationDate;
-        //    this.ApplicationTypeID = ApplicationTypeID;
-        //    this.ApplicationStatus = ApplicationStatus;
-        //    this.LastStatusDate = LastStatusDate;
-        //    this.PaidFees = PaidFees;
-        //    this.CreatedByUserID = CreatedByUserID;
-        //    this.licenseClassID = licenseClassID;
-        //    this.LicenseClassInfo = LicenseClass.Find(licenseClassID);
-        //    Mode = enMode.enUpdate;
-        //}
 
         public static DataTable getLocalDrivingLicenseAppRecords()
         {
-            DataTable dt = new DataTable();
-
-            dt = clsLocalDrivingLicenseAppDataAccess.getAllLocalDrivingLicenseApps();
-            return dt;
+            return clsLocalDrivingLicenseAppDataAccess.getAllLocalDrivingLicenseApps();
         }
 
 
 
-        public static LocalDrivingLicenseApp Find(int id)
+        public static LocalDrivingLicenseApp Find(int LDLAID)
         {
               int applicationID=0,
               licenseClassID=0;
 
-            if (clsLocalDrivingLicenseAppDataAccess.Find(id, ref applicationID, ref licenseClassID))
+            if (clsLocalDrivingLicenseAppDataAccess.Find(LDLAID, ref applicationID, ref licenseClassID))
             {
-                return new LocalDrivingLicenseApp(id, applicationID, licenseClassID);
+
+                ApplicationDb app = ApplicationDb.Find(applicationID);
+
+                return new LocalDrivingLicenseApp(LDLAID, applicationID, licenseClassID, app.ApplicantPersonID,app.ApplicationDate,ApplicationDb.enApplicationStatus.New,app.LastStatusDate,app.PaidFees,app.CreatedByUserID);
             }
             return null;
         }
@@ -89,21 +75,19 @@ namespace DVLD_BusinessLayer
 
 
 
-            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseAppDataAccess.AddLocalDrivingLicense( this.applicationID,(int) this.licenseClassID);
+            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseAppDataAccess.AddLocalDrivingLicense( this.ApplicationID,(int) this.licenseClassID);
             return (this.LocalDrivingLicenseApplicationID != -1);
 
         }
         private bool _UpdateDLocalDriverLicenseAppInfo()
         {
 
-            return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.LocalDrivingLicenseApplicationID, this.applicationID,(int)this.licenseClassID);
+            return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.LocalDrivingLicenseApplicationID, this.ApplicationID, (int)this.licenseClassID);
         }
         public static bool IsLocalDriverLicenseExist(int id)
         {
             return clsLocalDrivingLicenseAppDataAccess.isLocalDrivingLicenseAppExistByID(id);
         }
-       
-
 
         public bool deleteLocalDrivingLicenseApp()
         {
@@ -115,13 +99,19 @@ namespace DVLD_BusinessLayer
                 return false;
 
 
-            isBaseApplicationDeleted = ApplicationDb.Delete(this.applicationID);
+            isBaseApplicationDeleted = ApplicationDb.Delete(this.ApplicationID);
             return isBaseApplicationDeleted;
 
         }
 
-        public bool Save(   )
+        public bool Save()
         {
+
+            base.Mode = (ApplicationDb.enMode)Mode;
+            if(!base.Save())
+            {
+                return false;
+            }
             switch (this.Mode)
             {
                 case enMode.enAddNew:
@@ -142,37 +132,7 @@ namespace DVLD_BusinessLayer
             }
         }
 
-        public bool Save(int a)
-        {
-
-            //Because of inheritance first we call the Save method in the base class,
-            //it will take care of adding all information to the application table.
-            //base.Mode = (ApplicationDb.enMode)Mode;
-            //if (!base.Save())
-            //    return false;
-
-            //After we Save the main application now we Save the sub application.
-            switch (this.Mode)
-            {
-                case enMode.enAddNew:
-                    if (_AddNewLocalDriverLicenseApp())
-                    {
-                        this.Mode = enMode.enUpdate;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-                case enMode.enUpdate:
-                    return _UpdateDLocalDriverLicenseAppInfo();
-                default:
-                    return false;
-            }
-        }
-
-
+    
         public static bool HasPendingOrCompletedApplication(int personID,int AppForLicenseClassID)
         {
             return clsLocalDrivingLicenseAppDataAccess.HasPendingOrCompletedApplication(personID,AppForLicenseClassID);

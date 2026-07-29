@@ -38,7 +38,7 @@ namespace DVLD.Licenses
         {
     
             Driver newDrv = new Driver();
-            newDrv.personID = _LDLA.ApplicationInfo.ApplicantPersonID;
+            newDrv.personID = _LDLA.ApplicantPersonID;
             newDrv.createdDate = DateTime.Today;
             newDrv.createdByUserID = Global.CurrentUser.userID;
             
@@ -53,7 +53,7 @@ namespace DVLD.Licenses
         {
   
             clsLicense newLicense = new clsLicense();
-            Driver drv = Driver.FindByPersonID(_LDLA.ApplicationInfo.ApplicantPersonID);
+            Driver drv = Driver.FindByPersonID(_LDLA.ApplicantPersonID);
             if (drv != null)
             {
                 newLicense.driverID = drv.driverID;
@@ -64,7 +64,7 @@ namespace DVLD.Licenses
             }
                 
             newLicense.notes = txtNotes.Text;
-            newLicense.applicationID = _LDLA.applicationID;
+            newLicense.applicationID = _LDLA.ApplicationID;
             newLicense.paidFees = LicenseClass.Find(_LDLA.licenseClassID).classFee;
             newLicense.isActive = true;
             newLicense.expirationDate = DateTime.Now.AddYears(LicenseClass.Find(_LDLA.licenseClassID).defaultValidityLength);
@@ -84,9 +84,9 @@ namespace DVLD.Licenses
 
             if (newL.save())
             {
-                _LDLA.ApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
-                _LDLA.ApplicationInfo.LastStatusDate = DateTime.Now;
-                _LDLA.ApplicationInfo.Save();
+                _LDLA.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+                _LDLA.LastStatusDate = DateTime.Now;
+                _LDLA.Save();
 
                 MessageBox.Show($"Saved successfully with license {newL.licenseID}");
 

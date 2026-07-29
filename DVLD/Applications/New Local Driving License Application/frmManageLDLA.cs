@@ -116,7 +116,7 @@ namespace DVLD.Applications
                 }
                 else
                 {
-                    MessageBox.Show("People Not Found");
+                    MessageBox.Show("Person Not Found");
                 }
 
             }
@@ -312,7 +312,7 @@ namespace DVLD.Applications
             {
 
 
-                int licenseID = clsLicense.FindByApplicationID(LocalDrivingLicenseApp.Find(selectedID).applicationID).licenseID;
+                int licenseID = clsLicense.FindByApplicationID(LocalDrivingLicenseApp.Find(selectedID).ApplicationID).licenseID;
 
                 frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(licenseID);
                 frm.ShowDialog();
@@ -326,7 +326,7 @@ namespace DVLD.Applications
 
                 LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
 
-                frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLA.ApplicationInfo.ApplicantPersonID);
+                frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLA.ApplicantPersonID);
                 frm.ShowDialog();
             }
         }
@@ -339,9 +339,9 @@ namespace DVLD.Applications
                 if (MessageBox.Show("Are you sure you want to cancel [" + selectedID + "]", "Confirm cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
-                    LDLA.ApplicationInfo.cancel();
-                    LDLA.ApplicationInfo.LastStatusDate = DateTime.Now;
-                    if (LDLA.ApplicationInfo.Save())
+                    LDLA.cancel();
+                    LDLA.LastStatusDate = DateTime.Now;
+                    if (LDLA.Save())
                     {
                         MessageBox.Show("Cancelled successfully");
                         _RefreshLocalLicenseApplicationList();

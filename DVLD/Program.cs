@@ -1,4 +1,5 @@
-﻿using DVLD.Applications.International_License_Applications;
+﻿using DVLD.Applications;
+using DVLD.Applications.International_License_Applications;
 using DVLD.Applications.Release_Detain_License_Application;
 using DVLD.Applications.Replace_for_damage_or_lost;
 using DVLD.Licenses;
@@ -19,7 +20,7 @@ namespace DVLD
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new frmAddUpdatePerson());
-            System.Windows.Forms.Application.Run(new frmManageInternationalLicesnseApplications());
+            System.Windows.Forms.Application.Run(new frmManageLDLA());
 
         }
     }

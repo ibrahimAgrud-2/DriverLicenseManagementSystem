@@ -7,7 +7,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
-using PeopleBL = DVLD_BusinessLayer.People;
+using PeopleBL = DVLD_BusinessLayer.Person;
 
 namespace DVLD
 {

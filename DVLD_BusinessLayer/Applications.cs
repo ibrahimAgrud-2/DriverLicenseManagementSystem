@@ -22,7 +22,7 @@ namespace DVLD_BusinessLayer
         public int ApplicationTypeID { set; get; }
         public ApplicationTypes ApplicationTypeInfo { set; get; }
         public int ApplicantPersonID { set; get; }
-        public People ApplicantPerson { set; get; }
+        public Person ApplicantPerson { set; get; }
         public DateTime ApplicationDate { set; get; }
         public enApplicationStatus ApplicationStatus;
         public DateTime LastStatusDate { set; get; }
@@ -58,7 +58,7 @@ namespace DVLD_BusinessLayer
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = paidFee;
             this.ApplicationTypeInfo = ApplicationTypes.Find(applicationTypeID);
-            this.ApplicantPerson = People.Find(applicantPersonID);
+            this.ApplicantPerson = Person.Find(applicantPersonID);
             this.CreatedByUserID = createdByUserID;
             this.CreatedByUserInfo = User.Find(CreatedByUserID);
             this.Mode = enMode.enUpdate;

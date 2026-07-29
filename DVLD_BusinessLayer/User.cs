@@ -19,7 +19,7 @@ namespace DVLD_BusinessLayer
         public int personID { set; get; }
 
         //Person composition
-        public  People Person;
+        public  Person Person;
 
 
         public enum enMode { enAddNew = 1, enUpdate = 2 };
@@ -44,7 +44,7 @@ namespace DVLD_BusinessLayer
             this.UserName = userName;
             this.password = password;
             this.isActive = isActive;
-            this.Person = People.Find(personID);
+            this.Person = Person.Find(personID);
             this.mode = enMode.enUpdate;
         }
        public static DataTable getUserRecords()

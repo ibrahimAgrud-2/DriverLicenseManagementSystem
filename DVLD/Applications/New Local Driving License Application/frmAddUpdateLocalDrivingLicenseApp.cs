@@ -1,12 +1,8 @@
 ﻿using DVLD_BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using ApplicationsDb = DVLD_BusinessLayer.Applications;
+using clsLicense = DVLD_BusinessLayer.Licenses;
+using clsApplication = DVLD_BusinessLayer.Applications;
 using System.Windows.Forms;
 
 namespace DVLD.Applications.New_Local_Driving_License_Application
@@ -21,8 +17,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
         private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA;
 
-        private int _ApplicationID = -1;
-        private ApplicationsDb App;
+
 
 
         public frmAddUpdateLocalDrivingLicenseApp()
@@ -54,12 +49,6 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                     MessageBox.Show("No LDLA with LocalDrivingLicenseApplicationID = " + _LDLAID, "LDLA Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
-                App = ApplicationsDb.Find(_LDLA.applicationID);
-                if (App == null)
-                {
-                    MessageBox.Show("No Application with LocalDrivingLicenseApplicationID = " + _ApplicationID, "App Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    this.Close();
-                }
 
                 lblMode.Text = "Update Local Driving License Application";
                 this.Text = "Update Local Driving License Application";
@@ -78,7 +67,6 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
                 lblAppDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
                 cbLicenseClasses.SelectedIndex = 3;
                 _LDLA = new LocalDrivingLicenseApp();
-                App = new ApplicationsDb();
 
             }
 
@@ -94,72 +82,54 @@ namespace DVLD.Applications.New_Local_Driving_License_Application
 
         private void fillObjectDataToField()
         {
-            if (_LDLA == null&&_LDLA.ApplicationInfo==null)
+            if (_LDLA == null)
                 return;
             cbLicenseClasses.SelectedIndex = cbLicenseClasses.FindString(_LDLA.LicenseClassInfo.className);
             lblID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
-            lblAppDate.Text = _LDLA.ApplicationInfo.ApplicationDate.ToString("yyyy/mm/dd");
-            lblAppFees.Text = _LDLA.ApplicationInfo.PaidFees.ToString();
-            lblCreatedByUserID.Text = _LDLA.ApplicationInfo.CreatedByUserID.ToString();
+            lblAppDate.Text = _LDLA.ApplicationDate.ToString("yyyy/mm/dd");
+            lblAppFees.Text = _LDLA.PaidFees.ToString();
+            lblCreatedByUserID.Text = _LDLA.CreatedByUserID.ToString();
 
 
-            this.ctrlPersonCardWithFilter1.LoadData(_LDLA.ApplicationInfo.ApplicantPersonID);
+            this.ctrlPersonCardWithFilter1.LoadData(_LDLA.ApplicantPersonID);
         }
 
-        private bool _FillDataToObject()
+        private void _FillDataToObject()
         {
-            if (this._Mode==enMode.enAddNew&&!_AddNewApplication())
-            {
-                MessageBox.Show("Could not Save new App");
-                return false;
-            }
-            if (this.ValidateChildren())
-            {
-                _LDLA.licenseClassID = LicenseClass.Find(cbLicenseClasses.Text).ID;
-                _LDLA.applicationID = App.ApplicationID;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
+            _LDLA.ApplicationDate = DateTime.Now;
+            _LDLA.LastStatusDate = DateTime.Now;
+            _LDLA.ApplicationStatus = clsApplication.enApplicationStatus.New;
+            _LDLA.ApplicationTypeID = (int)clsApplication.enApplicationType.NewDrivingLicense;
+            _LDLA.ApplicantPersonID = this.ctrlPersonCardWithFilter1.personID;
+            _LDLA.CreatedByUserID = Global.CurrentUser.userID;
+            _LDLA.licenseClassID = LicenseClass.Find(cbLicenseClasses.Text).LicenseClassID;
+            _LDLA.PaidFees = ApplicationTypes.Find((int)clsApplication.enApplicationType.NewDrivingLicense).applicationFee;
         }
 
-        /*
-     Önce kayıt ekleme işlemi burada olmalı. Çünkü DL, henüz 2 tanbloya nasıl veri ekleriz bilmiyorzu. BL'de ise LocalApp sınıfından personID'e direk erişim yok. Bu yüzden buradan eklenmeli.
-   */
-        private bool _AddNewApplication()
-        {
-            App.ApplicantPersonID = ctrlPersonCardWithFilter1.personID;
-            App.ApplicationDate = DateTime.Now;
-            App.ApplicationTypeID = 1;
-            App.ApplicationStatus = ApplicationsDb.enApplicationStatus.New;
-            App.LastStatusDate = DateTime.Now;
-            App.PaidFees = ApplicationTypes.Find(App.ApplicationTypeID).applicationFee;
-            App.CreatedByUserID = Global.CurrentUser.userID;
-        
 
-            return App.Save(); ;
-        }
+     
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //pending = new
-            if (LocalDrivingLicenseApp.HasPendingOrCompletedApplication(this.ctrlPersonCardWithFilter1.personID,LicenseClass.Find(cbLicenseClasses.Text).ID))     
+            int ApplicationID = LocalDrivingLicenseApp.GetActiveApplicationIDForLicenseClass(this.ctrlPersonCardWithFilter1.personID, clsApplication.enApplicationType.NewDrivingLicense, LicenseClass.Find(cbLicenseClasses.Text).LicenseClassID);
+
+            if (ApplicationID!=-1)     
             {
-                MessageBox.Show("The person has the same kind of active application");
+                MessageBox.Show("Choose another License Class, the selected Person Already have an active application for the selected class with id=" + ApplicationID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!_FillDataToObject())
+            int LicenseClassID = LicenseClass.Find(cbLicenseClasses.Text).LicenseClassID;
+
+            if (clsLicense.isLicenseExistByPersonID(this.ctrlPersonCardWithFilter1.personID, LicenseClassID))
             {
-                MessageBox.Show("Fill requireds properly");
+                MessageBox.Show("Person already have a license with the same applied driving class, Choose diffrent driving class", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
- 
+            _FillDataToObject();
+            
             if (_LDLA.Save())
             {
-                MessageBox.Show("Saved successfully");
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this._Mode = enMode.enUpdate;
                 lblMode.Text = "Update User";
                 this.Text = "Update User";

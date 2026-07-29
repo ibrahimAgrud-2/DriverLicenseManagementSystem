@@ -1,6 +1,6 @@
 ﻿    using DVLD_BusinessLayer;
 using System;
-using PeopleBL = DVLD_BusinessLayer.People;
+using PeopleBL = DVLD_BusinessLayer.Person;
 using System.Windows.Forms;
 using System.ComponentModel;
 

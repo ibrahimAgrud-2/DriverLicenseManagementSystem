@@ -41,9 +41,9 @@ namespace DVLD.Test
         {
             lblLDLAID.Text = LDLA.LocalDrivingLicenseApplicationID.ToString();
             lblAppForClass.Text = LDLA.LicenseClassInfo.className;
-            lblApplicantName.Text = LDLA.ApplicationInfo.ApplicantPerson.fullName;
-            dtpApplicationDate.Value = LDLA.ApplicationInfo.ApplicationDate;
-            lblFees.Text = LDLA.ApplicationInfo.PaidFees.ToString();
+            lblApplicantName.Text = LDLA.ApplicantPerson.fullName;
+            dtpApplicationDate.Value = LDLA.ApplicationDate;
+            lblFees.Text = LDLA.PaidFees.ToString();
             TestType = (TestTypes.enTestTypes)_LDLA.GetPassedTestCount() + 1;
 
             TestAppointments _testAppointment = TestAppointments.FindByLocalDrivingLicenseID(_LDLAID);

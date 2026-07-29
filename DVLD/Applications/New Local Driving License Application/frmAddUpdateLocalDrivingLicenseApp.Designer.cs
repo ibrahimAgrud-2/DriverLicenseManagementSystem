@@ -60,7 +60,7 @@
             this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(1050, 601);
+            this.btnSave.Location = new System.Drawing.Point(1008, 604);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 38);
@@ -159,7 +159,7 @@
             this.label4.Location = new System.Drawing.Point(91, 151);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 25);
+            this.label4.Size = new System.Drawing.Size(493, 25);
             this.label4.TabIndex = 143;
             this.label4.Text = "D.L.Application LocalDrivingLicenseApplicationID:";
             // 
@@ -172,11 +172,11 @@
             this.lblAppDate.TabIndex = 2;
             this.lblAppDate.Text = "[??/??/????]";
             // 
-            // lblCreatedByUser
+            // lblCreatedByUserID
             // 
             this.lblCreatedByUserID.AutoSize = true;
             this.lblCreatedByUserID.Location = new System.Drawing.Point(300, 349);
-            this.lblCreatedByUserID.Name = "lblCreatedByUser";
+            this.lblCreatedByUserID.Name = "lblCreatedByUserID";
             this.lblCreatedByUserID.Size = new System.Drawing.Size(37, 20);
             this.lblCreatedByUserID.TabIndex = 2;
             this.lblCreatedByUserID.Text = "N/A";
@@ -192,7 +192,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(1020, 449);
+            this.btnNext.Location = new System.Drawing.Point(980, 459);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 38);
@@ -210,20 +210,20 @@
             this.tpPersonInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpPersonInfo.Name = "tpPersonInfo";
             this.tpPersonInfo.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpPersonInfo.Size = new System.Drawing.Size(1130, 503);
+            this.tpPersonInfo.Size = new System.Drawing.Size(1088, 503);
             this.tpPersonInfo.TabIndex = 0;
-            this.tpPersonInfo.Text = "People Info";
+            this.tpPersonInfo.Text = "Person Info";
             this.tpPersonInfo.UseVisualStyleBackColor = true;
             // 
             // ctrlPersonCardWithFilter1
             // 
             this.ctrlPersonCardWithFilter1.FilterEnabled = true;
             this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(38, 7);
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(4, 7);
             this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(4);
             this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
             this.ctrlPersonCardWithFilter1.ShowAddPersonButton = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1082, 435);
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1083, 435);
             this.ctrlPersonCardWithFilter1.TabIndex = 82;
             // 
             // lblMode
@@ -240,7 +240,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(945, 601);
+            this.btnClose.Location = new System.Drawing.Point(903, 604);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 38);
@@ -264,7 +264,7 @@
             this.tbMain.Multiline = true;
             this.tbMain.Name = "tbMain";
             this.tbMain.SelectedIndex = 0;
-            this.tbMain.Size = new System.Drawing.Size(1138, 536);
+            this.tbMain.Size = new System.Drawing.Size(1096, 536);
             this.tbMain.TabIndex = 92;
             this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
@@ -272,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 654);
+            this.ClientSize = new System.Drawing.Size(1114, 654);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblMode);
             this.Controls.Add(this.btnClose);

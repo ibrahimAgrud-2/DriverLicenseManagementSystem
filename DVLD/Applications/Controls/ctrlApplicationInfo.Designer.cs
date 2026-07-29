@@ -66,7 +66,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 32);
             this.label5.TabIndex = 79;
-            this.label5.Text = "LocalDrivingLicenseApplicationID: ";
+            this.label5.Text = "Application LicenseClassID: ";
             // 
             // label13
             // 
@@ -108,13 +108,13 @@
             this.lblAppDate.TabIndex = 83;
             this.lblAppDate.Text = "?????";
             // 
-            // lblCreatedByUser
+            // lblCreatedByUserID
             // 
             this.lblCreatedByUserID.AutoSize = true;
             this.lblCreatedByUserID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCreatedByUserID.Location = new System.Drawing.Point(722, 162);
             this.lblCreatedByUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCreatedByUserID.Name = "lblCreatedByUser";
+            this.lblCreatedByUserID.Name = "lblCreatedByUserID";
             this.lblCreatedByUserID.Size = new System.Drawing.Size(40, 24);
             this.lblCreatedByUserID.TabIndex = 73;
             this.lblCreatedByUserID.Text = "???";
@@ -181,16 +181,16 @@
             this.lblCountry.TabIndex = 85;
             this.lblCountry.Text = "Created By User: ";
             // 
-            // lnklblEditPersonInfo
+            // lblEditLicenseInfo
             // 
             this.lnklblEditPersonInfo.AutoSize = true;
             this.lnklblEditPersonInfo.Enabled = false;
             this.lnklblEditPersonInfo.Location = new System.Drawing.Point(517, 217);
-            this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
+            this.lnklblEditPersonInfo.Name = "lblEditLicenseInfo";
             this.lnklblEditPersonInfo.Size = new System.Drawing.Size(152, 24);
             this.lnklblEditPersonInfo.TabIndex = 76;
             this.lnklblEditPersonInfo.TabStop = true;
-            this.lnklblEditPersonInfo.Text = "View People Info";
+            this.lnklblEditPersonInfo.Text = "View Person Info";
             this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // lblAppStatus

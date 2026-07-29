@@ -9,7 +9,7 @@ namespace DVLD_BusinessLayer
     {
         public int driverID { set; get; }
         public int personID { set; get; }
-        public People personInfo { set; get; }
+        public Person personInfo { set; get; }
         public int createdByUserID { set; get; }
         public DateTime createdDate { set; get; }
 

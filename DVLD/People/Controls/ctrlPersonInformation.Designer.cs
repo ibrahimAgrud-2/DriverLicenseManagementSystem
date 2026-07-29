@@ -81,7 +81,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 32);
             this.label5.TabIndex = 48;
-            this.label5.Text = "People LocalDrivingLicenseApplicationID: ";
+            this.label5.Text = "Person LocalDrivingLicenseApplicationID: ";
             // 
             // label4
             // 
@@ -137,16 +137,16 @@
             this.label11.TabIndex = 43;
             this.label11.Text = "Phone: ";
             // 
-            // lnklblEditPersonInfo
+            // lblEditLicenseInfo
             // 
             this.lnklblEditPersonInfo.AutoSize = true;
             this.lnklblEditPersonInfo.Enabled = false;
             this.lnklblEditPersonInfo.Location = new System.Drawing.Point(748, 18);
-            this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
+            this.lnklblEditPersonInfo.Name = "lblEditLicenseInfo";
             this.lnklblEditPersonInfo.Size = new System.Drawing.Size(126, 20);
             this.lnklblEditPersonInfo.TabIndex = 36;
             this.lnklblEditPersonInfo.TabStop = true;
-            this.lnklblEditPersonInfo.Text = "Edit People Info";
+            this.lnklblEditPersonInfo.Text = "Edit Person Info";
             this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // label12
@@ -274,7 +274,7 @@
             this.groupBox1.Size = new System.Drawing.Size(957, 343);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "People Information";
+            this.groupBox1.Text = "Person Information";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pbPersonImage

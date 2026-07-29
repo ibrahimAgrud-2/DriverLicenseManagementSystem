@@ -86,7 +86,7 @@
             this.tsmPeople.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmPeople.Name = "tsmPeople";
             this.tsmPeople.Size = new System.Drawing.Size(200, 150);
-            this.tsmPeople.Text = "Manage People";
+            this.tsmPeople.Text = "Manage Person";
             this.tsmPeople.Click += new System.EventHandler(this.tsmPeople_Click);
             // 
             // menuStrip1

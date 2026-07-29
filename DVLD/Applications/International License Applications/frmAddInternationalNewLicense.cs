@@ -48,7 +48,7 @@ namespace DVLD.Applications.International_License_Applications
             int ActiveInternaionalLicenseID = InternationalLicense.GetActiveInternationalLicenseIDByDriverID(this.ctrlLicenseInfoWithFilter1.selectedLicense.driverID);
             if (ActiveInternaionalLicenseID != -1)
             {
-                MessageBox.Show("Person already have an active international license with ID = " + ActiveInternaionalLicenseID, "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Person already have an active international license with LicenseClassID = " + ActiveInternaionalLicenseID, "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 llShowLicenseInfo.Enabled = true;
                 _InternationalLicenseID = ActiveInternaionalLicenseID;
                 btnIssueLicense.Enabled = false;
@@ -142,7 +142,7 @@ namespace DVLD.Applications.International_License_Applications
 
             }
 
-            MessageBox.Show("International License Issued Successfully with ID=" + _InternationalLicense.InternationalLicenseID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("International License Issued Successfully with LicenseClassID=" + _InternationalLicense.InternationalLicenseID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             lblInternationalLicenseID.Text = _InternationalLicense.InternationalLicenseID.ToString();
             _InternationalLicenseID = _InternationalLicense.InternationalLicenseID;

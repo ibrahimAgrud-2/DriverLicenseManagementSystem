@@ -48,7 +48,7 @@ namespace DVLD_BusinessLayer
             base.CreatedByUserID = CreatedByUserID;
             base.ApplicationTypeID = (int)Applications.enApplicationType.NewInternationalLicense;
             //base class'ta bulunan person sadece parametreli const içinde find oluyor. O constructor ise burada çağırılmadı için base class'ta person objesi boş kalıyor. Yani Int.Licnse'in base class App dolu ama içinde person boş kalıyor. Bu yüzden person'u burada find yaptık
-            base.ApplicantPerson = People.Find(ApplicantPersonID);
+            base.ApplicantPerson = Person.Find(ApplicantPersonID);
           
        
 
@@ -115,7 +115,7 @@ namespace DVLD_BusinessLayer
         public bool Save()
         {
 
-            //Bu sınıf App'ten inheritance olduğu için save yaptığımızda önce üst sınıf save olmalı sonra bu sınıf. Zaten DB'de de International license tablosında APP ID isteniyor. bu yüzden Önce APP kayıt etmelisin sonra Int.License kayıt etmelisin.
+            //Bu sınıf App'ten inheritance olduğu için save yaptığımızda önce üst sınıf save olmalı sonra bu sınıf. Zaten DB'de de International license tablosında APP LicenseClassID isteniyor. bu yüzden Önce APP kayıt etmelisin sonra Int.License kayıt etmelisin.
             base.Mode = (Applications.enMode)mode;
             if (!base.Save())
                 return false;
@@ -142,7 +142,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        //Bir driver'İn yani *kişinin* Aktif Int.License varsa ID'sini dönderir.
+        //Bir driver'İn yani *kişinin* Aktif Int.License varsa LicenseClassID'sini dönderir.
         public static int GetActiveInternationalLicenseIDByDriverID(int driverID)
         {
             return InternationalLicenseDataAccess.GetActiveInternationalLicenseIDByDriverID(driverID);

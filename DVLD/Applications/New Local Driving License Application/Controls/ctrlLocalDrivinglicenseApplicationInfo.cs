@@ -29,7 +29,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
 
         private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
         {
-            this.ctrlApplicationInfo1.LoadAppInfo(LDLA.applicationID);
+            this.ctrlApplicationInfo1.LoadAppInfo(LDLA.ApplicationID);
 
             lblLDLAID.Text = LDLA.LocalDrivingLicenseApplicationID.ToString() ;
             lblAppliedForLicense.Text = LDLA.LicenseClassInfo.className;
@@ -42,9 +42,9 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
         {
             _LDLAID = _LDLA.LocalDrivingLicenseApplicationID;
             fillObjectDataToField(_LDLA);
-            if(_LDLA.ApplicationInfo.ApplicationStatus==DVLD_BusinessLayer.Applications.enApplicationStatus.Completed)
+            if(_LDLA.ApplicationStatus==DVLD_BusinessLayer.Applications.enApplicationStatus.Completed)
             {
-                lnklblEditPersonInfo.Enabled = true;
+                lblEditLicenseInfo.Enabled = true;
             }
           
 
@@ -77,7 +77,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
         private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
-            clsLicenses L1 = clsLicenses.FindByApplicationID(_LDLA.applicationID);
+            clsLicenses L1 = clsLicenses.FindByApplicationID(_LDLA.ApplicationID);
             if(L1!=null)
             {
                 frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(L1.licenseID);

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlLocalDrivinglicenseApplicationInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lnklblEditPersonInfo = new System.Windows.Forms.LinkLabel();
+            this.lblEditLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.lblPassedTestCount = new System.Windows.Forms.Label();
             this.lblAppliedForLicense = new System.Windows.Forms.Label();
             this.lblLDLAID = new System.Windows.Forms.Label();
@@ -41,9 +41,9 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbMain
+            // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lnklblEditPersonInfo);
+            this.groupBox1.Controls.Add(this.lblEditLicenseInfo);
             this.groupBox1.Controls.Add(this.lblPassedTestCount);
             this.groupBox1.Controls.Add(this.lblAppliedForLicense);
             this.groupBox1.Controls.Add(this.lblLDLAID);
@@ -52,23 +52,23 @@
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 3);
-            this.groupBox1.Name = "gbMain";
-            this.groupBox1.Size = new System.Drawing.Size(949, 157);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(832, 157);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Local License App Info";
             // 
-            // lnklblEditPersonInfo
+            // lblEditLicenseInfo
             // 
-            this.lnklblEditPersonInfo.AutoSize = true;
-            this.lnklblEditPersonInfo.Enabled = false;
-            this.lnklblEditPersonInfo.Location = new System.Drawing.Point(45, 108);
-            this.lnklblEditPersonInfo.Name = "lnklblEditPersonInfo";
-            this.lnklblEditPersonInfo.Size = new System.Drawing.Size(164, 24);
-            this.lnklblEditPersonInfo.TabIndex = 87;
-            this.lnklblEditPersonInfo.TabStop = true;
-            this.lnklblEditPersonInfo.Text = "Show License Info";
-            this.lnklblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
+            this.lblEditLicenseInfo.AutoSize = true;
+            this.lblEditLicenseInfo.Enabled = false;
+            this.lblEditLicenseInfo.Location = new System.Drawing.Point(45, 108);
+            this.lblEditLicenseInfo.Name = "lblEditLicenseInfo";
+            this.lblEditLicenseInfo.Size = new System.Drawing.Size(164, 24);
+            this.lblEditLicenseInfo.TabIndex = 87;
+            this.lblEditLicenseInfo.TabStop = true;
+            this.lblEditLicenseInfo.Text = "Show License Info";
+            this.lblEditLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEditPersonInfo_LinkClicked);
             // 
             // lblPassedTestCount
             // 
@@ -132,7 +132,7 @@
             // 
             this.ctrlApplicationInfo1.Location = new System.Drawing.Point(18, 166);
             this.ctrlApplicationInfo1.Name = "ctrlApplicationInfo1";
-            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(975, 258);
+            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(832, 258);
             this.ctrlApplicationInfo1.TabIndex = 0;
             // 
             // ctrlLocalDrivinglicenseApplicationInfo
@@ -142,7 +142,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ctrlApplicationInfo1);
             this.Name = "ctrlLocalDrivinglicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(982, 443);
+            this.Size = new System.Drawing.Size(857, 434);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -159,6 +159,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.LinkLabel lnklblEditPersonInfo;
+        private System.Windows.Forms.LinkLabel lblEditLicenseInfo;
     }
 }

@@ -92,7 +92,7 @@ namespace DVLD.Test
         {
             clsApplication app = new clsApplication();
             app.ApplicationStatus = clsApplication.enApplicationStatus.New;
-            app.ApplicantPersonID = this.ctrlLDLAsTestAppointmentsInfo1.SelectedLocalLicenseApp.ApplicationInfo.ApplicantPersonID;
+            app.ApplicantPersonID = this.ctrlLDLAsTestAppointmentsInfo1.SelectedLocalLicenseApp.ApplicantPersonID;
             app.ApplicationDate = DateTime.Now;
             app.ApplicationTypeID = 7;
             app.CreatedByUserID = Global.CurrentUser.userID;

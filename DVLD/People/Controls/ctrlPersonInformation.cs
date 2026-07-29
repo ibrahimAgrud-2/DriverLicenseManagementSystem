@@ -3,7 +3,7 @@ using DVLD_BusinessLayer;
 using System;
 using System.IO;
 using System.Windows.Forms;
-using peoplBl = DVLD_BusinessLayer.People;
+using peoplBl = DVLD_BusinessLayer.Person;
 namespace DVLD
 {
     public partial class ctrlPersonInformation : UserControl

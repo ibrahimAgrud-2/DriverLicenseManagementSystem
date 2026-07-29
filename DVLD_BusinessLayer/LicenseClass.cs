@@ -10,7 +10,7 @@ namespace DVLD_BusinessLayer
 
 
 
-        public int ID { set; get; }
+        public int LicenseClassID { set; get; }
 
         public string className { set; get; }
         public string classDescription { set; get; }
@@ -20,7 +20,7 @@ namespace DVLD_BusinessLayer
 
        public LicenseClass()
         {
-            this.ID = -1;
+            this.LicenseClassID = -1;
             this.className = "";
             this.classDescription = "";
             this.minimumAge = 0;
@@ -31,7 +31,7 @@ namespace DVLD_BusinessLayer
 
         public LicenseClass(int licenseClassID,  string className,  string classDescription,  int minimumAge,  int defaultValidityLength, double classFee)
         {
-            this.ID = licenseClassID;
+            this.LicenseClassID = licenseClassID;
             this.className = className;
             this.classDescription = classDescription;
             this.minimumAge = minimumAge;

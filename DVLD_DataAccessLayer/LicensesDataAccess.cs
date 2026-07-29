@@ -182,6 +182,39 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+        public static bool isLicenseExistByPersonID(int personID,int licenseClassID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select Found=1 from Licenses join Applications on Applications.ApplicationID=Licenses.ApplicationID where ApplicantPersonID=@personID and licenseClassID =@licenseClassID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@personID", personID);
+            cmd.Parameters.AddWithValue("@licenseClassID", licenseClassID);
+
+
+            try
+            {
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int value))
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false; ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
+
+
         public static bool isLicenseDetained(int licenseID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);

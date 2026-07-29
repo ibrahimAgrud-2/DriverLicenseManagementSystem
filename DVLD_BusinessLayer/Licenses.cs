@@ -193,6 +193,10 @@ namespace DVLD_BusinessLayer
         {
             return LicensesDataAccess.isLicenseExist(licenseID);
         }
+        public static bool isLicenseExistByPersonID(int personID, int licenseClassID)
+        {
+            return LicensesDataAccess.isLicenseExistByPersonID(personID, licenseClassID);
+        }
 
         public static bool deleteLicense(int licenseID)
         {

@@ -112,7 +112,7 @@
             this.tpPersonInfo.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpPersonInfo.Size = new System.Drawing.Size(1219, 651);
             this.tpPersonInfo.TabIndex = 0;
-            this.tpPersonInfo.Text = "People Info";
+            this.tpPersonInfo.Text = "Person Info";
             this.tpPersonInfo.UseVisualStyleBackColor = true;
             // 
             // ctrlPersonCardWithFilter1

@@ -6,7 +6,7 @@ using System.Data;
 
 namespace DVLD_BusinessLayer
 {
-    public class People
+    public class Person
     {
   
         public int personID { set; get; }
@@ -52,7 +52,7 @@ namespace DVLD_BusinessLayer
         //kullanmak istediğimiz zaman bu const ile oluştururuz.
         //Mesela bunu Find fonksiyonunda kullandık. Çünkü bir contact DB de bulunursa sistemde
         //kullanılabilmesi için bu const gerekir.
-        private People(int personID,string nationalNo, string firstName, string secondName,
+        private Person(int personID,string nationalNo, string firstName, string secondName,
            string thirdName, string lastName, DateTime dateOfBirth,
            int gender, string address, string email, string phone,
            int countryID, string imagePath)
@@ -102,7 +102,7 @@ namespace DVLD_BusinessLayer
         
         //[TR] Sadece parametresiz const public. Ayrıca parametresiniz const ile oluşturacağımız objenin Mode add;
         //çünkü sistemde henüz yok, eğer olmayan obje için Save fonksiyonu çağırılırsa add yapılsın yani sisteme eklensin diye.
-        public  People()
+        public  Person()
         {
             this.personID = -1;
             this.nationalNo = "";
@@ -122,7 +122,7 @@ namespace DVLD_BusinessLayer
         }
 
         //Find ile bulunan obje parametreli const ile oluşturulduğu için modu update olsun çünkü artık obje var ve add'lik bir durum kalmamış. Artık yaparsak update yaparız
-        public static People Find(int personID)
+        public static Person Find(int personID)
         {
             
             string nationalNo="", firstName = "", secondName = "",thirdName = "",lastName = "", address = "", email = "", phone = "", imagePath = "";
@@ -132,13 +132,13 @@ namespace DVLD_BusinessLayer
            
             if (PeopleDataAccess.findPersonByID(personID, ref nationalNo, ref firstName, ref secondName, ref thirdName, ref lastName, ref dateOfBirth, ref gender, ref address, ref email, ref phone, ref countryID, ref imagePath))
             {
-                return new People(personID, nationalNo, firstName, secondName, thirdName, lastName, dateOfBirth, gender, address, email, phone, countryID, imagePath);
+                return new Person(personID, nationalNo, firstName, secondName, thirdName, lastName, dateOfBirth, gender, address, email, phone, countryID, imagePath);
               
             }
             return null;
         }
 
-        public static People Find(string nationalNo)
+        public static Person Find(string nationalNo)
         {
 
             string firstName = "", secondName = "", thirdName = "", lastName = "", address = "", email = "", phone = "", imagePath = "";
@@ -150,7 +150,7 @@ namespace DVLD_BusinessLayer
 
             if (PeopleDataAccess.findPersonByNationalNo(ref personID, nationalNo, ref firstName, ref secondName, ref thirdName, ref lastName, ref dateOfBirth, ref gender, ref address, ref email, ref phone, ref countryID, ref imagePath))
             {
-                return new People(personID, nationalNo, firstName, secondName, thirdName, lastName, dateOfBirth, gender, address, email, phone, countryID, imagePath);
+                return new Person(personID, nationalNo, firstName, secondName, thirdName, lastName, dateOfBirth, gender, address, email, phone, countryID, imagePath);
             }
             return null;
         }

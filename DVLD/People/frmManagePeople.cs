@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using Person = DVLD_BusinessLayer.People;
+using Person = DVLD_BusinessLayer.Person;
 
 namespace DVLD
 {
     public partial class frmManagePeople : Form
     {
 
-        //======================= V List People =============================
+        //======================= V List Person =============================
         public frmManagePeople()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace DVLD
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "PersonID", "People LocalDrivingLicenseApplicationID" },
+              { "PersonID", "Person LocalDrivingLicenseApplicationID" },
               { "FirstName", "First Name" },
               { "LastName", "Last Name" },
               { "SecondName", "Second Name" },
@@ -43,7 +43,7 @@ namespace DVLD
         {
             _DtPeople = Person.getAllPersonRecords();
 
-            dgvPeopleList.DataSource = _DtPeople.DefaultView.ToTable("People", false, "PersonID", "NationalNo", "FirstName", "secondName", "thirdName", "LastName", "Gender", "DateOfBirth", "CountryName", "Address", "Email", "Phone");
+            dgvPeopleList.DataSource = _DtPeople.DefaultView.ToTable("Person", false, "PersonID", "NationalNo", "FirstName", "secondName", "thirdName", "LastName", "Gender", "DateOfBirth", "CountryName", "Address", "Email", "Phone");
             lblRecords.Text = dgvPeopleList.RowCount.ToString();
     
         }
@@ -59,7 +59,7 @@ namespace DVLD
         {
             this.Close();
         }
-        //====================^^^^List People^^^^==============================
+        //====================^^^^List Person^^^^==============================
 
 
         //==================== VV Delete, call, Email ==============================
@@ -87,7 +87,7 @@ namespace DVLD
                 }
                 else
                 {
-                    MessageBox.Show("People Not Found");
+                    MessageBox.Show("Person Not Found");
                 }
 
             }

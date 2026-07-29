@@ -52,7 +52,7 @@
     <Compile Include="LicenseClass.cs" />
     <Compile Include="Licenses.cs" />
     <Compile Include="LocalDrivingLicenseApp.cs" />
-    <Compile Include="People.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
