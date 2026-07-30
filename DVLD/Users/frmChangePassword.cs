@@ -33,7 +33,7 @@ namespace DVLD.Users
                 return;
             }
 
-            this.ctrlUserInfo1.LoadUserData((_user.userID));
+            this.ctrlUserInfo1.LoadUserData((_user.UserID));
         }
 
 

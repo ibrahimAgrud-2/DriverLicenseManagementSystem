@@ -149,25 +149,43 @@ namespace DVLD_BusinessLayer
         //------------------------------------------------------
 
 
+        //Kişi ilgili sınava girmiş mi. Sonuçtan bağmsız.
         public bool DoesAttendTestType(TestTypes.enTestTypes TestTypeID)
 
         {
             return clsLocalDrivingLicenseAppDataAccess.DoesAttendTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
 
+        //✅ LDLA'in belirlenene test türünden aktif sınavı var mı
+
         public byte TotalTrialsPerTest(TestTypes.enTestTypes TestTypeID)
         {
             return clsLocalDrivingLicenseAppDataAccess.TotalTrialsPerTest(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
 
-        public static bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID, TestTypes.enTestTypes TestTypeID)
+
+        //✅ LDLA'in belirlenene test türünden aktif sınavı var mı
+        public bool IsThereAnActiveScheduledTest( TestTypes.enTestTypes TestTypeID)
 
         {
 
-            return clsLocalDrivingLicenseAppDataAccess.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, (int)TestTypeID);
+            return clsLocalDrivingLicenseAppDataAccess.IsThereAnActiveScheduledTest(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
+
+        //✅ LDLA'in belirlenene test türünden aktif sınavı var mı
+        public static bool IsThereAnActiveScheduledTest(int LDLAID,int TestTypeID)
+
+        {
+
+            return clsLocalDrivingLicenseAppDataAccess.IsThereAnActiveScheduledTest(LDLAID, (int)TestTypeID);
         }
 
 
+        //İlgili LDLA için aktif License ID (varsa) ✅
+        public int GetActiveLicenseID()
+        {
+            return Licenses.GetActiveLicenseIDByPersonID(this.ApplicantPersonID,this.licenseClassID);
+        }
 
        //✅ 
         public  bool IsLicenseIssued()
@@ -187,6 +205,9 @@ namespace DVLD_BusinessLayer
             return clsLocalDrivingLicenseAppDataAccess.DoesPassTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
   
-    
+        public Tests GetLastTestPerTestType(TestTypes.enTestTypes testTypeID)
+        {
+            return Tests.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID,this.licenseClassID ,testTypeID);
+        }
     }
 }

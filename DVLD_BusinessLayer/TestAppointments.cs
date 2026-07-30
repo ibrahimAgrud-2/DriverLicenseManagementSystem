@@ -56,6 +56,7 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
+
         public static TestAppointments Find(int testAppointmentID)
         {
             int testTypeID = -1;
@@ -158,5 +159,19 @@ namespace DVLD_BusinessLayer
             }
         }
 
+
+
+        //✅
+        public  int GetTestID()
+        {
+            return TestAppointmentsDataAccess.GetTestID(this.testAppointmentID);
+        }
+
+        //✅
+        public static DataTable GetApplicationTestAppointmentsPerTestType(int LocalDrivingLicenseApplicationID, TestTypes.enTestTypes TestTypeID)
+        {
+            return TestAppointmentsDataAccess.GetApplicationTestAppointmentsPerTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
+
+        }
     }
 }

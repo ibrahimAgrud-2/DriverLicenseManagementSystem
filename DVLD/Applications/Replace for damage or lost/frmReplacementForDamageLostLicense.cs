@@ -78,11 +78,11 @@ namespace DVLD.Applications.Replace_for_damage_or_lost
             clsLicense newLicense;
             if (rbDamagedLicense.Checked)
             {
-                newLicense= this.ctrlLicenseInfoWithFilter1.selectedLicense.Replace(clsApplication.enApplicationType.ReplaceDamagedDrivingLicense,Global.CurrentUser.userID);
+                newLicense= this.ctrlLicenseInfoWithFilter1.selectedLicense.Replace(clsApplication.enApplicationType.ReplaceDamagedDrivingLicense,Global.CurrentUser.UserID);
             }
             else
             {
-                newLicense= this.ctrlLicenseInfoWithFilter1.selectedLicense.Replace(clsApplication.enApplicationType.ReplaceDamagedDrivingLicense, Global.CurrentUser.userID);
+                newLicense= this.ctrlLicenseInfoWithFilter1.selectedLicense.Replace(clsApplication.enApplicationType.ReplaceDamagedDrivingLicense, Global.CurrentUser.UserID);
             }
             if(newLicense==null)
             {

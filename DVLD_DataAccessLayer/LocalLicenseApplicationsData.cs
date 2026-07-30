@@ -392,7 +392,7 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
 
 
 
-        //Örneğin: kişi en son yapılan vision test'i geçmiş mi? BU yüzden ID'ye göre büyükten küçe sıralıyor ki son yapılanı alabilesin.
+        //✅Örneğin: kişi en son yapılan vision test'i geçmiş mi? BU yüzden ID'ye göre büyükten küçe sıralıyor ki son yapılanı alabilesin.
         public static bool DoesPassTestType(int LDLAID,int testTypeID)
         {
 
@@ -440,9 +440,9 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
             return Result;
             
         }
-      
-        
-        //DoesPassTestType Fonksyionunda göre Query'deki tek değişiklik Found=1 eklenmesi. Bu sayede eğer varsa sonuç Found=1 olur ve true döner. Ancak DoesPassTestType fonksiyonunda Result sorguluyorduk ve result 0 yani false'de dönebilirdi.
+
+
+        //✅DoesPassTestType Fonksyionunda göre Query'deki tek değişiklik Found=1 eklenmesi. Bu sayede eğer varsa sonuç Found=1 olur ve true döner. Ancak DoesPassTestType fonksiyonunda Result sorguluyorduk ve result 0 yani false'de dönebilirdi.
         public static bool DoesAttendTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
 
         {
@@ -493,7 +493,7 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
 
         }
 
-        //en basitinden, kişinin sınav türünden kaç adet kaydı olduğunu gösterir. Result önemli değildir. sadece kayıt
+        // ✅en basitinden, kişinin sınav türünden kaç adet kaydı olduğunu gösterir. Result önemli değildir. sadece kayıt
         public static byte TotalTrialsPerTest(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
             byte TotalTrialsPerTest = 0;
@@ -541,8 +541,8 @@ where ApplicantPersonID=@personID and LicenseClassID=@AppForLicenseClassID and A
 
         }
 
-   
-        //kişinin sınav türünden aktif başvurusu var mı?
+
+        // ✅ LDLA ve test türü için DB'de aktif bir sınav var mı
         public static bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID, int TestTypeID)
 
         {

@@ -27,25 +27,23 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
         public LocalDrivingLicenseApp SelectedLocalLicenseApp { get { return _LDLA; } }
 
 
-        private void fillObjectDataToField(LocalDrivingLicenseApp LDLA)
-        {
-            this.ctrlApplicationInfo1.LoadAppInfo(LDLA.ApplicationID);
 
-            lblLDLAID.Text = LDLA.LocalDrivingLicenseApplicationID.ToString() ;
-            lblAppliedForLicense.Text = LDLA.LicenseClassInfo.className;
-            lblPassedTestCount.Text = LDLA.GetPassedTestCount().ToString();
-        }
 
 
 
         private void _Load()
         {
             _LDLAID = _LDLA.LocalDrivingLicenseApplicationID;
-            fillObjectDataToField(_LDLA);
-            if(_LDLA.ApplicationStatus==DVLD_BusinessLayer.Applications.enApplicationStatus.Completed)
+            this.ctrlApplicationInfo1.LoadAppInfo(_LDLA.ApplicationID);
+
+            
+            lblLDLAID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
+            lblAppliedForLicense.Text = _LDLA.LicenseClassInfo.className;
+            lblPassedTestCount.Text = _LDLA.GetPassedTestCount() + "/3";
+            if (_LDLA.GetActiveLicenseID()!=-1)
             {
                 lblEditLicenseInfo.Enabled = true;
-            }
+            }   
           
 
         }
@@ -68,7 +66,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
             {
                 _LDLAID = -1;
                 ResetForm();
-                MessageBox.Show("No Person with PersonID = " + LocalLicenseAppID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No Application with ApplicationID = " + LocalLicenseAppID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _Load();
@@ -77,10 +75,11 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
         private void lnklblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
-            clsLicenses L1 = clsLicenses.FindByApplicationID(_LDLA.ApplicationID);
-            if(L1!=null)
+            int licenseID = _LDLA.GetActiveLicenseID();
+
+            if(licenseID!=-1)
             {
-                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(L1.licenseID);
+                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(licenseID);
                 frm.ShowDialog();    
             }
             else

@@ -67,7 +67,7 @@ namespace DVLD.Licenses.Detained_Licenses
                 return;
             }
 
-            DetainedLicense detainedLicense = this.ctrlLicenseInfoWithFilter1.selectedLicense.Detain(Convert.ToDouble(txtFineFee.Text),Global.CurrentUser.userID);
+            DetainedLicense detainedLicense = this.ctrlLicenseInfoWithFilter1.selectedLicense.Detain(Convert.ToDouble(txtFineFee.Text),Global.CurrentUser.UserID);
 
             if(detainedLicense==null)
             {

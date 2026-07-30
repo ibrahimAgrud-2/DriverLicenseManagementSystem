@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Test
 {
-    partial class frmTestAppointments
+    partial class frmManageAppointments
     {
         /// <summary>
         /// Required designer variable.
@@ -156,7 +156,7 @@
             this.dgvAppointmentList.Size = new System.Drawing.Size(1092, 182);
             this.dgvAppointmentList.TabIndex = 21;
             // 
-            // frmTestAppointments
+            // frmManageAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,9 +171,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmTestAppointments";
+            this.Name = "frmManageAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmTestAppointments";
+            this.Text = "frmManageAppointments";
             this.Load += new System.EventHandler(this.frmTestAppointments_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).EndInit();

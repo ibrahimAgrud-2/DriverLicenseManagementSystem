@@ -31,7 +31,7 @@ namespace DVLD.Licenses.Detained_Licenses
             lblApplicationDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
             lblIUssueDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
             lblApplicationFees.Text = _AppType.applicationFee.ToString();
-            lblCreatedByUser.Text = Global.CurrentUser.userID.ToString();
+            lblCreatedByUser.Text = Global.CurrentUser.UserID.ToString();
             llShowLicenseHistory.Enabled = false;
             llShowLicenseInfo.Enabled = false;
             this.ctrlLicenseInfoWithFilter1.ResetForm();
@@ -74,7 +74,7 @@ namespace DVLD.Licenses.Detained_Licenses
                 return;
             }
 
-            _License = ctrlLicenseInfoWithFilter1.selectedLicense.RenewLicense(textBox1.Text.Trim(), Global.CurrentUser.userID);
+            _License = ctrlLicenseInfoWithFilter1.selectedLicense.RenewLicense(textBox1.Text.Trim(), Global.CurrentUser.UserID);
 
             if (_License==null)
             {

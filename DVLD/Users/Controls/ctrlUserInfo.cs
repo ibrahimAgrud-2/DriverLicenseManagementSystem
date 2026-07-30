@@ -37,7 +37,7 @@ namespace DVLD.Users.Controls
             _user = User.Find(id);
             if(_user != null)
             {
-                lblUserID.Text = _user.userID.ToString();
+                lblUserID.Text = _user.UserID.ToString();
                 lblUserName.Text = _user.UserName.ToString();
                 lblIsActive.Text = ((_user.isActive) ? "Yes" : "No");
                 this.ctrlPersonInformation1.LoadPersonInfo(_user.personID);

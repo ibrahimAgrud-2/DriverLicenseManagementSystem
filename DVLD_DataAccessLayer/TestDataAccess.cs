@@ -191,6 +191,9 @@ namespace DVLD_DataAccessLayer
         }
 
         //--------------------------------------------------
+
+
+        //ilgili LDLA için geçtiği sınav sayısı ✅
         public static int GetPassedTestCount(int LocalDrivingLicenseID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
@@ -233,11 +236,16 @@ namespace DVLD_DataAccessLayer
             return PassedTestCount;
         }
 
-        public static bool GetLastTestByPersonAndTestTypeAndLicenseClass(int testID,int PersonID,int testTypeID, int licenseClassID,ref int testAppointmentID,ref bool TestResult,ref string Notes,ref int CreatedByUserID)
-        {
-            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
+        //Kişinin test türünden belli sınıfa göre test'i var mı kontrol eder. ✅
+        public static bool GetLastTestByPersonAndTestTypeAndLicenseClass
+                 (int PersonID, int LicenseClassID, int TestTypeID, ref int TestID,
+                   ref int TestAppointmentID, ref bool TestResult,
+                   ref string Notes, ref int CreatedByUserID)
+        {
             bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"SELECT  top 1 Tests.TestID, 
                 Tests.TestAppointmentID, Tests.TestResult, 
@@ -245,7 +253,7 @@ namespace DVLD_DataAccessLayer
                 FROM            LocalDrivingLicenseApplications INNER JOIN
                                          Tests INNER JOIN
                                          TestAppointments ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID INNER JOIN
-                                         Applications ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+                                           Applications ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
                 WHERE        (Applications.ApplicantPersonID = @PersonID) 
                         AND (LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID)
                         AND ( TestAppointments.TestTypeID=@TestTypeID)
@@ -254,8 +262,8 @@ namespace DVLD_DataAccessLayer
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
-            command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
-            command.Parameters.AddWithValue("@TestTypeID", testTypeID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
 
             try
             {
@@ -267,8 +275,8 @@ namespace DVLD_DataAccessLayer
 
                     // The record was found
                     isFound = true;
-                    testID = (int)reader["TestID"];
-                    testAppointmentID = (int)reader["TestAppointmentID"];
+                    TestID = (int)reader["TestID"];
+                    TestAppointmentID = (int)reader["TestAppointmentID"];
                     TestResult = (bool)reader["TestResult"];
                     if (reader["Notes"] == DBNull.Value)
 

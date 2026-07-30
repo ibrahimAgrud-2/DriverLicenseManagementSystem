@@ -38,6 +38,7 @@ namespace DVLD_BusinessLayer
             this.notes = notes;
             this.createdByUserID = createdByUserID;
             this.mode = enMode.enUpdate;
+            this.testAppointmentInfo=TestAppointments.Find(testAppointmentID);
         }
 
         public static DataTable getTestRecords()
@@ -47,7 +48,7 @@ namespace DVLD_BusinessLayer
             return dt;
         }
 
-        public static Tests findTest(int testID)
+        public static Tests Find(int testID)
         {
             int testAppointmentID = -1;
             int testResult = 0;
@@ -109,6 +110,8 @@ namespace DVLD_BusinessLayer
             );
         }
 
+
+        //-------------------------------------------------------------------
         public static int GetPassedTestCount(int LDLAID)
         {
             return clsTestDataAccess.GetPassedTestCount(LDLAID);
@@ -118,6 +121,26 @@ namespace DVLD_BusinessLayer
         {
             //if total passed test less than 3 it will return false otherwise will return true
             return GetPassedTestCount(LocalDrivingLicenseApplicationID) == 3;
+        }
+
+
+        public static Tests FindLastTestPerPersonAndLicenseClass(int personID,int licenseClassID,TestTypes.enTestTypes testTypeID)
+        {
+            int TestID = -1;
+            int TestAppointmentID = -1;
+            bool TestResult = false; string Notes = ""; int CreatedByUserID = -1;
+            if (clsTestDataAccess.GetLastTestByPersonAndTestTypeAndLicenseClass
+                  (personID, licenseClassID, (int)testTypeID,ref  TestID,
+              ref TestAppointmentID, ref TestResult,
+              ref Notes, ref CreatedByUserID))
+
+                return new Tests(TestID,
+                        TestAppointmentID, Convert.ToInt32(TestResult),
+                        Notes, CreatedByUserID);
+            else
+                return null;
+
+
         }
 
     }

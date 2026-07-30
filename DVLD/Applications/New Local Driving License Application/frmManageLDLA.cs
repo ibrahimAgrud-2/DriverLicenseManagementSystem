@@ -276,22 +276,6 @@ namespace DVLD.Applications
         {
             _HandleEnablingCsmOptions();
         }
-
-
-
-        private void ScheduleTest_Click(object sender, EventArgs e)
-        {
-            if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedLDLAID))
-            {
-                frmTestAppointments frm = new frmTestAppointments(selectedLDLAID);
-                frm.ShowDialog();
-                _RefreshLocalLicenseApplicationList();
-            }
-
-
-         
-        }
-
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
@@ -361,6 +345,26 @@ namespace DVLD.Applications
             }
         }
 
-    
+        private void _ScheduleTest(int LDLAID,TestTypes.enTestTypes testType)
+        {
+            frmManageAppointments frm = new frmManageAppointments(LDLAID, testType);
+            frm.ShowDialog();
+            _RefreshLocalLicenseApplicationList();
+        }
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[0].Value),TestTypes.enTestTypes.Vision);
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[0].Value), TestTypes.enTestTypes.Written);
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(Convert.ToInt32(dgvAppList.SelectedRows[0].Cells[0].Value), TestTypes.enTestTypes.Street);
+
+        }
     }
 }

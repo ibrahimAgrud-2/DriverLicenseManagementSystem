@@ -78,7 +78,7 @@ namespace DVLD.Applications.Release_Detain_License_Application
                 return;
             }
            
-            if(!_DetainedLicense.Release(this.ctrlLicenseInfoWithFilter1.selectedLicense.ApplicationInfo.ApplicantPersonID, Global.CurrentUser.userID))
+            if(!_DetainedLicense.Release(this.ctrlLicenseInfoWithFilter1.selectedLicense.ApplicationInfo.ApplicantPersonID, Global.CurrentUser.UserID))
             {
                 MessageBox.Show("Something went wrong");
                 return;

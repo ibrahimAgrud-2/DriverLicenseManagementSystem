@@ -63,14 +63,14 @@ namespace DVLD
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            frmUserDetails frm = new frmUserDetails(Global.CurrentUser.userID);
+            frmUserDetails frm = new frmUserDetails(Global.CurrentUser.UserID);
             frm.ShowDialog();
 
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(Global.CurrentUser.userID);
+            frmChangePassword frm = new frmChangePassword(Global.CurrentUser.UserID);
             frm.ShowDialog();
         }
 

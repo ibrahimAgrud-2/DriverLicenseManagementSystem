@@ -38,6 +38,7 @@ namespace DVLD_DataAccessLayer
 
             return dt;
         }
+        
 
         public static bool Find(int testAppointmentID, ref int testTypeID, ref int localDrivingLicenseApplicationID,
             ref DateTime appointmentDate, ref double paidFees, ref int createdByUserID,
@@ -119,6 +120,42 @@ namespace DVLD_DataAccessLayer
             }
 
             return false;
+        }
+
+
+        public static int GetTestID(int testAppointmentID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            int testID = -1;
+
+            string query = "select TestID from Tests where TestAppointmentID=@testAppointmentID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@testAppointmentID", testAppointmentID);
+
+            try
+            {
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+
+                if (result != null &&int.TryParse(result.ToString(), out int TestID))
+                {
+
+                    testID = TestID;
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return testID;
         }
 
 
@@ -303,5 +340,59 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
+        //------------------------------------------------------------
+
+        //✅
+        public static DataTable GetApplicationTestAppointmentsPerTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"SELECT TestAppointmentID, AppointmentDate,PaidFees, IsLocked
+                        FROM TestAppointments
+                        WHERE  
+                        (TestTypeID = @TestTypeID) 
+                        AND (LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID)
+                        order by TestAppointmentID desc;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+
+        }
+
     }
 }

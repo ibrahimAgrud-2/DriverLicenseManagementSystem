@@ -39,7 +39,7 @@ namespace DVLD.Users
             txtUserName.Text = user.UserName;
             mskPassword.Text = user.password;
             mskConfirmPassword.Text = user.password;
-            lblID.Text = user.userID.ToString();
+            lblID.Text = user.UserID.ToString();
             cbIsActive.Checked = user.isActive;
             this.ctrlPersonCardWithFilter1.LoadData(user.personID);
 
@@ -115,7 +115,7 @@ namespace DVLD.Users
                 this._Mode = enMode.enUpdate;
                 lblMode.Text = "Update User";
                 this.Text = "Update User";
-                lblID.Text = _User.userID.ToString();
+                lblID.Text = _User.UserID.ToString();
 
             }
             else

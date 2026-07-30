@@ -52,10 +52,6 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.New_Local_Driv
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.frmManageLDLA.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Controls.ctrlApplicationInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLocalDrivinglicenseApplicationInfo.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTestAppointments.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmAddUpdateTestAppointment.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.ctrlLDLAsTestAppointmentsInfo.resources
-C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTakeTest.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmIssueDriverLicenseFirstTime.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Controls.ctrlShowLicenseInfo.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.frmShowDrivingLicenseInfo.resources
@@ -70,3 +66,8 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Licenses.Detained_Licenses.
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Release_Detain_License_Application.frmReleaseDetainedLicense.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.Release_Detain_License_Application.frmManageDetainedLicenses.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Applications.International_License_Applications.Controls.ctrlDriverInternationalLinceseInfo.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.Controls.crlScheduleTest.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmScheduleTest.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmManageAppointments.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.Controls.ctrlScheduledTest.resources
+C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTakeTest1.resources

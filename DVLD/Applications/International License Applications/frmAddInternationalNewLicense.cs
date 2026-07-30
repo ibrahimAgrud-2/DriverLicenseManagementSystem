@@ -64,7 +64,7 @@ namespace DVLD.Applications.International_License_Applications
             lblUssueDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
             lblFees.Text = ApplicationTypes.Find((int)clsApplication.enApplicationType.NewInternationalLicense).applicationFee.ToString();
             lblExpirationDate.Text = DateTime.Now.AddYears(1).ToString();
-            lblCreatedByUserID.Text = Global.CurrentUser.userID.ToString();
+            lblCreatedByUserID.Text = Global.CurrentUser.UserID.ToString();
         }
 
 
@@ -110,7 +110,7 @@ namespace DVLD.Applications.International_License_Applications
                 //Int.License üst sınıfı miras aldığı için önce üst sınıfın verilerini doldurmalısın. Yoksa save yaparken Application save edilemez. 
                 _InternationalLicense.ApplicationDate = DateTime.Now;
                 _InternationalLicense.ApplicationStatus = clsApplication.enApplicationStatus.New;
-                _InternationalLicense.CreatedByUserID = Global.CurrentUser.userID;
+                _InternationalLicense.CreatedByUserID = Global.CurrentUser.UserID;
                 _InternationalLicense.PaidFees = ApplicationTypes.Find((int)clsApplication.enApplicationType.NewInternationalLicense).applicationFee;
                 _InternationalLicense.LastStatusDate = DateTime.Now;
                 _InternationalLicense.ApplicantPersonID = this.ctrlLicenseInfoWithFilter1.selectedLicense.ApplicationInfo.ApplicantPersonID;
