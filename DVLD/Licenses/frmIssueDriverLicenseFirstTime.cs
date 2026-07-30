@@ -34,67 +34,21 @@ namespace DVLD.Licenses
             this.ctrlLocalDrivinglicenseApplicationInfo1.LoadAppInfo(_LDLAID);
 
         }
-        private int _AddDriver()
-        {
-    
-            Driver newDrv = new Driver();
-            newDrv.personID = _LDLA.ApplicantPersonID;
-            newDrv.createdDate = DateTime.Today;
-            newDrv.createdByUserID = Global.CurrentUser.UserID;
-            
-            if(!newDrv.save())
-            {
-                MessageBox.Show("Could not saved driver for this license");
-            }
-            return newDrv.driverID;
-    
-        }
-        private clsLicense _LoadInfo()
-        {
-  
-            clsLicense newLicense = new clsLicense();
-            Driver drv = Driver.FindByPersonID(_LDLA.ApplicantPersonID);
-            if (drv != null)
-            {
-                newLicense.driverID = drv.driverID;
-            }
-            else
-            {
-                newLicense.driverID = _AddDriver();
-            }
-                
-            newLicense.notes = txtNotes.Text;
-            newLicense.applicationID = _LDLA.ApplicationID;
-            newLicense.paidFees = LicenseClass.Find(_LDLA.licenseClassID).classFee;
-            newLicense.isActive = true;
-            newLicense.expirationDate = DateTime.Now.AddYears(LicenseClass.Find(_LDLA.licenseClassID).defaultValidityLength);
-            newLicense.issueDate = DateTime.Now;
-            newLicense.createdByUserID = Global.CurrentUser.UserID;
-            newLicense.licenseClassID = _LDLA.licenseClassID;
-
-            
-            return newLicense;
-        }
-
-
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            clsLicense newL = _LoadInfo();
+            int issuedLicenseID = _LDLA.IssueLicenseForTheFirtTime(txtNotes.Text,Global.CurrentUser.UserID);
 
-            if (newL.save())
+            if (issuedLicenseID != -1)
             {
-                _LDLA.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
-                _LDLA.LastStatusDate = DateTime.Now;
-                _LDLA.Save();
+                MessageBox.Show("License Issued Successfully with License ID = " + issuedLicenseID.ToString(),
+                    "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show($"Saved successfully with license {newL.licenseID}");
-
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Something went wrong");
-                return;
+                MessageBox.Show("License Was not Issued ! ",
+                 "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

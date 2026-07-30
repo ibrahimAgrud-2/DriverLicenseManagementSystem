@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Net.Security;
 using System.Runtime.CompilerServices;
 using ApplicationDb=DVLD_BusinessLayer.Applications;
 
@@ -208,6 +209,60 @@ namespace DVLD_BusinessLayer
         public Tests GetLastTestPerTestType(TestTypes.enTestTypes testTypeID)
         {
             return Tests.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID,this.licenseClassID ,testTypeID);
+        }
+
+
+        //✅
+        public int IssueLicenseForTheFirtTime(string notes,int createdByUserID)
+        {
+            int driverID = -1;
+
+            Driver driver = Driver.FindByPersonID(this.ApplicantPersonID);
+
+            if(driver==null)
+            {
+                Driver newDriver = new Driver();
+                newDriver.personID = this.ApplicantPersonID;
+                newDriver.createdByUserID = createdByUserID;
+                newDriver.createdDate = DateTime.Now;
+                
+                if(newDriver.save())
+                {
+                    driverID = newDriver.driverID;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                driverID = driver.driverID;
+            }
+
+            Licenses License = new Licenses();
+            License.applicationID = this.ApplicationID;
+            License.driverID = driverID;
+            License.licenseClassID = this.licenseClassID;
+            License.issueDate = DateTime.Now;
+            License.expirationDate = DateTime.Now.AddYears(this.LicenseClassInfo.defaultValidityLength);
+            License.notes = notes;
+            License.PaidFees = this.LicenseClassInfo.classFee;
+            License.isActive = true;
+            License.issueReason = Licenses.enIssueReason.FirstTime;
+            License.createdByUserID = CreatedByUserID;
+
+            if (License.save())
+            {
+                //now we should set the application status to complete.
+                this.setComplete();
+
+                return License.licenseID;
+            }
+
+            else
+                return -1;
+
         }
     }
 }
