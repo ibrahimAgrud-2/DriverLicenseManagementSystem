@@ -38,8 +38,8 @@
             this.btnAddNewAppointment = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRecord = new System.Windows.Forms.Label();
-            this.ctrlLocalDrivinglicenseApplicationInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLocalDrivinglicenseApplicationInfo();
             this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
+            this.ctrlLocalDrivinglicenseApplicationInfo1 = new DVLD.Applications.New_Local_Driving_License_Application.Controls.ctrlLocalDrivinglicenseApplicationInfo();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
             this.SuspendLayout();
@@ -61,19 +61,19 @@
             this.editToolStripMenuItem,
             this.takeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 79);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 52);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // takeToolStripMenuItem
             // 
             this.takeToolStripMenuItem.Name = "takeToolStripMenuItem";
-            this.takeToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.takeToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.takeToolStripMenuItem.Text = "Take";
             this.takeToolStripMenuItem.Click += new System.EventHandler(this.takeToolStripMenuItem_Click);
             // 
@@ -119,15 +119,6 @@
             this.lblRecord.TabIndex = 4;
             this.lblRecord.Text = "???";
             // 
-            // ctrlLocalDrivinglicenseApplicationInfo1
-            // 
-            this.ctrlLocalDrivinglicenseApplicationInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlLocalDrivinglicenseApplicationInfo1.Location = new System.Drawing.Point(13, 13);
-            this.ctrlLocalDrivinglicenseApplicationInfo1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlLocalDrivinglicenseApplicationInfo1.Name = "ctrlLocalDrivinglicenseApplicationInfo1";
-            this.ctrlLocalDrivinglicenseApplicationInfo1.Size = new System.Drawing.Size(1110, 490);
-            this.ctrlLocalDrivinglicenseApplicationInfo1.TabIndex = 5;
-            // 
             // dgvAppointmentList
             // 
             this.dgvAppointmentList.AllowUserToAddRows = false;
@@ -155,6 +146,15 @@
             this.dgvAppointmentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAppointmentList.Size = new System.Drawing.Size(1092, 182);
             this.dgvAppointmentList.TabIndex = 21;
+            // 
+            // ctrlLocalDrivinglicenseApplicationInfo1
+            // 
+            this.ctrlLocalDrivinglicenseApplicationInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlLocalDrivinglicenseApplicationInfo1.Location = new System.Drawing.Point(13, 13);
+            this.ctrlLocalDrivinglicenseApplicationInfo1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlLocalDrivinglicenseApplicationInfo1.Name = "ctrlLocalDrivinglicenseApplicationInfo1";
+            this.ctrlLocalDrivinglicenseApplicationInfo1.Size = new System.Drawing.Size(1110, 490);
+            this.ctrlLocalDrivinglicenseApplicationInfo1.TabIndex = 5;
             // 
             // frmManageAppointments
             // 

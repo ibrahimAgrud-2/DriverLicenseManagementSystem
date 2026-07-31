@@ -31,8 +31,16 @@ namespace DVLD.Licenses
                 MessageBox.Show("LDLA could not found");
                 return;
             }
-            this.ctrlLocalDrivinglicenseApplicationInfo1.LoadAppInfo(_LDLAID);
 
+            if (!_LDLA.PassedAlltests())
+            {
+
+                MessageBox.Show("Person Should Pass All Tests First.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            this.ctrlLocalDrivinglicenseApplicationInfo1.LoadAppInfo(_LDLAID);
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -57,5 +65,9 @@ namespace DVLD.Licenses
             this.Close();
         }
 
+        private void ctrlLocalDrivinglicenseApplicationInfo1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

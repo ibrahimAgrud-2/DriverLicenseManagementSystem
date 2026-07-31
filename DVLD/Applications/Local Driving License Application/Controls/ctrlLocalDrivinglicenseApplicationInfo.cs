@@ -30,7 +30,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
 
 
 
-
+      
         private void _Load()
         {
             _LDLAID = _LDLA.LocalDrivingLicenseApplicationID;
@@ -39,7 +39,7 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
             
             lblLDLAID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
             lblAppliedForLicense.Text = _LDLA.LicenseClassInfo.className;
-            lblPassedTestCount.Text = _LDLA.GetPassedTestCount() + "/3";
+            lblPassedTestCount.Text = _LDLA.PassedTestCount() + "/3";
             if (_LDLA.GetActiveLicenseID()!=-1)
             {
                 lblEditLicenseInfo.Enabled = true;
@@ -50,9 +50,6 @@ namespace DVLD.Applications.New_Local_Driving_License_Application.Controls
 
         private void ResetForm()
         {
-            //Yükleme başarılı olup olmadığını LocalDrivingLicenseApplicationID ile biliyoruz. Bu yüzden yükleme başarısız olduğunda 
-            //formu temizlerken LocalDrivingLicenseApplicationID'i de -1 yapıyoruz.
-
 
             lblLDLAID.Text = "???";
             lblAppliedForLicense.Text = "???";

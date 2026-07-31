@@ -156,7 +156,7 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public bool cancel()
+        public bool Cancel()
         {
             bool canceledSuccessfully= ApplicationsDataAccess.updateStatus(this.ApplicationID, 2);
             if(canceledSuccessfully)

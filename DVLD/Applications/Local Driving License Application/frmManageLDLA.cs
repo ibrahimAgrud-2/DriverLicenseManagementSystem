@@ -21,7 +21,15 @@ namespace DVLD.Applications
             InitializeComponent();
         }
         private DataTable _DtAppList;
+        private void frmManageLDLA_Load(object sender, EventArgs e)
+        {
+            _RefreshLocalLicenseApplicationList();
+            _SetColumnNames();
+            cbFilterBy.SelectedIndex = 0;
 
+
+
+        }
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
@@ -45,12 +53,8 @@ namespace DVLD.Applications
         private void _RefreshLocalLicenseApplicationList()
         {
             _DtAppList = LocalDrivingLicenseApp.getLocalDrivingLicenseAppRecords();
-
-          
             dgvAppList.DataSource = _DtAppList;
             lblRecords.Text = dgvAppList.RowCount.ToString();
-           
-
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -75,15 +79,7 @@ namespace DVLD.Applications
                 _RefreshLocalLicenseApplicationList();
             }
         }
-        private void frmManageLDLA_Load(object sender, EventArgs e)
-        {
-            _RefreshLocalLicenseApplicationList();
-            _SetColumnNames();
-            cbFilterBy.SelectedIndex = 0;
 
-
-
-        }
 
 
 
@@ -320,12 +316,10 @@ namespace DVLD.Applications
             if (int.TryParse(dgvAppList.SelectedRows[0].Cells[0].Value.ToString(), out int selectedID))
             {
 
-                if (MessageBox.Show("Are you sure you want to cancel [" + selectedID + "]", "Confirm cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure you want to Cancel [" + selectedID + "]", "Confirm Cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     LocalDrivingLicenseApp LDLA = LocalDrivingLicenseApp.Find(selectedID);
-                    LDLA.cancel();
-                    LDLA.LastStatusDate = DateTime.Now;
-                    if (LDLA.Save())
+                    if (LDLA.Cancel())
                     {
                         MessageBox.Show("Cancelled successfully");
                         _RefreshLocalLicenseApplicationList();

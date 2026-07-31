@@ -85,10 +85,6 @@ namespace DVLD_BusinessLayer
 
             return clsLocalDrivingLicenseAppDataAccess.UpdateLocalDrivingLicenseInfo(this.LocalDrivingLicenseApplicationID, this.ApplicationID, (int)this.licenseClassID);
         }
-        public static bool IsLocalDriverLicenseExist(int id)
-        {
-            return clsLocalDrivingLicenseAppDataAccess.isLocalDrivingLicenseAppExistByID(id);
-        }
 
         public bool deleteLocalDrivingLicenseApp()
         {
@@ -134,23 +130,11 @@ namespace DVLD_BusinessLayer
         }
 
     
-        public static bool HasPendingOrCompletedApplication(int personID,int AppForLicenseClassID)
-        {
-            return clsLocalDrivingLicenseAppDataAccess.HasPendingOrCompletedApplication(personID,AppForLicenseClassID);
-        }
-        public  int GetPassedTestCount()
-        {
-            return clsLocalDrivingLicenseAppDataAccess.GetPassedTestCount(this.LocalDrivingLicenseApplicationID);
-        }
-        public int GetFailedTestCount(int testTypeID)
-        {
-            return clsLocalDrivingLicenseAppDataAccess.GetFailedTestCount(this.LocalDrivingLicenseApplicationID,testTypeID);
-        }
-
+    
         //------------------------------------------------------
 
 
-        //Kişi ilgili sınava girmiş mi. Sonuçtan bağmsız.
+        //Kişi ilgili sınava girmiş mi.Bu sayede mode retake test olur eğer girmemişse mod first time olur.
         public bool DoesAttendTestType(TestTypes.enTestTypes TestTypeID)
 
         {
@@ -263,6 +247,17 @@ namespace DVLD_BusinessLayer
             else
                 return -1;
 
+        }
+
+        //✅
+        public bool PassedAlltests()
+        {
+            return Tests.PassedAllTests(this.LocalDrivingLicenseApplicationID);
+        }
+
+        public int PassedTestCount()
+        {
+            return Tests.GetPassedTestCount(this.LocalDrivingLicenseApplicationID);
         }
     }
 }

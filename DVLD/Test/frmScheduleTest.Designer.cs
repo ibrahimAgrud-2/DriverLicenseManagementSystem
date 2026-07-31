@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.crlScheduleTest1 = new DVLD.Test.Controls.crlScheduleTest();
             this.button1 = new System.Windows.Forms.Button();
+            this.crlScheduleTest1 = new DVLD.Test.Controls.crlScheduleTest();
             this.SuspendLayout();
-            // 
-            // crlScheduleTest1
-            // 
-            this.crlScheduleTest1.Location = new System.Drawing.Point(-2, -1);
-            this.crlScheduleTest1.Name = "crlScheduleTest1";
-            this.crlScheduleTest1.Size = new System.Drawing.Size(639, 541);
-            this.crlScheduleTest1.TabIndex = 0;
-            this.crlScheduleTest1.Load += new System.EventHandler(this.crlScheduleTest1_Load);
             // 
             // button1
             // 
@@ -50,6 +42,16 @@
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // crlScheduleTest1
+            // 
+            this.crlScheduleTest1.Location = new System.Drawing.Point(-2, -1);
+            this.crlScheduleTest1.Name = "crlScheduleTest1";
+            this.crlScheduleTest1.Size = new System.Drawing.Size(639, 541);
+            this.crlScheduleTest1.TabIndex = 0;
+          //  this.crlScheduleTest1.Test = 123;
+            this.crlScheduleTest1.TestTypeID = TestTypes.enTestTypes.Written;
+            this.crlScheduleTest1.Load += new System.EventHandler(this.crlScheduleTest1_Load);
             // 
             // frmScheduleTest
             // 

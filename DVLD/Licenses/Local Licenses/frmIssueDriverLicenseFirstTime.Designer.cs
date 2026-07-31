@@ -39,10 +39,11 @@
             // 
             this.ctrlLocalDrivinglicenseApplicationInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlLocalDrivinglicenseApplicationInfo1.Location = new System.Drawing.Point(13, 9);
-            this.ctrlLocalDrivinglicenseApplicationInfo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ctrlLocalDrivinglicenseApplicationInfo1.Margin = new System.Windows.Forms.Padding(4);
             this.ctrlLocalDrivinglicenseApplicationInfo1.Name = "ctrlLocalDrivinglicenseApplicationInfo1";
             this.ctrlLocalDrivinglicenseApplicationInfo1.Size = new System.Drawing.Size(1089, 480);
             this.ctrlLocalDrivinglicenseApplicationInfo1.TabIndex = 0;
+            this.ctrlLocalDrivinglicenseApplicationInfo1.Load += new System.EventHandler(this.ctrlLocalDrivinglicenseApplicationInfo1_Load);
             // 
             // txtNotes
             // 
@@ -93,7 +94,7 @@
             this.Controls.Add(this.ctrlLocalDrivinglicenseApplicationInfo1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmIssueDriverLicenseFirstTime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIssueDriverLicenseFirstTime";

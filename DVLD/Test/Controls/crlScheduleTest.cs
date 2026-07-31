@@ -25,8 +25,6 @@ namespace DVLD.Test.Controls
         enum enMode { enAddNew = 1, enUpdate = 2 };
         private enMode _Mode = enMode.enAddNew;
 
-
-
         private int _LDLAID = -1;
         private LocalDrivingLicenseApp _LDLA;
         private TestAppointments _TestAppointment;
@@ -68,6 +66,7 @@ namespace DVLD.Test.Controls
         }
 
 
+        //test appointmet ID sadece add/update mode'u ayarlamak için verilir. Diğer türlü -1
         public void LoadData(int localDrivingLicenseID, int testAppointmentID = -1) 
         {
 
@@ -81,6 +80,7 @@ namespace DVLD.Test.Controls
             {
                 this._Mode = enMode.enUpdate;
             }
+       
 
             _LDLAID = localDrivingLicenseID;
             _LDLA = LocalDrivingLicenseApp.Find(localDrivingLicenseID);

@@ -55,17 +55,10 @@ namespace DVLD.Test
         private void _RefreshAppointmentList()
         {
             DataTable dt = TestAppointments.GetApplicationTestAppointmentsPerTestType(_LDLAID, _TestType);
-        
 
-           
-          //eğer hiç data yoksa header'ı görünmez yap. Varsa görünür yap. 
-                dgvAppointmentList.ColumnHeadersVisible = (dt.Rows.Count != 0);
-            
-          //Data olsa da olmasada dgv'ye yükleme olmalı çünkü ilk load'da kolon isimleri belirlenecek.
             dgvAppointmentList.DataSource = dt;
             lblRecord.Text = dgvAppointmentList.RowCount.ToString();
-
-
+  
 
         }
 
@@ -109,6 +102,7 @@ namespace DVLD.Test
 
             Tests test = _LDLA.GetLastTestPerTestType(_TestType);
 
+            //test'i al. EĞer test boş gelirse demek ki bu sınav türüne hiç girmemiş. Bu yüznde normal tet randevusu oluştur
             if(test==null)
             {
                 //schedule test
@@ -118,15 +112,18 @@ namespace DVLD.Test
                 _RefreshAppointmentList();
                 return;
             }
-            //if person already passed the test s/he cannot retak it.
+
+            //bu aşamaya geldiğinde test boş değldir demek yani test var. Eğer test'i geçmişse devam etme.
             if (test.testResult == 1)
             {
                 MessageBox.Show("This person already passed this test before, you can only retake faild test", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //schedule test
 
-            frmScheduleTest frm = new frmScheduleTest(test.testAppointmentInfo.localDrivingLicenseApplicationID,_TestType);
+
+            //Bu aşamaya geldiğinde test var ama başarısız bir test var. Bu durumda retake test yapılmalı.
+
+            frmScheduleTest frm = new frmScheduleTest(_LDLAID, _TestType);
             frm.ShowDialog();
             _RefreshAppointmentList();
 
