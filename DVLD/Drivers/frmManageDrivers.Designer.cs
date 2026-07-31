@@ -39,7 +39,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -114,30 +113,23 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetialToolStripMenuItem,
             this.toolStripSeparator1,
-            this.tsmEdit,
             this.toolStripSeparator2,
             this.sendMailToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(269, 94);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(269, 95);
             // 
             // showDetialToolStripMenuItem
             // 
             this.showDetialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetialToolStripMenuItem.Image")));
             this.showDetialToolStripMenuItem.Name = "showDetialToolStripMenuItem";
             this.showDetialToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
-            this.showDetialToolStripMenuItem.Text = "Show Details";
+            this.showDetialToolStripMenuItem.Text = "Show Person Detail";
+            this.showDetialToolStripMenuItem.Click += new System.EventHandler(this.showDetialToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(265, 6);
-            // 
-            // tsmEdit
-            // 
-            this.tsmEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsmEdit.Image")));
-            this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(268, 26);
-            this.tsmEdit.Text = "Issue International License";
             // 
             // toolStripSeparator2
             // 
@@ -150,6 +142,7 @@
             this.sendMailToolStripMenuItem.Name = "sendMailToolStripMenuItem";
             this.sendMailToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
             this.sendMailToolStripMenuItem.Text = "Show Person License History";
+            this.sendMailToolStripMenuItem.Click += new System.EventHandler(this.ShowLicenseHistoryüToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -234,7 +227,6 @@
         private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem showDetialToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmEdit;
         private System.Windows.Forms.ToolStripMenuItem sendMailToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;

@@ -11,6 +11,7 @@ namespace DVLD_BusinessLayer
         public int licenseID { set; get; }
 
         public int applicationID { set; get; }
+
         public Applications ApplicationInfo;
 
         public int driverID { set; get; }
@@ -119,7 +120,7 @@ namespace DVLD_BusinessLayer
         {
             DataTable dt = new DataTable();
 
-            dt = LicensesDataAccess.getLicenseRecords();
+            dt = LicensesDataAccess.GetLicenseRecords();
             return dt;
         }
 
@@ -127,7 +128,7 @@ namespace DVLD_BusinessLayer
         {
             DataTable dt = new DataTable();
 
-            dt = LicensesDataAccess.getAllLocalLicenseByPersonID(personID);
+            dt = LicensesDataAccess.GetLocalLicensesByPersonID(personID);
             return dt;
         }
 

@@ -1,4 +1,6 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Licenses;
+using DVLD.Licenses.International_Licenses;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -138,5 +140,27 @@ namespace DVLD.Drivers
                 }
             }
         }
+
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showDetialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int personID = (int)dgvDrivers.SelectedRows[0].Cells[1].Value;
+            frmPersonDetail frm = new frmPersonDetail(personID);
+            frm.ShowDialog();
+
+        }
+
+        private void ShowLicenseHistoryüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int personID = (int)dgvDrivers.SelectedRows[0].Cells[1].Value;
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(personID);
+            frm.ShowDialog();
+                
+                
+       }
     }
 }

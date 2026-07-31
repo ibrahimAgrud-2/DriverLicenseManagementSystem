@@ -6,7 +6,7 @@ namespace DVLD_DataAccessLayer
 {
     public class LicensesDataAccess
     {
-        public static DataTable getLicenseRecords()
+        public static DataTable GetLicenseRecords()
         {
             DataTable dt = new DataTable();
 
@@ -42,6 +42,45 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
+        public static DataTable GetLocalLicensesByPersonID(int PersonID)
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string sqlQuery = @"select * from Licenses join Drivers on Drivers.DriverID = Licenses.DriverID join LicenseClasses on LicenseClasses.LicenseClassID = Licenses.LicenseClass where PersonID=@PersonID";
+
+            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+
+            cmd.Parameters.AddWithValue(@"PersonID", PersonID);
+
+
+
+            try
+            {
+                connection.Open();
+                SqlDataReader read = cmd.ExecuteReader();
+
+                if (read.HasRows)
+                {
+                    dt.Load(read);
+                }
+
+                read.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+
+            return dt;
+        }
 
         public static bool findLicense(int licenseID,ref int applicationID, ref int driverID, ref int licenseClassID, ref DateTime ıssueDate, ref DateTime LastStatusDate, ref
            string notes,  ref double paidFees, ref bool isActive,ref int issueReason, ref int createdByUserID)
@@ -402,45 +441,6 @@ namespace DVLD_DataAccessLayer
             }
 
             return false;
-        }
-        public static DataTable getAllLocalLicenseByPersonID(int PersonID)
-        {
-            DataTable dt = new DataTable();
-
-            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string sqlQuery = @"select * from Licenses join Drivers on Drivers.DriverID = Licenses.DriverID join LicenseClasses on LicenseClasses.LicenseClassID = Licenses.LicenseClass where PersonID=@PersonID";
-
-            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
-
-            cmd.Parameters.AddWithValue(@"PersonID", PersonID);
-
-
-
-            try
-            {
-                connection.Open();
-                SqlDataReader read = cmd.ExecuteReader();
-
-                if (read.HasRows)
-                {
-                    dt.Load(read);
-                }
-
-                read.Close();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-
-
-            return dt;
         }
 
 
