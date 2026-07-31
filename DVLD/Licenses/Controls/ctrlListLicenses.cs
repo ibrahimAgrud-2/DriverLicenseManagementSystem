@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using clsLicenses = DVLD_BusinessLayer.Licenses;
 using System.Windows.Forms;
+using DVLD.Licenses.International_Licenses;
 
 namespace DVLD.Licenses.Controls
 {
@@ -84,11 +85,22 @@ namespace DVLD.Licenses.Controls
 
         public void LoadLicenses(int personID)
         {
+            Driver d = Driver.FindByPersonID(personID);
+            if(d==null)
+            {
+                MessageBox.Show("Person is not a driver");
+                return;
+            }
             _RefreshLists(personID);
 
         }
 
+        public void Clear()
+        {
+            _DtInternationalLicenses.Clear();
 
+            _DtLocalLicenses.Clear();
+        }
 
         private void tbMain_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -105,10 +117,32 @@ namespace DVLD.Licenses.Controls
 
         private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (dgvLocalLicenseList.SelectedRows.Count <= 0)
+                return;
 
-            int licenseID = Convert.ToInt32(dgvLocalLicenseList.SelectedRows[0].Cells[0].Value);
-            frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(licenseID);
-            frm.ShowDialog();
+            if (int.TryParse(dgvLocalLicenseList.SelectedRows[0].Cells[0].Value.ToString()
+            , out int LicenseID))
+            {
+                frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(LicenseID);
+                frm.ShowDialog();
+            }
+         
+        }
+
+      
+
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            if (dgvInternationalLicenseList.SelectedRows.Count <= 0)
+                return;
+
+            if (int.TryParse(dgvInternationalLicenseList.SelectedRows[0].Cells[0].Value.ToString()
+                , out int LicenseID))
+            {
+                frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(LicenseID);
+                frm.ShowDialog();
+            }
+   
         }
     }
 }

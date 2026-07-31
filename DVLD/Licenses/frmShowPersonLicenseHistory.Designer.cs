@@ -49,7 +49,6 @@
             this.ctrlListLicenses1.Name = "ctrlListLicenses1";
             this.ctrlListLicenses1.Size = new System.Drawing.Size(1104, 300);
             this.ctrlListLicenses1.TabIndex = 2;
-            this.ctrlListLicenses1.Load += new System.EventHandler(this.ctrlListLicenses1_Load);
             // 
             // ctrlPersonCardWithFilter1
             // 
@@ -61,6 +60,7 @@
             this.ctrlPersonCardWithFilter1.ShowAddPersonButton = true;
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1083, 416);
             this.ctrlPersonCardWithFilter1.TabIndex = 0;
+            this.ctrlPersonCardWithFilter1.OnPersonLoaded += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonLoaded);
             // 
             // frmShowPersonLicenseHistory
             // 

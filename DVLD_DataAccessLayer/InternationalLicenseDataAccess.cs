@@ -173,6 +173,8 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
+
+            //Aynı kişi için yeni bir uluslarsarsı ehliyet çıkarınca öncekileri disaple yapmalısın.
             string query = @"Update InternationalLicenses 
                                set IsActive=0
                                where DriverID=@DriverID; 
