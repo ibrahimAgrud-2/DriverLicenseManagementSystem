@@ -46,47 +46,45 @@ namespace DVLD
         }
 
 
-        private void btnLogin_Click(object sender, EventArgs e)
+
+
+
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            
-                User u1 = User.Find(txtUserName.Text.Trim());
-                if (u1.password == maskedTextBox1.Text.Trim())
+
+            User u1 = User.Find(txtUserName.Text.Trim());
+            if(u1==null)
+            {
+                return;
+            }
+            if (u1.password == maskedTextBox1.Text.Trim())
+            {
+
+
+                if (!u1.isActive)
                 {
-
-
-                    if (!u1.isActive)
-                    {
-                        MessageBox.Show("User is not active. Contact to you admin.");
-                        return;
-                    }
-                    Global.CurrentUser = u1;
-
-
-                    if (cbRemeberMe.Checked)
-                    {
-                        Global.RememberUsernameAndPassword(txtUserName.Text, maskedTextBox1.Text);
-
-
-                    }
-                    else
-                    {
-                        Global.RememberUsernameAndPassword("", "");
-                    }
-
-                    //frmMain frm = new frmMain(this);
-                    //this.Hide();
-                    //frm.ShowDialog();
-                    //return;
+                    MessageBox.Show("User is not active. Contact to you admin.");
+                    return;
                 }
+ 
+
+                if (cbRemeberMe.Checked)
+                {
+                    Global.RememberUsernameAndPassword(txtUserName.Text, maskedTextBox1.Text);
+                }
+                else
+                {
+                    Global.RememberUsernameAndPassword("", "");
+                }
+                Global.CurrentUser = u1;
+                frmMain frm = new frmMain(this);
+                this.Hide();
+                frm.ShowDialog();
+                return;
+            }
 
 
-
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
