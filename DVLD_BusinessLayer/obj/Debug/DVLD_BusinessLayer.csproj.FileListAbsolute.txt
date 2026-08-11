@@ -27,3 +27,5 @@ C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer
 C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_Bus.693E2707.Up2Date
 C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.dll
 C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.pdb
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\bin\Debug\Common.dll
+C:\Users\ibrah\source\repos\DVLD\DVLD_BusinessLayer\bin\Debug\Common.pdb

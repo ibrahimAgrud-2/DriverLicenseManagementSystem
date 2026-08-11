@@ -72,3 +72,5 @@ C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmManageAppointments.
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.Controls.ctrlScheduledTest.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\obj\Debug\DVLD.Test.frmTakeTest1.resources
 C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\Guna.UI2.dll
+C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\Common.dll
+C:\Users\ibrah\source\repos\DVLD\DVLD\bin\Debug\Common.pdb

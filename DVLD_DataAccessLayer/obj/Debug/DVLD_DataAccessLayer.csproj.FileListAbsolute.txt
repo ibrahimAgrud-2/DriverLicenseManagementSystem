@@ -16,3 +16,6 @@ C:\Users\ibrah\source\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessL
 C:\Users\ibrah\source\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\ibrah\source\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.dll
 C:\Users\ibrah\source\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_DataAccessLayer.pdb
+C:\Users\ibrah\source\repos\DVLD\DVLD_DataAccessLayer\bin\Debug\Common.dll
+C:\Users\ibrah\source\repos\DVLD\DVLD_DataAccessLayer\bin\Debug\Common.pdb
+C:\Users\ibrah\source\repos\DVLD\DVLD_DataAccessLayer\obj\Debug\DVLD_Dat.5E8DE79F.Up2Date

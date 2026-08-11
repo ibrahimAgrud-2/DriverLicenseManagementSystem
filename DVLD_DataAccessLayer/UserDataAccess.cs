@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using static Common.Logger;
 
 
 namespace DVLD_DataAccessLayer
 {
     public class UserDataAccess
     {
+
+
+
+
         public static DataTable getUserRecords()
         {
             DataTable dt = new DataTable();
@@ -38,7 +44,8 @@ namespace DVLD_DataAccessLayer
             catch (Exception)
             {
 
-                throw;
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, "Error occurred while getting User Records", "UserDataAccess", new Exception());
+
             }
             finally
             {
@@ -82,7 +89,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, "Error occurred while Find User Records", "UserDataAccess", new Exception());
                 return false;
             }
             finally
@@ -121,9 +128,9 @@ namespace DVLD_DataAccessLayer
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return false;
             }
             finally
@@ -153,9 +160,9 @@ namespace DVLD_DataAccessLayer
                 isFound = read.HasRows;
                 read.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return false;
             }
             finally
@@ -183,9 +190,9 @@ namespace DVLD_DataAccessLayer
                 isFound = read.HasRows;
                 read.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return false;
             }
             finally
@@ -213,9 +220,9 @@ namespace DVLD_DataAccessLayer
                 isFound = read.HasRows;
                 read.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return false;
             }
             finally
@@ -258,9 +265,9 @@ namespace DVLD_DataAccessLayer
                     return -1;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return -1;
             }
             finally
@@ -303,8 +310,9 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
 
                 return false; ;
             }
@@ -339,8 +347,9 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
 
                 return false; ;
             }

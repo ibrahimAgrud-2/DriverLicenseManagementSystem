@@ -1,7 +1,8 @@
 ﻿using System;
-
+using Common;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace DVLD_DataAccessLayer
 {
@@ -28,12 +29,14 @@ namespace DVLD_DataAccessLayer
                     dt.Load(read);
                 }
 
+ 
                 read.Close();
             }
             catch (Exception)
             {
 
-                throw;
+
+
             }
             finally
             {
@@ -79,8 +82,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception)
             {
-
-                return false;
+               
             }
             finally
             {
@@ -91,6 +93,7 @@ namespace DVLD_DataAccessLayer
             return false;
         }
     
+
         public static bool isApplicationExistByID(int applicationID)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);

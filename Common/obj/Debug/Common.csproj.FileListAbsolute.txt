@@ -1,0 +1,6 @@
+C:\Users\ibrah\source\repos\DVLD\Common\bin\Debug\Common.dll
+C:\Users\ibrah\source\repos\DVLD\Common\bin\Debug\Common.pdb
+C:\Users\ibrah\source\repos\DVLD\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\ibrah\source\repos\DVLD\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\ibrah\source\repos\DVLD\Common\obj\Debug\Common.dll
+C:\Users\ibrah\source\repos\DVLD\Common\obj\Debug\Common.pdb

@@ -8,24 +8,44 @@ namespace Common
 {
     public class Logger
     {
-
-        public static void LogMessage(string message, EventLogEntryType ErrorType)
+        public enum EventLogID
         {
-            //Bu uygulama adı. Yani bu log DVLD'den geldiğini belirlemek için 
-            string sourceName = "DVLD";
+            // DL connection errorlar için
+            DL_ConnectionError = 1001,
 
 
+            // BL için - 2000'ler
+            BLL_ValidationError = 2001,
+            BLL_BusinessRuleViolation = 2002,
+            BLL_UnauthorizedAccess = 2003,
+
+            // UI - 3000'ler
+            UI_UnhandledException = 3001,
+            UI_FormLoadError = 3002,
+
+            // Genel
+            General_UnknownError = 9999
+        }
+     
+        public static void LogMessage(EventLogEntryType ErrorType, EventLogID EventID,string message , string prefix = "",Exception ex=null)
+        {
+
+            string sourceName = (prefix == "") ? "DVLD" : "DVLD." + prefix;
 
 
-            //Bu kontrl ile, DVLD'de daha önceden event viewer'a eklenmilş mi kontrol ederiz. 
-            //Eğer yoksa oluştururuz. Varsa onu kullanırız.
             if (!EventLog.SourceExists(sourceName))
             {
                 EventLog.CreateEventSource(sourceName, "Application");
             }
 
-            //Info
-            EventLog.WriteEntry(sourceName, message, ErrorType);
+            string detailedMessage= $"Message  : {message}";
+
+            if(ex!=null)
+            {
+                detailedMessage += $"\nException: {ex.GetType().Name} - {ex.Message}" +
+            $"\nStackTrace:\n{ex.StackTrace}";
+            }
+            EventLog.WriteEntry(sourceName, detailedMessage, ErrorType, (int)EventID);
 
 
         }

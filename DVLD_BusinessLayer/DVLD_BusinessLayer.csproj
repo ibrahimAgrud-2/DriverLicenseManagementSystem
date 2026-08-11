@@ -70,6 +70,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{b7220b40-21e9-4a0c-b6f9-f3ad7bb7bd7b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DVLD_DataAccessLayer\DVLD_DataAccessLayer.csproj">
       <Project>{8a977797-43ea-424f-9597-9d82753dc65a}</Project>
       <Name>DVLD_DataAccessLayer</Name>
