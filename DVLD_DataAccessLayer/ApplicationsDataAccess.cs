@@ -32,9 +32,10 @@ namespace DVLD_DataAccessLayer
  
                 read.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
 
 
             }
@@ -80,9 +81,11 @@ namespace DVLD_DataAccessLayer
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-               
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
+
             }
             finally
             {
@@ -117,9 +120,10 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false; ;
             }
             finally
@@ -178,8 +182,8 @@ namespace DVLD_DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
             }
 
             finally
@@ -225,9 +229,10 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false; ;
             }
             finally
@@ -261,9 +266,10 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false; ;
             }
             finally
@@ -344,8 +350,10 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
 
                 return false; ;
             }
