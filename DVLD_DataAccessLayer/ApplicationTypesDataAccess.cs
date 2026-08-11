@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,10 +34,10 @@ namespace DVLD_DataAccessLayer
 
                 read.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
             }
             finally
             {
@@ -73,9 +75,10 @@ namespace DVLD_DataAccessLayer
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false;
             }
             finally
@@ -106,9 +109,10 @@ namespace DVLD_DataAccessLayer
                 isFound = read.HasRows;
                 read.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false; ;
             }
             finally
@@ -138,9 +142,10 @@ namespace DVLD_DataAccessLayer
                 isFound = read.HasRows;
                 read.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false; ;
             }
             finally
@@ -179,9 +184,10 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false; ;
             }
             finally
