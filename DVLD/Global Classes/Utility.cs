@@ -81,32 +81,7 @@ namespace DVLD
         }
 
        
-        public static bool LogMessage(string message, EventLogEntryType ErrorType)
-        {
-            string sourceName = "DVLD";
-
-
-            //Bu kontrl ile, DVLD'de daha önceden event viewer'a eklenmilş mi kontrol ederiz. 
-            //Eğer yoksa oluştururuz. Varsa onu kullanırız.
-            try
-            {
-                if (!EventLog.SourceExists(sourceName))
-                {
-                    EventLog.CreateEventSource(sourceName, "Application");
-                }
-
-                EventLog.WriteEntry(sourceName, message, ErrorType);
-
-                return true;
-            }
-            catch(Exception)
-            {
-                return false;
-            }
- 
-            
-        }
-
+      
 
 
 
