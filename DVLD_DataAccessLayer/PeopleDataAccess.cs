@@ -38,7 +38,7 @@ namespace DVLD_DataAccessLayer
             catch (Exception)
             {
 
-                throw;
+               
             }
             finally
             {
