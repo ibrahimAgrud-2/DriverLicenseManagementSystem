@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace DVLD_DataAccessLayer
 {
@@ -64,8 +66,9 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return false;
             }
             finally
@@ -95,8 +98,9 @@ namespace DVLD_DataAccessLayer
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return false;
             }
             finally
@@ -143,8 +147,9 @@ namespace DVLD_DataAccessLayer
                     return -1;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return -1;
             }
             finally
@@ -180,8 +185,9 @@ namespace DVLD_DataAccessLayer
                 int affectedRowsNumber = cmd.ExecuteNonQuery();
                 return (affectedRowsNumber == 1);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
                 return false;
             }
             finally
@@ -224,7 +230,7 @@ namespace DVLD_DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
 
             }
 
