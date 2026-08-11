@@ -26,12 +26,15 @@ namespace Common
             // Genel
             General_UnknownError = 9999
         }
-     
+
+        public static event Action<string> OnErrorLogged;
+
         public static void LogMessage(EventLogEntryType ErrorType, EventLogID EventID,string message , string prefix = "",Exception ex=null)
         {
+        string sourceName = (prefix == "") ? "DVLD" : "DVLD." + prefix;
 
-            string sourceName = (prefix == "") ? "DVLD" : "DVLD." + prefix;
 
+            
 
             if (!EventLog.SourceExists(sourceName))
             {
@@ -47,6 +50,7 @@ namespace Common
             }
             EventLog.WriteEntry(sourceName, detailedMessage, ErrorType, (int)EventID);
 
+            OnErrorLogged(ex.Message);
 
         }
     }
