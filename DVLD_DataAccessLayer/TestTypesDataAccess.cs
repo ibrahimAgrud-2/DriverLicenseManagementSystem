@@ -1,7 +1,9 @@
-﻿using DVLD_DataAccessLayer;
+﻿using Common;
+using DVLD_DataAccessLayer;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 public class TestTypesDataAccess
 {
@@ -26,9 +28,9 @@ public class TestTypesDataAccess
 
             read.Close();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
+            Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
         }
         finally
         {
@@ -62,8 +64,9 @@ public class TestTypesDataAccess
                 return true;
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
             return false;
         }
         finally
@@ -89,8 +92,9 @@ public class TestTypesDataAccess
             isFound= read.HasRows;
             
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
             return false;
         }
         finally
@@ -128,8 +132,9 @@ public class TestTypesDataAccess
                 return true;
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message);
 
             return false; ;
         }
