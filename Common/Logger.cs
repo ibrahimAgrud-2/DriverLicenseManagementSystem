@@ -49,8 +49,12 @@ namespace Common
             $"\nStackTrace:\n{ex.StackTrace}";
             }
             EventLog.WriteEntry(sourceName, detailedMessage, ErrorType, (int)EventID);
+           if(OnErrorLogged!=null)
+            {
+                OnErrorLogged(ex.Message);
+            }
+           
 
-            OnErrorLogged(ex.Message);
 
         }
     }

@@ -479,6 +479,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{b7220b40-21e9-4a0c-b6f9-f3ad7bb7bd7b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DVLD_BusinessLayer\DVLD_BusinessLayer.csproj">
       <Project>{d892ace3-c84c-4879-8568-ef7a453c1fb0}</Project>
       <Name>DVLD_BusinessLayer</Name>

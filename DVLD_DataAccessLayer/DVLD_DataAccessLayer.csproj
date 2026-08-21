@@ -52,9 +52,9 @@
     <Compile Include="LicensesDataAccess.cs" />
     <Compile Include="LocalLicenseApplicationsData.cs" />
     <Compile Include="PeopleDataAccess.cs" />
-    <Compile Include="TestAppointmentsDataAccess.cs" />
-    <Compile Include="TestDataAccess.cs" />
-    <Compile Include="TestTypesDataAccess.cs" />
+    <Compile Include="Test\TestAppointmentsDataAccess.cs" />
+    <Compile Include="Test\TestDataAccess.cs" />
+    <Compile Include="Test\TestTypesDataAccess.cs" />
     <Compile Include="UserDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using DVLD.Applications.Replace_for_damage_or_lost;
 using DVLD.Drivers;
 using DVLD.Licenses;
 using DVLD.Licenses.Detained_Licenses;
+using DVLD.Test.Test_Types;
 using DVLD.Users;
 using System;
 
@@ -22,7 +23,7 @@ namespace DVLD
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new frmAddUpdatePerson());
-            System.Windows.Forms.Application.Run(new frmManageUsers());
+            System.Windows.Forms.Application.Run(new frmLogin());
 
         }
     }

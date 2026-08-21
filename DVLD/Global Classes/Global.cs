@@ -1,8 +1,9 @@
 ﻿using DVLD_BusinessLayer;
-using System;
-using System.IO;
-using System.Windows.Forms;
 using Microsoft.Win32;
+using System;
+using System.Diagnostics;
+using System.IO;
+using Common;
 
 
 namespace DVLD
@@ -40,6 +41,8 @@ namespace DVLD
             }
             catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false;
             }
         }
@@ -62,8 +65,10 @@ namespace DVLD
                 Registry.SetValue(keyPath, valueName, valueData, RegistryValueKind.String);
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false;
             }
 
@@ -142,8 +147,10 @@ namespace DVLD
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.LogMessage(EventLogEntryType.Error, Logger.EventLogID.DL_ConnectionError, ex.Message, ""
+                  , ex);
                 return false;
 
             }

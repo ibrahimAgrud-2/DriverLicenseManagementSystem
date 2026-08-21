@@ -24,7 +24,7 @@ namespace DVLD.Test.Test_Types
 
         private Dictionary<string, string> _ColumnNames = new Dictionary<string, string>
             {
-              { "TestType", "Test Type LocalDrivingLicenseApplicationID" },
+              { "TestType", "Test Type" },
               { "TestTypeTitle", "Test Type Title" },
                  { "TestTypeFees", "Test Type Fees" },
               { "TestTypeDescription", "Description" }      
