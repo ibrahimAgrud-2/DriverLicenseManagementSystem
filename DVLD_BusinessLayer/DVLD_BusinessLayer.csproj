@@ -43,16 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationTypes.cs" />
-    <Compile Include="Applications.cs" />
-    <Compile Include="Country.cs" />
-    <Compile Include="DetainedLicense.cs" />
-    <Compile Include="Driver.cs" />
-    <Compile Include="InternationalLicense.cs" />
-    <Compile Include="LicenseClass.cs" />
-    <Compile Include="Licenses.cs" />
-    <Compile Include="LocalDrivingLicenseApp.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Application\ApplicationTypes.cs" />
+    <Compile Include="Application\Applications.cs" />
+    <Compile Include="Country\Country.cs" />
+    <Compile Include="License\DetainedLicense.cs" />
+    <Compile Include="Driver\Driver.cs" />
+    <Compile Include="License\InternationalLicense.cs" />
+    <Compile Include="License\LicenseClass.cs" />
+    <Compile Include="License\Licenses.cs" />
+    <Compile Include="License\LocalDrivingLicenseApp.cs" />
+    <Compile Include="Person\Person.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,10 +63,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TestAppointments.cs" />
-    <Compile Include="Tests.cs" />
-    <Compile Include="TestTypes.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="TestAppointments\TestAppointments.cs" />
+    <Compile Include="TestTypes\Tests.cs" />
+    <Compile Include="TestTypes\TestTypes.cs" />
+    <Compile Include="User\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,5 +91,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

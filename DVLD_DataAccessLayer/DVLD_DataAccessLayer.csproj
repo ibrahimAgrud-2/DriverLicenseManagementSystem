@@ -41,21 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationsDataAccess.cs" />
-    <Compile Include="ApplicationTypesDataAccess.cs" />
-    <Compile Include="CountriesDataAccess.cs" />
-    <Compile Include="DataAccessSettings.cs" />
-    <Compile Include="DetainedLicensesDataAccess.cs" />
-    <Compile Include="DriverDataAccessDataAccess.cs" />
-    <Compile Include="InternationalLicenseDataAccess.cs" />
-    <Compile Include="LicenseClassesDataAccess.cs" />
-    <Compile Include="LicensesDataAccess.cs" />
-    <Compile Include="LocalLicenseApplicationsData.cs" />
-    <Compile Include="PeopleDataAccess.cs" />
+    <Compile Include="Application\ApplicationsDataAccess.cs" />
+    <Compile Include="Application\ApplicationTypesDataAccess.cs" />
+    <Compile Include="Country\CountriesDataAccess.cs" />
+    <Compile Include="Common\DataAccessSettings.cs" />
+    <Compile Include="License\DetainedLicensesDataAccess.cs" />
+    <Compile Include="Driver\DriverDataAccessDataAccess.cs" />
+    <Compile Include="License\InternationalLicenseDataAccess.cs" />
+    <Compile Include="License\LicenseClassesDataAccess.cs" />
+    <Compile Include="License\LicensesDataAccess.cs" />
+    <Compile Include="LocalLicenseApplication\LocalLicenseApplicationsData.cs" />
+    <Compile Include="People\PeopleDataAccess.cs" />
     <Compile Include="Test\TestAppointmentsDataAccess.cs" />
     <Compile Include="Test\TestDataAccess.cs" />
     <Compile Include="Test\TestTypesDataAccess.cs" />
-    <Compile Include="UserDataAccess.cs" />
+    <Compile Include="User\UserDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
